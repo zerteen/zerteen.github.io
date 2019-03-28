@@ -3,7 +3,7 @@
 
 <!-- Head tag -->
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,13 +60,13 @@
     <![endif]-->
 
     <!-- ga & ba script hoook -->
-    <script></script>
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
-	<!-- Modified by Yu-Hsuan Yen -->
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Modified by Yu-Hsuan Yen -->
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
@@ -86,9 +86,9 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
                     <div class="site-heading">
-                        <h1>zerteen</h1>
+                        <h1>null</h1>
                         <!--<hr class="small">-->
-                        <span class="subheading">blog</span>
+                        <span class="subheading"></span>
                     </div>
                 
 
@@ -111,7 +111,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">zerteen</a>
+            <a class="navbar-brand" href="/">null</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -298,7 +298,7 @@ The do’s and don’ts for cnn-based face verificatio......
 
     <a href="/article/A Deep Face Identification Network Enhanced by Facial Attributes Prediction/">
         <h2 class="post-title">
-            Untitled
+            A Deep Face Identification Network Enhanced by Facial Attributes Prediction
         </h2>
         <h3 class="post-subtitle">
             
@@ -318,6 +318,8 @@ points：
             2019-01-08
         </p>
         <div class="tags">
+            
+              <a href="/tags/#face" title="face">face</a>
             
         </div>
     
@@ -555,6 +557,8 @@ Install Node.js  and Git
         
             
         
+            
+        
     </div>
 </section>
 
@@ -620,7 +624,7 @@ Install Node.js  and Git
         </li>
       
         <li>
-          <a href="/article/A Deep Face Identification Network Enhanced by Facial Attributes Prediction/">(no title)</a>
+          <a href="/article/A Deep Face Identification Network Enhanced by Facial Attributes Prediction/">A Deep Face Identification Network Enhanced by Facial Attributes Prediction</a>
         </li>
       
         <li>
@@ -629,16 +633,6 @@ Install Node.js  and Git
       
     </ul>
   </div>
-
-        <hr>
-    
-        <!-- Friends Blog -->
-
-<h5>FRIENDS</h5>
-<ul class="list-inline">
-
-    
-</ul>
 
         <hr>
     
@@ -818,6 +812,22 @@ Install Node.js  and Git
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

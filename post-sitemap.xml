@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://zerteen.github.io/article/A%20Deep%20Face%20Identification%20Network%20Enhanced%20by%20Facial%20Attributes%20Prediction/</loc>
+        <lastmod>2019-03-28T12:37:44.628Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerteen.github.io/article/hexo-theme-huweihuang/</loc>
         <lastmod>2019-03-26T15:18:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,14 +41,6 @@
     <url>
         <loc>https://zerteen.github.io/article/ATTRIBUTE%20HASHING%20FOR%20ZERO-SHOT%20IMAGE%20RETRIEVAL/</loc>
         <lastmod>2019-02-27T07:19:51.271Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerteen.github.io/article/A%20Deep%20Face%20Identification%20Network%20Enhanced%20by%20Facial%20Attributes%20Prediction/</loc>
-        <lastmod>2019-01-09T06:11:50.293Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
