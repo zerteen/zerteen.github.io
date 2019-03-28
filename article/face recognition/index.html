@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Tags - zerteen | Blog
+          zerteen | Blog
         
     </title>
 
-    <link rel="canonical" href="https://zerteen.github.io/tags/">
+    <link rel="canonical" href="https://zerteen.github.io/article/face recognition/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/tag.png')
-            /*page*/
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
         
     }
     
@@ -85,10 +85,16 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>Tags</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">Hey, this is Tags.</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1></h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by  on
+                            2019-03-18
+                        </span>
                     </div>
                 
 
@@ -191,51 +197,167 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 标签云 -->
-            <div id='tag_cloud' class="tags">
-                
-                    <a href="#Hexo" title="Hexo" rel="1">Hexo</a>
-                
-            </div>
+    <!-- Modify by Yu-Hsuan Yen -->
 
-            <!-- 标签列表 -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Hexo">
-                    <span class="tag-text">Hexo</span>
-                </span>
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>Deepface: Closing the gap to human-level performance in face verification</p>
+<p>Naive-deep face recognition: Touching the limit of lfw benchmark or not?</p>
+<p>The do’s and don’ts for cnn-based face verification</p>
+<p>L2-constrained softmax loss for discriminative face verification,</p>
+<p>Additive margin softmax for face verification</p>
+<p>总的来说，face recognition主要需要解决的问题是如何在有限的subject数据中，学习到具有泛化能力的feature template。</p>
+<p>常用的损失设计中包含softmax，pairwise，triplet损失，其中：</p>
+<p>softmax被很多研究者认为，不能很好地泛化到unseen subject。这是因为，softmax损失虽然能够学习到增大类间差异的特征，但是不一定会降低内类差异。</p>
+<p>pairwise：100，101</p>
+<p>pairwise+classification：124 125 126</p>
+<p>triplet： 102</p>
+<p>triplet通常会比较慢，解决的方法包括，将一些hard sample抽取出来 102</p>
+<p>同时，还有人提出，先使用softmax训练，在使用triplet来对bottleneck feature进行调整：11，129，130</p>
+<p>triplet的变体还包括使用点积而不是欧氏距离。</p>
+<p>还有人提出概率式三元组损失131，132</p>
+<p>还有中心损失(centre loss)，中心损失的目标是最小化瓶颈特征与它们对应类别的中心之间的距离。通过使用 softmax 损失和中心损失进行联合训练</p>
+<p>范围损失（range loss）134这是为改善使用不平衡数据集的训练而提出的。范围损失有两个组件。类内的损失组件是最小化同一类样本之间的 k-最大距离，而类间的损失组件是最大化每个训练批中最近的两个类中心之间的距离</p>
+<p>一种已被证明可以增加瓶颈特征的判别能力的方法是特征归一化 [115,118]。比如，[115] 提出归一化特征以具有单位 L2 范数，[118] 提出归一化特征以具有零均值和单位方差。一个成功的方法已经在 softmax 损失中每类之间的决策边界中引入了一个余量 [135]。</p>
+
                 
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/article/hexo-theme-huweihuang/">
-                        <h2 class="post-title">
-                            [Hexo] Theme HuWeihuang
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                This is hexo theme Demo.
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
+
                 <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/ATTRIBUTE HASHING FOR ZERO-SHOT IMAGE RETRIEVAL/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
                 
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
             </div>
             
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
 
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                </ul>
+                
+            </div>
         </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->

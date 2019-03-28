@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Hexo] Theme HuWeihuang - zerteen | Blog
+          zerteen | Blog
         
     </title>
 
-    <link rel="canonical" href="https://zerteen.github.io/article/hexo-theme-huweihuang/">
+    <link rel="canonical" href="https://zerteen.github.io/article/A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/article_header.png')
+            background-image: url('/img/article_header/article_bg.jpg')
             /*post*/
         
     }
@@ -88,14 +88,12 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
-                            
                         </div>
-                        <h1>[Hexo] Theme HuWeihuang</h1>
-                        <h2 class="subheading">This is hexo theme Demo.</h2>
+                        <h1></h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by  on
-                            2017-09-18
+                            2019-01-03
                         </span>
                     </div>
                 
@@ -212,59 +210,95 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>This HuWeihuang theme created by <a href="http://www.huweihuang.com/" target="_blank" rel="noopener">HuWeihuang</a> modified from the original Porter <a href="https://github.com/YenYuHsuan/hexo-theme-beantech" target="_blank" rel="noopener">YuHsuan</a></p>
+                <h1 id="a-unified-approach-for-conventional-zero-shot-generalized-zero-shot-and-few-shot-learning">A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning</h1>
+<hr>
+<p>论文总结了通用的监督学习存在的问题：</p>
+<ol>
+<li>大量的依赖训练数据的监督标签。当数据量巨大的时候，并不能保证每一个类的标注都是充足的和有效的。</li>
+<li>在模型训练完成之后，可能会存在新的类别出现，而当前的模型并没有经过这些新出现类别的训练。</li>
+<li>现实中，新出现的类别是可能通过已经存在的类别推导出来的，而监督学习没有考虑这一点。</li>
+</ol>
+<p>ZSH的目的就是利用<code>语义信息</code>（Semantic information），将新出现的类别和已存在的类别联系起来。</p>
+<p>总结了ZSL的两种方法：</p>
+<ul>
+<li>
+<p><strong>attribute/word vector prediction</strong></p>
+<blockquote>
+<p>Given an image, they attempt to approximate label embedding and then classify an unseen class image based on the similarity of predicted vector with unseen attribute/word vector.</p>
+<p>给定一张图像，先从图像中提取出一个label embedding，然后计算提取出的label embedding和unseen class attribute的相似度，进行分类。</p>
 </blockquote>
-<h1 id="live-demo">Live Demo</h1>
-<p>Hu Weihuang Blog : <a href="http://www.huweihuang.com/" target="_blank" rel="noopener">www.huweihuang.com</a></p>
-<p><img src="https://res.cloudinary.com/dqxtn0ick/image/upload/v1553666111/blog/blog.jpg" alt="Theme HuWeihuang"></p>
-<h1 id="install-hexo">Install Hexo</h1>
-<p>Install Node.js  and Git</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>For Mac</span><br><span class="line">brew install node</span><br><span class="line">brew install git</span><br></pre></td></tr></table></figure>
-<p>Install hexo</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>For more:https://hexo.io/zh-cn/index.html</span><br></pre></td></tr></table></figure>
-<h1 id="theme-usage">Theme Usage</h1>
-<h2 id="init">Init</h2>
+</li>
+<li>
+<p><strong>compatibility function</strong></p>
+<blockquote>
+<p>learn a compatibility function between image and label embeddings, which returns a compatibility score. An unseen instance is then assigned to the class that gives the maximum score.</p>
+<p>学习的是一个函数，返回每一张图像和label embedding的相似度，根据相似度进行分类。这里只有图像和label embedding。</p>
+</blockquote>
+</li>
+</ul>
+<p>主要的贡献：</p>
+<ol>
+<li>提出了<code>Class Adapting Principal Directions</code>(CAPD)，来解决<code>图像特征</code>和<code>语义特征</code>之间的联系。</li>
+<li>定义了<code>semantic space</code>，提出用seen class来推导unseen class。</li>
+<li>提出将同一个类别的sample聚类，使得对unseen class的推导更robust。</li>
+</ol>
+<p>主要的思路：</p>
+<p>先为为每一个seen class 学习一个矩阵w。对每一个image，通过w，使其在所有seen class中都产生一个向量p，然后对每一个unseen class，学习一个从seen class到unseen class的推到。通过这个推到，能够从seen class的每一个p得到unseen class的每一个p，然后对unseen class的每一个p与之对于的e进行点积操作，得到具体数值，最大的数值对应的class就是unseen 分类得到的标签。</p>
 <hr>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/huweihuang/hexo-theme-huweihuang.git ./hexo-huweihuang</span><br><span class="line"><span class="built_in">cd</span> hexo-huweihuang</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h2 id="modify">Modify</h2>
-<hr>
-<p>Modify <code>_config.yml</code> file with your own info.<br>
-Especially the section:</p>
-<h3 id="deployment">Deployment</h3>
-<p>Replace to your own repo!</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/&lt;yourAccount&gt;/&lt;repo&gt;</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">&lt;your-branch&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="sidebar-settings">Sidebar settings</h3>
-<p>Copy your avatar image to <code>&lt;root&gt;/img/</code> and modify the <code>_config.yml</code>:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sidebar:</span> <span class="literal">true</span>    <span class="comment"># whether or not using Sidebar.</span></span><br><span class="line"><span class="attr">sidebar-about-description:</span> <span class="string">"&lt;your description&gt;"</span></span><br><span class="line"><span class="attr">sidebar-avatar:</span> <span class="string">img/&lt;your</span> <span class="string">avatar</span> <span class="string">path&gt;</span></span><br></pre></td></tr></table></figure>
-<p>and activate your personal widget you like</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">widgets:</span>         <span class="comment"># here are widget you can use, you can comment out</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">featured-tags</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">short-about</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">recent-posts</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">friends-blog</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">archive</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">category</span></span><br></pre></td></tr></table></figure>
-<p>if you want to add sidebar widget, please add at <code>layout/_widget</code>.</p>
-<h3 id="signature-setup">Signature Setup</h3>
-<p>Copy your signature image to <code>&lt;root&gt;/img/signature</code> and modify the <code>_config.yml</code>:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">signature:</span> <span class="literal">true</span>   <span class="comment"># show signature</span></span><br><span class="line"><span class="attr">signature-img:</span> <span class="string">img/signature/&lt;your-signature-ID&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="go-to-top-icon-setup">Go to top icon Setup</h3>
-<p>My icon is using iron man, you can change to your own icon at <code>css/image</code>.</p>
-<h3 id="post-tag">Post tag</h3>
-<p>You can decide to show post tags or not.</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">home_posts_tag:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><img src="/img/article/tag.png" alt="home_posts_tag-true"></p>
-<h3 id="markdown-render">Markdown render</h3>
-<p>My markdown render engine plugin is <a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="noopener">hexo-renderer-markdown-it</a>.</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Markdown-it config</span></span><br><span class="line"><span class="comment">## Docs: https://github.com/celsomiranda/hexo-renderer-markdown-it/wiki</span></span><br><span class="line"><span class="attr">markdown:</span></span><br><span class="line"><span class="attr">  render:</span></span><br><span class="line"><span class="attr">    html:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    xhtmlOut:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    breaks:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    linkify:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    typographer:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    quotes:</span> <span class="string">'“”‘’'</span></span><br></pre></td></tr></table></figure>
-<p>and if you want to change the header anchor ‘ℬ’, you can go to <code>layout/post.ejs</code> to change it.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>(<span class="string">"https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        anchors.options = &#123;</span><br><span class="line">          visible: <span class="string">'hover'</span>,</span><br><span class="line">          placement: <span class="string">'left'</span>,</span><br><span class="line">          icon: ℬ <span class="comment">// this is the header anchor "unicode" icon</span></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="hexo-basics">Hexo Basics</h2>
-<hr>
-<p>Some hexo command:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"&lt;post name&gt;"</span> <span class="comment"># you can change post to another layout if you want</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate <span class="comment"># generate the static file</span></span><br><span class="line">hexo server <span class="comment"># run hexo in local environment</span></span><br><span class="line">hexo deploy <span class="comment"># hexo will push the static files automatically into the specific branch(gh-pages) of your repo!</span></span><br></pre></td></tr></table></figure>
-<h1 id="have-fun-_">Have fun ^_^</h1>
-<hr>
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- Place this tag where you want the button to render. -->
-<p>Please <a class="github-button" href="https://github.com/huweihuang/hexo-theme-huweihuang" data-icon="octicon-star" aria-label="Star huweihuang/hexo-theme-huweihuang on GitHub" target="_blank" rel="noopener">Star</a> this Project if you like it! <a class="github-button" href="https://github.com/huweihuang" aria-label="Follow @huweihuang on GitHub" target="_blank" rel="noopener">Follow</a> would also be appreciated!<br>
-Peace!</p>
+<p>符号定义：</p>
+<ul>
+<li>label：$\mathbf{y} = \mathbf{y ^ { s }} \cup \mathbf{y ^ { u }}$  其中，$\mathbf { y } ^ { \mathcal { S } } = { 1 , \ldots , \mathrm { S } }$为seen class的label，$\mathbf { y } ^ { \mathcal { U } } = { S , \ldots , \mathrm { S+U } }$为 unseen class的label。</li>
+<li>semantic class embedding: $\mathbf { E } ^ { \mathcal { S } } = \left{ \mathbf { e } _ { s } : s \in \mathbf { y } ^ { \mathcal { S } } \right}$, $\mathbf { E } ^ { \mathcal { U } } = \left{ \mathbf { e } _ { u } : u \in \mathbf { y } ^ { \mathcal { U } } \right}$, $\mathbf { e } _ { s } , \mathbf { e } _ { u } \in \mathbb { R } ^ { d }$</li>
+<li>Images: $\mathbf { X } _ { s } = \left[ \mathbf { x } _ { s } ^ { 1 } , \ldots , \mathbf { x } _ { s } ^ { n _ { s } } \right]$, $\mathbf { X } _ { u } = \left[ \mathbf { x } _ { u } ^ { 1 } , \ldots , \mathbf { x } _ { u } ^ { n _ { u } } \right]$ 其中，$n_s$是seen class中data的总数，同理$n_u$</li>
+<li>zsl的目标是为了给每一个unseen images 指定其类别</li>
+<li>gzsl的目标是为了给任意一个image指定其类别，该image可以来自seen class， 也可以来自unseen class</li>
+<li>fsl的目标是同gzsl，只不过在训练数据中加入了少量的unseen class</li>
+</ul>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fytifrpg6zj31f00u0dmz.jpg" alt="image-20190103171107420"></p>
+<h2 id="class-adapting-principle-directioncapd">class adapting principle direction(CAPD)</h2>
+<p>CAPD对seen class和unseen class的处理方式是不同的。</p>
+<p><strong>CAPD on seen class</strong><br>
+$$<br>
+\mathbf { p } _ { s } = \mathbf { W } _ { s } ^ { T } \mathbf { x } _ { s }<br>
+$$<br>
+对seen class，需要学习一个mapping function [$\mathbf{W_s}$]，将image映射到semantic space中的principle direction [$\mathbf{p_s}$]</p>
+<p>对$\mathbf{W_s}$的学习使用到如下的目标函数：<br>
+$$<br>
+\min _ { \mathbf { W } _ { s } } \frac { 1 } { \kappa } \sum _ { c = 1 } ^ { S } \sum _ { m = 1 } ^ { n _ { c } } \log \left( 1 + \exp \left{ L \left( \mathbf { x } _ { c } ^ { m } ; \mathbf { W } _ { s } \right) \right} \right) + \frac { \lambda _ { s } } { 2 } \left| \mathbf { W } _ { s } \right| _ { 2 } ^ { 2 }<br>
+$$</p>
+<p>$$<br>
+L \left( \mathbf { x } _ { c } ^ { m } ; \mathbf { W } _ { s } \right) = \left{ \begin{array} { l l } { \left\langle \mathbf { p } _ { s } , \mathbf { e } _ { c } \right\rangle - \left\langle \mathbf { p } _ { s } , \mathbf { e } _ { s } \right\rangle , } &amp; { c \neq s } \ { \left\langle \mathbf { p } _ { s } , \frac { 1 } { \mathrm { S } - 1 } \sum _ { t \neq s } \mathbf { e } _ { t } \right\rangle - \left\langle \mathbf { p } _ { s } , \mathbf { e } _ { s } \right\rangle , } &amp; { c = s } \end{array} \right.<br>
+$$</p>
+<p>以上loss的第一项表示，当前的的image属于第c个类别，在s类别的矩阵下生成的p在他对应的label的embedding投影小，在s label的enbedding投影大。</p>
+<p>第二项表示，当前的image属于第s个类别时，生成的p和在其他label的embedding的均值方向的投影小，在对应的label的embedding投影大。【论文中提出，这一项同时保证了p在对应的e上的投影要大于其他e的均值上的投影】</p>
+<p><strong>CAPD on unseen class</strong></p>
+<p>对unseen class，论文提出为每一个image使用双线性映射来估计他的p。<br>
+$$<br>
+\mathbf { p } _ { u } = \sum _ { s = 1 } ^ { S } \theta _ { s , u } \mathbf { p } _ { s } = \mathbf { P } ^ { \mathcal { S } } \theta _ { u }<br>
+$$<br>
+也就是说，每一个unseen class是从seen中加权得到的。那这里的theta就是一个相似度metric，如何得到θ，论文提到。<br>
+$$<br>
+\max _ { \mathbf { M } } \min _ { ( i , j ) \in \overline { A } } d _ { \mathbf { M } } ^ { 2 } \left( \mathbf { p } _ { i } , \mathbf { p } _ { j } \right)\ \text { s.t. } \sum _ { ( i , j ) \in \mathbf { A } } d _ { \mathbf { M } } ^ { 2 } \left( \mathbf { p } _ { i } , \mathbf { p } _ { j } \right) \leq 1<br>
+\<br>
+d _ { \mathbf { M } } = \sqrt { \left( \mathbf { p } _ { i } - \mathbf { p } _ { j } \right) ^ { T } \mathbf { M } \left( \mathbf { p } _ { i } - \mathbf { p } _ { j } \right) }<br>
+$$</p>
+<p>确保每训练数据中，每一个同类 (i, j) ∈ A，之间的度量小于1，每一个不同类 (i, j) ∈ A^ 之间的最小距离最大化。</p>
+<p>在学习得到M之后，可以估计出unseen class的e<br>
+$$<br>
+\hat { \mathbf { e } } _ { u } = \sum _ { s = 1 } ^ { \mathrm { S } } \alpha _ { s , u } \mathbf { e } _ { s } = \mathbf { E } ^ { \mathcal { S } } \alpha _ { u }<br>
+$$<br>
+上面的α可以通过下面的方式得到：<br>
+$$<br>
+\min _ { \alpha _ { u } } \left( \hat { \mathbf { e } } _ { u } - \mathbf { e } _ { u } \right) ^ { T } \mathbf { M } \left( \hat { \mathbf { e } } _ { u } - \mathbf { e } _ { u } \right) + \frac { \lambda _ { u } } { 2 } \left| \alpha _ { u } \right| _ { 2 } ^ { 2 }<br>
+$$</p>
+<h2 id="reduced-set-description-of-unseen-classes">reduced set description of unseen classes</h2>
+<p>论文提出，从seen class推理到unseen class不需要要所欲的类别参与，从S个类别降到N个类别：<br>
+$$<br>
+\hat { \mathbf { e } } _ { u } = \sum _ { i = 1 } ^ { N } \beta _ { i , u } \mathbf { e } _ { i }<br>
+$$<br>
+这里的N是用e进行最邻近搜索得到的。</p>
+<p>同时，论文还提出来使用kernel density estimation来获得距离的概率the number of seen classes with the highest probability score is assigned as the value of N</p>
+<h1 id="to-be-continued">to be continued.</h1>
 
                 
 
@@ -273,9 +307,13 @@ Peace!</p>
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Deep Ordinal Hashing/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
+                            <a href="/article/A Deep Face Identification Network Enhanced by Facial Attributes Prediction/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
                         </li>
                     
+                    
+                        <li class="next">
+                            <a href="/article/Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -318,18 +356,6 @@ Peace!</p>
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-  
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#live-demo"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Live Demo</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#install-hexo"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Install Hexo</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#theme-usage"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Theme Usage</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#init"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">Init</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#modify"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Modify</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#deployment"><span class="toc-nav-number">3.2.1.</span> <span class="toc-nav-text">Deployment</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#sidebar-settings"><span class="toc-nav-number">3.2.2.</span> <span class="toc-nav-text">Sidebar settings</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#signature-setup"><span class="toc-nav-number">3.2.3.</span> <span class="toc-nav-text">Signature Setup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#go-to-top-icon-setup"><span class="toc-nav-number">3.2.4.</span> <span class="toc-nav-text">Go to top icon Setup</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#post-tag"><span class="toc-nav-number">3.2.5.</span> <span class="toc-nav-text">Post tag</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#markdown-render"><span class="toc-nav-number">3.2.6.</span> <span class="toc-nav-text">Markdown render</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#hexo-basics"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">Hexo Basics</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#have-fun-_"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Have fun ^_^</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
                 
             <!-- Sidebar Container -->
             <div class="
@@ -344,8 +370,6 @@ Peace!</p>
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
-                        
                     </div>
                 </section>
                 

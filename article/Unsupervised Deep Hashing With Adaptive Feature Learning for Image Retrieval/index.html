@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          About - zerteen | Blog
+          zerteen | Blog
         
     </title>
 
-    <link rel="canonical" href="https://zerteen.github.io/about/">
+    <link rel="canonical" href="https://zerteen.github.io/article/Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/about.jpg')
-            /*page*/
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
         
     }
     
@@ -85,10 +85,16 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>About</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">走在成为极客的路上</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                        </div>
+                        <h1></h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by  on
+                            2019-03-21
+                        </span>
                     </div>
                 
 
@@ -191,200 +197,219 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <h3 id="一句话">一句话</h3>
-<blockquote>
-<p>Just do it !    (翻译：我只是个搞 IT的！哭笑脸)</p>
-</blockquote>
-<h3 id="关于我">关于我</h3>
-<blockquote>
-<p>一个莫名其妙的，喜欢敲代码，喜欢研究技术的，表面上高冷、不苟言笑的，</p>
-<p>偶尔又嬉皮笑脸，偶尔又特立独行的，双重性格的技术爱好者！</p>
-</blockquote>
-<h3 id="兴趣方向">兴趣方向</h3>
-<blockquote>
-<p>容器云（Docker、Kubernetes等）相关生态技术研究。</p>
-</blockquote>
-<h3 id="参与社区">参与社区</h3>
-<blockquote>
-<p>CSDN博客:<a href="http://blog.csdn.net/huwh_" target="_blank" rel="noopener">http://blog.csdn.net/huwh_</a></p>
-<p>Github:<a href="https://github.com/huweihuang" target="_blank" rel="noopener">https://github.com/huweihuang</a></p>
-<p>阿里云栖社区:<a href="https://yq.aliyun.com/u/huweihuang" target="_blank" rel="noopener">https://yq.aliyun.com/u/huweihuang</a></p>
-<p>DockOne社区:<a href="http://dockone.io/people/%E8%83%A1%E4%BC%9F%E7%85%8C" target="_blank" rel="noopener">http://dockone.io/people/胡伟煌</a></p>
-</blockquote>
-<h3 id="联系我">联系我</h3>
-<blockquote>
-<p>Email: <a href="mailto:huweihuang@foxmail.com" target="_blank" rel="noopener">huweihuang@foxmail.com</a></p>
-</blockquote>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
+                <h1 id="unsupervised-deep-hashing-with-adaptive-feature-learning-for-image-retrieval">Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval</h1>
+<hr>
+<p>Notations:</p>
+<p>$I=\left{I_{1}, I_{2}, \ldots, I_{n}\right}$ : 所有的图像集合</p>
+<p>$\mathbf{X}=\left[\mathbf{x}<em>{1}, \mathbf{x}</em>{2}, \ldots, \mathbf{x}_{n}\right] \in \mathbf{R}^{d \times n}$ : 全局特征，每一列表示一个图像。</p>
+<p>使用$k$ 个哈希函数 $h=\left{h_{1}, h_{2}, \cdots, h_{k}\right}$ 来产生k-bit的哈希码 $\mathbf{B}=\left[\mathbf{b}<em>{1}, \mathbf{b}</em>{2}, \cdots, \mathbf{b}_{n}\right] \in {+1,-1}^{k \times n}$</p>
+<p>$F(\cdot)$ 为前向传播： $\mathbf{b}<em>{i}=h\left(I</em>{i}\right)=\operatorname{sgn}\left(F\left(I_{i} ; \mathbf{W}\right)\right)$</p>
+<h2 id="产生伪标签">产生伪标签</h2>
+<p>对sample使用k-means聚类，生成k个类别（pseudo-class）， 每个类别就对应为自标签信息。</p>
+<p>相似度矩阵$\mathbf{S} \in{1,0}^{n \times n}$ ，如果$\bf{x_i}, \bf{x_j} $ 属于同一个类，$S_{i,j} =1 $。</p>
+<p>在很多图像数据中，单一的标签不能够很好的表达出多样的图像属性。这将导致类内的差异大，来自两个不同类的样本可能距离很近。</p>
+<p>对于任意一个样本，如果它到它的类心的距离大于一个设定的阈值，那么他就被视为边界样本（Edge Sample）边界矩阵$\mathbf{E}$, 当$\bf{x_i} $或者$\bf{x_j}$是边界点时，$E_{ij} = 1$  否则为0。</p>
+<p><strong>属于不同类的两个样本之间的汉明距离应该尽可能的大</strong>，这样的话，考虑最大化他的似然函数。</p>
+<p>先定义他的条件概率：<br>
+$$<br>
+p\left(S_{i j} | \mathbf{b}<em>{i}, \mathbf{b}</em>{j}\right)=\left{\begin{array}{ll}{\sigma\left(\Theta_{i j}\right)} &amp; {S_{i j}=1} \ {1-\sigma\left(\Theta_{i j}\right)} &amp; {S_{i j}=0}\end{array}\right.<br>
+$$<br>
+其中，$\sigma(\cdot)$ 为sigmoid函数，$\Theta_{i j}=\frac{1}{2} \mathbf{b}<em>{i}^{\mathrm{T}} \mathbf{b}</em>{j}$ 可以表达之间的距离。</p>
+<p>论文将所有的edge sample都做抛弃处理，这样一来，似然函数就表现为：<br>
+$$<br>
+-\sum_{S_{i j}=0 \atop E_{i j}=0} \log p\left(S_{i j} | \mathbf{b}<em>{i}, \mathbf{b}</em>{j}\right)=-\sum_{S_{i j}=0 \atop E_{i j}=0}\left(S_{i j} \Theta_{i j}-\log \left(1+e^{\Theta_{i j}}\right)\right)<br>
+$$<br>
+<strong>属于同一个类的两个样本之间的汉明距离应该尽可能的小</strong>，这样的话，<br>
+$$<br>
+\operatorname{Sim}<em>{i j}=\tanh \left(\alpha\left(\mathbf{x}</em>{i}^{\mathrm{T}} \mathbf{x}<em>{j}-\beta\right)\right)<br>
+\<br>
+\min \left|\operatorname{Sim}-\frac{1}{k} \mathbf{B}^{\mathrm{T}} \mathbf{B}\right|</em>{F}^{2}<br>
+$$<br>
+这里 $Sim_{ij}$ 表示通过样本$\bf{x_i}$和$\bf{x_j}$的距离在汉明空间的投影。由于X经过了归一化操作，因此，$\bf{x_i}^T\bf{x_j}$ 表示的是这两个样本之间的余弦距离，这里到特征空间和汉明空间的差异，使用过了$\alpha, \beta​$ 进行了调节，并且使用了tanh，使用tanh是考虑到，即使是两个非常相似的图像，他们之间特征的汉明距离也不一定接近于1，tanh能够使得当一个数超过一定阈值时非常的接近1.</p>
+<p>所以，总体的目标函数为：<br>
+$$<br>
+\begin{aligned} \min <em>{\mathbf{B}} &amp;-\gamma</em>{0} \sum_{S_{i j}=0 \ E_{ij}=0}\left(-\log \left(1+e^{\Theta_{i j}}\right)\right) \ &amp;+\gamma_{1} \sum_{S_{i j}=1}\left|\tanh \left(\alpha\left(\mathbf{x}<em>{i}^{\mathrm{T}} \mathbf{x}</em>{j}-\beta\right)\right)-\frac{1}{k} \mathbf{b}<em>{i}^{\mathrm{T}} \mathbf{b}</em>{j}\right|_{2}^{2} \end{aligned}<br>
+$$</p>
+<h2 id="可适应的特征学习">可适应的特征学习</h2>
+<p>上述的$\bf{x}$指的是handcraft feature。handcraft feature通常都是局部信息，接下来作者试图通过局部信息来生成全局信息。</p>
+<p>这里主要考虑到两点：</p>
+<ol>
+<li>对于任何两个相似的sample，他们学习到的全局特征之间的距离要小于原始图像特征的距离一个阈值</li>
+<li>对于两个不相似的sample，他们之间的cosine distance要小于一个阈值</li>
+<li>学习到的全局特征要更适合用来学习哈希码</li>
+</ol>
+<p>综合以上三点，作者定义了如下的损失函数：<br>
+$$<br>
+L=\gamma_{2} \sum_{S_{i j}=1}|\max ( |f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\mathbf{x}<em>{\mathrm{i}}^{\mathrm{T}} \mathbf{x}</em>{\mathrm{j}}-\epsilon_{1}, 0)|<em>{2}^{2}<br>
+\<br>
++\gamma</em>{3} \sum_{S_{i j}=0 \atop E_{i j}=0}\left|\max \left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\epsilon_{2}, 0\right)\right|_{2}^{2}<br>
+$$<br>
+其中，$f(I)$指学到的global feature</p>
+<h2 id="优化">优化</h2>
+<p>总的目标函数：<br>
+$$<br>
+\min <em>{B}-\gamma</em>{0} \sum_{S_{i j}=0 \atop E_{i j}=0}\left(-\log \left(1+e^{\Theta_{i j}}\right)\right)+L</p>
+<p>+\gamma_{1} \sum_{S_{ij}=1}\left|\tanh \left(\alpha\left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\beta\right)\right)-\frac{1}{k} \mathbf{b}<em>{\mathbf{i}}^{\mathrm{T}} \mathbf{b}</em>{\mathbf{j}}\right|<em>{2}^{2}<br>
+\<br>
+\text { s.t. } &amp; \quad \mathbf{B} \in{+1,-1}^{k \times n}<br>
+$$<br>
+考虑到B难以直接优化，作者就引入了U来优化，这样：<br>
+$$<br>
+\begin{align}<br>
+\min <em>{\mathbf{B}, \alpha, \beta} &amp; - \gamma</em>{0}  \sum</em>{S_{i j}=0 \atop E_{i j}=0}\left(-\log \left(1+e^{\Psi_{i j}}\right)\right) \<br>
+&amp;+\eta\sum_{i=1}^{n}\left|\mathbf{b}<em>{i}-\mathbf{u}</em>{i}\right|<em>{2}^{2}\<br>
+&amp; + \gamma</em>{1} \sum_{S_{i j}=1}\left|\tanh \left(\alpha\left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\beta\right)\right)-\frac{1}{k} \mathbf{u}<em>{i}^{\mathrm{T}} \mathbf{u}</em>{j}\right|<em>{2}^{2}\<br>
+&amp; +\gamma</em>{2} \sum_{S_{i j}=1}|\max ( |f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\mathbf{x}<em>{i}^{\mathrm{T}} \mathbf{x}</em>{j}-\epsilon_{1}, 0)|<em>{2}^{2}\<br>
+&amp; +\gamma</em>{3} \sum_{S_{i j}=0 \atop E_{i j}=0}\left|\max \left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\epsilon_{2}, 0\right)\right|<em>{2}^{2}<br>
+\<br>
+\text { s.t. } &amp;\quad \mathbf{U} \in \mathbf{R}^{k \times n}, \mathbf{U}=F(I ; \mathbf{W})<br>
+\end{align}<br>
+$$<br>
+其中， $\mathbf{\Psi}</em>{i j}=\frac{1}{2} \mathbf{u}<em>{i}^{\mathrm{T}} \mathbf{u}</em>{j}$ ，相当于是吧之前的所有的B都用U来替代了，然后U是网络的输出。</p>
+<p>总体来说考虑的是几点：</p>
+<ul>
+<li>相似图像之间，网络输出的类哈希码</li>
+</ul>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1g1bix9g8mjj30lk0p6n0c.jpg" alt="image-20190322134844656"></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/article/face recognition/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
                 <br>
 
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
                 <!-- require APlayer -->
                 
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
-                    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+
+                <!-- duoshuo Share start -->
                 
-                    <div class="aplayer"
-                        data-id="2423410161"
-                        data-server="netease"
-                        data-type="playlist"
-                        data-fixed="false" >
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
                     </div>
+                </section>
                 
 
-                <!-- 如果开启评论功能 -->
+                <!-- Friends Blog -->
                 
-                    <hr>
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
 
                     
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
+                </ul>
                 
             </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Featured Tags -->
-
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-        
+        </div>
     </div>
-</section>
+</article>
 
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
 
-        
-            <img id = "avatar_pic" src="/img/avatar/ironman.png" />
-        
 
-        
-            <p>Stay hungry,Stay foolish</p>
-        
 
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
 
-            
 
-            
 
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/zerteen">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
-    </div>
-</section>
 
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/article/Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval/">(no title)</a>
-        </li>
-      
-        <li>
-          <a href="/article/face recognition/">(no title)</a>
-        </li>
-      
-        <li>
-          <a href="/article/ATTRIBUTE HASHING FOR ZERO-SHOT IMAGE RETRIEVAL/">(no title)</a>
-        </li>
-      
-        <li>
-          <a href="/article/A Deep Face Identification Network Enhanced by Facial Attributes Prediction/">(no title)</a>
-        </li>
-      
-        <li>
-          <a href="/article/A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning/">(no title)</a>
-        </li>
-      
-    </ul>
-  </div>
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
 
-        <hr>
-    
-        <!-- Friends Blog -->
-
-<h5>FRIENDS</h5>
-<ul class="list-inline">
-
-    
-</ul>
-
-        <hr>
-    
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-
-        <hr>
-    
-</div>
-
-        
-    </div>
-</div>
 
 
     <!-- Footer -->
