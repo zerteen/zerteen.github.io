@@ -215,10 +215,10 @@
                 <h1 id="unsupervised-deep-hashing-with-adaptive-feature-learning-for-image-retrieval">Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval</h1>
 <hr>
 <p>Notations:</p>
-<p>$I=\left{I_{1}, I_{2}, \ldots, I_{n}\right}$ : 所有的图像集合</p>
-<p>$\mathbf{X}=\left[\mathbf{x}<em>{1}, \mathbf{x}</em>{2}, \ldots, \mathbf{x}_{n}\right] \in \mathbf{R}^{d \times n}$ : 全局特征，每一列表示一个图像。</p>
-<p>使用$k$ 个哈希函数 $h=\left{h_{1}, h_{2}, \cdots, h_{k}\right}$ 来产生k-bit的哈希码 $\mathbf{B}=\left[\mathbf{b}<em>{1}, \mathbf{b}</em>{2}, \cdots, \mathbf{b}_{n}\right] \in {+1,-1}^{k \times n}$</p>
-<p>$F(\cdot)$ 为前向传播： $\mathbf{b}<em>{i}=h\left(I</em>{i}\right)=\operatorname{sgn}\left(F\left(I_{i} ; \mathbf{W}\right)\right)$</p>
+<p>$I=\left{  I_{1}, I_{2}, \ldots, I_{n}   \right}$ : 所有的图像集合</p>
+<p>$\mathbf{X}=\left[\mathbf{x}<em>{1}, \mathbf{x}</em>{2}, \ldots, \mathbf{x}_{n}\right] \in \mathbf{R}^{d \times n}​$ : 全局特征，每一列表示一个图像。</p>
+<p>使用$k​$ 个哈希函数 $h=\left{h_{1}, h_{2}, \cdots, h_{k}\right}​$ 来产生k-bit的哈希码 $\mathbf{B}=\left[\mathbf{b}<em>{1}, \mathbf{b}</em>{2}, \cdots, \mathbf{b}_{n}\right] \in {+1,-1}^{k \times n}​$</p>
+<p>$F(\cdot)​$ 为前向传播： $\mathbf{b}<em>{i}=h\left(I</em>{i}\right)=\operatorname{sgn}\left(F\left(I_{i} ; \mathbf{W}\right)\right)​$</p>
 <h2 id="产生伪标签">产生伪标签</h2>
 <p>对sample使用k-means聚类，生成k个类别（pseudo-class）， 每个类别就对应为自标签信息。</p>
 <p>相似度矩阵$\mathbf{S} \in{1,0}^{n \times n}$ ，如果$\bf{x_i}, \bf{x_j} $ 属于同一个类，$S_{i,j} =1 $。</p>
@@ -295,7 +295,7 @@ $$<br>
                     
                     
                         <li class="next">
-                            <a href="/article/face recognition/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+                            <a href="/article/face recognition/" data-toggle="tooltip" data-placement="top" title="Deepface: Closing the gap to human-level performance in face verification">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
