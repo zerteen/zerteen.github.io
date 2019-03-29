@@ -94,7 +94,6 @@
                         <h1>A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
-                            Posted by  on
                             2019-01-03
                         </span>
                     </div>
@@ -142,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -250,7 +249,7 @@
 <p>符号定义：</p>
 <ul>
 <li>label：$\mathbf{y} = \mathbf{y ^ { s }} \cup \mathbf{y ^ { u }}$  其中，$\mathbf { y } ^ { \mathcal { S } } = { 1 , \ldots , \mathrm { S } }$为seen class的label，$\mathbf { y } ^ { \mathcal { U } } = { S , \ldots , \mathrm { S+U } }$为 unseen class的label。</li>
-<li>semantic class embedding: $\mathbf { E } ^ { \mathcal { S } } = \left{ \mathbf { e } _ { s } : s \in \mathbf { y } ^ { \mathcal { S } } \right}$, $\mathbf { E } ^ { \mathcal { U } } = \left{ \mathbf { e } _ { u } : u \in \mathbf { y } ^ { \mathcal { U } } \right}$, $\mathbf { e } _ { s } , \mathbf { e } _ { u } \in \mathbb { R } ^ { d }$</li>
+<li>semantic class embedding: $\mathbf { E } ^ { \mathcal { S } } = \lbrace \mathbf { e } _ { s } : s \in \mathbf { y } ^ { \mathcal { S } } \rbrace $, $\mathbf { E } ^ { \mathcal { U } } = \lbrace \mathbf { e } _ { u } : u \in \mathbf { y } ^ { \mathcal { U } } \rbrace $, $\mathbf { e } _ { s } , \mathbf { e } _ { u } \in \mathbb { R } ^ { d }$</li>
 <li>Images: $\mathbf { X } _ { s } = \left[ \mathbf { x } _ { s } ^ { 1 } , \ldots , \mathbf { x } _ { s } ^ { n _ { s } } \right]$, $\mathbf { X } _ { u } = \left[ \mathbf { x } _ { u } ^ { 1 } , \ldots , \mathbf { x } _ { u } ^ { n _ { u } } \right]$ 其中，$n_s$是seen class中data的总数，同理$n_u$</li>
 <li>zsl的目标是为了给每一个unseen images 指定其类别</li>
 <li>gzsl的目标是为了给任意一个image指定其类别，该image可以来自seen class， 也可以来自unseen class</li>
@@ -266,11 +265,19 @@ $$<br>
 对seen class，需要学习一个mapping function [$\mathbf{W_s}$]，将image映射到semantic space中的principle direction [$\mathbf{p_s}$]</p>
 <p>对$\mathbf{W_s}$的学习使用到如下的目标函数：<br>
 $$<br>
-\min _ { \mathbf { W } _ { s } } \frac { 1 } { \kappa } \sum _ { c = 1 } ^ { S } \sum _ { m = 1 } ^ { n _ { c } } \log \left( 1 + \exp \left{ L \left( \mathbf { x } _ { c } ^ { m } ; \mathbf { W } _ { s } \right) \right} \right) + \frac { \lambda _ { s } } { 2 } \left| \mathbf { W } _ { s } \right| _ { 2 } ^ { 2 }<br>
+\min _ { \mathbf { W } _ { s } } \frac { 1 } { \kappa } \sum _ { c = 1 } ^ { S } \sum _ { m = 1 } ^ { n _ { c } } \log \left( 1 + \exp \lbrace L \left( \mathbf { x } _ { c } ^ { m } ; \mathbf { W } _ { s } \right) \rbrace  \right) + \frac { \lambda _ { s } } { 2 } \left| \mathbf { W } _ { s } \right| _ { 2 } ^ { 2 }<br>
 $$</p>
 <p>$$<br>
-L \left( \mathbf { x } _ { c } ^ { m } ; \mathbf { W } _ { s } \right) = \left{ \begin{array} { l l } { \left\langle \mathbf { p } _ { s } , \mathbf { e } _ { c } \right\rangle - \left\langle \mathbf { p } _ { s } , \mathbf { e } _ { s } \right\rangle , } &amp; { c \neq s } \ { \left\langle \mathbf { p } _ { s } , \frac { 1 } { \mathrm { S } - 1 } \sum _ { t \neq s } \mathbf { e } _ { t } \right\rangle - \left\langle \mathbf { p } _ { s } , \mathbf { e } _ { s } \right\rangle , } &amp; { c = s } \end{array} \right.<br>
+\begin{equation}<br>
+\left( \mathbf { x } _ { c } ^ { m } ; \mathbf { W } _ { s } \right) =<br>
+\begin {cases}<br>
+\left\langle \mathbf { p } _ { s } , \mathbf { e } _ { c } \right\rangle - \left\langle \mathbf { p } _ { s }  , \mathbf { e } _ { s } \right\rangle , &amp; { c \neq s } \<br>
+\left\langle \mathbf { p } _ { s } , \frac { 1 } { \mathrm { S } - 1 } \sum _ { t \neq s } \mathbf { e } _ { t } \right\rangle - \left\langle \mathbf { p } _ { s } , \mathbf { e } _ { s } \right\rangle , &amp; { c = s }<br>
+\end{cases}<br>
+\end{equation}<br>
 $$</p>
+<!-- \\
+, } &  \end{array} \right -->
 <p>以上loss的第一项表示，当前的的image属于第c个类别，在s类别的矩阵下生成的p在他对应的label的embedding投影小，在s label的enbedding投影大。</p>
 <p>第二项表示，当前的image属于第s个类别时，生成的p和在其他label的embedding的均值方向的投影小，在对应的label的embedding投影大。【论文中提出，这一项同时保证了p在对应的e上的投影要大于其他e的均值上的投影】</p>
 <p><strong>CAPD on unseen class</strong></p>

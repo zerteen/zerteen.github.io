@@ -94,7 +94,6 @@
                         <h1>Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
-                            Posted by  on
                             2018-12-25
                         </span>
                     </div>
@@ -142,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -249,7 +248,7 @@
 </ol>
 <p>当以一个查询来的时候，提取这$5\times7\times5 = 175$个descriptor，然后对每一个discriptor独立地进行最邻近搜索。<br>
 $$<br>
-I D \left( q ^ { j } \right) = \arg \min _ { i } \left{ \min _ { p } \left{ d \left( q ^ { j } , p _ { i } ^ { j } \right) , p _ { i } ^ { j } \in S _ { i } ^ { j } \right} \right}<br>
+I D \left( q ^ { j } \right) = \arg \min _ { i } \lbrace \min _ { p } \lbrace d \left( q ^ { j } , p _ { i } ^ { j } \right) , p _ { i } ^ { j } \in S _ { i } ^ { j } \rbrace \rbrace<br>
 $$<br>
 其中，$\mathcal { S } _ { i } ^ { j }$ 表示训练集中第i个人的第j个region，那么他就代表了一个visual word &lt;persion_id=i, position_id=j&gt; 。可以理解为，当有一个查询来的时候，对每一个identity在对应的第j个区域进行查询，找到距离最小的那个identity，作为这个查询第j部分的量化结果。然而，这里采取的是soft quantization，意思是，这里每一个region的feature量化之后，都取前R个最小的量化结果（R个identity）。</p>
 <hr>
@@ -261,7 +260,7 @@ $$<br>
 $$<br>
 D = d ( Q , I ) + \alpha \cdot \frac { 1 } { | \mathbf { R } | } \sum _ { i } d \left( R _ { i } , I \right)<br>
 $$<br>
-Q指的是查询图像，$\mathbf { R } = \left{ R _ { i } \right}$ 指当前的reference set，$d ( \cdot , \cdot )$ 是汉明距离，$I$ 指的是从结果中抽取到的图片，迭代的选取图片加入到reference set，知道D大于某个阈值或者reference set中的数量达到一个阈值。</p>
+Q指的是查询图像，$\mathbf { R } = \lbrace R _ { i } \rbrace ​$ 指当前的reference set，$d ( \cdot , \cdot )​$ 是汉明距离，$I​$ 指的是从结果中抽取到的图片，迭代的选取图片加入到reference set，知道D大于某个阈值或者reference set中的数量达到一个阈值。</p>
 <p>这样做主要是为了保证，返回的图片中，除了要保证和查询结果相似之外，还要保证返回的结果间也是相似的。</p>
 
                 
