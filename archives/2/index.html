@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking - zerteen | Blog
+          zerteen | Blog
         
     </title>
 
-    <link rel="canonical" href="https://zerteen.github.io/article/Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking/">
+    <link rel="canonical" href="https://zerteen.github.io/archives/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article_header/banner.jpg')
-            /*post*/
+            background-image: url('/img/header_img/banner.jpg') 
+            /*config*/
         
     }
     
@@ -85,17 +85,10 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="post-heading">
-                        <div class="tags">
-                            
-                              <a class="tag" href="/tags/#face" title="face">face</a>
-                            
-                        </div>
-                        <h1>Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking</h1>
-                        <h2 class="subheading"></h2>
-                        <span class="meta">
-                            2018-12-25
-                        </span>
+                    <div class="site-heading">
+                        <h1>Hey</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading"></span>
                     </div>
                 
 
@@ -198,205 +191,159 @@
 
 
     <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
+    <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Post Container -->
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+                <!-- Main Content -->
 
-                <h1 id="scalable-face-image-retrieval-with-identity-based-quantization-and-multi-reference-re-ranking">Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking</h1>
-<p>2010年CVPR的论文，作者是Zhong Wu，Tsinghua&amp;MSAR</p>
+
+<div class="post-preview">
+
+    <a href="/article/hexo-theme-huweihuang/">
+        <h2 class="post-title">
+            [Hexo] Theme HuWeihuang
+        </h2>
+        <h3 class="post-subtitle">
+            This is hexo theme Demo.
+        </h3>
+        <div class="post-content-preview">
+            
+This HuWeihuang theme created by HuWeihuang modified from the original Porter YuHsuan
+
+Live Demo
+Hu Weihuang Blog : www.huweihuang.com
+
+Install Hexo
+Install Node.js  and Git
+123#For Macbrew instal......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2017-09-18
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Hexo" title="Hexo">Hexo</a>
+            
+        </div>
+    
+
+</div>
 <hr>
-<p><strong>Motivation</strong></p>
-<ul>
-<li>底层的视觉特征对人脸图像没有很好的鉴别力
-<ul>
-<li>discriminative power =&gt; to differentiate different persons</li>
-<li>to tolerate the variations of the same person</li>
-</ul>
-</li>
-<li>人脸中的一些属性被忽略</li>
-</ul>
-<p><strong>Overall View</strong></p>
-<ul>
-<li>总的流程是先进行索引，然后进行细粒度的re-rank 。（coarse to fine 的模式）</li>
-<li>在索引建立的阶段，设计了一个component-based local feature，feature根据identity-bsed quantization schema量化成visual words，根据这些visual words进行倒排索引的建立。同时，global的feature因设成了哈希码保存在40bytes中。</li>
-<li>在re-rank阶段，根据40bytes的hamming distance进行排序</li>
-</ul>
-<h2 id="component-based-local-features">Component-Based Local Features</h2>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj44t9xw4j30u30820u0.jpg" alt="image-20181225172027587"></p>
-<p>​	首先定义了五个region，每个region用一个$5 \times 7$ 的grid进行划分。 对每一个gride取一个正方形的patch，然后对其进行T3hS2特征的提取，特征量化成visual words，然后进行倒排索引。</p>
-<p>这么划分的好处：<br>
-​	1 相比于全脸进行gride，这样更能够在表情变化和姿势变化中提炼出robust的人脸特征。<br>
-​	2 不同region的gride之间有重合，这样能减少region定位时的一些误差。</p>
-<p>​	对gride进行了编号，当两个feature进行比较的时候，只有同一个编号里的feature都match了，才确定是match的。</p>
-<p>​	接下来，就要对每一个gride的feature聚类来产生visual word了。但是，在人脸场景下，类内的差别又是后会大于类间的差异。在一个人姿势，表情差异变化较大的时候，直接使用k-means聚类的效果往往不太好，这样的话，量化误差会降低检索准确度。因此，论文提出来一个 identity-based quantization scheme。</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fyj65818ndj30fd0910tg.jpg" alt="image-20181225183012146"></p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj65j4xvzj30fr0abmxy.jpg" alt="image-20181225183028875"></p>
-<p>​	使用的方式是监督学习，假设训练集中有P个人，每个人有T张不同的人脸图像。那么，&lt;persion_id, position_id&gt; 组成了一个二元组，形成一个visual word。这样，每一个visual word可以的含义就是：example-based representation containing multiple examples.</p>
-<p>这里可以这样理解：</p>
-<ol>
-<li>从类间角度出发，假设训练样本中的不同类型的人脸都被包含进去，那么每一人都具有一定的代表性。</li>
-<li>从类内角度出发，而对每一个人的图像如果足够多的话，每一个人的图像包含了这个人不同的表情，光照，姿态造成的差异。</li>
-</ol>
-<p>当以一个查询来的时候，提取这$5\times7\times5 = 175$个descriptor，然后对每一个discriptor独立地进行最邻近搜索。<br>
-$$<br>
-I D \left( q ^ { j } \right) = \arg \min _ { i } \lbrace \min _ { p } \lbrace d \left( q ^ { j } , p _ { i } ^ { j } \right) , p _ { i } ^ { j } \in S _ { i } ^ { j } \rbrace \rbrace<br>
-$$<br>
-其中，$\mathcal { S } _ { i } ^ { j }$ 表示训练集中第i个人的第j个region，那么他就代表了一个visual word &lt;persion_id=i, position_id=j&gt; 。可以理解为，当有一个查询来的时候，对每一个identity在对应的第j个区域进行查询，找到距离最小的那个identity，作为这个查询第j部分的量化结果。然而，这里采取的是soft quantization，意思是，这里每一个region的feature量化之后，都取前R个最小的量化结果（R个identity）。</p>
-<hr>
-<h2 id="global-multi-reference-re-rank">Global Multi-Reference Re-Rank</h2>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj8x0rytvj30yv0d3dig.jpg" alt="image-20181225200606031"></p>
-<p>先对人脸进行对齐，然后是用DoG过滤掉阴影的变化，然后用一个encoder，对每一个像素点生成一个离散的数值，对每个图像进行gide，cell，得到这些离散值的频率直方图，然后进行PCA，得到一个400维的特征向量。</p>
-<p>如何进行离散操作呢？论文提出，在特征空间中寻找N个投影方向，对训练集中的数据对这个N个方向进行投影，然后对每个方向上投影数值的均值作为阈值。然后对于一个新来的特征，对着N个方向进行投影，如果投影值超过阈值，就为1，不超过就为0.</p>
-<p>然后，这里的Multi-Reference指的是<br>
-$$<br>
-D = d ( Q , I ) + \alpha \cdot \frac { 1 } { | \mathbf { R } | } \sum _ { i } d \left( R _ { i } , I \right)<br>
-$$<br>
-Q指的是查询图像，$\mathbf { R } = \lbrace R _ { i } \rbrace ​$ 指当前的reference set，$d ( \cdot , \cdot )​$ 是汉明距离，$I​$ 指的是从结果中抽取到的图片，迭代的选取图片加入到reference set，知道D大于某个阈值或者reference set中的数量达到一个阈值。</p>
-<p>这样做主要是为了保证，返回的图片中，除了要保证和查询结果相似之外，还要保证返回的结果间也是相似的。</p>
 
-                
 
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/article/A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning/" data-toggle="tooltip" data-placement="top" title="A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/article/Adversarial Transfer Learning/" data-toggle="tooltip" data-placement="top" title="Adversarial Transfer Learning">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+        <li class="previous">
+            <a href="/">&larr; Newer Posts</a>
+        </li>
+    
+    
+</ul>
+
+
 
                 <br>
 
-                <!--打赏-->
-                
-                    <div class="reward">
-                        <div class="reward-button">赏 <span class="reward-code"> 
-                            <span class="alipay-code"> <img class="alipay-img" src="alipay_url"><b>支付宝打赏</b></span> 
-                            <span class="wechat-code"> <img class="wechat-img" src="wechatpay_url"><b>微信打赏</b> </span>
-                            </span></div>
-                        <p class="reward-notice">赞赏一下</p>
-                    </div>
-                
-                <!--打赏-->
-
-                <br>
-                <!--分享-->
-                
-                <!--分享-->
-                <br>                       
-                
                 <!-- require APlayer -->
                 
 
-                <!-- duoshuo Share start -->
+                <!-- 如果开启评论功能 -->
                 
-                <!-- 多说 Share end-->
-
-                <!-- 多说评论框 start -->
-                
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                
-                <!-- disqus comment end -->
-
-                
-
             </div>
+
+          <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Featured Tags -->
+
+<section>
+    <!-- no hr -->
+    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
             
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
-
-                
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/tags/#face" title="face">face</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                </ul>
-                
-            </div>
-        </div>
+            <a href="/tags/#face" title="face" rel="6">face</a>
+            
+        
+            
+            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
+            
+        
+            
+        
+            
+        
     </div>
-</article>
+</section>
 
+        <hr>
+    
+        
+  <h5>RECENT POSTS</h3>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/article/leetcode-115-Distinct-Subsequences/">leetcode 115 - Distinct Subsequences</a>
+        </li>
+      
+        <li>
+          <a href="/article/Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval/">Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval</a>
+        </li>
+      
+        <li>
+          <a href="/article/face recognition/">Deepface: Closing the gap to human-level performance in face verification</a>
+        </li>
+      
+        <li>
+          <a href="/article/ATTRIBUTE HASHING FOR ZERO-SHOT IMAGE RETRIEVAL/">ATTRIBUTE HASHING FOR ZERO-SHOT IMAGE RETRIEVAL</a>
+        </li>
+      
+        <li>
+          <a href="/article/A Deep Face Identification Network Enhanced by Facial Attributes Prediction/">A Deep Face Identification Network Enhanced by Facial Attributes Prediction</a>
+        </li>
+      
+    </ul>
+  </div>
 
+        <hr>
+    
+        
+    <h5>ARCHIVES</h5>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+    </div>
 
+        <hr>
+    
+</div>
 
-
-
-
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'ℬ'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
-
+        
+    </div>
+</div>
 
 
     <!-- Footer -->

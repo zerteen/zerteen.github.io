@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking - zerteen | Blog
+          leetcode 115 - Distinct Subsequences - zerteen | Blog
         
     </title>
 
-    <link rel="canonical" href="https://zerteen.github.io/article/Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking/">
+    <link rel="canonical" href="https://zerteen.github.io/article/leetcode-115-Distinct-Subsequences/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,13 +88,13 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#face" title="face">face</a>
+                              <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
                             
                         </div>
-                        <h1>Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking</h1>
+                        <h1>leetcode 115 - Distinct Subsequences</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
-                            2018-12-25
+                            2019-03-29
                         </span>
                     </div>
                 
@@ -211,57 +211,90 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="scalable-face-image-retrieval-with-identity-based-quantization-and-multi-reference-re-ranking">Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking</h1>
-<p>2010年CVPR的论文，作者是Zhong Wu，Tsinghua&amp;MSAR</p>
+                <p>Given a string <strong>S</strong> and a string <strong>T</strong>, count the number of distinct subsequences of <strong>S</strong> which equals <strong>T</strong>.</p>
+<p>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, <code>&quot;ACE&quot;</code> is a subsequence of <code>&quot;ABCDE&quot;</code> while <code>&quot;AEC&quot;</code> is not).</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Input: S = &quot;rabbbit&quot;, T = &quot;rabbit&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">As shown below, there are 3 ways you can generate &quot;rabbit&quot; from S.</span><br><span class="line">(The caret symbol ^ means the chosen letters)</span><br><span class="line"></span><br><span class="line">rabbbit</span><br><span class="line">^^^^ ^^</span><br><span class="line">rabbbit</span><br><span class="line">^^ ^^^^</span><br><span class="line">rabbbit</span><br><span class="line">^^^ ^^^</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Input: S = &quot;babgbag&quot;, T = &quot;bag&quot;</span><br><span class="line">Output: 5</span><br><span class="line">Explanation:</span><br><span class="line"></span><br><span class="line">As shown below, there are 5 ways you can generate &quot;bag&quot; from S.</span><br><span class="line">(The caret symbol ^ means the chosen letters)</span><br><span class="line"></span><br><span class="line">babgbag</span><br><span class="line">^^ ^</span><br><span class="line">babgbag</span><br><span class="line">^^    ^</span><br><span class="line">babgbag</span><br><span class="line">^    ^^</span><br><span class="line">babgbag</span><br><span class="line">  ^  ^^</span><br><span class="line">babgbag</span><br><span class="line">    ^^^</span><br></pre></td></tr></table></figure>
 <hr>
-<p><strong>Motivation</strong></p>
+<p>首先很容易想到一个遍历的算法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numDistinct1</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> dfs(s, t, <span class="number">0</span>);</span><br><span class="line"> 	&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(String s, String t, <span class="keyword">int</span> start)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="string">""</span>.equals(s)) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (<span class="string">""</span>.equals(t)) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i=start; i&lt;s.length(); i++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (s.charAt(i) == t.charAt(<span class="number">0</span>)) &#123;</span><br><span class="line">              count += dfs(s, t.substring(<span class="number">1</span>), i+<span class="number">1</span>); </span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> count;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度上面是一个O($n^2$)</p>
+<p>其实还可以用动态规划来做。</p>
+<p>dp[i][j] 表示 t[0:i]在s[0:j]中出现的次数。那么直接返回dp[t.length()][s.length()]就可以了。</p>
+<p>当dp[i][j] 确定后，考虑dp[i][j+1]的情况：</p>
 <ul>
-<li>底层的视觉特征对人脸图像没有很好的鉴别力
-<ul>
-<li>discriminative power =&gt; to differentiate different persons</li>
-<li>to tolerate the variations of the same person</li>
-</ul>
+<li>
+<p>当t[i] != s[j+1]时， 当前的字符不相等，那么t[0:i] 在s[0:j+1]中出现的次数就等于它在s[0:j]中出现的次数。即 dp[i][j+1] = dp[i][j].</p>
 </li>
-<li>人脸中的一些属性被忽略</li>
-</ul>
-<p><strong>Overall View</strong></p>
+<li>
+<p>当t[i] == s[j+1]时，dp[i][j+1]包含两部分，</p>
 <ul>
-<li>总的流程是先进行索引，然后进行细粒度的re-rank 。（coarse to fine 的模式）</li>
-<li>在索引建立的阶段，设计了一个component-based local feature，feature根据identity-bsed quantization schema量化成visual words，根据这些visual words进行倒排索引的建立。同时，global的feature因设成了哈希码保存在40bytes中。</li>
-<li>在re-rank阶段，根据40bytes的hamming distance进行排序</li>
+<li>
+<p>在s[0: j]中，t[0: i] 出现的此时，这里是t[0:i]已经出现的次数，即dp[i][j]。</p>
+</li>
+<li>
+<p>新加入的s[j+1]带来的影响。我们已知了t[0: i-1]在s[0:j]中出现的次数，那么新加入的这个s[j+1]可以和s[0: j]中任意一个t[0:i-1]组成一个新的t[0：i]，所以这里将增加dp[i-1][j]。</p>
+<p>即dp[i][j+1] = dp[i][j] +  dp[i-1][j]</p>
+<p>举个例子：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>a</th>
+<th>d</th>
+<th>a</th>
+<th>b</th>
+<th>e</th>
+<th>b</th>
+<th>a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>a</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>b</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>在求<code>?</code>时， a在ada中已经出现了2次，ab在ada中出现了0次，当添加一个b时，在ada中出现的两个a都可以和b组成ab，所以一共有0+2次。</p>
+</li>
 </ul>
-<h2 id="component-based-local-features">Component-Based Local Features</h2>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj44t9xw4j30u30820u0.jpg" alt="image-20181225172027587"></p>
-<p>​	首先定义了五个region，每个region用一个$5 \times 7$ 的grid进行划分。 对每一个gride取一个正方形的patch，然后对其进行T3hS2特征的提取，特征量化成visual words，然后进行倒排索引。</p>
-<p>这么划分的好处：<br>
-​	1 相比于全脸进行gride，这样更能够在表情变化和姿势变化中提炼出robust的人脸特征。<br>
-​	2 不同region的gride之间有重合，这样能减少region定位时的一些误差。</p>
-<p>​	对gride进行了编号，当两个feature进行比较的时候，只有同一个编号里的feature都match了，才确定是match的。</p>
-<p>​	接下来，就要对每一个gride的feature聚类来产生visual word了。但是，在人脸场景下，类内的差别又是后会大于类间的差异。在一个人姿势，表情差异变化较大的时候，直接使用k-means聚类的效果往往不太好，这样的话，量化误差会降低检索准确度。因此，论文提出来一个 identity-based quantization scheme。</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fyj65818ndj30fd0910tg.jpg" alt="image-20181225183012146"></p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj65j4xvzj30fr0abmxy.jpg" alt="image-20181225183028875"></p>
-<p>​	使用的方式是监督学习，假设训练集中有P个人，每个人有T张不同的人脸图像。那么，&lt;persion_id, position_id&gt; 组成了一个二元组，形成一个visual word。这样，每一个visual word可以的含义就是：example-based representation containing multiple examples.</p>
-<p>这里可以这样理解：</p>
-<ol>
-<li>从类间角度出发，假设训练样本中的不同类型的人脸都被包含进去，那么每一人都具有一定的代表性。</li>
-<li>从类内角度出发，而对每一个人的图像如果足够多的话，每一个人的图像包含了这个人不同的表情，光照，姿态造成的差异。</li>
-</ol>
-<p>当以一个查询来的时候，提取这$5\times7\times5 = 175$个descriptor，然后对每一个discriptor独立地进行最邻近搜索。<br>
-$$<br>
-I D \left( q ^ { j } \right) = \arg \min _ { i } \lbrace \min _ { p } \lbrace d \left( q ^ { j } , p _ { i } ^ { j } \right) , p _ { i } ^ { j } \in S _ { i } ^ { j } \rbrace \rbrace<br>
-$$<br>
-其中，$\mathcal { S } _ { i } ^ { j }$ 表示训练集中第i个人的第j个region，那么他就代表了一个visual word &lt;persion_id=i, position_id=j&gt; 。可以理解为，当有一个查询来的时候，对每一个identity在对应的第j个区域进行查询，找到距离最小的那个identity，作为这个查询第j部分的量化结果。然而，这里采取的是soft quantization，意思是，这里每一个region的feature量化之后，都取前R个最小的量化结果（R个identity）。</p>
-<hr>
-<h2 id="global-multi-reference-re-rank">Global Multi-Reference Re-Rank</h2>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj8x0rytvj30yv0d3dig.jpg" alt="image-20181225200606031"></p>
-<p>先对人脸进行对齐，然后是用DoG过滤掉阴影的变化，然后用一个encoder，对每一个像素点生成一个离散的数值，对每个图像进行gide，cell，得到这些离散值的频率直方图，然后进行PCA，得到一个400维的特征向量。</p>
-<p>如何进行离散操作呢？论文提出，在特征空间中寻找N个投影方向，对训练集中的数据对这个N个方向进行投影，然后对每个方向上投影数值的均值作为阈值。然后对于一个新来的特征，对着N个方向进行投影，如果投影值超过阈值，就为1，不超过就为0.</p>
-<p>然后，这里的Multi-Reference指的是<br>
-$$<br>
-D = d ( Q , I ) + \alpha \cdot \frac { 1 } { | \mathbf { R } | } \sum _ { i } d \left( R _ { i } , I \right)<br>
-$$<br>
-Q指的是查询图像，$\mathbf { R } = \lbrace R _ { i } \rbrace ​$ 指当前的reference set，$d ( \cdot , \cdot )​$ 是汉明距离，$I​$ 指的是从结果中抽取到的图片，迭代的选取图片加入到reference set，知道D大于某个阈值或者reference set中的数量达到一个阈值。</p>
-<p>这样做主要是为了保证，返回的图片中，除了要保证和查询结果相似之外，还要保证返回的结果间也是相似的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numDistinct</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[t.length()+<span class="number">1</span>][s.length()+<span class="number">1</span>];</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;=t.length(); i++) &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;=s.length(); j++) &#123;</span><br><span class="line">               <span class="keyword">if</span> (i==<span class="number">0</span>) &#123;</span><br><span class="line">                   dp[i][j] = <span class="number">1</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">else</span> <span class="keyword">if</span> (j == <span class="number">0</span>) &#123;</span><br><span class="line">                   dp[i][j] = <span class="number">0</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">else</span> <span class="keyword">if</span> (t.charAt(i-<span class="number">1</span>) == s.charAt(j-<span class="number">1</span>))&#123;</span><br><span class="line">                   dp[i][j] = dp[i-<span class="number">1</span>][j-<span class="number">1</span>] + dp[i][j-<span class="number">1</span>];</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">else</span></span><br><span class="line">                   dp[i][j] = dp[i][j-<span class="number">1</span>];</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">return</span> dp[t.length()][s.length()];</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>有一点需要注意的是，dp[0][0] 的值，当s为空的时候，对所有的t都不会有结果，即dp[*][0]看似都应该设置为0， 但是当s[0] = t[0] 时，如果dp[0][0] 为0，那么dp[1][1]不会有值。dp[0][0]必须设置为1.</p>
+</li>
+</ul>
 
                 
 
@@ -269,13 +302,9 @@ Q指的是查询图像，$\mathbf { R } = \lbrace R _ { i } \rbrace ​$ 指当�
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning/" data-toggle="tooltip" data-placement="top" title="A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/Adversarial Transfer Learning/" data-toggle="tooltip" data-placement="top" title="Adversarial Transfer Learning">Next Post &rarr;</a>
+                            <a href="/article/Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval/" data-toggle="tooltip" data-placement="top" title="Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -336,7 +365,7 @@ Q指的是查询图像，$\mathbf { R } = \lbrace R _ { i } \rbrace ​$ 指当�
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#face" title="face">face</a>
+                          <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
                         
                     </div>
                 </section>
