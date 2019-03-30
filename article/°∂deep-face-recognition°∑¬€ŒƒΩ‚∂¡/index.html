@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          《deep face recognition》论文解读 - zerteen | Blog
+        
+    </title>
+
+    <link rel="canonical" href="https://zerteen.github.io/article/°∂deep-face-recognition°∑¬€ŒƒΩ‚∂¡/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/banner.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+                            
+                        </div>
+                        <h1>《deep face recognition》论文解读</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            2018-08-24
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hey</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>原文地址： <a href="https://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf" target="_blank" rel="noopener">Deep Face Recognition</a></p>
+<p>该论文主要从两个方面阐述了他们的工作：</p>
+<ul>
+<li>通过半自动化的方式来生成大规模的数据集，使用web中资源，来收集人脸数据。</li>
+<li>提出一种用于人脸识别的卷积网路的训练过程。</li>
+</ul>
+<hr>
+<p>Google使用的一个人人脸图像数据集中包含2亿张图片，8百万个人物身份。但是公开的数据集很难达到这样的数据规模。</p>
+<p><img src="%E3%80%8Adeep-face-recognition%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535092056000.png" alt="1535092056000"></p>
+<p>如上图所示，左侧的公开数据集在量级上要远小于大公司所使用的数据集。</p>
+<p>论文提出以下的流程来建立数据集：</p>
+<ol>
+<li>先在IMDB中找到一个公众人物列表，在通过Freebase，来获得相关公众人物的信息。这样能够得到5千个人名，构成一个候选列表。然后，使用谷歌图片搜索，为这5千个人名中的每一个人名收集200张图片，然后在人工对其进行过滤，如果每个人名的的200张图片中的纯度大于90%才保留，这样，一共得到了3250个人物。接下来过滤掉LFW，YTF中出现过的人物，这样一共收集到了2622个人物。</li>
+<li>对2622个人物，借助谷歌以及必应图片搜索，为每个人物收集到了2000张图片。</li>
+<li>对每一个人名，搜索引擎提供的前50的图片作为正例，其他人物的前50的图片作为负例，训练一个一对多的线性SVM。对每一个人名，都训练一个SVM，SVN将每个人物的2000张图片中得分最高的1000图片保留下来。</li>
+<li>为每个人物的每张图片计算VLAD描述符，对图片进行聚类，在每个类中选取出一张图片，以此来去除重复的图片以及相似的图片。</li>
+<li>使用AlexNet结构的CNN来辅助最后的人工过滤。这一步的目的是为了使用人工标注来降低数据的纯度。使用这个网络来对着2622个人物图像进行分类，这样，每个人物的图像，我们都能得到交叉熵得分。对每个人物的图像，我们按排序的每200张组成一个block，人工对每个block进行验证，如果该block的纯度大于95%，则保留。</li>
+</ol>
+<hr>
+<p>在人脸识别中传统的方法通常使用浅层特征，这些方法别称为<strong>浅层方法</strong>（Shallow Methods），使用到神经网络的方法称为<strong>深层方法</strong>（Deep Methods）。</p>
+<ul>
+<li>
+<p>浅层方法</p>
+<p>先使用手工的局部图片描述符（handcrafted local image descriptors）来取提取图片的表示，在使用池化机制来聚合这些局部描述符来形成人脸描述符。</p>
+</li>
+<li>
+<p>深层方法</p>
+<p>使用卷积网络来提取人脸特征，代表的系统有DeepFace。</p>
+</li>
+</ul>
+<blockquote>
+<p>This method uses a deep CNN trained to classify faces using a dataset of 4 million examples spanning 4000 unique identities. It also uses a siamese network architecture, where the same CNN is applied to pairs of faces to obtain descriptors that are then compared using the Euclidean distance.</p>
+</blockquote>
+<p>DeepFace 使用组合的CNN，同时对人脸图像进行预处理，使用3D模型将人脸进行标准对齐，在当时DeepFace取得了最好的效果。随后，在DeepFace的基础上，DeepID系列由取得了一些列的进展。</p>
+<p>例如：</p>
+<ul>
+<li>使用多重CNN</li>
+<li>使用贝叶斯学习框架</li>
+<li>识别-验证多任务学习</li>
+<li>更深层的网络</li>
+</ul>
+<p>DeepID不使用3D人脸对齐，但是进行了2D的仿射对齐（Affine Alignment）</p>
+<p>基础的网络结果如下图所示：</p>
+<p><img src="%E3%80%8Adeep-face-recognition%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535113904161.png" alt="1535113904161"></p>
+<p>数学化表示如下：</p>
+<ul>
+<li>
+<p>$\phi$ : 网络</p>
+</li>
+<li>
+<p>$N$ : 数据集中人物的个数，即类别的个数，$N = 2622$</p>
+</li>
+<li>
+<p>$l_t$ : 第t张训练图像</p>
+</li>
+<li>
+<p>$W, b$ : 全连接层的参数， 其中$W \in \R^{N\times D}, b \in \R^{N}$</p>
+</li>
+<li>
+<p>$x_t = W\phi(l_t)+b$:  图片$l_t$ 经过网络后得到的该图片在N个类别中的得分</p>
+</li>
+<li>
+<p>$e_c$ : 类别c的one-hot向量</p>
+</li>
+</ul>
+<p>经过一个softmax交叉熵损失来进行训练：<br>
+$$<br>
+E(\phi)=-\sum_t\log(\frac{e^{&lt;e_{t_c}，x_t&gt;}}{\sum_{q=1, …,N}e^{&lt;e_q, x_t&gt;}})<br>
+$$<br>
+在学习过后，最后的全连接层(W, b)将被移除，通过网络$\phi$ 得到的特征$\phi(x_t)$将可以对其进行欧氏距离的计算来用于人脸验证。</p>
+<p>作者提出，使用三元组损失（Triplet-loss）得到的表示更具有分辨力。</p>
+<ul>
+<li>
+<p>$\phi(l_i)​$ : 图片i在卷积网络后得到的特征表示</p>
+</li>
+<li>
+<p>$W’$ : 是一个纺射投影，通过</p>
+</li>
+</ul>
+<p>$$<br>
+x_i = W’ \frac{\phi(l_i)}{||\phi(l_i)||_2}<br>
+$$<br>
+将维度为$\R^D$ 的特征表示映射到$x_i \in \R^L$ 的特征表示，其中，$L \ll D$ ，其中的$W’$可以通过以下的损失来学习$(a, p, n)$: 是一个三元组，a是一个anchor 人脸图，p是a所属类别的一个正实例，n是a所属的类别的一个负实例</p>
+<p>$$<br>
+E(W’) = \sum_{(a, p, n) \in T} max{ 0, \alpha-||x_a - x_n||^{2}_{2} +||x_a - x_p||^2_2 }<br>
+$$</p>
+<h3 id="实验结果"><strong>实验结果</strong></h3>
+<ul>
+<li>在LFW的实验结果</li>
+</ul>
+<p><img src="%E3%80%8Adeep-face-recognition%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535113663280.png" alt="1535113663280"></p>
+<ul>
+<li>在YFD的实验结果</li>
+</ul>
+<p><img src="%E3%80%8Adeep-face-recognition%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535113718635.png" alt="1535113718635"></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/°∂Partially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning°∑¬€ŒƒΩ‚∂¡/" data-toggle="tooltip" data-placement="top" title="《Partially Shared Multi-Task Convolutional Neural Network with Local Constraint for Face Attribute Learning》论文解读">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/pytorch/pytorch-notes/" data-toggle="tooltip" data-placement="top" title="pytorch notes">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="alipay_url"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="wechatpay_url"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/zerteen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://zerteen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+
+</html>

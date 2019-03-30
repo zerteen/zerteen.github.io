@@ -3,7 +3,7 @@
 
     <sitemap>
         <loc>https://zerteen.github.io/post-sitemap.xml</loc>
-        <lastmod>2019-03-29T08:48:03.388Z</lastmod>
+        <lastmod>2019-03-30T12:37:07.918Z</lastmod>
     </sitemap>
 
     <sitemap>
@@ -12,8 +12,13 @@
     </sitemap>
 
     <sitemap>
+        <loc>https://zerteen.github.io/category-sitemap.xml</loc>
+        <lastmod>2017-12-11T15:49:16.000Z</lastmod>
+    </sitemap>
+
+    <sitemap>
         <loc>https://zerteen.github.io/tag-sitemap.xml</loc>
-        <lastmod>2019-03-26T15:18:02.000Z</lastmod>
+        <lastmod>2018-08-31T06:19:48.000Z</lastmod>
     </sitemap>
 
 </sitemapindex>

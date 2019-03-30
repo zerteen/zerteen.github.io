@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          《Beyond Trade-off: Accelerate FCN-based Face Detector with Higher Accuracy》论文解读 - zerteen | Blog
+        
+    </title>
+
+    <link rel="canonical" href="https://zerteen.github.io/article/°∂Beyond-Trade-off-Accelerate-FCN-based-Face-Detector-with-Higher-Accuracy°∑¬€ŒƒΩ‚∂¡/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/banner.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Face" title="Face">Face</a>
+                            
+                        </div>
+                        <h1>《Beyond Trade-off: Accelerate FCN-based Face Detector with Higher Accuracy》论文解读</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            2018-08-28
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hey</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>论文提出将图片中人脸的搜索空间分解为两个正交方向的向量，尺度方向和空间方向，尺度方向，进而提出了尺度估计（Scale Estimation）和空间注意力提议机制（Spatial attention proposal， $S^2AP$）。在我们知道粗略的空间位置和人脸尺度时，我们能够将注意力集中在某些特定的范围和位置，这样一来，搜索空间将得到有效的降低。</p>
+<p>尺度方向：保证了Image Pyramid中，只有可能性高的层会被FCN注意。</p>
+<p>空间方向：使得网络能快速排除大量的背景。</p>
+<p>在很多目标检测系统中，使用的是两阶段的方法，先使用RPN（Region Proposal Network）来找到ROI(Region of Interest)，然后在第二阶段进一步对ROI进行回归和分类。突出的算法有：Faster-RCNN、R-FCN等。这些方法具有较高的召回率和精确度，但是，由于训练这样的二阶段的网络计算代价非常的大。</p>
+<p>对于这些传统的两阶段方案，有人提出了Single-scale技术，使用Image Pyramid，同样也是时间消耗巨大的。</p>
+<p>其次就是端到端的方案，例如YOLO，SSD等，YOLO直接对BB进行回归，对目标进行分类。</p>
+<p><img src="%E3%80%8ABeyond-Trade-off-Accelerate-FCN-based-Face-Detector-with-Higher-Accuracy%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535438648141.png" alt="1535438648141"></p>
+<p>给定一张图片，系统首先预测人脸的尺度和所在的位置，然后，图片以及定量的信息将会将会被输入到Mask-FCN</p>
+<h3 id="s2ap">$S^2AP$</h3>
+<p><strong>Scale Attention</strong></p>
+<p>$S^2AP$是一个用于预检测的快速注意力模型。首先，在BoundingBox的定义上，没有采用原始的人工标注的Bounding Box，而是通过5个人脸标记点（Landmark）来推到出face box。</p>
+<p>$(x_1, y_1) , …,(x_5, y_5)$ 分别表示左眼中心，右眼中心，鼻子，左嘴角，右嘴角。</p>
+<p>$(p_1, q_1),…,(p_5,q_5)$ 分别表示正则化后的人脸标注，变换规则为：<br>
+$$<br>
+p_i = \frac{x_i-X1}{w} \<br>
+q_i = \frac{y_i - Y_1}{h}<br>
+$$<br>
+可以知道，原始的坐标经过这样的变换之后，得到的坐标范围均在0~1之间。</p>
+<p>其中，X1，Y1表示人工标注的BoundingBox最右上角的坐标，w、h分别表示BB的长和高。</p>
+<p>$(mp_i, mq_i)$ 指的是整个数据集中，所有$(p_i, q_i)$ 的平均值。</p>
+<p>上面所述的操作，我们可以定义一个相似度转换矩阵$T$， 通过学习这个矩阵的方式，将原始坐标的点映射到新坐标系上。<br>
+$$<br>
+\begin{bmatrix}<br>
+mp_i \<br>
+mq_i \<br>
+1<br>
+\end{bmatrix}^T<br>
+=<br>
+\begin{bmatrix}<br>
+x_i \<br>
+y_i \<br>
+1<br>
+\end{bmatrix}^T T<br>
+$$<br>
+这样一来，反过来，我们可以求得在映射后左上角和有下角的坐标（0,0）（1,1）在原始坐标系中的坐标$(x_{tl}, y_{tl}), (x_{dr}, y_{dr})$位置：<br>
+$$<br>
+\begin{bmatrix}<br>
+x_{tl} \<br>
+y_{tl} \<br>
+1<br>
+\end{bmatrix}<br>
+^T T<br>
+=<br>
+\begin{bmatrix}<br>
+0 \<br>
+0 \<br>
+1<br>
+\end{bmatrix}^T<br>
+$$</p>
+<p>$$<br>
+\begin{bmatrix}<br>
+x_{dr} \<br>
+y_{dr} \<br>
+1<br>
+\end{bmatrix}<br>
+^T T<br>
+=<br>
+\begin{bmatrix}<br>
+1 \<br>
+1 \<br>
+1<br>
+\end{bmatrix}^T<br>
+$$</p>
+<p>因此，有：<br>
+$$<br>
+\begin{bmatrix}<br>
+x_{tl} &amp; x_{tl} \<br>
+y_{tl} &amp; y_{tl} \<br>
+1 &amp; 1<br>
+\end{bmatrix}<br>
+^T<br>
+=<br>
+\begin{bmatrix}<br>
+0 &amp; 1 \<br>
+0 &amp; 1\<br>
+1 &amp; 1<br>
+\end{bmatrix}^T<br>
+T^{-1}<br>
+$$<br>
+对于一张给定的人脸图片，人脸的尺寸$x = \sqrt{(x_{dr}-x_{tl})*(y_{dr}-y_{tl})}$</p>
+<p>$S^2AP$ 的输出是一系列的特征图：$F_b (b \in [1,…,m])$ ，每一个特征图负责一个尺寸人脸的特征的提取。因此，对于不同尺寸的人脸$x$， 作者提取了人脸尺度对应特征图下标的对应关系<br>
+$$<br>
+b = 10 [\log_2(\frac{x}{L_{max}} \times S_{max})-4]<br>
+$$<br>
+其中，$L_{max}$ 是图片的长宽中，较长的一遍的大小，$S_{max}$ 是预定义的一个最长的长度，定义为1024</p>
+<p><strong>Spatical Attention</strong></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/°∂Rethinking-Atrous-Convolution-for-Semantic-Image-Segmentation°∑‘ƒ∂¡± º«/" data-toggle="tooltip" data-placement="top" title="《Rethinking Atrous Convolution for Semantic Image Segmentation》阅读笔记">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/°∂Direct-Shape-Regression-Networks-for-End-to-End-Face-Alignment°∑¬€ŒƒΩ‚∂¡/" data-toggle="tooltip" data-placement="top" title="《Direct Shape Regression Networks for End-to-End Face Alignment》论文解读">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="alipay_url"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="wechatpay_url"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">赞赏一下</p>
+                    </div>
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Face" title="Face">Face</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/zerteen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://zerteen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+
+</html>
