@@ -209,7 +209,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="deep-ordinal-hashing"><a href="#Deep-Ordinal-Hashing" class="headerlink" title="Deep Ordinal Hashing"></a>Deep Ordinal Hashing</h1><p>主要采用的是ranking to hashing的方式。</p>
+                <h1 id="deep-ordinal-hashing">Deep Ordinal Hashing</h1>
+<p>主要采用的是ranking to hashing的方式。</p>
 <p>大部分的deep hashing的方式是直接使用全连接层的输出并将其映射到hash code空间。但是全局的信息会带来<code>空间信息损失</code> 的问题，导致学习到的hash code不是最优的。所以文章提出来使用注意力机制，来抽取局部空间特征。</p>
 <p>考虑到在hash code进行量化的时候，通常使用的<code>sign()</code> 和<code>threshold()</code> 函数对噪音数值敏感，所以提出来使用基于排序的函数</p>
 <ol>
