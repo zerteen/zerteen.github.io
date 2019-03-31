@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -212,27 +212,20 @@
                 <p>Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.</p>
 <p>If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).</p>
 <p>The replacement must be in-place, do not allocate extra memory.</p>
-<p>Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.<br>
-<code>1,2,3</code> → <code>1,3,2</code><br>
-<code>3,2,1</code> → <code>1,2,3</code><br>
-<code>1,1,5</code> → <code>1,5,1</code></p>
+<p>Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.<br><code>1,2,3</code> → <code>1,3,2</code><br><code>3,2,1</code> → <code>1,2,3</code><br><code>1,1,5</code> → <code>1,5,1</code></p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nextPermutation</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;<span class="number">1</span>) <span class="keyword">return</span> ; </span><br><span class="line">        <span class="keyword">while</span>( i &gt;= <span class="number">1</span> &amp;&amp; nums[i-<span class="number">1</span>] &gt;= nums[i] )&#123;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i &gt;= <span class="number">1</span> &amp;&amp; nums[i-<span class="number">1</span>] &lt; nums[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> j = i+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>( ; j&lt;nums.length; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j] &lt;= nums[i-<span class="number">1</span>])</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            swap(nums, i-<span class="number">1</span>, j-<span class="number">1</span>);</span><br><span class="line">            reverse(nums, i, nums.length-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            reverse(nums,i,nums.length-<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> t = nums[a];</span><br><span class="line">        nums[a] = nums[b];</span><br><span class="line">        nums[b] = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(a&lt;=b)&#123;</span><br><span class="line">            swap(nums, a, b);</span><br><span class="line">            a++;</span><br><span class="line">            b--;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>
-<p>The main idea is to search from tail to head to find <code>nums[i-1]</code> &lt; <code>nums[i]</code></p>
+<li><p>The main idea is to search from tail to head to find <code>nums[i-1]</code> &lt; <code>nums[i]</code> </p>
 </li>
-<li>
-<p>Swap i-1 with j, where nums[j] is the first number which is larger than nums[i-1]</p>
+<li><p>Swap i-1 with j, where nums[j] is the first number which is larger than nums[i-1]</p>
 </li>
-<li>
-<p>the Reverse i~n;</p>
+<li><p>the Reverse i~n;</p>
 </li>
-<li>
-<p>4 5 9 7 2 1</p>
+<li><p>4 5 9 7 2 1</p>
 <ul>
-<li>swap <code>5</code> with <code>7</code> --&gt; <code>4 7 9 5 2 1</code></li>
-<li>reverse <code>9 5 2 1</code> --&gt; <code>4 7 1 2 5 9</code></li>
+<li>swap <code>5</code> with <code>7</code> —&gt; <code>4 7 9 5 2 1</code></li>
+<li>reverse <code>9 5 2 1</code> —&gt; <code>4 7 1 2 5 9</code></li>
 </ul>
 <p>​</p>
 </li>
@@ -517,8 +510,24 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

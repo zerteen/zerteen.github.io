@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -302,8 +302,7 @@ You may assume no duplicat......
         <div class="post-content-preview">
             
 Find the contiguous subarray within an array (containing at least one number) which has the largest product.
-For example, given the array [2,3,-2,4],
-the contiguous subarray [2,3] has the largest ......
+For example, given the array [2,3,-2,4],the contiguous subarray [2,3] has the largest p......
         </div>
     </a>
     
@@ -356,10 +355,9 @@ For example, given the following triangle
         </h3>
         <div class="post-content-preview">
             Given inorder and postorder traversal of a tree, construct the binary tree.
-Note:
-You may assume that duplicates do not exist in the tree.
+Note:You may assume that duplicates do not exist in the tree.
 For example, given
-12inorder = [9,3,15,20,7]postorder = [9......
+12inorder = [9,3,15,20,7]postorder = [9,......
         </div>
     </a>
     
@@ -386,10 +384,9 @@ For example, given
         <div class="post-content-preview">
             
 Given preorder and inorder traversal of a tree, construct the binary tree.
-Note:
-You may assume that duplicates do not exist in the tree.
+Note:You may assume that duplicates do not exist in the tree.
 For example, given
-12preorder = [3,9,20,15,7]inorder = [9,......
+12preorder = [3,9,20,15,7]inorder = [9,3......
         </div>
     </a>
     
@@ -443,9 +440,8 @@ The word can be constructed from letters of sequentially adjacent cell, where â€
             
 Given a set of distinct integers, nums, return all possible subsets (the power set).
 Note: The solution set must not contain duplicate subsets.
-For example,
-If nums = [1,2,3], a solution is:
-12345......
+For example,If nums = [1,2,3], a solution is:
+123456......
         </div>
     </a>
     
@@ -751,8 +747,24 @@ The first integer of each r......
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>
