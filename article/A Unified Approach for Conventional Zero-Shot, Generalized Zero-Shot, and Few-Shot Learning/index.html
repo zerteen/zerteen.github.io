@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,7 +211,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="a-unified-approach-for-conventional-zero-shot-generalized-zero-shot-and-few-shot-learning"><a href="#A-Unified-Approach-for-Conventional-Zero-Shot-Generalized-Zero-Shot-and-Few-Shot-Learning" class="headerlink" title="A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning"></a>A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning</h1><hr>
+                <h1 id="a-unified-approach-for-conventional-zero-shot-generalized-zero-shot-and-few-shot-learning">A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning</h1>
+<hr>
 <p>论文总结了通用的监督学习存在的问题：</p>
 <ol>
 <li>大量的依赖训练数据的监督标签。当数据量巨大的时候，并不能保证每一个类的标注都是充足的和有效的。</li>
@@ -221,15 +222,17 @@
 <p>ZSH的目的就是利用<code>语义信息</code>（Semantic information），将新出现的类别和已存在的类别联系起来。</p>
 <p>总结了ZSL的两种方法：</p>
 <ul>
-<li><p><strong>attribute/word vector prediction</strong></p>
+<li>
+<p><strong>attribute/word vector prediction</strong></p>
 <blockquote>
 <p>Given an image, they attempt to approximate label embedding and then classify an unseen class image based on the similarity of predicted vector with unseen attribute/word vector.</p>
 <p>给定一张图像，先从图像中提取出一个label embedding，然后计算提取出的label embedding和unseen class attribute的相似度，进行分类。</p>
 </blockquote>
 </li>
-<li><p><strong>compatibility function</strong></p>
+<li>
+<p><strong>compatibility function</strong></p>
 <blockquote>
-<p>learn a compatibility function between image and label embeddings, which returns a compatibility score. An unseen instance is then assigned to the class that gives the maximum score. </p>
+<p>learn a compatibility function between image and label embeddings, which returns a compatibility score. An unseen instance is then assigned to the class that gives the maximum score.</p>
 <p>学习的是一个函数，返回每一张图像和label embedding的相似度，根据相似度进行分类。这里只有图像和label embedding。</p>
 </blockquote>
 </li>
@@ -246,47 +249,66 @@
 <p>符号定义：</p>
 <ul>
 <li>label：$\mathbf{y} = \mathbf{y ^ { s }} \cup \mathbf{y ^ { u }}$  其中，$\mathbf { y } ^ { \mathcal { S } } = { 1 , \ldots , \mathrm { S } }$为seen class的label，$\mathbf { y } ^ { \mathcal { U } } = { S , \ldots , \mathrm { S+U } }$为 unseen class的label。</li>
-<li>semantic class embedding: $\mathbf { E } ^ { \mathcal { S } } = \lbrace \mathbf { e } _ { s } : s \in \mathbf { y } ^ { \mathcal { S } } \rbrace $, $\mathbf { E } ^ { \mathcal { U } } = \lbrace \mathbf { e } _ { u } : u \in \mathbf { y } ^ { \mathcal { U } } \rbrace $, $\mathbf { e } _ { s } , \mathbf { e } _ { u } \in \mathbb { R } ^ { d }$ </li>
+<li>semantic class embedding: $\mathbf { E } ^ { \mathcal { S } } = \lbrace \mathbf { e } _ { s } : s \in \mathbf { y } ^ { \mathcal { S } } \rbrace $, $\mathbf { E } ^ { \mathcal { U } } = \lbrace \mathbf { e } _ { u } : u \in \mathbf { y } ^ { \mathcal { U } } \rbrace $, $\mathbf { e } _ { s } , \mathbf { e } _ { u } \in \mathbb { R } ^ { d }$</li>
 <li>Images: $\mathbf { X } _ { s } = \left[ \mathbf { x } _ { s } ^ { 1 } , \ldots , \mathbf { x } _ { s } ^ { n _ { s } } \right]$, $\mathbf { X } _ { u } = \left[ \mathbf { x } _ { u } ^ { 1 } , \ldots , \mathbf { x } _ { u } ^ { n _ { u } } \right]$ 其中，$n_s$是seen class中data的总数，同理$n_u$</li>
 <li>zsl的目标是为了给每一个unseen images 指定其类别</li>
 <li>gzsl的目标是为了给任意一个image指定其类别，该image可以来自seen class， 也可以来自unseen class</li>
-<li>fsl的目标是同gzsl，只不过在训练数据中加入了少量的unseen class </li>
+<li>fsl的目标是同gzsl，只不过在训练数据中加入了少量的unseen class</li>
 </ul>
 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fytifrpg6zj31f00u0dmz.jpg" alt="image-20190103171107420"></p>
-<h2 id="class-adapting-principle-directioncapd"><a href="#class-adapting-principle-direction-CAPD" class="headerlink" title="class adapting principle direction(CAPD)"></a>class adapting principle direction(CAPD)</h2><p>CAPD对seen class和unseen class的处理方式是不同的。</p>
-<p><strong>CAPD on seen class</strong></p>
-<script type="math/tex; mode=display">
-\mathbf { p } _ { s } = \mathbf { W } _ { s } ^ { T } \mathbf { x } _ { s }</script><p>对seen class，需要学习一个mapping function [$\mathbf{W_s}$]，将image映射到semantic space中的principle direction [$\mathbf{p_s}$]</p>
-<p>对$\mathbf{W_s}$的学习使用到如下的目标函数：</p>
-<script type="math/tex; mode=display">
-\min _ { \mathbf { W } _ { s } } \frac { 1 } { \kappa } \sum _ { c = 1 } ^ { S } \sum _ { m = 1 } ^ { n _ { c } } \log \left( 1 + \exp \lbrace L \left( \mathbf { x } _ { c } ^ { m } ; \mathbf { W } _ { s } \right) \rbrace  \right) + \frac { \lambda _ { s } } { 2 } \left\| \mathbf { W } _ { s } \right\| _ { 2 } ^ { 2 }</script><script type="math/tex; mode=display">
-\begin{equation}
-\left( \mathbf { x } _ { c } ^ { m } ; \mathbf { W } _ { s } \right) =
-\begin {cases}
-\left\langle \mathbf { p } _ { s } , \mathbf { e } _ { c } \right\rangle - \left\langle \mathbf { p } _ { s }  , \mathbf { e } _ { s } \right\rangle , & { c \neq s } \\
-\left\langle \mathbf { p } _ { s } , \frac { 1 } { \mathrm { S } - 1 } \sum _ { t \neq s } \mathbf { e } _ { t } \right\rangle - \left\langle \mathbf { p } _ { s } , \mathbf { e } _ { s } \right\rangle , & { c = s }
-\end{cases}
-\end{equation}</script><!-- \\
+<h2 id="class-adapting-principle-directioncapd">class adapting principle direction(CAPD)</h2>
+<p>CAPD对seen class和unseen class的处理方式是不同的。</p>
+<p><strong>CAPD on seen class</strong><br>
+$$<br>
+\mathbf { p } _ { s } = \mathbf { W } _ { s } ^ { T } \mathbf { x } _ { s }<br>
+$$<br>
+对seen class，需要学习一个mapping function [$\mathbf{W_s}$]，将image映射到semantic space中的principle direction [$\mathbf{p_s}$]</p>
+<p>对$\mathbf{W_s}$的学习使用到如下的目标函数：<br>
+$$<br>
+\min _ { \mathbf { W } _ { s } } \frac { 1 } { \kappa } \sum _ { c = 1 } ^ { S } \sum _ { m = 1 } ^ { n _ { c } } \log \left( 1 + \exp \lbrace L \left( \mathbf { x } _ { c } ^ { m } ; \mathbf { W } _ { s } \right) \rbrace  \right) + \frac { \lambda _ { s } } { 2 } \left| \mathbf { W } _ { s } \right| _ { 2 } ^ { 2 }<br>
+$$</p>
+<p>$$<br>
+\begin{equation}<br>
+\left( \mathbf { x } _ { c } ^ { m } ; \mathbf { W } _ { s } \right) =<br>
+\begin {cases}<br>
+\left\langle \mathbf { p } _ { s } , \mathbf { e } _ { c } \right\rangle - \left\langle \mathbf { p } _ { s }  , \mathbf { e } _ { s } \right\rangle , &amp; { c \neq s } \<br>
+\left\langle \mathbf { p } _ { s } , \frac { 1 } { \mathrm { S } - 1 } \sum _ { t \neq s } \mathbf { e } _ { t } \right\rangle - \left\langle \mathbf { p } _ { s } , \mathbf { e } _ { s } \right\rangle , &amp; { c = s }<br>
+\end{cases}<br>
+\end{equation}<br>
+$$</p>
+<!-- \\
 , } &  \end{array} \right -->
 <p>以上loss的第一项表示，当前的的image属于第c个类别，在s类别的矩阵下生成的p在他对应的label的embedding投影小，在s label的enbedding投影大。</p>
 <p>第二项表示，当前的image属于第s个类别时，生成的p和在其他label的embedding的均值方向的投影小，在对应的label的embedding投影大。【论文中提出，这一项同时保证了p在对应的e上的投影要大于其他e的均值上的投影】</p>
 <p><strong>CAPD on unseen class</strong></p>
-<p>对unseen class，论文提出为每一个image使用双线性映射来估计他的p。</p>
-<script type="math/tex; mode=display">
-\mathbf { p } _ { u } = \sum _ { s = 1 } ^ { S } \theta _ { s , u } \mathbf { p } _ { s } = \mathbf { P } ^ { \mathcal { S } } \theta _ { u }</script><p>也就是说，每一个unseen class是从seen中加权得到的。那这里的theta就是一个相似度metric，如何得到θ，论文提到。</p>
-<script type="math/tex; mode=display">
-\max _ { \mathbf { M } } \min _ { ( i , j ) \in \overline { A } } d _ { \mathbf { M } } ^ { 2 } \left( \mathbf { p } _ { i } , \mathbf { p } _ { j } \right)\\ \text { s.t. } \sum _ { ( i , j ) \in \mathbf { A } } d _ { \mathbf { M } } ^ { 2 } \left( \mathbf { p } _ { i } , \mathbf { p } _ { j } \right) \leq 1
-\\
-d _ { \mathbf { M } } = \sqrt { \left( \mathbf { p } _ { i } - \mathbf { p } _ { j } \right) ^ { T } \mathbf { M } \left( \mathbf { p } _ { i } - \mathbf { p } _ { j } \right) }</script><p>确保每训练数据中，每一个同类 (i, j) ∈ A，之间的度量小于1，每一个不同类 (i, j) ∈ A^ 之间的最小距离最大化。</p>
-<p>在学习得到M之后，可以估计出unseen class的e</p>
-<script type="math/tex; mode=display">
-\hat { \mathbf { e } } _ { u } = \sum _ { s = 1 } ^ { \mathrm { S } } \alpha _ { s , u } \mathbf { e } _ { s } = \mathbf { E } ^ { \mathcal { S } } \alpha _ { u }</script><p>上面的α可以通过下面的方式得到：</p>
-<script type="math/tex; mode=display">
-\min _ { \alpha _ { u } } \left( \hat { \mathbf { e } } _ { u } - \mathbf { e } _ { u } \right) ^ { T } \mathbf { M } \left( \hat { \mathbf { e } } _ { u } - \mathbf { e } _ { u } \right) + \frac { \lambda _ { u } } { 2 } \left\| \alpha _ { u } \right\| _ { 2 } ^ { 2 }</script><h2 id="reduced-set-description-of-unseen-classes"><a href="#reduced-set-description-of-unseen-classes" class="headerlink" title="reduced set description of unseen classes"></a>reduced set description of unseen classes</h2><p>论文提出，从seen class推理到unseen class不需要要所欲的类别参与，从S个类别降到N个类别：</p>
-<script type="math/tex; mode=display">
-\hat { \mathbf { e } } _ { u } = \sum _ { i = 1 } ^ { N } \beta _ { i , u } \mathbf { e } _ { i }</script><p>这里的N是用e进行最邻近搜索得到的。</p>
+<p>对unseen class，论文提出为每一个image使用双线性映射来估计他的p。<br>
+$$<br>
+\mathbf { p } _ { u } = \sum _ { s = 1 } ^ { S } \theta _ { s , u } \mathbf { p } _ { s } = \mathbf { P } ^ { \mathcal { S } } \theta _ { u }<br>
+$$<br>
+也就是说，每一个unseen class是从seen中加权得到的。那这里的theta就是一个相似度metric，如何得到θ，论文提到。<br>
+$$<br>
+\max _ { \mathbf { M } } \min _ { ( i , j ) \in \overline { A } } d _ { \mathbf { M } } ^ { 2 } \left( \mathbf { p } _ { i } , \mathbf { p } _ { j } \right)\ \text { s.t. } \sum _ { ( i , j ) \in \mathbf { A } } d _ { \mathbf { M } } ^ { 2 } \left( \mathbf { p } _ { i } , \mathbf { p } _ { j } \right) \leq 1<br>
+\<br>
+d _ { \mathbf { M } } = \sqrt { \left( \mathbf { p } _ { i } - \mathbf { p } _ { j } \right) ^ { T } \mathbf { M } \left( \mathbf { p } _ { i } - \mathbf { p } _ { j } \right) }<br>
+$$</p>
+<p>确保每训练数据中，每一个同类 (i, j) ∈ A，之间的度量小于1，每一个不同类 (i, j) ∈ A^ 之间的最小距离最大化。</p>
+<p>在学习得到M之后，可以估计出unseen class的e<br>
+$$<br>
+\hat { \mathbf { e } } _ { u } = \sum _ { s = 1 } ^ { \mathrm { S } } \alpha _ { s , u } \mathbf { e } _ { s } = \mathbf { E } ^ { \mathcal { S } } \alpha _ { u }<br>
+$$<br>
+上面的α可以通过下面的方式得到：<br>
+$$<br>
+\min _ { \alpha _ { u } } \left( \hat { \mathbf { e } } _ { u } - \mathbf { e } _ { u } \right) ^ { T } \mathbf { M } \left( \hat { \mathbf { e } } _ { u } - \mathbf { e } _ { u } \right) + \frac { \lambda _ { u } } { 2 } \left| \alpha _ { u } \right| _ { 2 } ^ { 2 }<br>
+$$</p>
+<h2 id="reduced-set-description-of-unseen-classes">reduced set description of unseen classes</h2>
+<p>论文提出，从seen class推理到unseen class不需要要所欲的类别参与，从S个类别降到N个类别：<br>
+$$<br>
+\hat { \mathbf { e } } _ { u } = \sum _ { i = 1 } ^ { N } \beta _ { i , u } \mathbf { e } _ { i }<br>
+$$<br>
+这里的N是用e进行最邻近搜索得到的。</p>
 <p>同时，论文还提出来使用kernel density estimation来获得距离的概率the number of seen classes with the highest probability score is assigned as the value of N</p>
-<h1 id="to-be-continued"><a href="#to-be-continued" class="headerlink" title="to be continued."></a>to be continued.</h1>
+<h1 id="to-be-continued">to be continued.</h1>
+
                 
 
                 <hr>

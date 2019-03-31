@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,7 +211,8 @@
 
                 <p>You are given an <em>n</em> x <em>n</em> 2D matrix representing an image.</p>
 <p>Rotate the image by 90 degrees (clockwise).</p>
-<p><strong>Note:</strong><br>You have to rotate the image <strong>in-place</strong>, which means you have to modify the input 2D matrix directly. <strong>DO NOT</strong> allocate another 2D matrix and do the rotation.</p>
+<p><strong>Note:</strong><br>
+You have to rotate the image <strong>in-place</strong>, which means you have to modify the input 2D matrix directly. <strong>DO NOT</strong> allocate another 2D matrix and do the rotation.</p>
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Given input matrix = </span><br><span class="line">[</span><br><span class="line">  [1,2,3],</span><br><span class="line">  [4,5,6],</span><br><span class="line">  [7,8,9]</span><br><span class="line">],</span><br><span class="line"></span><br><span class="line">rotate the input matrix in-place such that it becomes:</span><br><span class="line">[</span><br><span class="line">  [7,4,1],</span><br><span class="line">  [8,5,2],</span><br><span class="line">  [9,6,3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
@@ -219,7 +220,38 @@
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;matrix.length/<span class="number">2</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i; j&lt;matrix.length-<span class="number">1</span>-i; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> temp = matrix[i][j];</span><br><span class="line">                matrix[i][j] =  matrix[matrix.length-<span class="number">1</span>-j][i];</span><br><span class="line">                matrix[matrix.length-<span class="number">1</span>-j][i] = matrix[matrix.length-<span class="number">1</span>-i][matrix.length-<span class="number">1</span>-j];</span><br><span class="line">                matrix[matrix.length-<span class="number">1</span>-i][matrix.length-<span class="number">1</span>-j] = matrix[j][matrix.length-<span class="number">1</span>-i];</span><br><span class="line">                matrix[j][matrix.length-<span class="number">1</span>-i]= temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>| i, j                 |      |      | j, matrix.length-1-i                 |<br>| —————————— | —— | —— | —————————————————— |<br>|                      |      |      |                                      |<br>|                      |      |      |                                      |<br>| matrix.length-1-j, i |      |      | matrix.length-1-i, matrix.length-1-j |</li>
+<li>
+<table>
+<thead>
+<tr>
+<th>i, j</th>
+<th></th>
+<th></th>
+<th>j, matrix.length-1-i</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>matrix.length-1-j, i</td>
+<td></td>
+<td></td>
+<td>matrix.length-1-i, matrix.length-1-j</td>
+</tr>
+</tbody>
+</table>
+</li>
 </ul>
 
                 

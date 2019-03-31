@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -215,33 +215,45 @@
 <p>Multi-task deep CNN (MCNN) 指的是对于每一个属性，共享网络的底层，同时，对于高度相关的属性，同样共享高层的网络。MCNN将40余中属性，根据其各自的相似性，将其分为9个属性组。在初始进行split之后，每一个组相当于是相互独立的，这样的话，高层网络中，组间的信息将没有得到充分的利用。</p>
 <p>类似的，本文同样根据属性的位置信息，将40余中属性分为四类：</p>
 <ul>
-<li><p><strong>Upper Group</strong>: Arched Eyebrows, Bags Under Eyes, Bald, Bangs, Black Hair, Blond Hair, Brown Hair, Bushy Eyebrows, Eyeglasses, Gray Hair, Narrow Eyes, Receding Hairline, Wearing Hat.</p>
+<li>
+<p><strong>Upper Group</strong>: Arched Eyebrows, Bags Under Eyes, Bald, Bangs, Black Hair, Blond Hair, Brown Hair, Bushy Eyebrows, Eyeglasses, Gray Hair, Narrow Eyes, Receding Hairline, Wearing Hat.</p>
 </li>
-<li><p><strong>Middle Group</strong>: Big Nose, High Cheekbones, Pointy Nose, Rosy Cheeks, Sideburns, Wearing Earrings.</p>
+<li>
+<p><strong>Middle Group</strong>: Big Nose, High Cheekbones, Pointy Nose, Rosy Cheeks, Sideburns, Wearing Earrings.</p>
 </li>
-<li><strong>Lower Group</strong>: Big Lips, Double Chin, Goatee, Mustache, Mouth Slightly Open, No Beard, Wearing Lipstick, Wearing Necklace, Wearing Necktie. </li>
-<li><strong>Whole Image Group</strong>: 5 o’Clock Shadow, Attractive, Blurry, Chubby, Heavy Makeup, Male, Oval Face, Pale Skin, Straight Hair, Smiling, Wavy Hair, Young.</li>
+<li>
+<p><strong>Lower Group</strong>: Big Lips, Double Chin, Goatee, Mustache, Mouth Slightly Open, No Beard, Wearing Lipstick, Wearing Necklace, Wearing Necktie.</p>
+</li>
+<li>
+<p><strong>Whole Image Group</strong>: 5 o’Clock Shadow, Attractive, Blurry, Chubby, Heavy Makeup, Male, Oval Face, Pale Skin, Straight Hair, Smiling, Wavy Hair, Young.</p>
+</li>
 </ul>
 <p>论文主要研究同时考虑 身份信息（identity information）和 属性关系（attribute relationships），论文假设充分的利用属性组之间的信息和有效的利用身份标签信息能够通过建模属性的局部集合结构的方式提升性能。</p>
 <p>Partially Shared Multi-task Convolutional Neu- ral Network (PS-MCNN)</p>
 <p>提出，通过shared network(SNet) 来学习 任务间的关系，每一个任务通过Task Specific Network(TSNets)来学习。PS-MCNN的关键对于所有的组，共享一个网络来学习共享的特征。同时，对于每一个给定的任务，指定一个网络来学习。</p>
-<p><img src="《Partially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning》论文解读\1535359149121.png" alt="1535359149121"></p>
+<p><img src="%E3%80%8APartially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535359149121.png" alt="1535359149121"></p>
 <p>每一层SNet在t+1时刻的输入包括SNet在t时刻的输出和其他所有TSNet在t时刻的输出。</p>
 <p>每一层TSNet在t+1时刻的输入包括TSNet本省在t时刻的输出以及SNet在t时刻的输出。</p>
-<p><img src="《Partially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning》论文解读\1535367893957.png" alt="1535367893957"></p>
+<p><img src="%E3%80%8APartially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535367893957.png" alt="1535367893957"></p>
 <p>对于任务身份信息的利用，由于属性特征通常是身份信息特征中的一部分，如果直接将身份信息作为人脸的一个属性的话，这样就没充分利用到身份信息。对此，作者提出来，使用局部学习限制，来最小化同一个人物身份的不同表示间的差异。由此提出Local Constraint Loss（LCLoss）。</p>
-<p>对于同一个identity，我们将其定义为相互的地理邻居（geometric neighbor），对于一个样本，他的特征表示应该和他的地理邻居的表示差异较小，由此得到：</p>
-<script type="math/tex; mode=display">
-LCLoss = \frac{1}{N(N-1)}{\sum_{i=1}^{N}\sum_{j=i+1}^{N}w_{i,j}||feature_{si}^t - feature_{sj}^{t}||_2}</script><script type="math/tex; mode=display">
-w_{i,j} =
-\begin{cases}
-& 1 &\text{, if i j have the same identy} \\
-& 0 &\text{, otherwise}
-\end{cases}</script><p> 总的loss为：</p>
-<script type="math/tex; mode=display">
-Loss = \sum_{i=1}^4 ALoss_i + \lambda LCLoss</script><p>网络的设置：</p>
-<p><img src="《Partially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning》论文解读\1535369699843.png" alt="1535369699843"></p>
-<p><img src="《Partially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning》论文解读\1535370017283.png" alt="1535370017283"></p>
+<p>对于同一个identity，我们将其定义为相互的地理邻居（geometric neighbor），对于一个样本，他的特征表示应该和他的地理邻居的表示差异较小，由此得到：<br>
+$$<br>
+LCLoss = \frac{1}{N(N-1)}{\sum_{i=1}^{N}\sum_{j=i+1}^{N}w_{i,j}||feature_{si}^t - feature_{sj}^{t}||_2}<br>
+$$</p>
+<p>$$<br>
+w_{i,j} =<br>
+\begin{cases}<br>
+&amp; 1 &amp;\text{, if i j have the same identy} \<br>
+&amp; 0 &amp;\text{, otherwise}<br>
+\end{cases}<br>
+$$</p>
+<p>总的loss为：<br>
+$$<br>
+Loss = \sum_{i=1}^4 ALoss_i + \lambda LCLoss<br>
+$$</p>
+<p>网络的设置：</p>
+<p><img src="%E3%80%8APartially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535369699843.png" alt="1535369699843"></p>
+<p><img src="%E3%80%8APartially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535370017283.png" alt="1535370017283"></p>
 
                 
 
