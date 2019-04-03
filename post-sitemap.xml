@@ -7,6 +7,62 @@
     </url>
 
     <url>
+        <loc>https://zerteen.github.io/article/leetcode-85-Maximal-Rectangle/</loc>
+        <lastmod>2019-04-03T02:23:53.509Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-214-Shortest-Palindrome/</loc>
+        <lastmod>2019-04-02T03:05:33.867Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-220-Contains-Duplicate/</loc>
+        <lastmod>2019-04-01T05:17:45.907Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-207-Course-Schedule/</loc>
+        <lastmod>2019-04-01T01:28:23.822Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-174-Dungeon-Game/</loc>
+        <lastmod>2019-03-31T12:07:21.245Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-145-Binary-Tree-Postorder-Traversal/</loc>
+        <lastmod>2019-03-31T12:01:53.209Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-135-Candy/</loc>
+        <lastmod>2019-03-31T08:20:38.691Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerteen.github.io/article/leetcode-130-Surrounded-Regions/</loc>
         <lastmod>2019-03-31T05:34:09.075Z</lastmod>
         <changefreq>weekly</changefreq>
