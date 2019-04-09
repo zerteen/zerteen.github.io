@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          zerteen | Blog
+        
+    </title>
+
+    <link rel="canonical" href="https://zerteen.github.io/archives/15/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/header_img/banner.jpg') 
+            /*config*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="site-heading">
+                        <h1>Hey</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading"></span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hey</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+                <!-- Main Content -->
+
+
+<div class="post-preview">
+
+    <a href="/article/°∂Discriminative-Deep-Hashing-for-Scalable-Face-Image-Retrieval-Jie°∑¬€Œƒ± º«/">
+        <h2 class="post-title">
+            《Discriminative Deep Hashing for Scalable Face Image Retrieval Jie》论文笔记
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Discriminative Deep Hashing for Scalable Face Image Retrieval提出辨识力深度哈希网络（Discriminative Deep Hash Network）
+简单来说，可以总结为一下几点：
+
+使用卷积来提取多尺度的特征
+使用divide-and encode分治编码的方式，用来生成紧凑的哈希编码
+设计了一个损失函数来降低预测误差（pre......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-09-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Retrieval" title="Face Retrieval">Face Retrieval</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/notes/image∂¡»°◊¢“‚ ¬œÓ/">
+        <h2 class="post-title">
+            image读取&转换
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1. picke 读取数据许多数据集是使用pickle进行序列化后进行保存的。因此，在还原为图片的时候，使用pickel进行还原：
+ 123import pickelwith open(file, "rb") as fo:    data = pickel.load(fo, encoding="bytes")
+这里需要注意的是，python3中有encoding参数，而python2中并没有......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-09-09
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/Face-Recogonition-Survey/">
+        <h2 class="post-title">
+            Face Recogonition Survey
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            传统的人脸识别方法
+
+Historical Eigenface Approach
+Linear Subspace
+Manifold
+Sparse Representation
+Gabor
+LBP
+
+基于深度学习的人脸识别方法
+
+DeepFace
+DeepID
+
+相关综述
+[222], [18], [3], [78], [136], [123]
+数据集
+LFW [74]
+IJB-A/B/C [......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-09-03
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Rethinking-Atrous-Convolution-for-Semantic-Image-Segmentation°∑‘ƒ∂¡± º«/">
+        <h2 class="post-title">
+            《Rethinking Atrous Convolution for Semantic Image Segmentation》阅读笔记
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            显示的调整录波器的感受野的同时控制卷积后特征的分辨率
+为了应对语义分割中的多尺度问题，提出了级联或者并联具有不同multiple atrous rate的atrous convolution的方式来抓取不同尺度的上下文信息。
+增强了Atrous Spatial Pyramid Pooling模块，使得图像级别的特征能够被编码。
+在语义分割领域主要有两个困难：
+
+由于连续的卷积操作，图像的特征......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-30
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Semantic Segmentation" title="Semantic Segmentation">Semantic Segmentation</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Beyond-Trade-off-Accelerate-FCN-based-Face-Detector-with-Higher-Accuracy°∑¬€ŒƒΩ‚∂¡/">
+        <h2 class="post-title">
+            《Beyond Trade-off: Accelerate FCN-based Face Detector with Higher Accuracy》论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            论文提出将图片中人脸的搜索空间分解为两个正交方向的向量，尺度方向和空间方向，尺度方向，进而提出了尺度估计（Scale Estimation）和空间注意力提议机制（Spatial attention proposal， $S^2AP$）。在我们知道粗略的空间位置和人脸尺度时，我们能够将注意力集中在某些特定的范围和位置，这样一来，搜索空间将得到有效的降低。
+尺度方向：保证了Image Pyram......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-28
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face" title="Face">Face</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Direct-Shape-Regression-Networks-for-End-to-End-Face-Alignment°∑¬€ŒƒΩ‚∂¡/">
+        <h2 class="post-title">
+            《Direct Shape Regression Networks for End-to-End Face Alignment》论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            该论文主要提出了Direct shape regression network (DSRN) 来直接预测人脸标记点。
+人脸对齐主要的困难在于人脸图片和相关的人脸形状之间的高度非线性对应关系。
+
+输入的图像$I$
+人脸形状$S​$
+$N$ 总共的标记点数目
+$[x_1, y_1, …,x_N,y_N]^T \in \R^{2N}$ 是一组标记点的实例。
+
+人脸对其的主要目标是在已知人脸语义描述......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-27
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Partially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning°∑¬€ŒƒΩ‚∂¡/">
+        <h2 class="post-title">
+            《Partially Shared Multi-Task Convolutional Neural Network with Local Constraint for Face Attribute Learning》论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            人脸属性学习（Face Attribute Learning）的主要目的在于学习图像的中等级的特征，这些特征是低级别特征和高级别标签的抽象结合。
+Multi-task deep CNN (MCNN) 指的是对于每一个属性，共享网络的底层，同时，对于高度相关的属性，同样共享高层的网络。MCNN将40余中属性，根据其各自的相似性，将其分为9个属性组。在初始进行split之后，每一个组相当于是相互......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-25
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂deep-face-recognition°∑¬€ŒƒΩ‚∂¡/">
+        <h2 class="post-title">
+            《deep face recognition》论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            原文地址： Deep Face Recognition
+该论文主要从两个方面阐述了他们的工作：
+
+通过半自动化的方式来生成大规模的数据集，使用web中资源，来收集人脸数据。
+提出一种用于人脸识别的卷积网路的训练过程。
+
+
+Google使用的一个人人脸图像数据集中包含2亿张图片，8百万个人物身份。但是公开的数据集很难达到这样的数据规模。
+
+如上图所示，左侧的公开数据集在量级上要远小于大公司所使......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-24
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/pytorch/pytorch-notes/">
+        <h2 class="post-title">
+            pytorch notes
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            数据集加载流程：
+torchvision.datasets中已经包含众多数据集，先建立一个数据集对。
+1mnist_train = torchvision.datasets.MNIST(root="\data", train=True, download=True, transform= transform)
+不过在建立对象的时候，需要指定transform来确定对原始数据集中的图片的转换过......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-23
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/NLP/NLP-review-ch01/">
+        <h2 class="post-title">
+            NLP review ch01
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            ch01 intro自然语言处理：自然语言处理是研究如何利用计算机技术对语言文本（句子、篇章或话语等）进行处理和加工的一门学科，研究内容包括对词法、句法、语义和语用等信息的识别、分类、提取、转换和生成等各种处理方法和实现技术。
+屈折语：用词的形态变化表示语法关系，如英语、法语等。
+黏着语：词内有专门表示语法意义的附加成分，词根或词干与附加成分的结合不紧密，如日语、韩语、土耳其语等。
+孤立语：......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-23
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+        <li class="previous">
+            <a href="/archives/14/">&larr; Newer Posts</a>
+        </li>
+    
+    
+        <li class="next">
+            <a href="/archives/16/">Older Posts &rarr;</a>
+        </li>
+    
+</ul>
+
+
+
+                <br>
+
+                <!-- require APlayer -->
+                
+
+                <!-- 如果开启评论功能 -->
+                
+            </div>
+
+          <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Featured Tags -->
+
+<section>
+    <!-- no hr -->
+    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+            
+            <a href="/tags/#face" title="face" rel="6">face</a>
+            
+        
+            
+            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
+            
+        
+            
+            <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#leetcode" title="leetcode" rel="131">leetcode</a>
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+</section>
+
+        <hr>
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">ABOUT ME</a></h5>
+    <div class="short-about">
+
+        
+            <img id = "avatar_pic" src="/img/avatar/ironman.png" />
+        
+
+        
+            <p>Everyone comes to our live for a reason.</p>
+        
+
+        <!-- SNS Link -->
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+                <li>
+                    <a target="_blank"  href="https://github.com/zerteen">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+            
+            
+            
+        </ul>
+    </div>
+</section>
+
+        <hr>
+    
+        
+  <h5>RECENT POSTS</h3>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/article/leetcode-236-Lowest-Common-Ancestor-of-a-Binary-Tree/">leetcode 236 Lowest Common Ancestor of a Binary Tree</a>
+        </li>
+      
+        <li>
+          <a href="/article/leetcode-SuperPow/">leetcode</a>
+        </li>
+      
+        <li>
+          <a href="/article/leetcode-DecodeWays/">leetcode</a>
+        </li>
+      
+        <li>
+          <a href="/article/leetcode-NumberOfDigitOne/">leetcode</a>
+        </li>
+      
+        <li>
+          <a href="/article/leetcode-wordSearch/">leetcode</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        <hr>
+    
+        
+    <h5>ARCHIVES</h5>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">125</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+
+        <hr>
+    
+</div>
+
+        
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/zerteen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://zerteen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>
