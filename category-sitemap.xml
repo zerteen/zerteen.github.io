@@ -28,13 +28,6 @@
     </url>
 
     <url>
-        <loc>https://zerteen.github.io/categories/leetcode/</loc>
-        <lastmod>2018-08-23T01:35:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://zerteen.github.io/categories/NLP/</loc>
         <lastmod>2018-08-23T06:26:12.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -51,6 +44,13 @@
     <url>
         <loc>https://zerteen.github.io/categories/notes/</loc>
         <lastmod>2018-09-09T03:48:32.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/categories/leetcode/</loc>
+        <lastmod>2019-04-13T05:22:24.371Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

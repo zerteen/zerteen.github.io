@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          leetcode - zerteen | Blog
+          leetcode 94 Binary Tree Inorder Traversal - zerteen | Blog
         
     </title>
 
@@ -91,7 +91,7 @@
                               <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
                             
                         </div>
-                        <h1>leetcode</h1>
+                        <h1>leetcode 94 Binary Tree Inorder Traversal</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             2019-04-09
@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,7 +211,12 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> utils.TreeNode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinaryThreeInOrderTravel</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversalI</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    travel(root, ans);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">travel</span><span class="params">(TreeNode root, List&lt;Integer&gt; ans)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">    travel(root.left, ans);</span><br><span class="line">    ans.add(root.val);</span><br><span class="line">    travel(root.right, ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversalII</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Stack&lt;TreeNode&gt; s = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    TreeNode t = root;</span><br><span class="line">    <span class="keyword">while</span> (t != <span class="keyword">null</span> || !s.isEmpty()) &#123;</span><br><span class="line">      <span class="keyword">while</span> (t!= <span class="keyword">null</span>) &#123;</span><br><span class="line">        s.push(t);</span><br><span class="line">        t = t.left;</span><br><span class="line">      &#125;</span><br><span class="line">      t = s.pop();</span><br><span class="line">      ans.add(t.val);</span><br><span class="line">      t = t.right;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <p>Given a binary tree, return the <em>inorder</em>traversal of its nodes’ values.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,null,2,3]</span><br><span class="line">   1</span><br><span class="line">    \</span><br><span class="line">     2</span><br><span class="line">    /</span><br><span class="line">   3</span><br><span class="line"></span><br><span class="line">Output: [1,3,2]</span><br></pre></td></tr></table></figure>
+<p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> utils.TreeNode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinaryThreeInOrderTravel</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversalI</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    travel(root, ans);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">travel</span><span class="params">(TreeNode root, List&lt;Integer&gt; ans)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">    travel(root.left, ans);</span><br><span class="line">    ans.add(root.val);</span><br><span class="line">    travel(root.right, ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversalII</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Stack&lt;TreeNode&gt; s = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    TreeNode t = root;</span><br><span class="line">    <span class="keyword">while</span> (t != <span class="keyword">null</span> || !s.isEmpty()) &#123;</span><br><span class="line">      <span class="keyword">while</span> (t!= <span class="keyword">null</span>) &#123;</span><br><span class="line">        s.push(t);</span><br><span class="line">        t = t.left;</span><br><span class="line">      &#125;</span><br><span class="line">      t = s.pop();</span><br><span class="line">      ans.add(t.val);</span><br><span class="line">      t = t.right;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
 
@@ -220,12 +225,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/leetcode-PalindromePairs/" data-toggle="tooltip" data-placement="top" title="leetcode">&larr; Previous Post</a>
+                            <a href="/article/leetcode-NthDigit/" data-toggle="tooltip" data-placement="top" title="leetcode">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/leetcode-NumMatrix/" data-toggle="tooltip" data-placement="top" title="leetcode">Next Post &rarr;</a>
+                            <a href="/article/leetcode-PowerofThree/" data-toggle="tooltip" data-placement="top" title="leetcode">Next Post &rarr;</a>
                         </li>
                     
                 </ul>

@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          leetcode - zerteen | Blog
+          leetcode 312 Burst Balloons - zerteen | Blog
         
     </title>
 
@@ -91,7 +91,7 @@
                               <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
                             
                         </div>
-                        <h1>leetcode</h1>
+                        <h1>leetcode 312 Burst Balloons</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             2019-04-09
@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,7 +211,17 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BurstBalloons</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxScore</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] newNums = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length+<span class="number">2</span>];</span><br><span class="line">        newNums[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        newNums[newNums.length-<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++) &#123;</span><br><span class="line">            newNums[i+<span class="number">1</span>] = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[newNums.length][newNums.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">2</span>; k&lt;newNums.length; k++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> left = <span class="number">0</span>; left + k &lt; newNums.length; left ++) &#123;</span><br><span class="line">                <span class="keyword">int</span> right = left + k;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i=left+<span class="number">1</span>; i&lt;right; i++) &#123;</span><br><span class="line">                    dp[left][right] = Math.max(dp[left][right], dp[left][i-<span class="number">1</span>] + dp[i+<span class="number">1</span>][right] + newNums[i]*newNums[i-<span class="number">1</span>]*newNums[i+<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][newNums.length-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <p>Given <code>n</code> balloons, indexed from <code>0</code> to <code>n-1</code>. Each balloon is painted with a number on it represented by array <code>nums</code>. You are asked to burst all the balloons. If the you burst balloon <code>i</code> you will get <code>nums[left] * nums[i] * nums[right]</code> coins. Here <code>left</code> and <code>right</code> are adjacent indices of <code>i</code>. After the burst, the <code>left</code> and <code>right</code>then becomes adjacent.</p>
+<p>Find the maximum coins you can collect by bursting the balloons wisely.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>You may imagine <code>nums[-1] = nums[n] = 1</code>. They are not real therefore you can not burst them.</li>
+<li>0 ≤ <code>n</code> ≤ 500, 0 ≤ <code>nums[i]</code> ≤ 100</li>
+</ul>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [3,1,5,8]</span><br><span class="line">Output: 167 </span><br><span class="line">Explanation: nums = [3,1,5,8] --&gt; [3,5,8] --&gt;   [3,8]   --&gt;  [8]  --&gt; []</span><br><span class="line">             coins =  3*1*5      +  3*5*8    +  1*3*8      + 1*8*1   = 167</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BurstBalloons</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxScore</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] newNums = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length+<span class="number">2</span>];</span><br><span class="line">        newNums[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        newNums[newNums.length-<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++) &#123;</span><br><span class="line">            newNums[i+<span class="number">1</span>] = nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[newNums.length][newNums.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">2</span>; k&lt;newNums.length; k++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> left = <span class="number">0</span>; left + k &lt; newNums.length; left ++) &#123;</span><br><span class="line">                <span class="keyword">int</span> right = left + k;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i=left+<span class="number">1</span>; i&lt;right; i++) &#123;</span><br><span class="line">                    dp[left][right] = Math.max(dp[left][right], dp[left][i-<span class="number">1</span>] + dp[i+<span class="number">1</span>][right] + newNums[i]*newNums[i-<span class="number">1</span>]*newNums[i+<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][newNums.length-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
 
@@ -220,7 +230,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/leetcode-CoinChange/" data-toggle="tooltip" data-placement="top" title="leetcode">&larr; Previous Post</a>
+                            <a href="/article/leetcode-LargestDivisibleSubset/" data-toggle="tooltip" data-placement="top" title="leetcode">&larr; Previous Post</a>
                         </li>
                     
                     
