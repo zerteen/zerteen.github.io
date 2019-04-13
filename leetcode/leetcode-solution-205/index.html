@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -212,12 +212,10 @@
                 <p>Given two strings <strong>s</strong> and <strong>t</strong>, determine if they are isomorphic.</p>
 <p>Two strings are isomorphic if the characters in <strong>s</strong> can be replaced to get <strong>t</strong>.</p>
 <p>All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.</p>
-<p>For example,<br>
-Given <code>&quot;egg&quot;</code>, <code>&quot;add&quot;</code>, return true.</p>
+<p>For example,<br>Given <code>&quot;egg&quot;</code>, <code>&quot;add&quot;</code>, return true.</p>
 <p>Given <code>&quot;foo&quot;</code>, <code>&quot;bar&quot;</code>, return false.</p>
 <p>Given <code>&quot;paper&quot;</code>, <code>&quot;title&quot;</code>, return true.</p>
-<p><strong>Note:</strong><br>
-You may assume both <strong>s</strong> and <strong>t</strong> have the same length.</p>
+<p><strong>Note:</strong><br>You may assume both <strong>s</strong> and <strong>t</strong> have the same length.</p>
 <hr>
 <ul>
 <li>首先想到的是利用HashMap，保存分别保存当前的字符和对应的下标。</li>
@@ -235,14 +233,14 @@ You may assume both <strong>s</strong> and <strong>t</strong> have the same leng
 <p>还有一种设置两个256长度的int[]数组。</p>
 <p>初始化为0</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isIsomorphic</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] m1 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">        <span class="keyword">int</span>[] m2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(m1[s.charAt(i)] != m2[t.charAt(i)])&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                m1[s.charAt(i)] = i+<span class="number">1</span>;<span class="comment">// 注意这里是i+1</span></span><br><span class="line">                m2[t.charAt(i)] = i+<span class="number">1</span>;    </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>之所以是i+1，是存在这种情况</p>
+<p>之所以是i+1，是存在这种情况 </p>
 <p>如果是i：</p>
 <p>i=0时，if不成立，</p>
-<p>”a b“	m1[‘a’] = 0</p>
-<p>“a a”	m2[‘a’] = 0</p>
+<p>”a b“    m1[‘a’] = 0     </p>
+<p>“a a”    m2[‘a’] = 0 </p>
 <p>i=1时， if不成立，</p>
-<p>​		m1[‘a’] = 1</p>
-<p>​		m2[‘a’] = 1</p>
+<p>​        m1[‘a’] = 1</p>
+<p>​        m2[‘a’] = 1</p>
 <p>return true;</p>
 
                 
