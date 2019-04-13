@@ -183,7 +183,7 @@
     </url>
 
     <url>
-        <loc>https://zerteen.github.io/article/leetcode-LongestSubstringAtLeastKRepeating/</loc>
+        <loc>https://zerteen.github.io/article/leetcode-LongestIncreasingSubsequence/</loc>
         <lastmod>2019-04-09T02:36:27.569Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -191,7 +191,7 @@
     </url>
 
     <url>
-        <loc>https://zerteen.github.io/article/leetcode-LongestIncreasingSubsequence/</loc>
+        <loc>https://zerteen.github.io/article/leetcode-LongestSubstringAtLeastKRepeating/</loc>
         <lastmod>2019-04-09T02:36:27.569Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
