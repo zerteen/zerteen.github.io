@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,6 +211,174 @@
 
 <div class="post-preview">
 
+    <a href="/article/leetcode-solution-20/">
+        <h2 class="post-title">
+            Untitled
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            ...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2017-12-22
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/leetcode/leetcode-solution-62-63/">
+        <h2 class="post-title">
+            leetcode #62 #63 Unique Paths
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            62. Unique Paths I
+
+给定一个m*n的棋盘，从棋盘左上角到棋盘右下角最多有多少条路径。
+每一次移动，只能向右移一格或者向下移动一格。
+
+
+
+star
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+
+
+
+动态规划问题：
+dp[i][j] = dp[i-1][j] + dp[i][j-1];
+当i==0，或者j == 0时，表示在棋盘的边缘，只有向下或者向右一条路。所以dp[i......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2017-12-22
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/leetcode-solution-35/">
+        <h2 class="post-title">
+            leetcode #35 Search Insert Position
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            35. Search Insert Position
+
+Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+You may assume......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2017-12-22
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/leetcode/leetcode-solution-746/">
+        <h2 class="post-title">
+            leetcode #746 Min Cost Climbing Stairs
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            746. Min Cost Climbing Stairs
+
+On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).
+Once you pay the cost, you can either climb one or two steps. You need to find ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2017-12-21
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/leetcode/leetcode-solution-53/">
+        <h2 class="post-title">
+            leetcode #53 Maximal Subarray
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            ###53. Maximum Subarray
+
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
+the contiguou......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2017-12-20
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/leetcode/leetcode-solution-14/">
         <h2 class="post-title">
             leetcode #14 Longest Common Prefix
@@ -219,11 +387,12 @@
             
         </h3>
         <div class="post-content-preview">
-            14. Longest Common Prefix
+            ###14. Longest Common Prefix
+
 Write a function to find the longest common prefix string amongst an array of strings.
 
 
-最初始的想法是，取第一个string出来，和之后的每一个进行比较，得到第一个String 和之后的String 的common Prefix substring的i......
+最初始的想法是，取第一个string出来，和之后的每一个进行比较，得到第一个String 和之后的String 的common Prefix substri......
         </div>
     </a>
     
@@ -249,6 +418,7 @@ Write a function to find the longest common prefix string amongst an array of st
         </h3>
         <div class="post-content-preview">
             50. Pow(x, n)
+
 Implement pow(x, n).
 Example 1:
 12Input: 2.00000, 10Output: 1024.00000
@@ -257,7 +427,7 @@ Example 2:
 
 
 最要考察递归，初始的idea是pow(x, n) = x*pow(x, n-1) 但是这样的递归势必会造成栈溢出
-如果n是2的倍......
+如果n是2的......
         </div>
     </a>
     
@@ -283,6 +453,7 @@ Example 2:
         </h3>
         <div class="post-content-preview">
             9. Palindrome Number
+
 Determine whether an integer is a palindrome. Do this without extra space.
 
 
@@ -290,8 +461,9 @@ Determine whether an integer is a palindrome. Do this without extra space.
 reverse只保存了一般
 终止条件为x的大小小于reverse
 例如：
-1234 终止条件：x = 12 y = 32 
-3223 终止条件：x = 3......
+
+1234 终止条件：x = 12 y = 32
+3223 终止条件：x = ......
         </div>
     </a>
     
@@ -317,8 +489,9 @@ reverse只保存了一般
         </h3>
         <div class="post-content-preview">
             8. String to Integer (atoi)
+
 Implement atoi to convert a string to an integer.
-Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself wh......
+Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself w......
         </div>
     </a>
     
@@ -344,6 +517,7 @@ Hint: Carefully consider all possible input cases. If you want a challenge, plea
         </h3>
         <div class="post-content-preview">
             7. Reverse Integer
+
 Given a 32-bit signed integer, reverse digits of an integer.
 Example 1:
 12Input: 123Output:  321
@@ -351,7 +525,8 @@ Example 2:
 12Input: -123Output: -321
 Example 3:
 12Input: 120Output: 21
-Note:Assum......
+Note:
+Ass......
         </div>
     </a>
     
@@ -359,133 +534,6 @@ Note:Assum......
             2017-12-13
         </p>
         <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-5/">
-        <h2 class="post-title">
-            leetcode #5 Longest Palindromic Substring
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            5. Longest Palindromic Substring
-Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
-Example:
-12345Input: &quot;babad&quot;Output: &q......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2017-12-13
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/面试/frinds-interveiw/">
-        <h2 class="post-title">
-            同学的面试题
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            今天两个滚哥和鸟哥同一天面试，回来后总结了两个人的面试题。在这里记录一下：
-今日头条·大数据研发
-
-一面
-
-有序数组A=[1,3,4,6,7,9,11,15,16,17]经过一次旋转变换为A’[9,11,15,16,17,1,3,4,6,7],旋转位置未知，给定数组A和一个数x，在A’中查找x
-Java中的抽象类和接口的定议
-二叉树如何转换成平衡二叉树
-Hash表冲突处理的方法 链表，顺移
-......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2017-12-11
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/java/java-notes/">
-        <h2 class="post-title">
-            Java notes (continuos updating)
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            java notes
-Java丢弃了C++中很少使用的、很难理解的、令人迷惑的那些特性，如操作符重载、多继承、自动的强制类型转换。
-
-Java语言不使用指针，而是引用。并提供了自动的废料收集。
-
-Java语言提供类、接口和继承等面向对象的特性，为了简单起见，只支持类之间的单继承，但支持接口之间的多继承，并支持类与接口之间的实现机制（关键字为implements）。
-
-在基本的Java应用编程......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2017-12-11
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/hexo-theme-huweihuang/">
-        <h2 class="post-title">
-            [Hexo] Theme HuWeihuang
-        </h2>
-        <h3 class="post-subtitle">
-            This is hexo theme Demo.
-        </h3>
-        <div class="post-content-preview">
-            
-This HuWeihuang theme created by HuWeihuang modified from the original Porter YuHsuan
-
-Live DemoHu Weihuang Blog : www.huweihuang.com
-
-Install HexoInstall Node.js  and Git
-123#For Macbrew install ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2017-09-18
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Hexo" title="Hexo">Hexo</a>
             
         </div>
     
@@ -503,6 +551,10 @@ Install HexoInstall Node.js  and Git
             <a href="/archives/24/">&larr; Newer Posts</a>
         </li>
     
+    
+        <li class="next">
+            <a href="/archives/26/">Older Posts &rarr;</a>
+        </li>
     
 </ul>
 
@@ -534,11 +586,11 @@ Install HexoInstall Node.js  and Git
     <div class="tags">
         
             
-            <a href="/tags/#face" title="face" rel="6">face</a>
+            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
             
         
             
-            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
+            <a href="/tags/#face" title="face" rel="6">face</a>
             
         
             
@@ -548,7 +600,7 @@ Install HexoInstall Node.js  and Git
             
         
             
-            <a href="/tags/#leetcode" title="leetcode" rel="131">leetcode</a>
+            <a href="/tags/#leetcode" title="leetcode" rel="136">leetcode</a>
             
         
             
@@ -610,23 +662,23 @@ Install HexoInstall Node.js  and Git
     <ul>
       
         <li>
-          <a href="/article/leetcode-236-Lowest-Common-Ancestor-of-a-Binary-Tree/">leetcode 236 Lowest Common Ancestor of a Binary Tree</a>
+          <a href="/article/leetcode-417-Pacific-Atlantic-Water-Flow/">leetcode 417 Pacific Atlantic Water Flow</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-SuperPow/">leetcode</a>
+          <a href="/article/leetcode-414-Third-Maximum-Number/">leetcode 414 Third Maximum Number</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-DecodeWays/">leetcode</a>
+          <a href="/article/leetcode-415-Add-Strings/">leetcode 415 Add Strings</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-NumberOfDigitOne/">leetcode</a>
+          <a href="/article/leetcode-416-Partition-Equal-Subset-Sum/">leetcode 416 Partition Equal Subset Sum</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-wordSearch/">leetcode</a>
+          <a href="/article/leetcode-Wiggle-Sort-II/">leetcode Wiggle Sort II</a>
         </li>
       
     </ul>
@@ -637,7 +689,7 @@ Install HexoInstall Node.js  and Git
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">125</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">130</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
@@ -794,24 +846,8 @@ Install HexoInstall Node.js  and Git
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

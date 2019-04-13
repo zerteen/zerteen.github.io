@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,11 +211,13 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="scalable-face-image-retrieval-with-identity-based-quantization-and-multi-reference-re-ranking"><a href="#Scalable-Face-Image-Retrieval-with-Identity-Based-Quantization-and-Multi-Reference-Re-ranking" class="headerlink" title="Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking"></a>Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking</h1><p>2010年CVPR的论文，作者是Zhong Wu，Tsinghua&amp;MSAR</p>
+                <h1 id="scalable-face-image-retrieval-with-identity-based-quantization-and-multi-reference-re-ranking">Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking</h1>
+<p>2010年CVPR的论文，作者是Zhong Wu，Tsinghua&amp;MSAR</p>
 <hr>
 <p><strong>Motivation</strong></p>
 <ul>
-<li>底层的视觉特征对人脸图像没有很好的鉴别力<ul>
+<li>底层的视觉特征对人脸图像没有很好的鉴别力
+<ul>
 <li>discriminative power =&gt; to differentiate different persons</li>
 <li>to tolerate the variations of the same person</li>
 </ul>
@@ -228,29 +230,37 @@
 <li>在索引建立的阶段，设计了一个component-based local feature，feature根据identity-bsed quantization schema量化成visual words，根据这些visual words进行倒排索引的建立。同时，global的feature因设成了哈希码保存在40bytes中。</li>
 <li>在re-rank阶段，根据40bytes的hamming distance进行排序</li>
 </ul>
-<h2 id="component-based-local-features"><a href="#Component-Based-Local-Features" class="headerlink" title="Component-Based Local Features"></a>Component-Based Local Features</h2><p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj44t9xw4j30u30820u0.jpg" alt="image-20181225172027587"></p>
-<p>​    首先定义了五个region，每个region用一个$5 \times 7$ 的grid进行划分。 对每一个gride取一个正方形的patch，然后对其进行T3hS2特征的提取，特征量化成visual words，然后进行倒排索引。</p>
-<p>这么划分的好处：<br>​    1 相比于全脸进行gride，这样更能够在表情变化和姿势变化中提炼出robust的人脸特征。<br>​    2 不同region的gride之间有重合，这样能减少region定位时的一些误差。</p>
-<p>​    对gride进行了编号，当两个feature进行比较的时候，只有同一个编号里的feature都match了，才确定是match的。</p>
-<p>​    接下来，就要对每一个gride的feature聚类来产生visual word了。但是，在人脸场景下，类内的差别又是后会大于类间的差异。在一个人姿势，表情差异变化较大的时候，直接使用k-means聚类的效果往往不太好，这样的话，量化误差会降低检索准确度。因此，论文提出来一个 identity-based quantization scheme。</p>
+<h2 id="component-based-local-features">Component-Based Local Features</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj44t9xw4j30u30820u0.jpg" alt="image-20181225172027587"></p>
+<p>​	首先定义了五个region，每个region用一个$5 \times 7$ 的grid进行划分。 对每一个gride取一个正方形的patch，然后对其进行T3hS2特征的提取，特征量化成visual words，然后进行倒排索引。</p>
+<p>这么划分的好处：<br>
+​	1 相比于全脸进行gride，这样更能够在表情变化和姿势变化中提炼出robust的人脸特征。<br>
+​	2 不同region的gride之间有重合，这样能减少region定位时的一些误差。</p>
+<p>​	对gride进行了编号，当两个feature进行比较的时候，只有同一个编号里的feature都match了，才确定是match的。</p>
+<p>​	接下来，就要对每一个gride的feature聚类来产生visual word了。但是，在人脸场景下，类内的差别又是后会大于类间的差异。在一个人姿势，表情差异变化较大的时候，直接使用k-means聚类的效果往往不太好，这样的话，量化误差会降低检索准确度。因此，论文提出来一个 identity-based quantization scheme。</p>
 <p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fyj65818ndj30fd0910tg.jpg" alt="image-20181225183012146"></p>
 <p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj65j4xvzj30fr0abmxy.jpg" alt="image-20181225183028875"></p>
-<p>​    使用的方式是监督学习，假设训练集中有P个人，每个人有T张不同的人脸图像。那么，<persion_id, position_id=""> 组成了一个二元组，形成一个visual word。这样，每一个visual word可以的含义就是：example-based representation containing multiple examples. </persion_id,></p>
+<p>​	使用的方式是监督学习，假设训练集中有P个人，每个人有T张不同的人脸图像。那么，&lt;persion_id, position_id&gt; 组成了一个二元组，形成一个visual word。这样，每一个visual word可以的含义就是：example-based representation containing multiple examples.</p>
 <p>这里可以这样理解：</p>
 <ol>
 <li>从类间角度出发，假设训练样本中的不同类型的人脸都被包含进去，那么每一人都具有一定的代表性。</li>
 <li>从类内角度出发，而对每一个人的图像如果足够多的话，每一个人的图像包含了这个人不同的表情，光照，姿态造成的差异。</li>
 </ol>
-<p>当以一个查询来的时候，提取这$5\times7\times5 = 175$个descriptor，然后对每一个discriptor独立地进行最邻近搜索。</p>
-<script type="math/tex; mode=display">
-I D \left( q ^ { j } \right) = \arg \min _ { i } \lbrace \min _ { p } \lbrace d \left( q ^ { j } , p _ { i } ^ { j } \right) , p _ { i } ^ { j } \in S _ { i } ^ { j } \rbrace \rbrace</script><p>其中，$\mathcal { S } _ { i } ^ { j }$ 表示训练集中第i个人的第j个region，那么他就代表了一个visual word <persion_id=i, position_id="j"> 。可以理解为，当有一个查询来的时候，对每一个identity在对应的第j个区域进行查询，找到距离最小的那个identity，作为这个查询第j部分的量化结果。然而，这里采取的是soft quantization，意思是，这里每一个region的feature量化之后，都取前R个最小的量化结果（R个identity）。</persion_id=i,></p>
+<p>当以一个查询来的时候，提取这$5\times7\times5 = 175$个descriptor，然后对每一个discriptor独立地进行最邻近搜索。<br>
+$$<br>
+I D \left( q ^ { j } \right) = \arg \min _ { i } \lbrace \min _ { p } \lbrace d \left( q ^ { j } , p _ { i } ^ { j } \right) , p _ { i } ^ { j } \in S _ { i } ^ { j } \rbrace \rbrace<br>
+$$<br>
+其中，$\mathcal { S } _ { i } ^ { j }$ 表示训练集中第i个人的第j个region，那么他就代表了一个visual word &lt;persion_id=i, position_id=j&gt; 。可以理解为，当有一个查询来的时候，对每一个identity在对应的第j个区域进行查询，找到距离最小的那个identity，作为这个查询第j部分的量化结果。然而，这里采取的是soft quantization，意思是，这里每一个region的feature量化之后，都取前R个最小的量化结果（R个identity）。</p>
 <hr>
-<h2 id="global-multi-reference-re-rank"><a href="#Global-Multi-Reference-Re-Rank" class="headerlink" title="Global Multi-Reference Re-Rank"></a>Global Multi-Reference Re-Rank</h2><p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj8x0rytvj30yv0d3dig.jpg" alt="image-20181225200606031"></p>
+<h2 id="global-multi-reference-re-rank">Global Multi-Reference Re-Rank</h2>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyj8x0rytvj30yv0d3dig.jpg" alt="image-20181225200606031"></p>
 <p>先对人脸进行对齐，然后是用DoG过滤掉阴影的变化，然后用一个encoder，对每一个像素点生成一个离散的数值，对每个图像进行gide，cell，得到这些离散值的频率直方图，然后进行PCA，得到一个400维的特征向量。</p>
 <p>如何进行离散操作呢？论文提出，在特征空间中寻找N个投影方向，对训练集中的数据对这个N个方向进行投影，然后对每个方向上投影数值的均值作为阈值。然后对于一个新来的特征，对着N个方向进行投影，如果投影值超过阈值，就为1，不超过就为0.</p>
-<p>然后，这里的Multi-Reference指的是</p>
-<script type="math/tex; mode=display">
-D = d ( Q , I ) + \alpha \cdot \frac { 1 } { | \mathbf { R } | } \sum _ { i } d \left( R _ { i } , I \right)</script><p>Q指的是查询图像，$\mathbf { R } = \lbrace R _ { i } \rbrace ​$ 指当前的reference set，$d ( \cdot , \cdot )​$ 是汉明距离，$I​$ 指的是从结果中抽取到的图片，迭代的选取图片加入到reference set，知道D大于某个阈值或者reference set中的数量达到一个阈值。</p>
+<p>然后，这里的Multi-Reference指的是<br>
+$$<br>
+D = d ( Q , I ) + \alpha \cdot \frac { 1 } { | \mathbf { R } | } \sum _ { i } d \left( R _ { i } , I \right)<br>
+$$<br>
+Q指的是查询图像，$\mathbf { R } = \lbrace R _ { i } \rbrace ​$ 指当前的reference set，$d ( \cdot , \cdot )​$ 是汉明距离，$I​$ 指的是从结果中抽取到的图片，迭代的选取图片加入到reference set，知道D大于某个阈值或者reference set中的数量达到一个阈值。</p>
 <p>这样做主要是为了保证，返回的图片中，除了要保证和查询结果相似之外，还要保证返回的结果间也是相似的。</p>
 
                 
@@ -526,24 +536,8 @@ D = d ( Q , I ) + \alpha \cdot \frac { 1 } { | \mathbf { R } | } \sum _ { i } d 
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

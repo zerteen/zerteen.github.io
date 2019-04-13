@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -220,16 +220,16 @@
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">MultiplyStrings</span><span class="params">(String num1, String num2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = num1.length();</span><br><span class="line">        <span class="keyword">int</span> n = num2.length();</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="keyword">new</span> <span class="keyword">int</span>[m+n];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=m-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=n-<span class="number">1</span>; j&gt;=<span class="number">0</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> p1 = i+j;</span><br><span class="line">                <span class="keyword">int</span> p2 = i+j+<span class="number">1</span>;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">int</span> mul = (num1.charAt(i) - <span class="string">'0'</span>) * (num2.charAt(j) - <span class="string">'0'</span>);</span><br><span class="line">                <span class="keyword">int</span> sum = mul + ans[p2];</span><br><span class="line">                </span><br><span class="line">                ans[p1] += sum / <span class="number">10</span>;</span><br><span class="line">                ans[p2] = sum % <span class="number">10</span>;</span><br><span class="line">             </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i: ans)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!(i==<span class="number">0</span> &amp;&amp; sb.length() == <span class="number">0</span>))</span><br><span class="line">                sb.append(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(sb.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">"0"</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> sb.toString();</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<p>​        1    <code>2</code>    3            index = 1    (i)</p>
-<p>​    *         <code>4</code>    5            index = 0    (j)</p>
-<p>​    -—————————————-</p>
-<p>​            1    5</p>
-<p>​        1    0</p>
-<p>​    0    5</p>
-<p>​        1    2</p>
-<p>​    <code>0    8</code>                    index = [1, 2]    (i+j, i+j+1)</p>
-<p>0    4</p>
-<p>-——————————————————-</p>
+<p>​		1	<code>2</code>	3			index = 1	(i)</p>
+<p>​	* 		<code>4</code>	5			index = 0	(j)</p>
+<p>​	----------------------------</p>
+<p>​			1	5</p>
+<p>​		1	0</p>
+<p>​	0	5</p>
+<p>​		1	2</p>
+<p>​	<code>0	8</code>					index = [1, 2]	(i+j, i+j+1)</p>
+<p>0	4</p>
+<p>--------------------------------------</p>
 
                 
 
@@ -502,24 +502,8 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

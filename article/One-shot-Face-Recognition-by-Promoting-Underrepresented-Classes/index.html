@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,48 +211,74 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="one-shot-face-recognition-by-promoting-underrepresented-classes"><a href="#One-shot-Face-Recognition-by-Promoting-Underrepresented-Classes" class="headerlink" title="One-shot Face Recognition by Promoting Underrepresented Classes"></a>One-shot Face Recognition by Promoting Underrepresented Classes</h1><hr>
+                <h1 id="one-shot-face-recognition-by-promoting-underrepresented-classes">One-shot Face Recognition by Promoting Underrepresented Classes</h1>
+<hr>
 <p>主要工作：</p>
 <ul>
-<li>将数据集分为了 base set 和 novel set，base set中大概有2w个人，1m张图片。 novel set中的每个人的图像只有一张</li>
-<li><p>先通过base set进行人脸特征的建模，使得模型具有好的泛化性能。这里提到的这个模型不是one shot learning所针对的问题，osl是在图像都能提取到一个特征之后，对图像进行分类的时候进行的操作。</p>
+<li>
+<p>将数据集分为了 base set 和 novel set，base set中大概有2w个人，1m张图片。 novel set中的每个人的图像只有一张</p>
 </li>
-<li><p>通过使用base set训练的到的模型，对LFW中的人脸图像提取人脸特征，用于分类时也能得到很好的性能。这里LFW中的人并没有在base set中出现过</p>
+<li>
+<p>先通过base set进行人脸特征的建模，使得模型具有好的泛化性能。这里提到的这个模型不是one shot learning所针对的问题，osl是在图像都能提取到一个特征之后，对图像进行分类的时候进行的操作。</p>
 </li>
-<li>主要的想法在于，不管是novel set中的人还是base set中的人，他们在特征空间所占据的volume应该是大致一样的。所以定义了一个正则向， Underrepresented-class Promotion loss.</li>
+<li>
+<p>通过使用base set训练的到的模型，对LFW中的人脸图像提取人脸特征，用于分类时也能得到很好的性能。这里LFW中的人并没有在base set中出现过</p>
+</li>
+<li>
+<p>主要的想法在于，不管是novel set中的人还是base set中的人，他们在特征空间所占据的volume应该是大致一样的。所以定义了一个正则向， Underrepresented-class Promotion loss.</p>
+</li>
 </ul>
 <hr>
-<h2 id="representation-learning"><a href="#Representation-learning" class="headerlink" title="Representation learning"></a>Representation learning</h2><p><strong>目的</strong>：在网络训练完之后，利用这个网络对图像提取特征。</p>
+<h2 id="representation-learning">Representation learning</h2>
+<p><strong>目的</strong>：在网络训练完之后，利用这个网络对图像提取特征。</p>
 <p><strong>数据</strong>：这部分使用 base dataset进行分类。base dataset中一共包含2w个人，每个人大约50-100张图像。在这些图像中，每个人都随机取出了5张图像用作test，剩下的图像都用作训练。</p>
 <p><strong>网络结构</strong>： 标准的residual network 34</p>
 <p><strong>输出</strong>：网络最后一个池化层的特征被抽取出来用做人脸的representation</p>
 <p><strong>Notes</strong>: 论文提到了这个模型提取的特征具有很好的泛华能力，base dataset中不包含LFW中的人，用这个网络在LFW上进行特征的提取</p>
-<h2 id="one-shot-learning-with-up"><a href="#One-shot-learning-with-UP" class="headerlink" title="One-shot learning with UP"></a>One-shot learning with UP</h2><p>数据： 2.1W个类别，训练数据包括base set和novel set。在训练过程中 novel set中的每一人只有一张图片参与训练，剩余的20张图像参与测试。</p>
+<h2 id="one-shot-learning-with-up">One-shot learning with UP</h2>
+<p>数据： 2.1W个类别，训练数据包括base set和novel set。在训练过程中 novel set中的每一人只有一张图片参与训练，剩余的20张图像参与测试。</p>
 <p>网络：同Representation learning一样，使用上一步的参数进行初始化，然后finetune.</p>
-<p>loss: 交叉熵损失</p>
-<script type="math/tex; mode=display">
-p _ { k } \left( x _ { n } \right) = \frac { \exp \left( \mathbf { w } _ { k } ^ { T } \boldsymbol { \phi } \left( x _ { n } \right) \right) } { \sum _ { i } \exp \left( \mathbf { w } _ { k } ^ { T } \boldsymbol { \phi } \left( x _ { n } \right) \right) }</script><script type="math/tex; mode=display">
-\mathcal { L } = - \sum _ { n } t _ { k , n } \log p _ { k } \left( x _ { n } \right)</script><p>但是在这种loss下的表现并不好。</p>
-<p>​    同时，在实验的过程中发现，对novel中的类别的weight vector的 norm 比base中的类别的norm小很多。</p>
+<p>loss: 交叉熵损失<br>
+$$<br>
+p _ { k } \left( x _ { n } \right) = \frac { \exp \left( \mathbf { w } _ { k } ^ { T } \boldsymbol { \phi } \left( x _ { n } \right) \right) } { \sum _ { i } \exp \left( \mathbf { w } _ { k } ^ { T } \boldsymbol { \phi } \left( x _ { n } \right) \right) }<br>
+$$</p>
+<p>$$<br>
+\mathcal { L } = - \sum _ { n } t _ { k , n } \log p _ { k } \left( x _ { n } \right)<br>
+$$</p>
+<p>但是在这种loss下的表现并不好。</p>
+<p>​	同时，在实验的过程中发现，对novel中的类别的weight vector的 norm 比base中的类别的norm小很多。</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fyb5oc7btaj30mi09ljsl.jpg" alt="image-20181218200928122"></p>
-<p>​    上图中，标出了每一个类别的weight vector的2范式，0-2w为base dataset中的类别，可以发现novel set中的类别的norm明显小于前面的类别。</p>
-<p>​    同时，考虑到类别 $k$ 和类别 $j$ 这两个类别，他们的决策界为：</p>
-<script type="math/tex; mode=display">
-\frac { p _ { j } ( x ) } { p _ { k } ( x ) } = \frac { \exp \left( \mathbf { w } _ { j } ^ { T } \phi ( x ) \right) } { \exp \left( \mathbf { w } _ { k } ^ { T } \phi ( x ) \right) } = \exp \left[ \left( \mathbf { w } _ { j } - \mathbf { w } _ { k } \right) ^ { T } \phi ( x ) \right]</script><p>​    可视化一下结果，可以看到当其中一个的$W$ 变小时，决策界会在特征空间中偏向于这个类别。</p>
+<p>​	上图中，标出了每一个类别的weight vector的2范式，0-2w为base dataset中的类别，可以发现novel set中的类别的norm明显小于前面的类别。</p>
+<p>​	同时，考虑到类别 $k$ 和类别 $j$ 这两个类别，他们的决策界为：<br>
+$$<br>
+\frac { p _ { j } ( x ) } { p _ { k } ( x ) } = \frac { \exp \left( \mathbf { w } _ { j } ^ { T } \phi ( x ) \right) } { \exp \left( \mathbf { w } _ { k } ^ { T } \phi ( x ) \right) } = \exp \left[ \left( \mathbf { w } _ { j } - \mathbf { w } _ { k } \right) ^ { T } \phi ( x ) \right]<br>
+$$<br>
+​	可视化一下结果，可以看到当其中一个的$W$ 变小时，决策界会在特征空间中偏向于这个类别。</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fyb6xp98v2j30bw07yjri.jpg" alt="image-20181218205303850"></p>
-<p>​    于是作者提出一个约束项来使得所有类别的wegiht vector的二范数差不多：</p>
-<script type="math/tex; mode=display">
-\mathcal { L } _ { u p } = \sum _ { n } - t _ { k , n } \log p _ { k } \left( x _ { n } \right) + \frac { 1 } { \left| C _ { n } \right| } \sum _ { k \in C _ { n } } \| \| \mathbf { w } _ { k } \left\| _ { 2 } ^ { 2 } - \alpha \right\| _ { 2 } ^ { 2 }</script><script type="math/tex; mode=display">
-\alpha = \frac { 1 } { \left| C _ { b } \right| } \sum _ { k \in C _ { b } } \left\| \mathbf { w } _ { k } \right\| _ { 2 } ^ { 2 }</script><pre><code> 其中，$C_b$ 和 $C_n$ 分别是base中的类别和novel中的类别。这里相当于是把novel中类别的w趋近于base中的w.
-</code></pre><p>​    </p>
-<p>​    作者还提出一些其他的可选的约束项，例如：</p>
-<script type="math/tex; mode=display">
-\mathcal { L } _ { l 2 } = \sum _ { n } - t _ { k , n } \log p _ { k } \left( x _ { n } \right) + \sum _ { k } \left\| \mathbf { w } _ { k } \right\| _ { 2 } ^ { 2 }</script><p>​    以及：</p>
-<script type="math/tex; mode=display">
-\mathcal { L } _ { e q } = \sum _ { n } - t _ { k , n } \log p _ { k } \left( x _ { n } \right) + \sum _ { k \in \left\{ C _ { n } \cup C _ { b } \right\} }\|\left\| \mathbf { w } _ { k } \right\| _ { 2 } ^ { 2 } - \beta \left\| _ { 2 } ^ { 2 }\right.</script><script type="math/tex; mode=display">
-\beta = \frac { 1 } { \left| \left\{ C _ { n } \cup C _ { b } \right\} \right| } \sum _ { k \in \left\{ C _ { n } \cup C _ { b } \right\} } \left\| \mathbf { w } _ { k } \right\| _ { 2 } ^ { 2 }</script><p>​    主要的区别在于，作者提出的方式只对novel中的类别产生约束，使之趋近于base中的类别。</p>
-<p>​    </p>
-<p>​    下面的图中，很好的表示了这项工作的内容：</p>
+<p>​	于是作者提出一个约束项来使得所有类别的wegiht vector的二范数差不多：<br>
+$$<br>
+\mathcal { L } _ { u p } = \sum _ { n } - t _ { k , n } \log p _ { k } \left( x _ { n } \right) + \frac { 1 } { \left| C _ { n } \right| } \sum _ { k \in C _ { n } } | | \mathbf { w } _ { k } \left| _ { 2 } ^ { 2 } - \alpha \right| _ { 2 } ^ { 2 }<br>
+$$</p>
+<p>$$<br>
+\alpha = \frac { 1 } { \left| C _ { b } \right| } \sum _ { k \in C _ { b } } \left| \mathbf { w } _ { k } \right| _ { 2 } ^ { 2 }<br>
+$$</p>
+<pre><code>其中，$C_b$ 和 $C_n$ 分别是base中的类别和novel中的类别。这里相当于是把novel中类别的w趋近于base中的w.
+</code></pre>
+<p>​</p>
+<p>​	作者还提出一些其他的可选的约束项，例如：<br>
+$$<br>
+\mathcal { L } _ { l 2 } = \sum _ { n } - t _ { k , n } \log p _ { k } \left( x _ { n } \right) + \sum _ { k } \left| \mathbf { w } _ { k } \right| _ { 2 } ^ { 2 }<br>
+$$<br>
+​	以及：<br>
+$$<br>
+\mathcal { L } _ { e q } = \sum _ { n } - t _ { k , n } \log p _ { k } \left( x _ { n } \right) + \sum _ { k \in \left{ C _ { n } \cup C _ { b } \right} }|\left| \mathbf { w } _ { k } \right| _ { 2 } ^ { 2 } - \beta \left| _ { 2 } ^ { 2 }\right.<br>
+$$</p>
+<p>$$<br>
+\beta = \frac { 1 } { \left| \left{ C _ { n } \cup C _ { b } \right} \right| } \sum _ { k \in \left{ C _ { n } \cup C _ { b } \right} } \left| \mathbf { w } _ { k } \right| _ { 2 } ^ { 2 }<br>
+$$</p>
+<p>​	主要的区别在于，作者提出的方式只对novel中的类别产生约束，使之趋近于base中的类别。</p>
+<p>​</p>
+<p>​	下面的图中，很好的表示了这项工作的内容：</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fybvtzo8wxj30eb0e1gmr.jpg" alt="image-20181219111416216"></p>
 <p>（a）指的是一个比较平均的情况下，每个类的类别数目是大致一样的。</p>
 <p>（b）指的是one-shot的情况下，有些类别的训练数据可能只有很少的一两个。在这种情况下，一般的决策界（c）不能很好的起到对少类别的分类。此时，在加上论文提出的正则项之后，分类效果为（d），得到了一定的改善。</p>
@@ -530,24 +556,8 @@ p _ { k } \left( x _ { n } \right) = \frac { \exp \left( \mathbf { w } _ { k } ^
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>
