@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          leetcode solution 73 Set Matrix zeros - zerteen | Blog
+          leetcode  73 Set Matrix zeros - zerteen | Blog
         
     </title>
 
@@ -89,7 +89,7 @@
                         <div class="tags">
                             
                         </div>
-                        <h1>leetcode solution 73 Set Matrix zeros</h1>
+                        <h1>leetcode  73 Set Matrix zeros</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             2018-03-05
@@ -211,7 +211,10 @@
 
                 <p>Given a <em>m</em> x <em>n</em> matrix, if an element is 0, set its entire row and column to 0. Do it in place.</p>
 <p>Follow up:</p>
-<p>Did you use extra space?<br>A straight forward solution using O(<em>m**n</em>) space is probably a bad idea.<br>A simple improvement uses O(<em>m</em> + <em>n</em>) space, but still not the best solution.<br>Could you devise a constant space solution?</p>
+<p>Did you use extra space?<br>
+A straight forward solution using O(<em>m</em><em>n</em>) space is probably a bad idea.<br>
+A simple improvement uses O(<em>m</em> + <em>n</em>) space, but still not the best solution.<br>
+Could you devise a constant space solution?</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setZeroes</span><span class="params">(<span class="keyword">int</span>[][] matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span>) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">boolean</span> firstRow = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">boolean</span> firstCol = <span class="keyword">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;matrix.length; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;matrix[<span class="number">0</span>].length; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(i == <span class="number">0</span>) firstRow = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">if</span>(j == <span class="number">0</span>) firstCol = <span class="keyword">true</span>;</span><br><span class="line">                    </span><br><span class="line">                    matrix[<span class="number">0</span>][j] = <span class="number">0</span>;</span><br><span class="line">                    matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;matrix.length; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;matrix[<span class="number">0</span>].length; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(matrix[i][<span class="number">0</span>] == <span class="number">0</span> || matrix[<span class="number">0</span>][j] == <span class="number">0</span>)&#123;</span><br><span class="line">                    matrix[i][j] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(firstRow)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;matrix[<span class="number">0</span>].length; i++)&#123;</span><br><span class="line">                matrix[<span class="number">0</span>][i] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(firstCol)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;matrix.length; i++)&#123;</span><br><span class="line">                matrix[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -227,12 +230,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/leetcode/leetcode-solution-74/" data-toggle="tooltip" data-placement="top" title="leetcode solution 72 Search 2D Matrix">&larr; Previous Post</a>
+                            <a href="/leetcode/leetcode-solution-74/" data-toggle="tooltip" data-placement="top" title="leetcode  72 Search 2D Matrix">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/leetcode/leetcode-solution-64/" data-toggle="tooltip" data-placement="top" title="leetcode solution 64 Minimum Path Sum">Next Post &rarr;</a>
+                            <a href="/leetcode/leetcode-solution-64/" data-toggle="tooltip" data-placement="top" title="leetcode  64 Minimum Path Sum">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
