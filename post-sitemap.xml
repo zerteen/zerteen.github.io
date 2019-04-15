@@ -7,6 +7,46 @@
     </url>
 
     <url>
+        <loc>https://zerteen.github.io/article/archface/</loc>
+        <lastmod>2019-04-15T13:40:58.114Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/hexo-theme-huweihuang/</loc>
+        <lastmod>2019-04-15T12:43:19.608Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-410-Split-Array-Largest-Sum/</loc>
+        <lastmod>2019-04-14T11:42:37.582Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-409-Longest-Palindrome/</loc>
+        <lastmod>2019-04-14T09:14:46.719Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-212.-Word-Search-II/</loc>
+        <lastmod>2019-04-13T08:12:07.233Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerteen.github.io/leetcode/leetcode-solution-14/</loc>
         <lastmod>2019-04-13T08:10:06.168Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1495,14 +1535,6 @@
     </url>
 
     <url>
-        <loc>https://zerteen.github.io/article/leetcode-212.-Word-Search-II/</loc>
-        <lastmod>2019-04-13T04:56:14.088Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerteen.github.io/article/leetcode-200-Number-of-Islands/</loc>
         <lastmod>2019-04-13T04:55:55.681Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1785,14 +1817,6 @@
     <url>
         <loc>https://zerteen.github.io/article/A%20Deep%20Face%20Identification%20Network%20Enhanced%20by%20Facial%20Attributes%20Prediction/</loc>
         <lastmod>2019-03-28T12:37:44.628Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerteen.github.io/article/hexo-theme-huweihuang/</loc>
-        <lastmod>2019-03-26T15:18:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
