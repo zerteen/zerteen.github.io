@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>https://zerteen.github.io/article/leetcode-413-Arithmetic-Slices/</loc>
+        <lastmod>2019-04-16T07:35:07.481Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-403-Frog-Jump/</loc>
+        <lastmod>2019-04-16T01:44:37.067Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerteen.github.io/article/archface/</loc>
-        <lastmod>2019-04-15T13:40:58.114Z</lastmod>
+        <lastmod>2019-04-15T13:44:30.569Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

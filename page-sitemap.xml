@@ -8,28 +8,28 @@
     
     <url>
         <loc>https://zerteen.github.io/about/</loc>
-        <lastmod>2019-03-29T02:50:24.539Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://zerteen.github.io/archive/</loc>
-        <lastmod>2019-03-29T02:36:47.801Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://zerteen.github.io/404.html</loc>
-        <lastmod>2019-03-29T02:32:18.406Z</lastmod>
+        <lastmod>2019-04-15T13:53:26.900Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://zerteen.github.io/tags/</loc>
-        <lastmod>2019-03-26T15:18:02.000Z</lastmod>
+        <lastmod>2019-04-15T13:52:03.032Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://zerteen.github.io/archive/</loc>
+        <lastmod>2019-04-15T13:51:45.793Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://zerteen.github.io/404.html</loc>
+        <lastmod>2019-04-15T13:51:35.386Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

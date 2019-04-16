@@ -44,13 +44,6 @@
     </url>
 
     <url>
-        <loc>https://zerteen.github.io/tags/leetcode/</loc>
-        <lastmod>2019-04-14T11:42:37.582Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://zerteen.github.io/tags/Hexo/</loc>
         <lastmod>2019-04-15T12:43:19.608Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -59,7 +52,14 @@
 
     <url>
         <loc>https://zerteen.github.io/tags/face-recognition/</loc>
-        <lastmod>2019-04-15T13:40:58.114Z</lastmod>
+        <lastmod>2019-04-15T13:44:30.569Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/leetcode/</loc>
+        <lastmod>2019-04-16T07:35:07.481Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
