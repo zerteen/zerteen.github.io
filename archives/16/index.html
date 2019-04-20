@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -208,6 +208,228 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/article/One-shot-Face-Recognition-by-Promoting-Underrepresented-Classes/">
+        <h2 class="post-title">
+            One-shot Face Recognition by Promoting Underrepresented Classes
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            One-shot Face Recognition by Promoting Underrepresented Classes
+主要工作：
+
+将数据集分为了 base set 和 novel set，base set中大概有2w个人，1m张图片。 novel set中的每个人的图像只有一张
+先通过base set进行人脸特征的建模，使得模型具有好的泛化性能。这里提到的这个模型不是one sh......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-12-18
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#face" title="face">face</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/Deep Ordinal Hashing/">
+        <h2 class="post-title">
+            Deep Ordinal Hashing
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Deep Ordinal Hashing主要采用的是ranking to hashing的方式。
+大部分的deep hashing的方式是直接使用全连接层的输出并将其映射到hash code空间。但是全局的信息会带来空间信息损失 的问题，导致学习到的hash code不是最优的。所以文章提出来使用注意力机制，来抽取局部空间特征。
+考虑到在hash code进行量化的时候，通常使用的sign(......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-10-04
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Discriminative-Deep-Hashing-for-Scalable-Face-Image-Retrieval-Jie°∑¬€Œƒ± º«/">
+        <h2 class="post-title">
+            《Discriminative Deep Hashing for Scalable Face Image Retrieval Jie》论文笔记
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Discriminative Deep Hashing for Scalable Face Image Retrieval提出辨识力深度哈希网络（Discriminative Deep Hash Network）
+简单来说，可以总结为一下几点：
+
+使用卷积来提取多尺度的特征
+使用divide-and encode分治编码的方式，用来生成紧凑的哈希编码
+设计了一个损失函数来降低预测误差（pre......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-09-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Retrieval" title="Face Retrieval">Face Retrieval</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/notes/image∂¡»°◊¢“‚ ¬œÓ/">
+        <h2 class="post-title">
+            image读取&转换
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1. picke 读取数据许多数据集是使用pickle进行序列化后进行保存的。因此，在还原为图片的时候，使用pickel进行还原：
+ 123import pickelwith open(file, "rb") as fo:    data = pickel.load(fo, encoding="bytes")
+这里需要注意的是，python3中有encoding参数，而python2中并没有......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-09-09
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/Face-Recogonition-Survey/">
+        <h2 class="post-title">
+            Face Recogonition Survey
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            传统的人脸识别方法
+
+Historical Eigenface Approach
+Linear Subspace
+Manifold
+Sparse Representation
+Gabor
+LBP
+
+基于深度学习的人脸识别方法
+
+DeepFace
+DeepID
+
+相关综述
+[222], [18], [3], [78], [136], [123]
+数据集
+LFW [74]
+IJB-A/B/C [......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-09-03
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Rethinking-Atrous-Convolution-for-Semantic-Image-Segmentation°∑‘ƒ∂¡± º«/">
+        <h2 class="post-title">
+            《Rethinking Atrous Convolution for Semantic Image Segmentation》阅读笔记
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            显示的调整录波器的感受野的同时控制卷积后特征的分辨率
+为了应对语义分割中的多尺度问题，提出了级联或者并联具有不同multiple atrous rate的atrous convolution的方式来抓取不同尺度的上下文信息。
+增强了Atrous Spatial Pyramid Pooling模块，使得图像级别的特征能够被编码。
+在语义分割领域主要有两个困难：
+
+由于连续的卷积操作，图像的特征......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-30
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Semantic Segmentation" title="Semantic Segmentation">Semantic Segmentation</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Beyond-Trade-off-Accelerate-FCN-based-Face-Detector-with-Higher-Accuracy°∑¬€ŒƒΩ‚∂¡/">
+        <h2 class="post-title">
+            《Beyond Trade-off: Accelerate FCN-based Face Detector with Higher Accuracy》论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            论文提出将图片中人脸的搜索空间分解为两个正交方向的向量，尺度方向和空间方向，尺度方向，进而提出了尺度估计（Scale Estimation）和空间注意力提议机制（Spatial attention proposal， $S^2AP$）。在我们知道粗略的空间位置和人脸尺度时，我们能够将注意力集中在某些特定的范围和位置，这样一来，搜索空间将得到有效的降低。
+尺度方向：保证了Image Pyram......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-28
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face" title="Face">Face</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -308,207 +530,6 @@ Google使用的一个人人脸图像数据集中包含2亿张图片，8百万个
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/pytorch/pytorch-notes/">
-        <h2 class="post-title">
-            pytorch notes
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            数据集加载流程：
-
-
-torchvision.datasets中已经包含众多数据集，先建立一个数据集对。
-1mnist_train = torchvision.datasets.MNIST(root="\data", train=True, download=True, transform= transform)
-不过在建立对象的时候，需要指定transform来确定对原始数据集中的图片的转......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-23
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/NLP/NLP-review-ch01/">
-        <h2 class="post-title">
-            NLP review ch01
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            ch01 intro
-自然语言处理：自然语言处理是研究如何利用计算机技术对语言文本（句子、篇章或话语等）进行处理和加工的一门学科，研究内容包括对词法、句法、语义和语用等信息的识别、分类、提取、转换和生成等各种处理方法和实现技术。
-屈折语：用词的形态变化表示语法关系，如英语、法语等。
-黏着语：词内有专门表示语法意义的附加成分，词根或词干与附加成分的结合不紧密，如日语、韩语、土耳其语等。
-孤立语......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-23
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-150/">
-        <h2 class="post-title">
-            leetcode  150 Evaluate Reverse Polish Notation
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Evaluate the value of an arithmetic expression in Reverse Polish Notation.
-Valid operators are +, -, *, /. Each operand may be an integer or another expression.
-Note:
-
-Division between two integers......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-23
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-84/">
-        <h2 class="post-title">
-            leetcode  84 Remove Duplicates from Sorted List II
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
-Example 1:
-12Input: 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5Output: 1-&g......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-22
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-soution-94/">
-        <h2 class="post-title">
-            leetcode 94 Binary Tree Inorder Traversal
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a binary tree, return the inorder traversal of its nodes’ values.
-Example:
-12345678Input: [1,null,2,3]   1    \     2    /   3Output: [1,3,2]
-Follow up: Recursive solution is trivial, could y......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-19
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-98/">
-        <h2 class="post-title">
-            leetcode 98 Valid Binary Search Tree
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a binary tree, determine if it is a valid binary search tree (BST).
-Assume a BST is defined as follows:
-
-The left subtree of a node contains only nodes with keys less than the node’s key.
-The......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-16
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-96/">
-        <h2 class="post-title">
-            leetcode solution 98 Valid Binary Search Tree
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a binary tree, determine if it is a valid binary search tree (BST).
-Assume a BST is defined as follows:
-
-The left subtree of a node contains only nodes with keys less than the node’s key.
-The......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-15
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -570,7 +591,7 @@ The......
             
         
             
-            <a href="/tags/#leetcode" title="leetcode" rel="146">leetcode</a>
+            <a href="/tags/#leetcode" title="leetcode" rel="153">leetcode</a>
             
         
             
@@ -632,23 +653,23 @@ The......
     <ul>
       
         <li>
-          <a href="/article/leetcode-413-Arithmetic-Slices/">leetcode 413 Arithmetic Slices</a>
+          <a href="/article/leetcode-437-Path-Sum-III/">leetcode 437 Path Sum III</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-403-Frog-Jump/">leetcode 403 Frog Jump</a>
+          <a href="/article/leetcode-434-Number-of-Segments-in-a-String/">leetcode 434 Number of Segments in a String</a>
         </li>
       
         <li>
-          <a href="/article/archface/">ArcFace: Additive Angular Margin Loss for Deep Face Recognition</a>
+          <a href="/article/leetcode-424-Longest-Repeating-Character-Replacement/">leetcode 424 Longest Repeating Character Replacement</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-410-Split-Array-Largest-Sum/">leetcode 410 Split Array Largest Sum</a>
+          <a href="/article/leetcode-419-Battleships-in-a-Board/">leetcode 419 Battleships in a Board</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-409-Longest-Palindrome/">leetcode 409 Longest Palindrome</a>
+          <a href="/article/leetcode-407-Trapping-Rain-Water-II/">leetcode 407 Trapping Rain Water II</a>
         </li>
       
     </ul>
@@ -659,7 +680,7 @@ The......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">130</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">137</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

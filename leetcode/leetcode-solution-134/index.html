@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -212,13 +212,11 @@
                 <p>There are <em>N</em> gas stations along a circular route, where the amount of gas at station <em>i</em> is <code>gas[i]</code>.</p>
 <p>You have a car with an unlimited gas tank and it costs <code>cost[i]</code> of gas to travel from station <em>i</em> to its next station (<em>i</em>+1). You begin the journey with an empty tank at one of the gas stations.</p>
 <p>Return the starting gas station’s index if you can travel around the circuit once, otherwise return -1.</p>
-<p><strong>Note:</strong><br>
-The solution is guaranteed to be unique.</p>
+<p><strong>Note:</strong><br>The solution is guaranteed to be unique.</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">canCompleteCircuit</span><span class="params">(<span class="keyword">int</span>[] gas, <span class="keyword">int</span>[] cost)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> currentGas = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> balance = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;gas.length; i++)&#123;</span><br><span class="line">            currentGas +=  gas[i] - cost[i];</span><br><span class="line">            <span class="keyword">if</span>(currentGas &lt; <span class="number">0</span>)&#123;</span><br><span class="line">                balance += currentGas;</span><br><span class="line">                currentGas = <span class="number">0</span>;</span><br><span class="line">                start = i+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        balance += currentGas;</span><br><span class="line">        <span class="keyword">if</span>(balance &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> start;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>遍历一遍数组，<code>currentGas</code> 保存从<code>start</code> 点开始到当前第i-1个点剩下的gas.如果小于0，则说明从<code>start</code> 点开始能到达 <code>i-1</code> 但是不能到达<code>i</code> 。即说明<code>start</code> 到<code>i</code> 中的任意一个节点都不能作为起始点。
-<ul>
+<li>遍历一遍数组，<code>currentGas</code> 保存从<code>start</code> 点开始到当前第i-1个点剩下的gas.如果小于0，则说明从<code>start</code> 点开始能到达 <code>i-1</code> 但是不能到达<code>i</code> 。即说明<code>start</code> 到<code>i</code> 中的任意一个节点都不能作为起始点。<ul>
 <li>可以利用反证法。假设start到i中存在一个点c，使得c能作为起始点，那么c一定能到达i，又由于start能到达c（因为start能到达i-1），start就能到达i，矛盾。</li>
 </ul>
 </li>

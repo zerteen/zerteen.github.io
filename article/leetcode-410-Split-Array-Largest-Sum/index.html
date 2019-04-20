@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -212,8 +212,7 @@
                 post-container">
 
                 <p>Given an array which consists of non-negative integers and an integer <em>m</em>, you can split the array into <em>m</em> non-empty continuous subarrays. Write an algorithm to minimize the largest sum among these <em>m</em>subarrays.</p>
-<p><strong>Note:</strong><br>
-If <em>n</em> is the length of array, assume the following constraints are satisfied:</p>
+<p><strong>Note:</strong><br>If <em>n</em> is the length of array, assume the following constraints are satisfied:</p>
 <ul>
 <li>1 ≤ <em>n</em> ≤ 1000</li>
 <li>1 ≤ <em>m</em> ≤ min(50, <em>n</em>)</li>
@@ -221,19 +220,15 @@ If <em>n</em> is the length of array, assume the following constraints are satis
 <p><strong>Examples:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">nums = [7,2,5,10,8]</span><br><span class="line">m = 2</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">18</span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line">There are four ways to split nums into two subarrays.</span><br><span class="line">The best way is to split it into [7,2,5] and [10,8],</span><br><span class="line">where the largest sum among the two subarrays is only 18.</span><br></pre></td></tr></table></figure>
 <hr>
-<h3 id="binary-search">Binary Search</h3>
-<ul>
+<h3 id="binary-search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h3><ul>
 <li>最小的返回值是，当<code>m</code>为<code>len(nums)</code>的时候，<code>max(nums)</code>就是返回值。</li>
 <li>最大的返回值是，当<code>m</code>为<code>1</code>的时候，<code>sum(nums)</code>就是返回值。</li>
-<li>因此，我们可以在<code>max(nums)</code>和<code>sum(nums)</code>这个区间找到<code>minimize largest sum</code>
-<ul>
+<li>因此，我们可以在<code>max(nums)</code>和<code>sum(nums)</code>这个区间找到<code>minimize largest sum</code><ul>
 <li>采用二分查找的方法，取中位数<code>mid</code>。判断中位数是否能够成为每一个split的larget sum</li>
 <li>遍历<code>nums</code>数组，贪心的进行分组。如果累加到当前位置的和大于<code>mid</code>，就进行一个新的划分。并统计当前的划分个数。</li>
 <li>如果划分个数已经大于<code>m</code>。说明还有多的数。那么<code>minimize largest sum</code>应该大于<code>mid</code>，这样，<code>left = mid+1</code>。</li>
-<li>否则，就说明当前的数都已经有了划分，并且要么划分个数没有到达<code>m</code>个，或者刚好等于<code>m</code>个。
-<ul>
-<li>如果是没有到达<code>m</code>个，就需要从其他的划分中取出数组成新的split，这样一来，当前的<code>minimize largest sum</code> 要进一步减小，<code>right = mid</code>
-<ul>
+<li>否则，就说明当前的数都已经有了划分，并且要么划分个数没有到达<code>m</code>个，或者刚好等于<code>m</code>个。<ul>
+<li>如果是没有到达<code>m</code>个，就需要从其他的划分中取出数组成新的split，这样一来，当前的<code>minimize largest sum</code> 要进一步减小，<code>right = mid</code><ul>
 <li>如果已经到达了<code>m</code>个，第<code>m</code>个split中的<code>sum</code>可能这m个split的每一个sum都小于<code>mid</code>, 当前的<code>minimize largest sum</code> 要进一步缉拿小，<code>right = mid</code></li>
 </ul>
 </li>

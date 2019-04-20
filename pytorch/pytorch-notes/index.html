@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -209,36 +209,30 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="数据集加载流程">数据集加载流程：</h3>
-<ol>
-<li>
-<p><code>torchvision.datasets</code>中已经包含众多数据集，先建立一个数据集对。</p>
+                <h3 id="数据集加载流程"><a href="#数据集加载流程：" class="headerlink" title="数据集加载流程："></a>数据集加载流程：</h3><ol>
+<li><p><code>torchvision.datasets</code>中已经包含众多数据集，先建立一个数据集对。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mnist_train = torchvision.datasets.MNIST(root=<span class="string">"\data"</span>, train=<span class="keyword">True</span>, download=<span class="keyword">True</span>, transform= transform)</span><br></pre></td></tr></table></figure>
 <p>不过在建立对象的时候，需要指定<code>transform</code>来确定对原始数据集中的图片的转换过程。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform = torchvision.transforms.ToTensor() <span class="comment"># 定义transform为ToTensor(),将原始PLT数据转换为Tensor</span></span><br></pre></td></tr></table></figure>
 <p>又例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">transform = transforms.Compose(</span><br><span class="line">    [transforms.ToTensor(),</span><br><span class="line">     transforms.Normalize((<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>), (<span class="number">0.5</span>, <span class="number">0.5</span>, <span class="number">0.5</span>))]) <span class="comment"># 定义transform为这一系列步骤，先将图片转换为tensor，在将其进行归一化，第一个括号代表将RGB三通道的数据均值都归一化到0.5，第二个括号代表将均方差同样也归一化到0.5</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>使用<code>torch.utils.data</code>中的<code>DataLoader</code>来加载之前定义好的数据集对象</p>
+<li><p>使用<code>torch.utils.data</code>中的<code>DataLoader</code>来加载之前定义好的数据集对象</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_loader = DataLoader(mnist_train, batch_size=<span class="number">8</span>, shuffle=<span class="keyword">True</span>, num_workers=<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>读取DataLoader中的数据，一般在训练的时候，使用</p>
+<li><p>读取DataLoader中的数据，一般在训练的时候，使用</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> batch, (img, label) <span class="keyword">in</span> enumerate(train_loader):</span><br></pre></td></tr></table></figure>
 <p>在测试时，使用</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> img, label <span class="keyword">in</span> test_loader:</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <hr>
-<h3 id="图片显示">图片显示：</h3>
-<pre><code> 需要导入`matploitlab`来帮助显示图片
+<h3 id="图片显示"><a href="#图片显示：" class="headerlink" title="图片显示："></a>图片显示：</h3><pre><code> 需要导入`matploitlab`来帮助显示图片
 
 直接通过<figure class="highlight plain"><figcaption><span>img, label in train_loader``` 得到的`img`的维度是四维的 [ $ batch\_size  \times channels \times width \times hight$ ], 例如，从`Mnist`中读取的数据维度为： `torch.Size([8, 1, 28, 28])` 表示这个batch中有八张图片，由于MNIST中的图片为灰度图，因此`channel`为1。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	要显示单张图片，</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">img = img[0] # 取出第一张图片</span><br><span class="line">plt.imshow(img[0], cmap=&quot;gray&quot;) # 灰度图像显示时，接受的图片维度为（width，hight），因此这里再次取[0]，使(channel, width, hight)降为(width， hight)</span><br></pre></td></tr></table></figure>
 
 要显示单张图片：
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">img = torchvision.utils.make_grid(img).numpy()</span><br><span class="line">plt.imshow(np.transpose(img, (<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>))) <span class="comment">#这里的（1， 2， 0） 指的是，将原始维度（channel， width， hight）转换为 （width， hight， channel）</span></span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">img = torchvision.utils.make_grid(img).numpy()</span><br><span class="line">plt.imshow(np.transpose(img, (<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>))) <span class="comment">#这里的（1， 2， 0） 指的是，将原始维度（channel， width， hight）转换为 （width， hight， channel）</span></span><br></pre></td></tr></table></figure>
 
                 
 
