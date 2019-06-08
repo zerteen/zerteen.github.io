@@ -7,6 +7,78 @@
     </url>
 
     <url>
+        <loc>https://zerteen.github.io/article/leetcode-442-Find-All-Duplicates-in-an-Array/</loc>
+        <lastmod>2019-06-08T03:39:29.706Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-429-N-ary-Tree-Level-Order-Traversal/</loc>
+        <lastmod>2019-06-04T13:37:46.732Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-424-Longest-Repeating-Character-Replacement/</loc>
+        <lastmod>2019-06-04T13:22:17.912Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-421-Maximum-XOR-of-Two-Numbers-in-an-Array/</loc>
+        <lastmod>2019-06-04T11:51:53.484Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-406-Queue-Reconstruction-by-Height/</loc>
+        <lastmod>2019-05-27T01:17:08.301Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-405-Conver-a-Number-to-Hex/</loc>
+        <lastmod>2019-05-25T03:12:10.154Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-475-Heaters/</loc>
+        <lastmod>2019-04-24T16:11:21.686Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-464-Can-I-Win/</loc>
+        <lastmod>2019-04-23T16:10:28.285Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/Normalization-%E6%80%BB%E7%BB%93/</loc>
+        <lastmod>2019-04-23T03:15:21.839Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerteen.github.io/article/leetcode-437-Path-Sum-III/</loc>
         <lastmod>2019-04-19T06:06:10.090Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,14 +89,6 @@
     <url>
         <loc>https://zerteen.github.io/article/leetcode-434-Number-of-Segments-in-a-String/</loc>
         <lastmod>2019-04-18T13:57:53.008Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerteen.github.io/article/leetcode-424-Longest-Repeating-Character-Replacement/</loc>
-        <lastmod>2019-04-18T13:31:43.534Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -139,13 +139,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -154,6 +147,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -209,15 +209,17 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="53-maximum-subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="53. Maximum Subarray"></a>53. Maximum Subarray</h3><hr>
+                <p>###53. Maximum Subarray</p>
+<hr>
 <p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p>
-<p>For example, given the array <code>[-2,1,-3,4,-1,2,1,-5,4]</code>,<br>the contiguous subarray <code>[4,-1,2,1]</code> has the largest sum = <code>6</code>.</p>
+<p>For example, given the array <code>[-2,1,-3,4,-1,2,1,-5,4]</code>,<br>
+the contiguous subarray <code>[4,-1,2,1]</code> has the largest sum = <code>6</code>.</p>
 <hr>
 <p>第一眼看是一个简单的动态规划问题</p>
 <p>dp[i][j] 保存数组从i到j的和，利用下面的dp式进行简化计算</p>
 <p>dp[i][j]  = dp[i][j-1] + nums[j]</p>
 <p>注意要问清楚，当数组为空的时候的返回值是多少</p>
-<p> 于是写出了如下动态规划代码</p>
+<p>于是写出了如下动态规划代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][n];</span><br><span class="line">        <span class="keyword">int</span> current_max = Integer.MIN_VALUE;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            dp[i][i] = nums[i];</span><br><span class="line">            <span class="keyword">if</span>(dp[i][i] &gt; current_max)&#123;</span><br><span class="line">                current_max = dp[i][i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;=i; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">                    dp[j][i] = dp[j][i-<span class="number">1</span>] + nums[i];</span><br><span class="line">                    <span class="keyword">if</span>(dp[j][i] &gt; current_max)&#123;</span><br><span class="line">                        current_max = dp[j][i];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">               </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> current_max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>时间复杂度为$O(n^2)$,提交显示超时。</p>
 <p>其实可以优化成$O(n)$</p>

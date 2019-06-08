@@ -134,13 +134,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -149,6 +142,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,6 +211,271 @@
 
 <div class="post-preview">
 
+    <a href="/article/°∂Discriminative-Deep-Hashing-for-Scalable-Face-Image-Retrieval-Jie°∑¬€Œƒ± º«/">
+        <h2 class="post-title">
+            《Discriminative Deep Hashing for Scalable Face Image Retrieval Jie》论文笔记
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Discriminative Deep Hashing for Scalable Face Image Retrieval
+提出辨识力深度哈希网络（Discriminative Deep Hash Network）
+简单来说，可以总结为一下几点：
+
+使用卷积来提取多尺度的特征
+使用divide-and encode分治编码的方式，用来生成紧凑的哈希编码
+设计了一个损失函数来降低预测误差（pr......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-09-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Retrieval" title="Face Retrieval">Face Retrieval</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/notes/image∂¡»°◊¢“‚ ¬œÓ/">
+        <h2 class="post-title">
+            image读取&转换
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            1. picke 读取数据
+许多数据集是使用pickle进行序列化后进行保存的。因此，在还原为图片的时候，使用pickel进行还原：
+ 123import pickelwith open(file, "rb") as fo:    data = pickel.load(fo, encoding="bytes")
+这里需要注意的是，python3中有encoding参数，而python2中并没......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-09-09
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/Face-Recogonition-Survey/">
+        <h2 class="post-title">
+            Face Recogonition Survey
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            传统的人脸识别方法
+
+Historical Eigenface Approach
+Linear Subspace
+Manifold
+Sparse Representation
+Gabor
+LBP
+
+基于深度学习的人脸识别方法
+
+DeepFace
+DeepID
+
+相关综述
+[222], [18], [3], [78], [136], [123]
+数据集
+LFW [74]
+IJB-A/B/C [......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-09-03
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Rethinking-Atrous-Convolution-for-Semantic-Image-Segmentation°∑‘ƒ∂¡± º«/">
+        <h2 class="post-title">
+            《Rethinking Atrous Convolution for Semantic Image Segmentation》阅读笔记
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            显示的调整录波器的感受野的同时控制卷积后特征的分辨率
+为了应对语义分割中的多尺度问题，提出了级联或者并联具有不同multiple atrous rate的atrous convolution的方式来抓取不同尺度的上下文信息。
+增强了Atrous Spatial Pyramid Pooling模块，使得图像级别的特征能够被编码。
+在语义分割领域主要有两个困难：
+
+由于连续的卷积操作，图像的特征......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-30
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Semantic Segmentation" title="Semantic Segmentation">Semantic Segmentation</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Beyond-Trade-off-Accelerate-FCN-based-Face-Detector-with-Higher-Accuracy°∑¬€ŒƒΩ‚∂¡/">
+        <h2 class="post-title">
+            《Beyond Trade-off: Accelerate FCN-based Face Detector with Higher Accuracy》论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            论文提出将图片中人脸的搜索空间分解为两个正交方向的向量，尺度方向和空间方向，尺度方向，进而提出了尺度估计（Scale Estimation）和空间注意力提议机制（Spatial attention proposal， $S^2AP$）。在我们知道粗略的空间位置和人脸尺度时，我们能够将注意力集中在某些特定的范围和位置，这样一来，搜索空间将得到有效的降低。
+尺度方向：保证了Image Pyram......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-28
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face" title="Face">Face</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Direct-Shape-Regression-Networks-for-End-to-End-Face-Alignment°∑¬€ŒƒΩ‚∂¡/">
+        <h2 class="post-title">
+            《Direct Shape Regression Networks for End-to-End Face Alignment》论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            该论文主要提出了Direct shape regression network (DSRN) 来直接预测人脸标记点。
+人脸对齐主要的困难在于人脸图片和相关的人脸形状之间的高度非线性对应关系。
+
+输入的图像$I$
+人脸形状$S​$
+$N$ 总共的标记点数目
+$[x_1, y_1, …,x_N,y_N]^T \in \R^{2N}$ 是一组标记点的实例。
+
+人脸对其的主要目标是在已知人脸语义描述......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-27
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂Partially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning°∑¬€ŒƒΩ‚∂¡/">
+        <h2 class="post-title">
+            《Partially Shared Multi-Task Convolutional Neural Network with Local Constraint for Face Attribute Learning》论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            人脸属性学习（Face Attribute Learning）的主要目的在于学习图像的中等级的特征，这些特征是低级别特征和高级别标签的抽象结合。
+Multi-task deep CNN (MCNN) 指的是对于每一个属性，共享网络的底层，同时，对于高度相关的属性，同样共享高层的网络。MCNN将40余中属性，根据其各自的相似性，将其分为9个属性组。在初始进行split之后，每一个组相当于是相互......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-25
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/article/°∂deep-face-recognition°∑¬€ŒƒΩ‚∂¡/">
+        <h2 class="post-title">
+            《deep face recognition》论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            原文地址： Deep Face Recognition
+该论文主要从两个方面阐述了他们的工作：
+
+通过半自动化的方式来生成大规模的数据集，使用web中资源，来收集人脸数据。
+提出一种用于人脸识别的卷积网路的训练过程。
+
+
+Google使用的一个人人脸图像数据集中包含2亿张图片，8百万个人物身份。但是公开的数据集很难达到这样的数据规模。
+
+如上图所示，左侧的公开数据集在量级上要远小于大公司所使......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            2018-08-24
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Face Recognition" title="Face Recognition">Face Recognition</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/pytorch/pytorch-notes/">
         <h2 class="post-title">
             pytorch notes
@@ -220,9 +485,11 @@
         </h3>
         <div class="post-content-preview">
             数据集加载流程：
+
+
 torchvision.datasets中已经包含众多数据集，先建立一个数据集对。
 1mnist_train = torchvision.datasets.MNIST(root="\data", train=True, download=True, transform= transform)
-不过在建立对象的时候，需要指定transform来确定对原始数据集中的图片的转换过......
+不过在建立对象的时候，需要指定transform来确定对原始数据集中的图片的转......
         </div>
     </a>
     
@@ -247,243 +514,16 @@ torchvision.datasets中已经包含众多数据集，先建立一个数据集对
             
         </h3>
         <div class="post-content-preview">
-            ch01 intro自然语言处理：自然语言处理是研究如何利用计算机技术对语言文本（句子、篇章或话语等）进行处理和加工的一门学科，研究内容包括对词法、句法、语义和语用等信息的识别、分类、提取、转换和生成等各种处理方法和实现技术。
+            ch01 intro
+自然语言处理：自然语言处理是研究如何利用计算机技术对语言文本（句子、篇章或话语等）进行处理和加工的一门学科，研究内容包括对词法、句法、语义和语用等信息的识别、分类、提取、转换和生成等各种处理方法和实现技术。
 屈折语：用词的形态变化表示语法关系，如英语、法语等。
 黏着语：词内有专门表示语法意义的附加成分，词根或词干与附加成分的结合不紧密，如日语、韩语、土耳其语等。
-孤立语：......
+孤立语......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             2018-08-23
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-150/">
-        <h2 class="post-title">
-            leetcode  150 Evaluate Reverse Polish Notation
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Evaluate the value of an arithmetic expression in Reverse Polish Notation.
-Valid operators are +, -, *, /. Each operand may be an integer or another expression.
-Note:
-
-Division between two integers......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-23
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-84/">
-        <h2 class="post-title">
-            leetcode  84 Remove Duplicates from Sorted List II
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
-Example 1:
-12Input: 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5Output: 1-&g......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-22
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-soution-94/">
-        <h2 class="post-title">
-            leetcode 94 Binary Tree Inorder Traversal
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a binary tree, return the inorder traversal of its nodes’ values.
-Example:
-12345678Input: [1,null,2,3]   1    \     2    /   3Output: [1,3,2]
-Follow up: Recursive solution is trivial, could y......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-19
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-98/">
-        <h2 class="post-title">
-            leetcode 98 Valid Binary Search Tree
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a binary tree, determine if it is a valid binary search tree (BST).
-Assume a BST is defined as follows:
-
-The left subtree of a node contains only nodes with keys less than the node’s key.
-The......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-16
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-96/">
-        <h2 class="post-title">
-            leetcode solution 98 Valid Binary Search Tree
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a binary tree, determine if it is a valid binary search tree (BST).
-Assume a BST is defined as follows:
-
-The left subtree of a node contains only nodes with keys less than the node’s key.
-The......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-15
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/leetcode-solution-97/">
-        <h2 class="post-title">
-            leetcode  97 isInterleave
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2.
-Example 1:
-12Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbcbcac&quot;Output: true
-Example 2:
-......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-14
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-92/">
-        <h2 class="post-title">
-            leetcode  92 Reverse Linkedlist II
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Reverse a linked list from position m to n. Do it in one-pass.
-Note: 1 ≤ m ≤ n ≤ length of list.
-Example:
-12Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4Output: 1-&gt;4-&gt;3-&gt;2-&gt;5-......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-13
-        </p>
-        <div class="tags">
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/leetcode/leetcode-solution-57/">
-        <h2 class="post-title">
-            leetcode  57 Insert Interval
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary).
-You may assume that the intervals were initially sorted according to their start times.
-Exam......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            2018-08-12
         </p>
         <div class="tags">
             
@@ -546,6 +586,8 @@ Exam......
             
         
             
+        
+            
             <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
             
         
@@ -554,7 +596,7 @@ Exam......
             
         
             
-            <a href="/tags/#leetcode" title="leetcode" rel="153">leetcode</a>
+            <a href="/tags/#leetcode" title="leetcode" rel="160">leetcode</a>
             
         
             
@@ -616,23 +658,23 @@ Exam......
     <ul>
       
         <li>
-          <a href="/article/leetcode-437-Path-Sum-III/">leetcode 437 Path Sum III</a>
+          <a href="/article/leetcode-442-Find-All-Duplicates-in-an-Array/">leetcode 442 Find All Duplicates in an Array</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-434-Number-of-Segments-in-a-String/">leetcode 434 Number of Segments in a String</a>
+          <a href="/article/leetcode-429-N-ary-Tree-Level-Order-Traversal/">leetcode 429 N-ary Tree Level Order Traversal</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-424-Longest-Repeating-Character-Replacement/">leetcode 424 Longest Repeating Character Replacement</a>
+          <a href="/article/leetcode-421-Maximum-XOR-of-Two-Numbers-in-an-Array/">leetcode 421 Maximum XOR of Two Numbers in an Array</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-419-Battleships-in-a-Board/">leetcode 419 Battleships in a Board</a>
+          <a href="/article/leetcode-406-Queue-Reconstruction-by-Height/">leetcode 406 Queue Reconstruction by Height</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-407-Trapping-Rain-Water-II/">leetcode 407 Trapping Rain Water II</a>
+          <a href="/article/leetcode-405-Conver-a-Number-to-Hex/">leetcode 405 Convert a Number to Hexadecimal</a>
         </li>
       
     </ul>
@@ -643,7 +685,7 @@ Exam......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">137</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

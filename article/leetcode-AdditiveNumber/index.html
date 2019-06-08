@@ -141,13 +141,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -156,6 +149,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,13 +213,14 @@
 
                 <p>Additive number is a string whose digits can form additive sequence.</p>
 <p>A valid additive sequence should contain <strong>at least</strong> three numbers. Except for the first two numbers, each subsequent number in the sequence must be the sum of the preceding two.</p>
-<p>Given a string containing only digits <code>&#39;0&#39;-&#39;9&#39;</code>, write a function to determine if it’s an additive number.</p>
+<p>Given a string containing only digits <code>'0'-'9'</code>, write a function to determine if it’s an additive number.</p>
 <p><strong>Note:</strong> Numbers in the additive sequence <strong>cannot</strong> have leading zeros, so sequence <code>1, 2, 03</code> or <code>1, 02, 3</code> is invalid.</p>
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;112358&quot;</span><br><span class="line">Output: true </span><br><span class="line">Explanation: The digits can form an additive sequence: 1, 1, 2, 3, 5, 8. </span><br><span class="line">             1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;199100199&quot;</span><br><span class="line">Output: true </span><br><span class="line">Explanation: The additive sequence is: 1, 99, 100, 199. </span><br><span class="line">             1 + 99 = 100, 99 + 100 = 199</span><br></pre></td></tr></table></figure>
-<p><strong>Follow up:</strong><br>How would you handle overflow for very large input integers?</p>
+<p><strong>Follow up:</strong><br>
+How would you handle overflow for very large input integers?</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdditiveNumber</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAdditiveNumber</span><span class="params">(String num)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = num.length();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;n; i++)&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j=i+<span class="number">1</span>; j&lt;n; j++) &#123;</span><br><span class="line">        <span class="keyword">long</span> a = parse(num.substring(<span class="number">0</span>, i));</span><br><span class="line">        <span class="keyword">long</span> b = parse(num.substring(i, j));</span><br><span class="line">        <span class="keyword">if</span> (a == -<span class="number">1</span> || b == -<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span> (helper(num.substring(j), a, b)) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">helper</span><span class="params">(String s, <span class="keyword">long</span> a, <span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=s.length(); i++)&#123;</span><br><span class="line">      <span class="keyword">long</span> c = parse(s.substring(<span class="number">0</span>, i));</span><br><span class="line">      <span class="keyword">if</span> (c == -<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">      <span class="keyword">if</span> (c == a + b &amp;&amp; helper(s.substring(i), b, c))</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">parse</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!s.equals(<span class="string">"0"</span>) &amp;&amp; s.startsWith(<span class="string">"0"</span>)) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">long</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">      res = Long.parseLong(s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">      res = -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -230,12 +231,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/leetcode-WiggleSubsequence/" data-toggle="tooltip" data-placement="top" title="leetcode WiggleSubsequence">&larr; Previous Post</a>
+                            <a href="/article/leetcode-GameOfLife/" data-toggle="tooltip" data-placement="top" title="leetcode  GameOfLife">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/leetcode-GameOfLife/" data-toggle="tooltip" data-placement="top" title="leetcode  GameOfLife">Next Post &rarr;</a>
+                            <a href="/article/leetcode-IntersectionofTwoArraysII/" data-toggle="tooltip" data-placement="top" title="leetcode  IntersectionofTwoArraysII">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
