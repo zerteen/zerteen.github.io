@@ -7,6 +7,70 @@
     </url>
 
     <url>
+        <loc>https://zerteen.github.io/article/leetcode-467-Unique-Substrings-in-Wraparound-String/</loc>
+        <lastmod>2019-06-11T03:08:45.937Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-464-Can-I-Win/</loc>
+        <lastmod>2019-06-11T03:02:57.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-463-Island-Perimeter/</loc>
+        <lastmod>2019-06-10T13:08:45.910Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-461-Hamming-Distance/</loc>
+        <lastmod>2019-06-10T12:17:12.868Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-459-Repeated-Substring-Pattern/</loc>
+        <lastmod>2019-06-10T11:36:45.146Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-458-Poor-Pigs/</loc>
+        <lastmod>2019-06-10T10:31:26.013Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-457-Circular-Array-Loop/</loc>
+        <lastmod>2019-06-10T09:16:40.287Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/article/leetcode-456-132-Pattern/</loc>
+        <lastmod>2019-06-10T09:09:11.134Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerteen.github.io/article/leetcode-452-Minimum-Number-of-Arrows-to-Burst-Balloons/</loc>
         <lastmod>2019-06-08T13:36:11.057Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -97,14 +161,6 @@
     <url>
         <loc>https://zerteen.github.io/article/leetcode-475-Heaters/</loc>
         <lastmod>2019-04-24T16:11:21.686Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerteen.github.io/article/leetcode-464-Can-I-Win/</loc>
-        <lastmod>2019-04-23T16:10:28.285Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
