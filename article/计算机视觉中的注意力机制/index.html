@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -253,10 +253,24 @@
 </ol>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-120350.png" alt="image-20190701200319806"></p>
 <ol>
-<li>在获得attention region之后，利用双线性插值的方法，获得一个增强的图像：<script type="math/tex; mode=display">
+<li><p>在获得attention region之后，利用双线性插值的方法，获得一个增强的图像：</p>
+<script type="math/tex; mode=display">
 \begin{equation}
 \mathbf{X}_{(i, j)}^{a m p}=\sum_{\alpha, \beta=0}^{1}|1-\alpha-\{i / \lambda\} \| 1-\beta-\{j / \lambda\}| \mathbf{X}_{(m, n)}^{a t t}
-\end{equation}</script>$\lambda$ 是上采样因子、$[]$用来取整，${}$用来取小数部分</li>
+\end{equation}</script><p>$\lambda$ 是上采样因子、$[]$用来取整，${}$用来取小数部分。</p>
+</li>
+<li><p>Loss</p>
+<p>包含两部分LOSS，分类和RANK：</p>
+<script type="math/tex; mode=display">
+\begin{equation}
+L(\mathbf{X})=\sum_{s=1}^{3}\left\{L_{c l s}\left(\mathbf{Y}^{(\mathbf{s})}, \mathbf{Y}^{*}\right)\right\}+\sum_{s=1}^{2}\left\{L_{r a n k}\left(p_{t}^{(s)}, p_{t}^{(s+1)}\right)\right\}
+\end{equation}</script><script type="math/tex; mode=display">
+\begin{equation}
+L_{r a n k}\left(p_{t}^{(s)}, p_{t}^{(s+1)}\right)=\max \left\{0, p_{t}^{(s)}-p_{t}^{(s+1)}+\operatorname{margin}\right\}
+\end{equation}</script><p>直观的理解就是随着attention region的细化，它对应的分类损失也应该提高。</p>
+</li>
+<li><p>在训练好之后，对每一个子APN得到的feature进行归一化，之后融合起来就能得到一个fused feature。</p>
+</li>
 </ol>
 
                 
