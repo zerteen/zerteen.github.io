@@ -212,15 +212,14 @@
                 post-container">
 
                 <p>Given a string that consists of only uppercase English letters, you can replace any letter in the string with another letter at most <em>k</em> times. Find the length of a longest substring containing all repeating letters you can get after performing the above operations.</p>
-<p><strong>Note:</strong><br>
-Both the string’s length and <em>k</em> will not exceed 104.</p>
+<p><strong>Note:</strong><br>Both the string’s length and <em>k</em> will not exceed 104.</p>
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;ABAB&quot;, k = 2</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">4</span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line">Replace the two &apos;A&apos;s with two &apos;B&apos;s or vice versa.</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">s = &quot;AABABBA&quot;, k = 1</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">4</span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line">Replace the one &apos;A&apos; in the middle with &apos;B&apos; and form &quot;AABBBBA&quot;.</span><br><span class="line">The substring &quot;BBBB&quot; has the longest repeating letters, which is 4.</span><br></pre></td></tr></table></figure>
 <hr>
 <ul>
-<li>用一个滑动窗口 &lt;start, end&gt; ，统计当前窗口中字符信息;</li>
+<li>用一个滑动窗口 <start, end=""> ，统计当前窗口中字符信息;</start,></li>
 <li>窗口中的字符信息用一个count数组来保存，每当end向后移动，count[s[end]-‘A’] ++, 当start向后移动时， count[s[start]-‘A’] —;</li>
 <li>用一个currentMaxt来保存窗口在滑动过程中，出现字符最多的字符的数目。</li>
 <li>可以知道，满足要求的子串中，肯定包含了currentMax，这样的话，只需要在保存满足k限制的最大的窗口，就可以得到答案</li>

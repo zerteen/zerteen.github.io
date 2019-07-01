@@ -223,8 +223,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Given the following 5x5 matrix:</span><br><span class="line"></span><br><span class="line">  Pacific ~   ~   ~   ~   ~ </span><br><span class="line">       ~  1   2   2   3  (5) *</span><br><span class="line">       ~  3   2   3  (4) (4) *</span><br><span class="line">       ~  2   4  (5)  3   1  *</span><br><span class="line">       ~ (6) (7)  1   4   5  *</span><br><span class="line">       ~ (5)  1   1   2   4  *</span><br><span class="line">          *   *   *   *   * Atlantic</span><br><span class="line"></span><br><span class="line">Return:</span><br><span class="line"></span><br><span class="line">[[0, 4], [1, 3], [1, 4], [2, 2], [3, 0], [3, 1], [4, 0]] (positions with parentheses in above matrix).</span><br></pre></td></tr></table></figure>
 <hr>
 <ul>
-<li>bfs
-<ul>
+<li>bfs<ul>
 <li>使用两个queue来分别保存已知的能够到达两个海岸坐标</li>
 <li>每次从queue中去一个出来，判断他的四周四个能否同样到达他所对应的海岸</li>
 <li>用两个矩阵来保存每个点能否到达对应的海岸</li>

@@ -211,9 +211,9 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>In the “100 game,” two players take turns adding, to a running total, any integer from 1…10. The player who first causes the running total to reach or exceed 100 wins.</p>
+                <p>In the “100 game,” two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins.</p>
 <p>What if we change the game so that players cannot re-use integers?</p>
-<p>For example, two players might take turns drawing from a common pool of numbers of 1…15 without replacement until they reach a total &gt;= 100.</p>
+<p>For example, two players might take turns drawing from a common pool of numbers of 1..15 without replacement until they reach a total &gt;= 100.</p>
 <p>Given an integer <code>maxChoosableInteger</code> and another integer <code>desiredTotal</code>, determine if the first player to move can force a win, assuming both players play optimally.</p>
 <p>You can always assume that <code>maxChoosableInteger</code> will not be larger than 20 and <code>desiredTotal</code> will not be larger than 300.</p>
 <p><strong>Example</strong></p>
@@ -221,16 +221,14 @@
 <hr>
 <ul>
 <li>假设有一个函数dfs，它返回当前的<strong>剩余数字集合</strong>下，我能否一定能赢。</li>
-<li>那么他的处理过程是，他在<strong>剩余数字集合</strong>抽取一个数字，并将<code>desireTotal</code>减掉这个数字，表示我当前选择这个数字，然后对手调用这个函数，判断他能否一定能赢。
-<ul>
+<li>那么他的处理过程是，他在<strong>剩余数字集合</strong>抽取一个数字，并将<code>desireTotal</code>减掉这个数字，表示我当前选择这个数字，然后对手调用这个函数，判断他能否一定能赢。<ul>
 <li>如果对手调用这个函数后，返回false，则说明我在选择这个数字后，对手肯定输了，那么我肯定赢了。</li>
 <li>如果对手调用这个函数后，返回true，则说明，我这么选对手能赢，那么我需要换一个数字选。</li>
 <li>当所有的可选则的数字我都选了一遍后，我都赢不了，那么我就肯定赢不了了。</li>
 </ul>
 </li>
 <li>那么对于<strong>剩下的数字集合</strong>，我们需要用一个变量每个数字的状态，判断它是否可以选择。由于题目中限定了最多不超过20，这样一来，我们可以用一个整数<code>key</code>来存每个数字的状态，这个<code>key</code>中，第<code>i</code>位是否为<code>1</code>来判断数字<code>i</code>是否可选。</li>
-<li>那么对于一个给定的<code>desireTotal</code>，我们如何判断当前我的输赢状态呢？
-<ul>
+<li>那么对于一个给定的<code>desireTotal</code>，我们如何判断当前我的输赢状态呢？<ul>
 <li>首先，如果在dfs中，假设经过若干轮迭代，当前轮到我选择数组，此时，我发现<code>desireTotal</code>小于等于0，这就说明，在上一轮对手已经让场面上的数字之和大于<code>desireTotal</code>了，那么对手已经赢了，我输了，此时，dfs应该返回false</li>
 <li>如果<code>desireTotal</code>大于0，此时，我需要从剩余数字集合中依次抽取数字，进行判断。</li>
 </ul>

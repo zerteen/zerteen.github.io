@@ -211,7 +211,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>Consider the string <code>s</code> to be the infinite wraparound string of “abcdefghijklmnopqrstuvwxyz”, so <code>s</code> will look like this: “…zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd…”.</p>
+                <p>Consider the string <code>s</code> to be the infinite wraparound string of “abcdefghijklmnopqrstuvwxyz”, so <code>s</code> will look like this: “…zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd….”.</p>
 <p>Now we have another string <code>p</code>. Your job is to find out how many unique non-empty substrings of <code>p</code>are present in <code>s</code>. In particular, your input is the string <code>p</code> and you need to output the number of different non-empty substrings of <code>p</code> in the string <code>s</code>.</p>
 <p><strong>Note:</strong> <code>p</code> consists of only lowercase English letters and the size of p might be over 10000.</p>
 <p><strong>Example 1:</strong></p>
@@ -222,14 +222,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;zab&quot;</span><br><span class="line">Output: 6</span><br><span class="line">Explanation: There are six substrings &quot;z&quot;, &quot;a&quot;, &quot;b&quot;, &quot;za&quot;, &quot;ab&quot;, &quot;zab&quot; of string &quot;zab&quot; in the string s.</span><br></pre></td></tr></table></figure>
 <hr>
 <ul>
-<li>
-<p>判断是否是连续的字符: (ord(i) - ord(i-1)) % 26 == 1</p>
+<li><p>判断是否是连续的字符: (ord(i) - ord(i-1)) % 26 == 1</p>
 </li>
-<li>
-<p>有可能有重复的substring。比如，如果出现 abc和abcd的话，我们只需要计入abcd产生的substring</p>
+<li><p>有可能有重复的substring。比如，如果出现 abc和abcd的话，我们只需要计入abcd产生的substring</p>
 </li>
-<li>
-<p>对于每遇到的一个字符，确定以该字符结尾连续substring有多少个即可。比如，对于abcd，</p>
+<li><p>对于每遇到的一个字符，确定以该字符结尾连续substring有多少个即可。比如，对于abcd，</p>
 <ul>
 <li>a结尾：1</li>
 <li>b结尾：2</li>
