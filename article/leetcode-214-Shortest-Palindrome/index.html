@@ -141,6 +141,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -149,13 +156,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -219,7 +219,8 @@
 <hr>
 <ul>
 <li>对于任意一个S，我们需要尽可能的找到一个S[0:i]是一个回文，这样的话，S[0:i]可以保持不变，然后把S[i：i-1] reverse后放在最前面，使之能够成为满足要求的最短的回文。</li>
-<li>如何在S中尽可能的找到S[0：i]是一个回文呢？<ul>
+<li>如何在S中尽可能的找到S[0：i]是一个回文呢？
+<ul>
 <li>对于一个回文，最终重要的性质是S[i] = S[n-i]</li>
 <li>如果i在S中从左往右遍历，j在S中从右往左遍历，如果S[i] == S[j]，i++，j保持- -, 这样一来，如果S[0，somewhere]是一个回文的话，i肯定在somewhere的右边。也就是说S[0：i]肯定包含这个要求的回文prefix。那么S[i:-1]就是肯定需要进行转置后放到S前面的。</li>
 </ul>
