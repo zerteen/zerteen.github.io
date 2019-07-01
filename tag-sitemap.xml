@@ -37,13 +37,6 @@
     </url>
 
     <url>
-        <loc>https://zerteen.github.io/tags/face-recognition/</loc>
-        <lastmod>2019-04-15T13:44:30.569Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://zerteen.github.io/tags/leetcode-array/</loc>
         <lastmod>2019-06-10T09:16:40.287Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -129,7 +122,28 @@
 
     <url>
         <loc>https://zerteen.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
-        <lastmod>2019-07-01T10:44:00.682Z</lastmod>
+        <lastmod>2019-07-01T10:45:18.768Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/face-recognition/</loc>
+        <lastmod>2019-07-01T10:55:00.019Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/%E5%9B%BE%E5%BA%8A/</loc>
+        <lastmod>2019-07-01T11:26:07.357Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/ipic/</loc>
+        <lastmod>2019-07-01T11:26:07.357Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

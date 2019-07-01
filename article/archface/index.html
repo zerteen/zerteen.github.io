@@ -229,7 +229,7 @@
 <p>对<code>人脸特征</code>和最后的<code>全连接层的参数</code>做归一化操作，在进行点积操作。这里等同于他们的cosine距离。</p>
 </li>
 <li>
-<p>通过$\arccos(\cdot)$来计算特征$x_i$和$W_j$ 的之间的角度$\theta_{yi}$。这里$W_j$可以看做是第$j​$个类的类心。</p>
+<p>通过$\arccos(\cdot)$来计算特征$x_i$和$W_j$ 的之间的角度$\theta_{yi}$。这里$W_j$可以看做是第$j$个类的类心。</p>
 </li>
 <li>
 <p>对$\theta$加上一个marge <code>m</code>后，计算$\cos(\theta + m)$。</p>
@@ -285,26 +285,28 @@ $$<br>
 <img src="https://ws3.sinaimg.cn/large/006tNc79ly1g23kpqf2ulj30y00egtcl.jpg" alt="Comparison"></p>
 <p>同时，作者还提出了集中变种方案，从不同的角度来诠释&quot;减小类内差异和增大类间差异&quot;：</p>
 <ul>
-<li>Intra-Loss<br>
+<li>
+<p>Intra-Loss<br>
 $$<br>
 L_{5}=L_{2}+\frac{1}{\pi N} \sum_{i=1}^{N} \theta_{y_{i}}<br>
-$$</li>
-</ul>
-<ul>
-<li>Inter-Loss<br>
+$$</p>
+</li>
+<li>
+<p>Inter-Loss<br>
 $$<br>
 \begin{equation}<br>
 L_{6}=L_{2}-\frac{1}{\pi N(n-1)} \sum_{i=1}^{N} \sum_{j=1, j \neq y_{i}}^{n} \arccos \left(W_{y_{i}}^{T} W_{j}\right)<br>
 \end{equation}<br>
-$$</li>
-</ul>
-<ul>
-<li>Triplet-Loss<br>
+$$</p>
+</li>
+<li>
+<p>Triplet-Loss<br>
 $$<br>
 \begin{equation}<br>
 \arccos \left(x_{i}^{p o s} x_{i}\right)+m \leq \arccos \left(x_{i}^{n e g} x_{i}\right)<br>
 \end{equation}<br>
-$$</li>
+$$</p>
+</li>
 </ul>
 <h1 id="experiments">Experiments</h1>
 <p>对比了大量的数据集：</p>
@@ -341,13 +343,13 @@ $$</li>
 </li>
 <li>
 <p>获得dW</p>
-<p>$dW = x^T dscore ​$</p>
+<p>$dW = x^T dscore $</p>
 <p>在每一块GPU中，对feature matrix进行转置，并行的乘每一个sub score的梯度。得到W的梯度</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g23ndmj4b0j31d20hc0zq.jpg" alt="image-20190415213849797"></p>
 </li>
 <li>
 <p>获得dx</p>
-<p>$dx = dscoreW^T​$</p>
+<p>$dx = dscoreW^T$</p>
 <p>在每一块GPU中，对sub matrix进行转置，乘以每一个subscore的梯度，将8块GPU产生的梯度加起来，得到x的梯度</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g23ndy2nj9j31cy0oodo7.jpg" alt="image-20190415213908147"></p>
 </li>
