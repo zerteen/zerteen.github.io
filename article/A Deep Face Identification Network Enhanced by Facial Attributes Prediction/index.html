@@ -141,13 +141,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -156,6 +149,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,14 +211,13 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="a-deep-face-identification-network-enhanced-by-facial-attributes-prediction">A Deep Face Identification Network Enhanced by Facial Attributes Prediction</h1>
-<hr>
+                <h1 id="a-deep-face-identification-network-enhanced-by-facial-attributes-prediction"><a href="#A-Deep-Face-Identification-Network-Enhanced-by-Facial-Attributes-Prediction" class="headerlink" title="A Deep Face Identification Network Enhanced by Facial Attributes Prediction"></a>A Deep Face Identification Network Enhanced by Facial Attributes Prediction</h1><hr>
 <p>points：</p>
 <ol>
 <li>新的网络结构来predict facial attribute的同时进行 face identification。</li>
 <li>已有的multi-task方法都是共享CNN的特征空间，本文提出用的方法是融合两个task子网络的特征。两个网络交替地进行训练能够相互促进。</li>
 </ol>
-<p>​	整个结构的策略是用两个网络分别预测attribute和identification，在进行identification时，attribute的结果将被取出来用于作为auxiliary modality来帮助identification的进行。</p>
+<p>​    整个结构的策略是用两个网络分别预测attribute和identification，在进行identification时，attribute的结果将被取出来用于作为auxiliary modality来帮助identification的进行。</p>
 <hr>
 <p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fyzeahpju1j31jw0n0gpd.jpg" alt="image-20190108192103174"></p>
 <ul>
@@ -228,26 +227,18 @@
 </ul>
 <blockquote>
 <p><strong>Kronecker product</strong></p>
-<p>If <strong>A</strong> is an <em>m</em> × <em>n</em> matrix and <strong>B</strong> is a <em>p</em> × <em>q</em> matrix, then the Kronecker product <strong>A</strong> ⊗ <strong>B</strong> is the <em>mp</em> × <em>nq</em> block matrix:<br>
-$$<br>
-\mathbf { A } \otimes \mathbf { B } = \left[ \begin{array} { c c c } { a _ { 11 } \mathbf { B } } &amp; { \cdots } &amp; { a _ { 1 n } \mathbf { B } } \ { \vdots } &amp; { \ddots } &amp; { \vdots } \ { a _ { m 1 } \mathbf { B } } &amp; { \cdots } &amp; { a _ { m n } \mathbf { B } } \end{array} \right]<br>
-$$</p>
-</blockquote>
-<p>​	论文中是对两个向量进行这样的操作，操作如下：<br>
-$$<br>
-\mathbf { u } \otimes \mathbf { v } = \left[ \begin{array} { c } { u _ { 1 } } \ { u _ { 2 } } \ { \vdots } \ { u _ { n } } \end{array} \right] \otimes \left[ \begin{array} { c } { v _ { 1 } } \ { v _ { 2 } } \ { \vdots } \ { v _ { m } } \end{array} \right] = \left[ \begin{array} { c } { u _ { 1 } v _ { 1 } } \ { u _ { 1 } v _ { 2 } } \ { \vdots } \ { u _ { 1 } v _ { m } } \ { u _ { 2 } v _ { 1 } } \ { \vdots } \ { u _ { n } v _ { m } } \end{array} \right]<br>
-$$<br>
-Loss：<br>
-$$<br>
-\begin{array} { l } { \mathcal { L } _ { 1 } \left( W _ { 1 } , W _ { 2,1 } , X \right) = - \sum _ { j = 1 } ^ { T } \sum _ { i = 1 } ^ { N } L _ { j i } \log \left( f ^ { \prime } \left( f \left( L _ { j i } \left| x _ { i } , W _ { 1 } \right. \right. \right. \right. }  { W _ { 2,1 } ) ) ) + \left( 1 - L _ { j i } \right) \log \left( f ^ { \prime } \left( f \left( 1 - L _ { j i } | x _ { i } , W _ { 1 } , W _ { 2,1 } \right) \right) \right) } \end{array}<br>
-$$</p>
-<p>$$<br>
-\begin{array} { l } { \mathcal { L } _ { 2 } \left( W _ { 1 } , W _ { 2,1 } , W _ { 2,2 } , X \right) = - \sum _ { i = 1 } ^ { N } \sum _ { k = 1 } ^ { C } L _ { i k } ^ { \prime } \log \left( g ^ { \prime } \left( g \left( L _ { i k } ^ { \prime } \left| x _ { i } \right. \right. \right. \right. } { W _ { 1 } , W _ { 2,2 } , f \left( x _ { i } , W _ { 1 } , W _ { 2,1 } \right) ) ) ) } \end{array}<br>
-$$</p>
-<p>​	用到的数据集是CeleA 和Mega Face, 其中，CeleA带有attribute，Mega Face不带attribute，因此，作者先用CeleA训练网络，然后在Mega Face的实验中，对其进行微调。（对attribute没有label的话，应该就调不了了吧）</p>
-<p>​	论文中提到对attribute的预处理。对于同一个人来说，这个人的attribute应该保持一致，但是同一个人的图像中，存在一些attribute的数值是变化的，比如这个人是否戴眼镜（glasses），是否存在山羊胡子（mustaches），对于这些不确定的attribute，作者将他们去掉了，最终只留下了一下的attribute</p>
+<p>If <strong>A</strong> is an <em>m</em> × <em>n</em> matrix and <strong>B</strong> is a <em>p</em> × <em>q</em> matrix, then the Kronecker product <strong>A</strong> ⊗ <strong>B</strong> is the <em>mp</em> × <em>nq</em> block matrix:</p>
+<script type="math/tex; mode=display">
+\mathbf { A } \otimes \mathbf { B } = \left[ \begin{array} { c c c } { a _ { 11 } \mathbf { B } } & { \cdots } & { a _ { 1 n } \mathbf { B } } \\ { \vdots } & { \ddots } & { \vdots } \\ { a _ { m 1 } \mathbf { B } } & { \cdots } & { a _ { m n } \mathbf { B } } \end{array} \right]</script></blockquote>
+<p>​    论文中是对两个向量进行这样的操作，操作如下：</p>
+<script type="math/tex; mode=display">
+\mathbf { u } \otimes \mathbf { v } = \left[ \begin{array} { c } { u _ { 1 } } \\ { u _ { 2 } } \\ { \vdots } \\ { u _ { n } } \end{array} \right] \otimes \left[ \begin{array} { c } { v _ { 1 } } \\ { v _ { 2 } } \\ { \vdots } \\ { v _ { m } } \end{array} \right] = \left[ \begin{array} { c } { u _ { 1 } v _ { 1 } } \\ { u _ { 1 } v _ { 2 } } \\ { \vdots } \\ { u _ { 1 } v _ { m } } \\ { u _ { 2 } v _ { 1 } } \\ { \vdots } \\ { u _ { n } v _ { m } } \end{array} \right]</script><p>Loss：</p>
+<script type="math/tex; mode=display">
+\begin{array} { l } { \mathcal { L } _ { 1 } \left( W _ { 1 } , W _ { 2,1 } , X \right) = - \sum _ { j = 1 } ^ { T } \sum _ { i = 1 } ^ { N } L _ { j i } \log \left( f ^ { \prime } \left( f \left( L _ { j i } \left| x _ { i } , W _ { 1 } \right. \right. \right. \right. }  { W _ { 2,1 } ) ) ) + \left( 1 - L _ { j i } \right) \log \left( f ^ { \prime } \left( f \left( 1 - L _ { j i } | x _ { i } , W _ { 1 } , W _ { 2,1 } \right) \right) \right) } \end{array}</script><script type="math/tex; mode=display">
+\begin{array} { l } { \mathcal { L } _ { 2 } \left( W _ { 1 } , W _ { 2,1 } , W _ { 2,2 } , X \right) = - \sum _ { i = 1 } ^ { N } \sum _ { k = 1 } ^ { C } L _ { i k } ^ { \prime } \log \left( g ^ { \prime } \left( g \left( L _ { i k } ^ { \prime } \left| x _ { i } \right. \right. \right. \right. } { W _ { 1 } , W _ { 2,2 } , f \left( x _ { i } , W _ { 1 } , W _ { 2,1 } \right) ) ) ) } \end{array}</script><p>​    用到的数据集是CeleA 和Mega Face, 其中，CeleA带有attribute，Mega Face不带attribute，因此，作者先用CeleA训练网络，然后在Mega Face的实验中，对其进行微调。（对attribute没有label的话，应该就调不了了吧）</p>
+<p>​    论文中提到对attribute的预处理。对于同一个人来说，这个人的attribute应该保持一致，但是同一个人的图像中，存在一些attribute的数值是变化的，比如这个人是否戴眼镜（glasses），是否存在山羊胡子（mustaches），对于这些不确定的attribute，作者将他们去掉了，最终只留下了一下的attribute</p>
 <blockquote>
-<p>narrow eyes	big nose	 pointy nose		chubby		double chin		high cheekbones	male	bald	big lips		oval face .</p>
+<p>narrow eyes    big nose     pointy nose        chubby        double chin        high cheekbones    male    bald    big lips        oval face .</p>
 </blockquote>
 <p>实验结果：</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fz0ayepxsxj31900gan0z.jpg" alt="image-20190109141111708"></p>

@@ -134,13 +134,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -149,6 +142,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -220,14 +220,10 @@
         </h3>
         <div class="post-content-preview">
             One-shot Face Recognition by Promoting Underrepresented Classes
-
 主要工作：
 
-
 将数据集分为了 base set 和 novel set，base set中大概有2w个人，1m张图片。 novel set中的每个人的图像只有一张
-
-
-先通过base set进行人脸特征的建模，使得模型具有好的泛化性能。这里提到的这个模型不是on......
+先通过base set进行人脸特征的建模，使得模型具有好的泛化性能。这里提到的这个模型不是one sh......
         </div>
     </a>
     
@@ -255,10 +251,9 @@
             
         </h3>
         <div class="post-content-preview">
-            Deep Ordinal Hashing
-主要采用的是ranking to hashing的方式。
+            Deep Ordinal Hashing主要采用的是ranking to hashing的方式。
 大部分的deep hashing的方式是直接使用全连接层的输出并将其映射到hash code空间。但是全局的信息会带来空间信息损失 的问题，导致学习到的hash code不是最优的。所以文章提出来使用注意力机制，来抽取局部空间特征。
-考虑到在hash code进行量化的时候，通常使用的sign......
+考虑到在hash code进行量化的时候，通常使用的sign(......
         </div>
     </a>
     
@@ -284,13 +279,12 @@
             
         </h3>
         <div class="post-content-preview">
-            Discriminative Deep Hashing for Scalable Face Image Retrieval
-提出辨识力深度哈希网络（Discriminative Deep Hash Network）
+            Discriminative Deep Hashing for Scalable Face Image Retrieval提出辨识力深度哈希网络（Discriminative Deep Hash Network）
 简单来说，可以总结为一下几点：
 
 使用卷积来提取多尺度的特征
 使用divide-and encode分治编码的方式，用来生成紧凑的哈希编码
-设计了一个损失函数来降低预测误差（pr......
+设计了一个损失函数来降低预测误差（pre......
         </div>
     </a>
     
@@ -318,10 +312,9 @@
             
         </h3>
         <div class="post-content-preview">
-            1. picke 读取数据
-许多数据集是使用pickle进行序列化后进行保存的。因此，在还原为图片的时候，使用pickel进行还原：
+            1. picke 读取数据许多数据集是使用pickle进行序列化后进行保存的。因此，在还原为图片的时候，使用pickel进行还原：
  123import pickelwith open(file, "rb") as fo:    data = pickel.load(fo, encoding="bytes")
-这里需要注意的是，python3中有encoding参数，而python2中并没......
+这里需要注意的是，python3中有encoding参数，而python2中并没有......
         </div>
     </a>
     
@@ -592,6 +585,10 @@ Google使用的一个人人脸图像数据集中包含2亿张图片，8百万个
     <div class="tags">
         
             
+            <a href="/tags/#face" title="face" rel="6">face</a>
+            
+        
+            
             <a href="/tags/#leetcode" title="leetcode" rel="174">leetcode</a>
             
         
@@ -600,11 +597,9 @@ Google使用的一个人人脸图像数据集中包含2亿张图片，8百万个
             
         
             
-            <a href="/tags/#face" title="face" rel="6">face</a>
+            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
             
         
-            
-            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
             
         
             
@@ -618,15 +613,13 @@ Google使用的一个人人脸图像数据集中包含2亿张图片，8百万个
             
         
             
-        
-            
             <a href="/tags/#leetcode array" title="leetcode array" rel="2">leetcode array</a>
             
         
             
-        
-            
             <a href="/tags/#leetcode string" title="leetcode string" rel="2">leetcode string</a>
+            
+        
             
         
             
