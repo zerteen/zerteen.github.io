@@ -141,6 +141,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -149,13 +156,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -212,22 +212,28 @@
                 post-container">
 
                 <p>Suppose you have a random list of people standing in a queue. Each person is described by a pair of integers <code>(h, k)</code>, where <code>h</code> is the height of the person and <code>k</code> is the number of people in front of this person who have a height greater than or equal to <code>h</code>. Write an algorithm to reconstruct the queue.</p>
-<p><strong>Note:</strong><br>The number of people is less than 1,100.</p>
+<p><strong>Note:</strong><br>
+The number of people is less than 1,100.</p>
 <p><strong>Example</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">[[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">[[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]</span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reconstructQueue</span><span class="params">(self, people)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type people: List[List[int]]</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = []</span><br><span class="line">        people_dic = &#123;&#125;</span><br><span class="line">        heights = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i, (height, k) <span class="keyword">in</span> enumerate(people):</span><br><span class="line">            <span class="keyword">if</span> height <span class="keyword">not</span> <span class="keyword">in</span> people_dic:</span><br><span class="line">                heights.append(height)</span><br><span class="line">                people_dic[height] = [(k, i)]</span><br><span class="line">            <span class="keyword">else</span>:z</span><br><span class="line">                people_dic[height].append((k, i))</span><br><span class="line">        </span><br><span class="line">        heights.sort()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> h <span class="keyword">in</span> heights[::<span class="number">-1</span>]:</span><br><span class="line">            t = people_dic[h]</span><br><span class="line">            t.sort()</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (k,i) <span class="keyword">in</span> t:</span><br><span class="line">                res.insert(t[<span class="number">0</span>], people[t[<span class="number">1</span>]])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 <p>KeyNotes:</p>
 <ul>
-<li><p>总的来说，先需要将每一个people按照height进行从大到小的排序，每一次先对height高的人分配位置。</p>
+<li>
+<p>总的来说，先需要将每一个people按照height进行从大到小的排序，每一次先对height高的人分配位置。</p>
 </li>
-<li><p>当有两个人的height一样高时，那就会根据k来进行从小到大的排序。</p>
+<li>
+<p>当有两个人的height一样高时，那就会根据k来进行从小到大的排序。</p>
 </li>
-<li><p>比如说，[[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]，那最先开始，我们需要对[7,0],[7,1]来排序，</p>
+<li>
+<p>比如说，[[7,0], [4,4], [7,1], [5,0], [6,1], [5,2]]，那最先开始，我们需要对[7,0],[7,1]来排序，</p>
 <ul>
-<li><p>此时， ans = [[7, 0], [7, 1]]</p>
+<li>
+<p>此时， ans = [[7, 0], [7, 1]]</p>
 </li>
-<li><p>接下来对[5, 0], [5, 2]进行排序：</p>
+<li>
+<p>接下来对[5, 0], [5, 2]进行排序：</p>
 <ul>
 <li>对[5, 0]， 需要插入在ans的第0个位置， 得到ans = [[5,0] ,[7, 0], [7, 1]]</li>
 <li>对[5, 2]， 需要插入到ans的第2个位置， 得到ans = [[5, 0], [7, 0], [5, 2], [7, 1]]</li>

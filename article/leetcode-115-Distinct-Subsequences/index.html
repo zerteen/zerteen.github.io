@@ -141,6 +141,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -149,13 +156,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -225,16 +225,69 @@
 <p>dp[i][j] 表示 t[0:i]在s[0:j]中出现的次数。那么直接返回dp[t.length()][s.length()]就可以了。</p>
 <p>当dp[i][j] 确定后，考虑dp[i][j+1]的情况：</p>
 <ul>
-<li><p>当t[i] != s[j+1]时， 当前的字符不相等，那么t[0:i] 在s[0:j+1]中出现的次数就等于它在s[0:j]中出现的次数。即 dp[i][j+1] = dp[i][j].</p>
+<li>
+<p>当t[i] != s[j+1]时， 当前的字符不相等，那么t[0:i] 在s[0:j+1]中出现的次数就等于它在s[0:j]中出现的次数。即 dp[i][j+1] = dp[i][j].</p>
 </li>
-<li><p>当t[i] == s[j+1]时，dp[i][j+1]包含两部分，</p>
+<li>
+<p>当t[i] == s[j+1]时，dp[i][j+1]包含两部分，</p>
 <ul>
-<li><p>在s[0: j]中，t[0: i] 出现的此时，这里是t[0:i]已经出现的次数，即dp[i][j]。</p>
+<li>
+<p>在s[0: j]中，t[0: i] 出现的此时，这里是t[0:i]已经出现的次数，即dp[i][j]。</p>
 </li>
-<li><p>新加入的s[j+1]带来的影响。我们已知了t[0: i-1]在s[0:j]中出现的次数，那么新加入的这个s[j+1]可以和s[0: j]中任意一个t[0:i-1]组成一个新的t[0：i]，所以这里将增加dp[i-1][j]。</p>
+<li>
+<p>新加入的s[j+1]带来的影响。我们已知了t[0: i-1]在s[0:j]中出现的次数，那么新加入的这个s[j+1]可以和s[0: j]中任意一个t[0:i-1]组成一个新的t[0：i]，所以这里将增加dp[i-1][j]。</p>
 <p>即dp[i][j+1] = dp[i][j] +  dp[i-1][j]</p>
 <p>举个例子：</p>
-<p>|      |      | a    | d    | a    | b    | e    | b    | a    |<br>| —— | —— | —— | —— | —— | —— | —— | —— | —— |<br>|      | 1    | 1    | 1    | 1    | 1    | 1    | 1    | 1    |<br>| a    | 0    | 1    | 1    | 2    | 2    | 2    | 2    | 3    |<br>| b    | 0    | 0    | 0    | 0    | ?    |      |      |      |</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>a</th>
+<th>d</th>
+<th>a</th>
+<th>b</th>
+<th>e</th>
+<th>b</th>
+<th>a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>a</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>b</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>?</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>在求<code>?</code>时， a在ada中已经出现了2次，ab在ada中出现了0次，当添加一个b时，在ada中出现的两个a都可以和b组成ab，所以一共有0+2次。</p>
 </li>
 </ul>

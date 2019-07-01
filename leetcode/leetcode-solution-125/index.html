@@ -139,6 +139,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -147,13 +154,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -210,8 +210,11 @@
                 post-container">
 
                 <p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
-<p>For example,<br><code>&quot;A man, a plan, a canal: Panama&quot;</code> is a palindrome.<br><code>&quot;race a car&quot;</code> is <em>not</em> a palindrome.</p>
-<p><strong>Note:</strong><br>Have you consider that the string might be empty? This is a good question to ask during an interview.</p>
+<p>For example,<br>
+<code>&quot;A man, a plan, a canal: Panama&quot;</code> is a palindrome.<br>
+<code>&quot;race a car&quot;</code> is <em>not</em> a palindrome.</p>
+<p><strong>Note:</strong><br>
+Have you consider that the string might be empty? This is a good question to ask during an interview.</p>
 <p>For the purpose of this problem, we define empty string as valid palindrome.</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = s.length()-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!Character.isLetterOrDigit(s.charAt(i))) i++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(!Character.isLetterOrDigit(s.charAt(j))) j--;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(Character.toUpperCase(s.charAt(i))!=Character.toUpperCase(s.charAt(j)))</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                i++;</span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

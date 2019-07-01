@@ -141,6 +141,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -149,13 +156,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -217,72 +217,85 @@
 <p>在很多目标检测系统中，使用的是两阶段的方法，先使用RPN（Region Proposal Network）来找到ROI(Region of Interest)，然后在第二阶段进一步对ROI进行回归和分类。突出的算法有：Faster-RCNN、R-FCN等。这些方法具有较高的召回率和精确度，但是，由于训练这样的二阶段的网络计算代价非常的大。</p>
 <p>对于这些传统的两阶段方案，有人提出了Single-scale技术，使用Image Pyramid，同样也是时间消耗巨大的。</p>
 <p>其次就是端到端的方案，例如YOLO，SSD等，YOLO直接对BB进行回归，对目标进行分类。</p>
-<p><img src="《Beyond-Trade-off-Accelerate-FCN-based-Face-Detector-with-Higher-Accuracy》论文解读\1535438648141.png" alt="1535438648141"></p>
+<p><img src="%E3%80%8ABeyond-Trade-off-Accelerate-FCN-based-Face-Detector-with-Higher-Accuracy%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535438648141.png" alt="1535438648141"></p>
 <p>给定一张图片，系统首先预测人脸的尺度和所在的位置，然后，图片以及定量的信息将会将会被输入到Mask-FCN</p>
-<h3 id="s2ap"><a href="#S-2AP" class="headerlink" title="$S^2AP$"></a>$S^2AP$</h3><p> <strong>Scale Attention</strong></p>
+<h3 id="s2ap">$S^2AP$</h3>
+<p><strong>Scale Attention</strong></p>
 <p>$S^2AP$是一个用于预检测的快速注意力模型。首先，在BoundingBox的定义上，没有采用原始的人工标注的Bounding Box，而是通过5个人脸标记点（Landmark）来推到出face box。</p>
 <p>$(x_1, y_1) , …,(x_5, y_5)$ 分别表示左眼中心，右眼中心，鼻子，左嘴角，右嘴角。</p>
-<p>$(p_1, q_1),..,(p_5,q_5)$ 分别表示正则化后的人脸标注，变换规则为：</p>
-<script type="math/tex; mode=display">
-p_i = \frac{x_i-X1}{w} \\
-q_i = \frac{y_i - Y_1}{h}</script><p>可以知道，原始的坐标经过这样的变换之后，得到的坐标范围均在0~1之间。</p>
+<p>$(p_1, q_1),…,(p_5,q_5)$ 分别表示正则化后的人脸标注，变换规则为：<br>
+$$<br>
+p_i = \frac{x_i-X1}{w} \<br>
+q_i = \frac{y_i - Y_1}{h}<br>
+$$<br>
+可以知道，原始的坐标经过这样的变换之后，得到的坐标范围均在0~1之间。</p>
 <p>其中，X1，Y1表示人工标注的BoundingBox最右上角的坐标，w、h分别表示BB的长和高。</p>
 <p>$(mp_i, mq_i)$ 指的是整个数据集中，所有$(p_i, q_i)$ 的平均值。</p>
-<p>上面所述的操作，我们可以定义一个相似度转换矩阵$T$， 通过学习这个矩阵的方式，将原始坐标的点映射到新坐标系上。</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-mp_i \\
-mq_i \\
-1
-\end{bmatrix}^T
-=
-\begin{bmatrix}
-x_i \\
-y_i \\
-1
-\end{bmatrix}^T T</script><p>这样一来，反过来，我们可以求得在映射后左上角和有下角的坐标（0,0）（1,1）在原始坐标系中的坐标$(x_{tl}, y_{tl}), (x_{dr}, y_{dr})$位置：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
- x_{tl} \\
- y_{tl} \\
- 1
-\end{bmatrix}
-^T T
-=
-\begin{bmatrix}
-0 \\
-0 \\
-1
-\end{bmatrix}^T</script><script type="math/tex; mode=display">
-\begin{bmatrix}
- x_{dr} \\
- y_{dr} \\
- 1
-\end{bmatrix}
-^T T
-=
-\begin{bmatrix}
-1 \\
-1 \\
-1
-\end{bmatrix}^T</script><p>因此，有：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
- x_{tl} & x_{tl} \\
- y_{tl} & y_{tl} \\
- 1 & 1
-\end{bmatrix}
-^T
-=
-\begin{bmatrix}
-0 & 1 \\
-0 & 1\\
-1 & 1
-\end{bmatrix}^T
-T^{-1}</script><p>对于一张给定的人脸图片，人脸的尺寸$x = \sqrt{(x_{dr}-x_{tl})*(y_{dr}-y_{tl})}$ </p>
-<p>$S^2AP$ 的输出是一系列的特征图：$F_b (b \in [1,…,m])$ ，每一个特征图负责一个尺寸人脸的特征的提取。因此，对于不同尺寸的人脸$x$， 作者提取了人脸尺度对应特征图下标的对应关系</p>
-<script type="math/tex; mode=display">
-b = 10 [\log_2(\frac{x}{L_{max}} \times S_{max})-4]</script><p>其中，$L_{max}$ 是图片的长宽中，较长的一遍的大小，$S_{max}$ 是预定义的一个最长的长度，定义为1024</p>
+<p>上面所述的操作，我们可以定义一个相似度转换矩阵$T$， 通过学习这个矩阵的方式，将原始坐标的点映射到新坐标系上。<br>
+$$<br>
+\begin{bmatrix}<br>
+mp_i \<br>
+mq_i \<br>
+1<br>
+\end{bmatrix}^T<br>
+=<br>
+\begin{bmatrix}<br>
+x_i \<br>
+y_i \<br>
+1<br>
+\end{bmatrix}^T T<br>
+$$<br>
+这样一来，反过来，我们可以求得在映射后左上角和有下角的坐标（0,0）（1,1）在原始坐标系中的坐标$(x_{tl}, y_{tl}), (x_{dr}, y_{dr})$位置：<br>
+$$<br>
+\begin{bmatrix}<br>
+x_{tl} \<br>
+y_{tl} \<br>
+1<br>
+\end{bmatrix}<br>
+^T T<br>
+=<br>
+\begin{bmatrix}<br>
+0 \<br>
+0 \<br>
+1<br>
+\end{bmatrix}^T<br>
+$$</p>
+<p>$$<br>
+\begin{bmatrix}<br>
+x_{dr} \<br>
+y_{dr} \<br>
+1<br>
+\end{bmatrix}<br>
+^T T<br>
+=<br>
+\begin{bmatrix}<br>
+1 \<br>
+1 \<br>
+1<br>
+\end{bmatrix}^T<br>
+$$</p>
+<p>因此，有：<br>
+$$<br>
+\begin{bmatrix}<br>
+x_{tl} &amp; x_{tl} \<br>
+y_{tl} &amp; y_{tl} \<br>
+1 &amp; 1<br>
+\end{bmatrix}<br>
+^T<br>
+=<br>
+\begin{bmatrix}<br>
+0 &amp; 1 \<br>
+0 &amp; 1\<br>
+1 &amp; 1<br>
+\end{bmatrix}^T<br>
+T^{-1}<br>
+$$<br>
+对于一张给定的人脸图片，人脸的尺寸$x = \sqrt{(x_{dr}-x_{tl})*(y_{dr}-y_{tl})}$</p>
+<p>$S^2AP$ 的输出是一系列的特征图：$F_b (b \in [1,…,m])$ ，每一个特征图负责一个尺寸人脸的特征的提取。因此，对于不同尺寸的人脸$x$， 作者提取了人脸尺度对应特征图下标的对应关系<br>
+$$<br>
+b = 10 [\log_2(\frac{x}{L_{max}} \times S_{max})-4]<br>
+$$<br>
+其中，$L_{max}$ 是图片的长宽中，较长的一遍的大小，$S_{max}$ 是预定义的一个最长的长度，定义为1024</p>
 <p><strong>Spatical Attention</strong></p>
 
                 

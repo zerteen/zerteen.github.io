@@ -139,6 +139,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -147,13 +154,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -209,14 +209,20 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="jar包放置在hadoop平台出现-caused-by-javautilzipzipexception-error-in-opening-zip-file"><a href="#jar包放置在hadoop平台出现-Caused-by-java-util-zip-ZipException-error-in-opening-zip-file" class="headerlink" title="jar包放置在hadoop平台出现 Caused by: java.util.zip.ZipException: error in opening zip file"></a>jar包放置在hadoop平台出现 Caused by: java.util.zip.ZipException: error in opening zip file</h1><p>at java.util.zip.ZipFile.open(Native Method)<br>at java.util.zip.ZipFile.<init>(ZipFile.java:127)<br>at java.util.jar.JarFile.<init>(JarFile.java:135)<br>at java.util.jar.JarFile.<init>(JarFile.java:72)<br>at org.apache.hadoop.util.RunJar.main(RunJar.java:122)</init></init></init></p>
+                <h1 id="jar包放置在hadoop平台出现-caused-by-javautilzipzipexception-error-in-opening-zip-file">jar包放置在hadoop平台出现 Caused by: java.util.zip.ZipException: error in opening zip file</h1>
+<p>at java.util.zip.ZipFile.open(Native Method)<br>
+at java.util.zip.ZipFile.<init>(ZipFile.java:127)<br>
+at java.util.jar.JarFile.<init>(JarFile.java:135)<br>
+at java.util.jar.JarFile.<init>(JarFile.java:72)<br>
+at org.apache.hadoop.util.RunJar.main(RunJar.java:122)</init></init></init></p>
 <hr>
 <p>收集了网上的的个答案，可以综合为一下情况：</p>
-<pre><code> 1. 在命令行输入时的jar包的相对位置
- 2. built环境和执行环境的JDK版本不同
- 3. 在Export导出项目时要去掉被选中的.CLASSPATH
- 4. 检查执行环境和本地环境中.jar文件大小是否一致，有可能是传输过程中的错误导致.jar文件破损。
-</code></pre><hr>
+<pre><code>1. 在命令行输入时的jar包的相对位置
+2. built环境和执行环境的JDK版本不同
+3. 在Export导出项目时要去掉被选中的.CLASSPATH
+4. 检查执行环境和本地环境中.jar文件大小是否一致，有可能是传输过程中的错误导致.jar文件破损。
+</code></pre>
+<hr>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup hadoop jar recover.jar com.didi.basedata.util.dataquality.statistics.DataRecoveryJob 2018040400 2018040411 hive &gt;&gt; log_recover 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
                 

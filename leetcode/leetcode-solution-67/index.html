@@ -139,6 +139,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -147,13 +154,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -210,7 +210,10 @@
                 post-container">
 
                 <p>Given two binary strings, return their sum (also a binary string).</p>
-<p>For example,<br>a = <code>&quot;11&quot;</code><br>b = <code>&quot;1&quot;</code><br>Return <code>&quot;100&quot;</code>.</p>
+<p>For example,<br>
+a = <code>&quot;11&quot;</code><br>
+b = <code>&quot;1&quot;</code><br>
+Return <code>&quot;100&quot;</code>.</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">solution</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">addBinaires</span><span class="params">(String a, String b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = a.length()-<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> j = b.length()-<span class="number">1</span>;</span><br><span class="line">    StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>( i&gt;=<span class="number">0</span> || j&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">      <span class="keyword">int</span> sum = carry;</span><br><span class="line">      <span class="keyword">if</span>(i&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">        sum += a.charAt(i--) - <span class="string">'0'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(j&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">        sum += b.charAt(j--) - <span class="string">'0'</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      result.append(sum%<span class="number">2</span>);</span><br><span class="line">      carry = sum / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(carry != <span class="number">0</span>)&#123;</span><br><span class="line">      result.append(carry);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result.reverse().toString();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>

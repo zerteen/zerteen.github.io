@@ -134,6 +134,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -142,13 +149,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,6 +211,76 @@
 
 <div class="post-preview" style="font-style: normal;">
 
+    <a href="/article/ /">
+        <h2 class="post-title">
+            leetcode 427 建立四叉树
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            我们想要使用一棵四叉树来储存一个 N x N 的布尔值网络。网络中每一格的值只会是真或假。树的根结点代表整个网络。对于每个结点, 它将被分等成四个孩子结点直到这个区域内的值都是相同的.每个结点还有另外两个布尔变量: isLeaf 和 val。isLeaf 当这个节点是一个叶子结点时为真。val 变量储存叶子结点所代表的区域的值。你的任务是使用一个四叉树表示给定的网络。
+下面的例子将有助于你理......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2019-07-01
+            </p>
+            
+              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
+            
+              <a href="/tags/#树" title="树">树</a>
+            
+              <a href="/tags/#递归" title="递归">递归</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/leetcode-430-扁平化多级双向链表/">
+        <h2 class="post-title">
+            leetcode 430 扁平化多级双向链表
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            您将获得一个双向链表，除了下一个和前一个指针之外，它还有一个子指针，可能指向单独的双向链表。这些子列表可能有一个或多个自己的子项，依此类推，生成多级数据结构，如下面的示例所示。扁平化列表，使所有结点出现在单级双链表中。您将获得列表第一级的头部。
+示例:
+输入:
+1—2---3—4---5—6–NULL
+|
+7—8---9—10–NULL
+|
+11–12–NULL
+输出:
+1-2-3-7-8-......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2019-07-01
+            </p>
+            
+              <a href="/tags/#leetcode linkedlist" title="leetcode linkedlist">leetcode linkedlist</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
     <a href="/article/leetcode-433-最小基因变化/">
         <h2 class="post-title">
             leetcode 433 最小基因变化
@@ -219,8 +289,7 @@
             
         </h3>
         <div class="post-content-preview">
-            一条基因序列由一个带有8个字符的字符串表示，其中每个字符都属于 “A”, “C”, “G”, “T”中的任意一个。假设我们要调查一个基因序列的变化。一次基因变化意味着这个基因序列中的一个字符发生了变化。例如，基因序列由”AACCGGTT” 变化至 “AACCGGTA” 即发生了一次基因变化。与此同时，每一次基因变化的结果，都需要是一个合法的基因串，即该结果属于一个基因库。
-现在给定3个参数 ......
+            一条基因序列由一个带有8个字符的字符串表示，其中每个字符都属于 “A”, “C”, “G”, “T&quot;中的任意一个。假设我们要调查一个基因序列的变化。一次基因变化意味着这个基因序列中的一个字符发生了变化。例如，基因序列由&quot;AACCGGTT” 变化至 “AACCGGTA” 即发生了一次基因变化。与此同时，每一次基因变化的结果，都需要是一个合法的基因串，即该结果属于一个基因库。......
         </div>
     </a>
     
@@ -250,10 +319,12 @@
         <div class="post-content-preview">
             给定一个区间的集合，找到需要移除区间的最小数量，使剩余区间互不重叠。
 注意:
-可以认为区间的终点总是大于它的起点。区间 [1,2] 和 [2,3] 的边界相互“接触”，但没有相互重叠。示例 1:
+可以认为区间的终点总是大于它的起点。
+区间 [1,2] 和 [2,3] 的边界相互“接触”，但没有相互重叠。
+示例 1:
 12345输入: [ [1,2], [2,3], [3,4], [1,3] ]输出: 1解释: 移除 [1,3] 后，剩下的区间没有重叠。
 示例 2:
-12345输入: [ [1,2], [1,2]......
+12345输入: [ [1,2], [1,......
         </div>
     </a>
     
@@ -314,8 +385,10 @@
         <div class="post-content-preview">
             给定一个字符串 s 和一个非空字符串 p，找到 s 中所有是 p 的字母异位词的子串，返回这些子串的起始索引。字符串只包含小写英文字母，并且字符串 s 和 p 的长度都不超过 20100。
 说明：
-字母异位词指字母相同，但排列不同的字符串。不考虑答案输出的顺序。示例 1:
-123456789输入:s: &quot;cbaebabacd&quot; p: &quot;abc&quot;输出:[......
+字母异位词指字母相同，但排列不同的字符串。
+不考虑答案输出的顺序。
+示例 1:
+123456789输入:s: &quot;cbaebabacd&quot; p: &quot;abc&quot;输出......
         </div>
     </a>
     
@@ -457,64 +530,6 @@
 </div>
 <hr>
 
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/leetcode-467-Unique-Substrings-in-Wraparound-String/">
-        <h2 class="post-title">
-            leetcode 467 Unique Substrings in Wraparound String
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Consider the string s to be the infinite wraparound string of “abcdefghijklmnopqrstuvwxyz”, so s will look like this: “…zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd….”.
-Now we have ano......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-11
-            </p>
-            
-              <a href="/tags/#leetcode string" title="leetcode string">leetcode string</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/leetcode-463-Island-Perimeter/">
-        <h2 class="post-title">
-            leetcode 463 Island Perimeter
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water.
-Grid cells are connected horizontally/vertically (not diagonally). The grid is complete......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-10
-            </p>
-            
-              <a href="/tags/#leetcode matrix" title="leetcode matrix">leetcode matrix</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -556,6 +571,14 @@ Grid cells are connected horizontally/vertically (not diagonally). The grid is c
     <div class="tags">
         
             
+            <a href="/tags/#leetcode" title="leetcode" rel="174">leetcode</a>
+            
+        
+            
+        
+            
+        
+            
             <a href="/tags/#face" title="face" rel="6">face</a>
             
         
@@ -573,8 +596,6 @@ Grid cells are connected horizontally/vertically (not diagonally). The grid is c
         
             
         
-            
-            <a href="/tags/#leetcode" title="leetcode" rel="172">leetcode</a>
             
         
             
@@ -650,6 +671,14 @@ Grid cells are connected horizontally/vertically (not diagonally). The grid is c
     <ul>
       
         <li>
+          <a href="/article/ /">leetcode 427 建立四叉树</a>
+        </li>
+      
+        <li>
+          <a href="/article/leetcode-430-扁平化多级双向链表/">leetcode 430 扁平化多级双向链表</a>
+        </li>
+      
+        <li>
           <a href="/article/leetcode-433-最小基因变化/">leetcode 433 最小基因变化</a>
         </li>
       
@@ -661,14 +690,6 @@ Grid cells are connected horizontally/vertically (not diagonally). The grid is c
           <a href="/article/leetcode-436-寻找右区间/">leetcode 436 寻找右区间</a>
         </li>
       
-        <li>
-          <a href="/article/leetcode-438-找到字符串中所有字母异位词/">leetcode 438 找到字符串中所有字母异位词</a>
-        </li>
-      
-        <li>
-          <a href="/article/leetcode-76-最小覆盖子串/">leetcode 76 最小覆盖子串</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -677,7 +698,7 @@ Grid cells are connected horizontally/vertically (not diagonally). The grid is c
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

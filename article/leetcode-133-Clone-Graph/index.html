@@ -141,6 +141,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -149,13 +156,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -218,19 +218,24 @@
 <p><strong>Note:</strong></p>
 <ol>
 <li>The number of nodes will be between 1 and 100.</li>
-<li>The undirected graph is a <a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics" target="_blank" rel="noopener">simple graph</a>#Simple_graph), which means no repeated edges and no self-loops in the graph.</li>
+<li>The undirected graph is a <a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)#Simple_graph" target="_blank" rel="noopener">simple graph</a>, which means no repeated edges and no self-loops in the graph.</li>
 <li>Since the graph is undirected, if node <em>p</em> has node <em>q</em> as neighbor, then node <em>q</em> must have node <em>p</em> as neighbor too.</li>
 <li>You must return the <strong>copy of the given node</strong> as a reference to the cloned graph.</li>
 </ol>
 <hr>
 <ul>
-<li><p>使用一个map来保存源节点<code>Node</code>和与之对应的<code>deep copy of Node</code>的对应关系。</p>
+<li>
+<p>使用一个map来保存源节点<code>Node</code>和与之对应的<code>deep copy of Node</code>的对应关系。</p>
 </li>
-<li><p>遍历<code>Node</code>的每一个<code>neighbor</code>， 将如果<code>neighbor</code>没有保存在map中，建立一个<code>neighbor</code>和<code>deep copy of neighbor</code>的对应关系。并将<code>deep copy of neighbor</code>加入<code>deep copy of Node</code>的<code>neighbots</code>中。</p>
+<li>
+<p>遍历<code>Node</code>的每一个<code>neighbor</code>， 将如果<code>neighbor</code>没有保存在map中，建立一个<code>neighbor</code>和<code>deep copy of neighbor</code>的对应关系。并将<code>deep copy of neighbor</code>加入<code>deep copy of Node</code>的<code>neighbots</code>中。</p>
 </li>
-<li><p>对<code>Node</code>的每一个<code>neighbor</code>重复上述操作。</p>
+<li>
+<p>对<code>Node</code>的每一个<code>neighbor</code>重复上述操作。</p>
 </li>
-<li>需要注意的是，每次输入的<code>Node</code>有可能已经操作过了，因此，每次操作开始前，需要判断<code>Node</code>是否已经处理过，即判断<code>deep copy of Node</code>的<code>neighbors</code>长度是否为0即可</li>
+<li>
+<p>需要注意的是，每次输入的<code>Node</code>有可能已经操作过了，因此，每次操作开始前，需要判断<code>Node</code>是否已经处理过，即判断<code>deep copy of Node</code>的<code>neighbors</code>长度是否为0即可</p>
+</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">    public int val;</span></span><br><span class="line"><span class="comment">    public List&lt;Node&gt; neighbors;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public Node() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public Node(int _val,List&lt;Node&gt; _neighbors) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        neighbors = _neighbors;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">cloneGraph</span><span class="params">(Node node)</span> </span>&#123;</span><br><span class="line">        HashMap&lt;Node, Node&gt; m = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        dfs(m, node);</span><br><span class="line">        <span class="keyword">return</span> m.get(node);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(HashMap&lt;Node, Node&gt; m, Node node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (! m.containsKey(node)) &#123;</span><br><span class="line">            m.put(node, <span class="keyword">new</span> Node(node.val, <span class="keyword">new</span> LinkedList&lt;Node&gt;()));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> ( m.get(node).neighbors.size() != <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">for</span> (Node n: node.neighbors) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!m.containsKey(n)) &#123;</span><br><span class="line">                m.put(n, <span class="keyword">new</span> Node(n.val, <span class="keyword">new</span> LinkedList&lt;Node&gt;()));</span><br><span class="line">            &#125;</span><br><span class="line">            m.get(node).neighbors.add(m.get(n));</span><br><span class="line">            dfs(m, n);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

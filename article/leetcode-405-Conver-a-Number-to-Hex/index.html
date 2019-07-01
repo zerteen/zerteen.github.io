@@ -141,6 +141,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -149,13 +156,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,11 +211,11 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, <a href="https://en.wikipedia.org/wiki/Two&#39;s_complement" target="_blank" rel="noopener">two’s complement</a> method is used.</p>
+                <p>Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, <a href="https://en.wikipedia.org/wiki/Two's_complement" target="_blank" rel="noopener">two’s complement</a> method is used.</p>
 <p><strong>Note:</strong></p>
 <ol>
 <li>All letters in hexadecimal (<code>a-f</code>) must be in lowercase.</li>
-<li>The hexadecimal string must not contain extra leading <code>0</code>s. If the number is zero, it is represented by a single zero character <code>&#39;0&#39;</code>; otherwise, the first character in the hexadecimal string will not be the zero character.</li>
+<li>The hexadecimal string must not contain extra leading <code>0</code>s. If the number is zero, it is represented by a single zero character <code>'0'</code>; otherwise, the first character in the hexadecimal string will not be the zero character.</li>
 <li>The given number is guaranteed to fit within the range of a 32-bit signed integer.</li>
 <li>You <strong>must not use any method provided by the library</strong> which converts/formats the number to hex directly.</li>
 </ol>
@@ -225,21 +225,26 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">-1</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">&quot;ffffffff&quot;</span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">toHex</span><span class="params">(self, num)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type num: int</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        dic = &#123;<span class="number">10</span>: <span class="string">'a'</span>, <span class="number">11</span>: <span class="string">'b'</span>, <span class="number">12</span>: <span class="string">'c'</span>, <span class="number">13</span>: <span class="string">'d'</span>, <span class="number">14</span>: <span class="string">'e'</span>, <span class="number">15</span>: <span class="string">'f'</span>&#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> num == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'0'</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> num  &lt; <span class="number">0</span>:</span><br><span class="line">            num = num + <span class="number">2</span>**<span class="number">32</span></span><br><span class="line">        </span><br><span class="line">        ans = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> num != <span class="number">0</span>:</span><br><span class="line">            t = num % <span class="number">16</span></span><br><span class="line">            num = num / <span class="number">16</span></span><br><span class="line">            <span class="keyword">if</span> t &lt; <span class="number">10</span>:</span><br><span class="line">                ans.insert(<span class="number">0</span>, str(t))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                ans.insert(<span class="number">0</span>, dic[t])</span><br><span class="line">        <span class="keyword">return</span> <span class="string">''</span>.join(ans);</span><br></pre></td></tr></table></figure>
-<p>KeyNodes: </p>
+<p>KeyNodes:</p>
 <ul>
-<li><p>负数的情况比较复杂，可以考虑直接从负数转换为对应的正数的编码。</p>
+<li>
+<p>负数的情况比较复杂，可以考虑直接从负数转换为对应的正数的编码。</p>
 <ul>
-<li><p>方法一：</p>
+<li>
+<p>方法一：</p>
 <p>直接在负数的基础上加上$2^{32}$</p>
 </li>
-<li><p>方法二：</p>
+<li>
+<p>方法二：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">num = -num</span><br><span class="line">num ^= <span class="number">0xffffffff</span></span><br><span class="line">num += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>注意保存在ans之后，需要进行reverse操作</p>
+<li>
+<p>注意保存在ans之后，需要进行reverse操作</p>
 </li>
-<li><p>如果使用str来保存最后的结果，可以使用str[::-1]来进行reverse操作。</p>
+<li>
+<p>如果使用str来保存最后的结果，可以使用str[::-1]来进行reverse操作。</p>
 </li>
 </ul>
 
