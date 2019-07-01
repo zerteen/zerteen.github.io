@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval - zerteen | Blog
+          leetcode 446 等差数列划分 II - 子序列 - zerteen | Blog
         
     </title>
 
-    <link rel="canonical" href="https://zerteen.github.io/article/Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval/">
+    <link rel="canonical" href="https://zerteen.github.io/article/leetcode-446-等差数列划分-II---子序列/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,13 +88,13 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#hashing" title="hashing">hashing</a>
+                              <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
                             
                         </div>
-                        <h1>Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval</h1>
+                        <h1>leetcode 446 等差数列划分 II - 子序列</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
-                            2019-03-21
+                            2019-06-28
                         </span>
                     </div>
                 
@@ -211,79 +211,21 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="unsupervised-deep-hashing-with-adaptive-feature-learning-for-image-retrieval">Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval</h1>
-<p>Notations:</p>
-<p>$I= \lbrace I_{1}, I_{2}, \ldots, I_{n} \rbrace $ : 所有的图像集合<br>
-$\mathbf{X}=\left[\mathbf{x}<em>{1}, \mathbf{x}</em>{2}, \ldots, \mathbf{x}<em>{n}\right] \in \mathbf{R}^{d \times n}$ : 全局特征，每一列表示一个图像。<br>
-使用$k$ 个哈希函数 $h= \lbrace h</em>{1}, h_{2}, \cdots, h_{k} \rbrace $ 来产生k-bit的哈希码 $\mathbf{B}=\left[\mathbf{b}<em>{1}, \mathbf{b}</em>{2}, \cdots, \mathbf{b}<em>{n}\right] \in {+1,-1}^{k \times n}$<br>
-$F(\cdot)$ 为前向传播： $\mathbf{b}</em>{i}=h\left(I_{i}\right)=\operatorname{sgn}\left(F\left(I_{i} ; \mathbf{W}\right)\right)$</p>
-<h2 id="产生伪标签">产生伪标签</h2>
-<p>对sample使用k-means聚类，生成k个类别（pseudo-class）， 每个类别就对应为自标签信息。</p>
-<p>相似度矩阵$\mathbf{S} \in{1,0}^{n \times n}$ ，如果$\bf{x_i}, \bf{x_j} $ 属于同一个类，$S_{i,j} =1 $。</p>
-<p>在很多图像数据中，单一的标签不能够很好的表达出多样的图像属性。这将导致类内的差异大，来自两个不同类的样本可能距离很近。</p>
-<p>对于任意一个样本，如果它到它的类心的距离大于一个设定的阈值，那么他就被视为边界样本（Edge Sample）边界矩阵$\mathbf{E}$, 当$\bf{x_i} $或者$\bf{x_j}$是边界点时，$E_{ij} = 1$  否则为0。</p>
-<p><strong>属于不同类的两个样本之间的汉明距离应该尽可能的大</strong>，这样的话，考虑最大化他的似然函数。</p>
-<p>先定义他的条件概率：<br>
-$$<br>
-p\left(S_{i j} | \mathbf{b}<em>{i}, \mathbf{b}</em>{j}\right)= \lbrace \begin{array}{ll}{\sigma\left(\Theta_{i j}\right)} &amp; {S_{i j}=1} \ {1-\sigma\left(\Theta_{i j}\right)} &amp; {S_{i j}=0}\end{array}\right.<br>
-$$<br>
-其中，$\sigma(\cdot)$ 为sigmoid函数，$\Theta_{i j}=\frac{1}{2} \mathbf{b}<em>{i}^{\mathrm{T}} \mathbf{b}</em>{j}$ 可以表达之间的距离。</p>
-<p>论文将所有的edge sample都做抛弃处理，这样一来，似然函数就表现为：<br>
-$$<br>
--\sum_{S_{i j}=0 \atop E_{i j}=0} \log p\left(S_{i j} | \mathbf{b}<em>{i}, \mathbf{b}</em>{j}\right)=-\sum_{S_{i j}=0 \atop E_{i j}=0}\left(S_{i j} \Theta_{i j}-\log \left(1+e^{\Theta_{i j}}\right)\right)<br>
-$$<br>
-<strong>属于同一个类的两个样本之间的汉明距离应该尽可能的小</strong>，这样的话，<br>
-$$<br>
-\operatorname{Sim}<em>{i j}=\tanh \left(\alpha\left(\mathbf{x}</em>{i}^{\mathrm{T}} \mathbf{x}<em>{j}-\beta\right)\right)<br>
-\<br>
-\min \left|\operatorname{Sim}-\frac{1}{k} \mathbf{B}^{\mathrm{T}} \mathbf{B}\right|</em>{F}^{2}<br>
-$$<br>
-这里 $Sim_{ij}$ 表示通过样本$\bf{x_i}$和$\bf{x_j}$的距离在汉明空间的投影。由于X经过了归一化操作，因此，$\bf{x_i}^T\bf{x_j}$ 表示的是这两个样本之间的余弦距离，这里到特征空间和汉明空间的差异，使用过了$\alpha, \beta​$ 进行了调节，并且使用了tanh，使用tanh是考虑到，即使是两个非常相似的图像，他们之间特征的汉明距离也不一定接近于1，tanh能够使得当一个数超过一定阈值时非常的接近1.</p>
-<p>所以，总体的目标函数为：<br>
-$$<br>
-\begin{aligned} \min <em>{\mathbf{B}} &amp;-\gamma</em>{0} \sum_{S_{i j}=0 \ E_{ij}=0}\left(-\log \left(1+e^{\Theta_{i j}}\right)\right) \ &amp;+\gamma_{1} \sum_{S_{i j}=1}\left|\tanh \left(\alpha\left(\mathbf{x}<em>{i}^{\mathrm{T}} \mathbf{x}</em>{j}-\beta\right)\right)-\frac{1}{k} \mathbf{b}<em>{i}^{\mathrm{T}} \mathbf{b}</em>{j}\right|_{2}^{2} \end{aligned}<br>
-$$</p>
-<h2 id="可适应的特征学习">可适应的特征学习</h2>
-<p>上述的$\bf{x}$指的是handcraft feature。handcraft feature通常都是局部信息，接下来作者试图通过局部信息来生成全局信息。</p>
-<p>这里主要考虑到两点：</p>
-<ol>
-<li>对于任何两个相似的sample，他们学习到的全局特征之间的距离要小于原始图像特征的距离一个阈值</li>
-<li>对于两个不相似的sample，他们之间的cosine distance要小于一个阈值</li>
-<li>学习到的全局特征要更适合用来学习哈希码</li>
-</ol>
-<p>综合以上三点，作者定义了如下的损失函数：<br>
-$$<br>
-L=\gamma_{2} \sum_{S_{i j}=1}|\max ( |f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\mathbf{x}<em>{\mathrm{i}}^{\mathrm{T}} \mathbf{x}</em>{\mathrm{j}}-\epsilon_{1}, 0)|<em>{2}^{2}<br>
-\<br>
-+\gamma</em>{3} \sum_{S_{i j}=0 \atop E_{i j}=0}\left|\max \left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\epsilon_{2}, 0\right)\right|_{2}^{2}<br>
-$$<br>
-其中，$f(I)$指学到的global feature</p>
-<h2 id="优化">优化</h2>
-<p>总的目标函数：<br>
-$$<br>
-\min <em>{B}-\gamma</em>{0} \sum_{S_{i j}=0 \atop E_{i j}=0}\left(-\log \left(1+e^{\Theta_{i j}}\right)\right)+L</p>
-<p>+\gamma_{1} \sum_{S_{ij}=1}\left|\tanh \left(\alpha\left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\beta\right)\right)-\frac{1}{k} \mathbf{b}<em>{\mathbf{i}}^{\mathrm{T}} \mathbf{b}</em>{\mathbf{j}}\right|<em>{2}^{2}<br>
-\<br>
-\text { s.t. } &amp; \quad \mathbf{B} \in{+1,-1}^{k \times n}<br>
-$$<br>
-考虑到B难以直接优化，作者就引入了U来优化，这样：<br>
-$$<br>
-\begin{align}<br>
-\min <em>{\mathbf{B}, \alpha, \beta} &amp; - \gamma</em>{0}  \sum</em>{S_{i j}=0 \atop E_{i j}=0}\left(-\log \left(1+e^{\Psi_{i j}}\right)\right) \<br>
-&amp;+\eta\sum_{i=1}^{n}\left|\mathbf{b}<em>{i}-\mathbf{u}</em>{i}\right|<em>{2}^{2}\<br>
-&amp; + \gamma</em>{1} \sum_{S_{i j}=1}\left|\tanh \left(\alpha\left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\beta\right)\right)-\frac{1}{k} \mathbf{u}<em>{i}^{\mathrm{T}} \mathbf{u}</em>{j}\right|<em>{2}^{2}\<br>
-&amp; +\gamma</em>{2} \sum_{S_{i j}=1}|\max ( |f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\mathbf{x}<em>{i}^{\mathrm{T}} \mathbf{x}</em>{j}-\epsilon_{1}, 0)|<em>{2}^{2}\<br>
-&amp; +\gamma</em>{3} \sum_{S_{i j}=0 \atop E_{i j}=0}\left|\max \left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\epsilon_{2}, 0\right)\right|<em>{2}^{2}<br>
-\<br>
-\text { s.t. } &amp;\quad \mathbf{U} \in \mathbf{R}^{k \times n}, \mathbf{U}=F(I ; \mathbf{W})<br>
-\end{align}<br>
-$$<br>
-其中， $\mathbf{\Psi}</em>{i j}=\frac{1}{2} \mathbf{u}<em>{i}^{\mathrm{T}} \mathbf{u}</em>{j}$ ，相当于是吧之前的所有的B都用U来替代了，然后U是网络的输出。</p>
-<p>总体来说考虑的是几点：</p>
-<ul>
-<li>相似图像之间，网络输出的类哈希码</li>
-</ul>
-<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1g1bix9g8mjj30lk0p6n0c.jpg" alt="image-20190322134844656"></p>
+                <p>如果一个数列至少有三个元素，并且任意两个相邻元素之差相同，则称该数列为等差数列。例如，以下数列为等差数列:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1, 3, 5, 7, 9</span><br><span class="line">7, 7, 7, 7</span><br><span class="line">3, -1, -5, -9</span><br></pre></td></tr></table></figure>
+<p>以下数列不是等差数列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1, 1, 2, 5, 7</span><br></pre></td></tr></table></figure>
+<p>数组 A 包含 N 个数，且索引从 0 开始。该数组子序列将划分为整数序列 $(P_0, P_1, …, P_k)$，P 与 Q 是整数且满足 $0 ≤ P_0 &lt; P_1 &lt; … &lt; P_k &lt; N$。</p>
+<p>如果序列 $A[P_0]，A[P_1]，…，A[P_{k-1}]，A[P_k]$ 是等差的，那么数组 A 的子序列$ (P_0，P_1，…，P_K)$ 称为等差序列。值得注意的是，这意味着 k ≥ 2。</p>
+<p>函数要返回数组 A 中所有等差子序列的个数。</p>
+<p>输入包含 N 个整数。每个整数都在 $-2^{31}$ 和 $2^{31-1}$ 之间，另外 0 ≤ N ≤ 1000。保证输出小于 $2^{31-1}$。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入：	[2, 4, 6, 8, 10]</span><br><span class="line">输出：	7</span><br><span class="line">解释：</span><br><span class="line">      所有的等差子序列为：</span><br><span class="line">      [2,4,6]</span><br><span class="line">      [4,6,8]</span><br><span class="line">      [6,8,10]</span><br><span class="line">      [2,4,6,8]</span><br><span class="line">      [4,6,8,10]</span><br><span class="line">      [2,4,6,8,10]</span><br><span class="line">      [2,6,10]</span><br></pre></td></tr></table></figure>
+<p>来源：力扣（LeetCode）<br>
+链接：<a href="https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence" target="_blank" rel="noopener">https://leetcode-cn.com/problems/arithmetic-slices-ii-subsequence</a><br>
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numberOfArithmeticSlices</span><span class="params">(self, A)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type A: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        distList = [dict() <span class="keyword">for</span> i <span class="keyword">in</span> range(len(A))]</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(A)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i):</span><br><span class="line">                delta = A[i] - A[j]</span><br><span class="line">                <span class="keyword">if</span> delta <span class="keyword">not</span> <span class="keyword">in</span> distList[i]:</span><br><span class="line">                    distList[i][delta] = <span class="number">0</span></span><br><span class="line">                distList[i][delta] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> delta <span class="keyword">in</span> distList[j]:</span><br><span class="line">                    distList[i][delta] += distList[j][delta]</span><br><span class="line">                    ans += distList[j][delta]</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
 
                 
 
@@ -292,12 +234,12 @@ $$<br>
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/leetcode-448-Find-All-Numbers-Disappeared-in-an-Array/" data-toggle="tooltip" data-placement="top" title="leetcode 448 Find All Numbers Disappeared in an Array">&larr; Previous Post</a>
+                            <a href="/article/leetcode-441-排列硬币/" data-toggle="tooltip" data-placement="top" title="leetcode 441 排列硬币">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/°∂Direct-Shape-Regression-Networks-for-End-to-End-Face-Alignment°∑¬€ŒƒΩ‚∂¡/" data-toggle="tooltip" data-placement="top" title="《Direct Shape Regression Networks for End-to-End Face Alignment》论文解读">Next Post &rarr;</a>
+                            <a href="/article/leetcode-448-Find-All-Numbers-Disappeared-in-an-Array/" data-toggle="tooltip" data-placement="top" title="leetcode 448 Find All Numbers Disappeared in an Array">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -350,7 +292,7 @@ $$<br>
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#hashing" title="hashing">hashing</a>
+                          <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
                         
                     </div>
                 </section>
