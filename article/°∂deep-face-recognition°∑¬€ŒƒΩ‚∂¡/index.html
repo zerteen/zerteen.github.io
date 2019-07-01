@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -219,7 +219,7 @@
 </ul>
 <hr>
 <p>Google使用的一个人人脸图像数据集中包含2亿张图片，8百万个人物身份。但是公开的数据集很难达到这样的数据规模。</p>
-<p><img src="%E3%80%8Adeep-face-recognition%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535092056000.png" alt="1535092056000"></p>
+<p><img src="《deep-face-recognition》论文解读\1535092056000.png" alt="1535092056000"></p>
 <p>如上图所示，左侧的公开数据集在量级上要远小于大公司所使用的数据集。</p>
 <p>论文提出以下的流程来建立数据集：</p>
 <ol>
@@ -232,12 +232,10 @@
 <hr>
 <p>在人脸识别中传统的方法通常使用浅层特征，这些方法别称为<strong>浅层方法</strong>（Shallow Methods），使用到神经网络的方法称为<strong>深层方法</strong>（Deep Methods）。</p>
 <ul>
-<li>
-<p>浅层方法</p>
+<li><p>浅层方法</p>
 <p>先使用手工的局部图片描述符（handcrafted local image descriptors）来取提取图片的表示，在使用池化机制来聚合这些局部描述符来形成人脸描述符。</p>
 </li>
-<li>
-<p>深层方法</p>
+<li><p>深层方法</p>
 <p>使用卷积网络来提取人脸特征，代表的系统有DeepFace。</p>
 </li>
 </ul>
@@ -254,58 +252,42 @@
 </ul>
 <p>DeepID不使用3D人脸对齐，但是进行了2D的仿射对齐（Affine Alignment）</p>
 <p>基础的网络结果如下图所示：</p>
-<p><img src="%E3%80%8Adeep-face-recognition%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535113904161.png" alt="1535113904161"></p>
+<p><img src="《deep-face-recognition》论文解读\1535113904161.png" alt="1535113904161"></p>
 <p>数学化表示如下：</p>
 <ul>
-<li>
-<p>$\phi$ : 网络</p>
+<li>$\phi$ : 网络</li>
+<li><p>$N$ : 数据集中人物的个数，即类别的个数，$N = 2622$</p>
 </li>
-<li>
-<p>$N$ : 数据集中人物的个数，即类别的个数，$N = 2622$</p>
+<li><p>$l_t$ : 第t张训练图像</p>
 </li>
-<li>
-<p>$l_t$ : 第t张训练图像</p>
+<li><p>$W, b$ : 全连接层的参数， 其中$W \in \R^{N\times D}, b \in \R^{N}$</p>
 </li>
-<li>
-<p>$W, b$ : 全连接层的参数， 其中$W \in \R^{N\times D}, b \in \R^{N}$</p>
+<li><p>$x_t = W\phi(l_t)+b$:  图片$l_t$ 经过网络后得到的该图片在N个类别中的得分</p>
 </li>
-<li>
-<p>$x_t = W\phi(l_t)+b$:  图片$l_t$ 经过网络后得到的该图片在N个类别中的得分</p>
-</li>
-<li>
-<p>$e_c$ : 类别c的one-hot向量</p>
+<li><p>$e_c$ : 类别c的one-hot向量</p>
 </li>
 </ul>
-<p>经过一个softmax交叉熵损失来进行训练：<br>
-$$<br>
-E(\phi)=-\sum_t\log(\frac{e^{&lt;e_{t_c}，x_t&gt;}}{\sum_{q=1, …,N}e^{&lt;e_q, x_t&gt;}})<br>
-$$<br>
-在学习过后，最后的全连接层(W, b)将被移除，通过网络$\phi$ 得到的特征$\phi(x_t)$将可以对其进行欧氏距离的计算来用于人脸验证。</p>
+<p>经过一个softmax交叉熵损失来进行训练：</p>
+<script type="math/tex; mode=display">
+E(\phi)=-\sum_t\log(\frac{e^{<e_{t_c}，x_t>}}{\sum_{q=1, ...,N}e^{<e_q, x_t>}})</script><p>在学习过后，最后的全连接层(W, b)将被移除，通过网络$\phi$ 得到的特征$\phi(x_t)$将可以对其进行欧氏距离的计算来用于人脸验证。</p>
 <p>作者提出，使用三元组损失（Triplet-loss）得到的表示更具有分辨力。</p>
 <ul>
-<li>
-<p>$\phi(l_i)​$ : 图片i在卷积网络后得到的特征表示</p>
+<li><p>$\phi(l_i)​$ : 图片i在卷积网络后得到的特征表示</p>
 </li>
-<li>
-<p>$W’$ : 是一个纺射投影，通过</p>
+<li><p>$W’$ : 是一个纺射投影，通过</p>
 </li>
 </ul>
-<p>$$<br>
-x_i = W’ \frac{\phi(l_i)}{||\phi(l_i)||_2}<br>
-$$<br>
-将维度为$\R^D$ 的特征表示映射到$x_i \in \R^L$ 的特征表示，其中，$L \ll D$ ，其中的$W’$可以通过以下的损失来学习$(a, p, n)$: 是一个三元组，a是一个anchor 人脸图，p是a所属类别的一个正实例，n是a所属的类别的一个负实例</p>
-<p>$$<br>
-E(W’) = \sum_{(a, p, n) \in T} max{ 0, \alpha-||x_a - x_n||^{2}_{2} +||x_a - x_p||^2_2 }<br>
-$$</p>
-<h3 id="实验结果"><strong>实验结果</strong></h3>
-<ul>
+<script type="math/tex; mode=display">
+  x_i = W' \frac{\phi(l_i)}{||\phi(l_i)||_2}</script><p>将维度为$\R^D$ 的特征表示映射到$x_i \in \R^L$ 的特征表示，其中，$L \ll D$ ，其中的$W’$可以通过以下的损失来学习$(a, p, n)$: 是一个三元组，a是一个anchor 人脸图，p是a所属类别的一个正实例，n是a所属的类别的一个负实例</p>
+<script type="math/tex; mode=display">
+E(W') = \sum_{(a, p, n) \in T} max\{ 0, \alpha-||x_a - x_n||^{2}_{2} +||x_a - x_p||^2_2 \}</script><h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a><strong>实验结果</strong></h3><ul>
 <li>在LFW的实验结果</li>
 </ul>
-<p><img src="%E3%80%8Adeep-face-recognition%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535113663280.png" alt="1535113663280"></p>
+<p><img src="《deep-face-recognition》论文解读\1535113663280.png" alt="1535113663280"></p>
 <ul>
 <li>在YFD的实验结果</li>
 </ul>
-<p><img src="%E3%80%8Adeep-face-recognition%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535113718635.png" alt="1535113718635"></p>
+<p><img src="《deep-face-recognition》论文解读\1535113718635.png" alt="1535113718635"></p>
 
                 
 

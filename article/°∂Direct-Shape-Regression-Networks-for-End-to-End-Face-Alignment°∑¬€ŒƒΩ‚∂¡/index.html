@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -220,50 +220,42 @@
 <li>$[x_1, y_1, …,x_N,y_N]^T \in \R^{2N}$ 是一组标记点的实例。</li>
 </ul>
 <p>人脸对其的主要目标是在已知人脸语义描述的情况下，估计一些列预定义的标记点的位置。</p>
-<p>图片通常使用过低维的特征来表示的，但是人脸形状却包含了高度的语义信息，同时，标记的是空间相关的。</p>
+<p> 图片通常使用过低维的特征来表示的，但是人脸形状却包含了高度的语义信息，同时，标记的是空间相关的。</p>
 <p>级联回归（Cascaded Regression）是一种非直接的方法，迭代的估计形状的增量（shape increment），由于这是一种迭代的方式，如果初始点的位置没有选好的话，最中的结果很有可能卡在局部最优解上。在级联模型中，只有标记点周围的区域被传输到特征提取器，这使得人脸整体的语义信息和特征点之间的关联信息被忽略。</p>
 <p>DSRN由三部分组成，双卷积层（Doubly Convolutional layer）、傅里叶特征池化（Fourier feature pooling layer）和低秩学习层（Low-rank learning layer）</p>
-<p><img src="%E3%80%8ADirect-Shape-Regression-Networks-for-End-to-End-Face-Alignment%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535333880103.png" alt="1535333880103"></p>
+<p><img src="《Direct-Shape-Regression-Networks-for-End-to-End-Face-Alignment》论文解读\1535333880103.png" alt="1535333880103"></p>
 <p><strong>双卷积层：</strong></p>
 <p>双卷积层起源于论文：S. Zhai, Y. Cheng, Z. M. Zhang, and W. Lu. Doubly convo- lutional neural networks. In Advances in Neural Information Processing Systems, pages 1082–1090, 2016. 与传统的卷积相比，双卷积的计算量更小，在提高性能的同时，降低了参数量。</p>
 <p>在人脸对齐训练数据相对较小，同时，人脸的形状有很大的差异性。</p>
 <p>在传统的卷积层中，卷积核的大小一般都相对较小，同时，很多卷积核之间具有相关性，一个卷积核可能只是另一个卷积核的翻译版本，导致了很多的冗余。在双卷积中存在两种卷积核</p>
 <ol>
-<li>
-<p>元卷积核（meta filter）</p>
-<p>$L’ \times L’$</p>
+<li><p>元卷积核（meta filter）</p>
+<p>$L’ \times L’$ </p>
 </li>
-<li>
-<p>有效卷积核（effective filter）</p>
-<p>$L \times L$</p>
+<li><p>有效卷积核（effective filter）</p>
+<p>$L \times L$ </p>
 </li>
 </ol>
 <p>$L’ &gt; L$ ，一个双卷积中，包含$(L’-L+1)^2$ 个有效卷积核。每一组有效卷积核，都被强制成组内相关连的，即组内的每一个卷积核都是另一个卷积核的翻译版本。</p>
-<p><img src="%E3%80%8ADirect-Shape-Regression-Networks-for-End-to-End-Face-Alignment%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535337079869.png" alt="1535337079869"></p>
+<p><img src="《Direct-Shape-Regression-Networks-for-End-to-End-Face-Alignment》论文解读\1535337079869.png" alt="1535337079869"></p>
 <p><strong>傅里叶池化层：</strong></p>
 <p>能够获图片整体的表示，傅里叶池化层起源于核估计（Kernal approximation），可以提取出非线性特征。能够较好的处理图片和形状的非线性信息。它使用的激活函数是余弦激活函数，可以端到端的反向传播。</p>
 <p>在双卷积层输出的特征图$X \in \R^{w \times h \times c}$ ， 表示每个特征图的长为$w$, 高为$h$，一共有$c$ 个特征。我们用$\bold{x} = [x_1, x_2, …, x_c]^T$ 表示每一个特征包含$x_1$到$x_c$ 这c个特征。</p>
-<p><img src="%E3%80%8ADirect-Shape-Regression-Networks-for-End-to-End-Face-Alignment%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535350069285.png" alt="1535350069285"></p>
-<p>通过监督学习，学习到${\bold{w}, \bold{b}}$ ，其中$\bold{w} = [w_1, …,w_d] \in \R^{d \times c}, \bold{b} = [b_1, …,b_d]$ 非线性层：<br>
-$$<br>
-\phi_i = \cos(\bold{w}\bold{x}_i + \bold{b})<br>
-$$<br>
-其中$\cos(·)$ 是一个按位计算的函数$i$表示特征图$\bold{x}$中的第$i$个位置。这样，对于一个特征图$\bold{x}$ 都能够得到$\phi_1, …,\phi_p$ 个特征值，其中，$p  = w \times h$ . 连接这些特征值，得到特征矩阵$\bold{z} = [\phi_1,…,\phi_p] \in \R^d$</p>
+<p><img src="《Direct-Shape-Regression-Networks-for-End-to-End-Face-Alignment》论文解读\1535350069285.png" alt="1535350069285"></p>
+<p>通过监督学习，学习到${\bold{w}, \bold{b}}$ ，其中$\bold{w} = [w_1, …,w_d] \in \R^{d \times c}, \bold{b} = [b_1, …,b_d]$ 非线性层：</p>
+<script type="math/tex; mode=display">
+\phi_i = \cos(\bold{w}\bold{x}_i + \bold{b})</script><p>其中$\cos(·)$ 是一个按位计算的函数$i$表示特征图$\bold{x}$中的第$i$个位置。这样，对于一个特征图$\bold{x}$ 都能够得到$\phi_1, …,\phi_p$ 个特征值，其中，$p  = w \times h$ . 连接这些特征值，得到特征矩阵$\bold{z} = [\phi_1,…,\phi_p] \in \R^d$ </p>
 <p><strong>低秩学习层：</strong></p>
 <p>用于学习标记点之间的相关性，用它来代替普通情况下的全连接层。低秩学习层强制其输出共享一些局部特征，来显示的处理相关性。</p>
-<p>在已知整体表示$\bold{z}$ ,通常的全连接层使用一个矩阵$M \in \R^{Q \times D}, Q =2N$  ， 而此时，我们将$M$分解为两个矩阵，使得：<br>
-$$<br>
-\bold{y} = M\bold{z} =  U^TV\bold{z}<br>
-$$<br>
-其中，$U \in \R^{P \times Q}, V \in \R^{P \times D}, P \le Q$</p>
+<p>在已知整体表示$\bold{z}$ ,通常的全连接层使用一个矩阵$M \in \R^{Q \times D}, Q =2N$  ， 而此时，我们将$M$分解为两个矩阵，使得：</p>
+<script type="math/tex; mode=display">
+\bold{y} = M\bold{z} =  U^TV\bold{z}</script><p>其中，$U \in \R^{P \times Q}, V \in \R^{P \times D}, P \le Q$   </p>
 <p>中间的低秩矩阵，使得网络的输出显式的进行了相关性的编码。</p>
 <p><strong>网络结构：</strong></p>
-<p>使用了四层双卷积，四层池化层，每一次卷积后使用relu激活函数，每次池化使用最大池化，size分别为：$5 \times 5, 5 \times 3, 3\times 3, 3\times 3$ ,使用标准均误差（Normalized mean error）:<br>
-$$<br>
-NME = \frac{\frac{1}{N}\sum^N_{i=1}\sqrt{(\hat{x}_i-x_i)^2 + (\hat{y_i} - y_i)^2}}{d}<br>
-$$<br>
-其中，d用于正则化。</p>
-<p><img src="%E3%80%8ADirect-Shape-Regression-Networks-for-End-to-End-Face-Alignment%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535353175910.png" alt="1535353175910"></p>
+<p>使用了四层双卷积，四层池化层，每一次卷积后使用relu激活函数，每次池化使用最大池化，size分别为：$5 \times 5, 5 \times 3, 3\times 3, 3\times 3$ ,使用标准均误差（Normalized mean error）:</p>
+<script type="math/tex; mode=display">
+NME = \frac{\frac{1}{N}\sum^N_{i=1}\sqrt{(\hat{x}_i-x_i)^2 + (\hat{y_i} - y_i)^2}}{d}</script><p>其中，d用于正则化。</p>
+<p><img src="《Direct-Shape-Regression-Networks-for-End-to-End-Face-Alignment》论文解读\1535353175910.png" alt="1535353175910"></p>
 
                 
 
