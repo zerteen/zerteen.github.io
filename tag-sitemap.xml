@@ -2,15 +2,85 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://zerteen.github.io/tags/Face-Recognition/</loc>
-        <lastmod>2018-08-27T07:01:52.000Z</lastmod>
+        <loc>https://zerteen.github.io/tags/Semantic-Segmentation/</loc>
+        <lastmod>2018-08-31T06:19:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://zerteen.github.io/tags/hashing/</loc>
-        <lastmod>2019-04-13T05:17:24.400Z</lastmod>
+        <loc>https://zerteen.github.io/tags/Face-Retrieval/</loc>
+        <lastmod>2018-09-10T01:28:46.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/face/</loc>
+        <lastmod>2019-03-28T15:44:11.213Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/Face/</loc>
+        <lastmod>2019-03-30T12:37:07.918Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/Hexo/</loc>
+        <lastmod>2019-04-15T12:43:19.608Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/face-recognition/</loc>
+        <lastmod>2019-04-15T13:44:30.569Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/Deep-Learning/</loc>
+        <lastmod>2019-04-23T03:15:21.839Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/leetcode-array/</loc>
+        <lastmod>2019-06-10T09:16:40.287Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/leetcode-math/</loc>
+        <lastmod>2019-06-10T10:31:26.013Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/leetcode-bit-manipulation/</loc>
+        <lastmod>2019-06-10T12:17:12.868Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/leetcode-matrix/</loc>
+        <lastmod>2019-06-10T13:08:45.910Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/leetcode-string/</loc>
+        <lastmod>2019-06-11T03:08:45.937Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -18,6 +88,20 @@
     <url>
         <loc>https://zerteen.github.io/tags/leetcode/</loc>
         <lastmod>2019-07-01T02:59:44.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/hashing/</loc>
+        <lastmod>2019-07-01T03:05:11.892Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/Face-Recognition/</loc>
+        <lastmod>2019-07-01T03:05:20.949Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
