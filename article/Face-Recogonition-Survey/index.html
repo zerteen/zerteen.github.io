@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -233,29 +233,25 @@
 <p>Megaface [83]</p>
 <p>MS-Celeb-1M [59]</p>
 <p>CASIA-Webface   0.5M 10K</p>
-<p><img src="Face-Recogonition-Survey%5C1535964578287.png" alt="常用数据集规模"></p>
+<p><img src="Face-Recogonition-Survey\1535964578287.png" alt="常用数据集规模"></p>
 <p>Face Detection: 定位在那个地方</p>
 <p>Face Verification: 1-1, 判断两张图片是否属于同一个人</p>
 <pre><code>属于Metric Learning，需要找到一个使得不同类的的表示更分散的度量（metric）
 
 JB模型：将一个人脸特征$x$看成$x=\mu + \varepsilon$ (identy + intra-persion variation)
-</code></pre>
-<p>$$<br>
-r(x_1, x_2) = \log \frac{P(x_1, x_2|H_1)}{P(x_1, x_2|H_E)}<br>
-$$<br>
-	相似度的度量为：两个特征属脸于同一个类概率比上两个特征脸属于不同类的概率</p>
-<p>Face Identification: 1-N，判断给定的图片是那一个人</p>
+</code></pre><script type="math/tex; mode=display">
+r(x_1, x_2) = \log \frac{P(x_1, x_2|H_1)}{P(x_1, x_2|H_E)}</script><pre><code>相似度的度量为：两个特征属脸于同一个类概率比上两个特征脸属于不同类的概率
+</code></pre><p>Face Identification: 1-N，判断给定的图片是那一个人</p>
 <pre><code>closed-set identification
 
 open-set identification
-</code></pre>
-<p>人脸的姿态，光线强弱，表情，姿势，遮挡影响了网络的性能。</p>
+</code></pre><p>人脸的姿态，光线强弱，表情，姿势，遮挡影响了网络的性能。</p>
 <p>主要集中在对姿势的研究：</p>
 <ul>
 <li>1-N 增广，由单张图片生成多张不同姿势的图片，使网络能够得到泛化</li>
 <li>N-1 正规化，将图片中的不同姿势归一化成一个姿势</li>
 </ul>
-<p><img src="Face-Recogonition-Survey%5C1535941350179.png" alt="姿势研究分类"></p>
+<p><img src="Face-Recogonition-Survey\1535941350179.png" alt="姿势研究分类"></p>
 <p>网络结构：</p>
 <ul>
 <li>AlexNet</li>
@@ -264,43 +260,32 @@ open-set identification
 <li>ResNet</li>
 <li>SENet</li>
 </ul>
-<p><img src="Face-Recogonition-Survey%5C1535941417974.png" alt="网络结构"></p>
+<p><img src="Face-Recogonition-Survey\1535941417974.png" alt="网络结构"></p>
 <p>loss：</p>
 <ul>
-<li>
-<p>欧氏距离，相比内类变化，更看重类间变</p>
+<li><p>欧氏距离，相比内类变化，更看重类间变</p>
 <p><strong>Paire-wise loss</strong></p>
 </li>
 </ul>
-<p>$$<br>
-Loss = y_{ij} \max(0, ||f(x_i) - f(x_j)||<em>2 - \epsilon^+) + (1-y</em>{ij})\max(0, \epsilon^- - ||f(x_i)-f(x_j))||_2)<br>
-$$</p>
-<pre><code>其中的参数$\epsilon$ 难以学习到
+<script type="math/tex; mode=display">
+Loss = y_{ij} \max(0, ||f(x_i) - f(x_j)||_2 - \epsilon^+) + (1-y_{ij})\max(0, \epsilon^- - ||f(x_i)-f(x_j))||_2)</script><pre><code>其中的参数$\epsilon$ 难以学习到
 
 **Triplet Loss**
-</code></pre>
-<p>$$<br>
-||f(x_i^a)-f(x_i^p)||_2^2 + \alpha &lt; -||f(x_i^a)-f(x_i^n)||_2^2<br>
-$$<br>
-	<strong>Center Loss</strong></p>
-<pre><code>为每一个类学习得到他的中心点，惩罚 特征到对应的中心点的距离
-</code></pre>
-<p>$$<br>
-L_c = \frac{1}{2} \sum^m_{i=1} || x_i - c_{y_i}||_2^2<br>
-$$</p>
-<ul>
-<li>
-<p>余弦距离， 根据学习到的特征之间的角度进行比较,使学习到的特征在角度空间上尽可能的分散</p>
+</code></pre><script type="math/tex; mode=display">
+||f(x_i^a)-f(x_i^p)||_2^2 + \alpha < -||f(x_i^a)-f(x_i^n)||_2^2</script><pre><code>**Center Loss**
+
+为每一个类学习得到他的中心点，惩罚 特征到对应的中心点的距离
+</code></pre><script type="math/tex; mode=display">
+L_c = \frac{1}{2} \sum^m_{i=1} || x_i - c_{y_i}||_2^2</script><ul>
+<li><p>余弦距离， 根据学习到的特征之间的角度进行比较,使学习到的特征在角度空间上尽可能的分散</p>
 </li>
-<li>
-<p>Softmax loss，</p>
+<li><p>Softmax loss，</p>
 </li>
 </ul>
-<p><img src="Face-Recogonition-Survey%5C1535941486278.png" alt="常用loss"></p>
+<p><img src="Face-Recogonition-Survey\1535941486278.png" alt="常用loss"></p>
 <p>Face Matching</p>
 <pre><code>网络得到的特征进行距离计算，或者将得到的特征进行处理，metric learning，sparse-representation-based classifie
-</code></pre>
-<p>网络架构：</p>
+</code></pre><p>网络架构：</p>
 <ul>
 <li>使用多个网络来处理不同尺寸的图片输入</li>
 <li>使用多个网络来处理不同的人体姿势（角度）</li>
@@ -308,17 +293,13 @@ $$</p>
 </ul>
 <p>场景：</p>
 <ul>
-<li>
-<p>Cross-factor ：年纪因素，姿势因素，</p>
+<li><p>Cross-factor ：年纪因素，姿势因素，</p>
 </li>
-<li>
-<p>Heterogeneous：异源人脸识别，图像对视屏，近红外线到图片</p>
+<li><p>Heterogeneous：异源人脸识别，图像对视屏，近红外线到图片</p>
 </li>
-<li>
-<p>Multiple Media:  可能一个人的图片在训练集中非常少</p>
+<li><p>Multiple Media:  可能一个人的图片在训练集中非常少</p>
 </li>
-<li>
-<p>industry： 出了精度之外，还有一个重要其他的影响因素也十分重要。3D建模，防伪等因素</p>
+<li><p>industry： 出了精度之外，还有一个重要其他的影响因素也十分重要。3D建模，防伪等因素</p>
 </li>
 </ul>
 

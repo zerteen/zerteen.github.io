@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,11 +211,7 @@
 
                 <p>Write a program to find the nth super ugly number.</p>
 <p>Super ugly numbers are positive numbers whose all prime factors are in the given prime list <code>primes</code> of size <code>k</code>. For example, <code>[1, 2, 4, 7, 8, 13, 14, 16, 19, 26, 28, 32]</code>is the sequence of the first 12 super ugly numbers given <code>primes</code> = <code>[2, 7, 13, 19]</code> of size 4.</p>
-<p><strong>Note:</strong><br>
-(1) <code>1</code> is a super ugly number for any given <code>primes</code>.<br>
-(2) The given numbers in <code>primes</code> are in ascending order.<br>
-(3) 0 &lt; <code>k</code> ≤ 100, 0 &lt; <code>n</code> ≤ 106, 0 &lt; <code>primes[i]</code> &lt; 1000.<br>
-(4) The nth super ugly number is guaranteed to fit in a 32-bit signed integer.</p>
+<p><strong>Note:</strong><br>(1) <code>1</code> is a super ugly number for any given <code>primes</code>.<br>(2) The given numbers in <code>primes</code> are in ascending order.<br>(3) 0 &lt; <code>k</code> ≤ 100, 0 &lt; <code>n</code> ≤ 106, 0 &lt; <code>primes[i]</code> &lt; 1000.<br>(4) The nth super ugly number is guaranteed to fit in a 32-bit signed integer.</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">nthSuperUglyNumber</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[] primes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> size = primes.length;</span><br><span class="line">        <span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[size];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;size; i++)&#123;</span><br><span class="line">            nums[i] = primes[i];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span>[] index = <span class="keyword">new</span> <span class="keyword">int</span>[size];</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        ans[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;n; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;size; j++)&#123;</span><br><span class="line">                min = Math.min(min, nums[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = min;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;size; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(ans[i] == nums[j])&#123;</span><br><span class="line">                    index[j] ++;</span><br><span class="line">                    nums[j] = ans[index[j]] * primes[j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans[n-<span class="number">1</span>];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
