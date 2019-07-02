@@ -107,13 +107,6 @@
     </url>
 
     <url>
-        <loc>https://zerteen.github.io/tags/leetcode/</loc>
-        <lastmod>2019-07-01T08:18:47.752Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://zerteen.github.io/tags/Deep-Learning/</loc>
         <lastmod>2019-07-01T08:58:58.839Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -142,8 +135,29 @@
     </url>
 
     <url>
+        <loc>https://zerteen.github.io/tags/%E9%93%BE%E8%A1%A8/</loc>
+        <lastmod>2019-07-01T15:45:04.659Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://zerteen.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
-        <lastmod>2019-07-01T14:05:02.150Z</lastmod>
+        <lastmod>2019-07-01T15:58:40.874Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/leetcode/</loc>
+        <lastmod>2019-07-02T12:03:18.570Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/tree/</loc>
+        <lastmod>2019-07-02T12:03:18.570Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

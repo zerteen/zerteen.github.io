@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,24 +211,24 @@
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-451-Sort-Characters-By-Frequency/">
+    <a href="/article/leetcode-76-最小覆盖子串/">
         <h2 class="post-title">
-            leetcode 451 Sort Characters By Frequency
+            leetcode 76 最小覆盖子串
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given a string, sort it in decreasing order based on the frequency of characters.
-Example 1:
-123456789Input:&quot;tree&quot;Output:&quot;eert&quot;Explanation:&apos;e&apos; appears twice while &apo......
+            给你一个字符串 S、一个字符串 T，请在字符串 S 里面找出：包含 T 所有字母的最小子串。
+1234567输入: 	S = &quot;ADOBECODEBANC&quot;, T = &quot;ABC&quot;输出: 	&quot;BANC&quot;说明：	如果 S 中不存这样的子串，则返回空字符串 &quot;&quot;。	如果 S 中存在这样的子串，我们保证它是唯一的答案。
+......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-08
+            2019-06-30
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
@@ -241,23 +241,26 @@ Example 1:
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-450-Delete-Node-in-a-BST/">
+    <a href="/article/leetcode-440-字典序的第K小数字/">
         <h2 class="post-title">
-            leetcode 450 Delete Node in a BST
+            leetcode 440 字典序的第K小数字
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST.
-Basically, the deletion can be divided i......
+            给定整数 n 和k，找到 1 到n 中字典序第 k 小的数字。注意：1 ≤ k ≤ n ≤ 109。
+示例 :
+123456输入:n: 13   k: 2输出:10解释:字典序的排列是 [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9]，所以第二小的数字是 10。
+
+1234567891011121314151617181920212223242526cl......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-08
+            2019-06-30
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
@@ -270,24 +273,24 @@ Basically, the deletion can be divided i......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-448-Find-All-Numbers-Disappeared-in-an-Array/">
+    <a href="/article/leetcode-441-排列硬币/">
         <h2 class="post-title">
-            leetcode 448 Find All Numbers Disappeared in an Array
+            leetcode 441 排列硬币
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given an array of integers where 1 ≤ a[i] ≤ n (n= size of array), some elements appear twice and others appear once.
-Find all the elements of [1, n] inclusive that do not appear in this array.
-Coul......
+            你总共有 n 枚硬币，你需要将它们摆成一个阶梯形状，第 k 行就必须正好有 k 枚硬币。给定一个数字 n，找出可形成完整阶梯行的总行数。n 是一个非负整数，并且在32位有符号整型的范围内。
+1234567示例 1:n = 5硬币可排列成以下几行:¤¤ ¤¤ ¤因为第三行不完整，所以返回2.
+12345678示例 2:n = 8硬币可排列成以下几行:¤¤ ¤¤ ¤ ¤¤ ¤因为第四行不完整，所......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-08
+            2019-06-30
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
@@ -300,24 +303,26 @@ Coul......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-442-Find-All-Duplicates-in-an-Array/">
+    <a href="/article/leetcode-446-等差数列划分-II---子序列/">
         <h2 class="post-title">
-            leetcode 442 Find All Duplicates in an Array
+            leetcode 446 等差数列划分 II - 子序列
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given an array of integers, 1 ≤ a[i] ≤ n (n= size of array), some elements appear twice and others appear once.
-Find all the elements that appear twice in this array.
-Could you do it without extra ......
+            如果一个数列至少有三个元素，并且任意两个相邻元素之差相同，则称该数列为等差数列。例如，以下数列为等差数列:
+1231, 3, 5, 7, 97, 7, 7, 73, -1, -5, -9
+以下数列不是等差数列。
+11, 1, 2, 5, 7
+数组 A 包含 N 个数，且索引从 0 开始。该数组子序列将划分为整数序列 $(P_0, P_1, …, P_k)$，P 与 Q 是整数且满足 $0 ≤......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-08
+            2019-06-28
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
@@ -330,29 +335,26 @@ Could you do it without extra ......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-429-N-ary-Tree-Level-Order-Traversal/">
+    <a href="/article/leetcode-467-Unique-Substrings-in-Wraparound-String/">
         <h2 class="post-title">
-            leetcode 429 N-ary Tree Level Order Traversal
+            leetcode 467 Unique Substrings in Wraparound String
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given an n-ary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).
-For example, given a 3-ary tree:
-
-We should return its level order traversal:
-1......
+            Consider the string s to be the infinite wraparound string of “abcdefghijklmnopqrstuvwxyz”, so s will look like this: “…zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd….”.
+Now we have ano......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-04
+            2019-06-11
             </p>
             
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
+              <a href="/tags/#leetcode string" title="leetcode string">leetcode string</a>
             
         </div>
     
@@ -362,27 +364,26 @@ We should return its level order traversal:
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-421-Maximum-XOR-of-Two-Numbers-in-an-Array/">
+    <a href="/article/leetcode-463-Island-Perimeter/">
         <h2 class="post-title">
-            leetcode 421 Maximum XOR of Two Numbers in an Array
+            leetcode 463 Island Perimeter
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given a non-empty array of numbers, $a_0, a_1, …, a_{n-1}$, where $0 \le a_i \le 2^{32}$.
-Find the maximum result of $a_i  \text{xor}   a_j$, where 0 ≤ i, j &lt; n.
-Could you do this in O(n) runtim......
+            You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water.
+Grid cells are connected horizontally/vertically (not diagonally). The grid is complete......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-04
+            2019-06-10
             </p>
             
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
+              <a href="/tags/#leetcode matrix" title="leetcode matrix">leetcode matrix</a>
             
         </div>
     
@@ -392,25 +393,27 @@ Could you do this in O(n) runtim......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-406-Queue-Reconstruction-by-Height/">
+    <a href="/article/leetcode-461-Hamming-Distance/">
         <h2 class="post-title">
-            leetcode 406 Queue Reconstruction by Height
+            leetcode 461 Hamming Distance
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Suppose you have a random list of people standing in a queue. Each person is described by a pair of integers (h, k), where h is the height of the person and k is the number of people in front of th......
+            The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+Given two integers x and y, calculate the Hamming distance.
+Note:0 ≤ x, y &lt; $2......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-05-25
+            2019-06-10
             </p>
             
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
+              <a href="/tags/#leetcode bit-manipulation" title="leetcode bit-manipulation">leetcode bit-manipulation</a>
             
         </div>
     
@@ -420,29 +423,25 @@ Could you do this in O(n) runtim......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-405-Conver-a-Number-to-Hex/">
+    <a href="/article/leetcode-459-Repeated-Substring-Pattern/">
         <h2 class="post-title">
-            leetcode 405 Convert a Number to Hexadecimal
+            leetcode 459 Repeated Substring Pattern
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, two’s complement method is used.
-Note:
-
-All letters in hexadecimal (a-f) must be in lowercase.
-The hexadecim......
+            Given a non-empty string check if it can be constructed by taking a substring of it and appending multiple copies of the substring together. You may assume the given string consists of lowercase En......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-05-25
+            2019-06-10
             </p>
             
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
+              <a href="/tags/#leetcode string" title="leetcode string">leetcode string</a>
             
         </div>
     
@@ -452,26 +451,26 @@ The hexadecim......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-475-Heaters/">
+    <a href="/article/leetcode-458-Poor-Pigs/">
         <h2 class="post-title">
-            leetcode 475 Heaters
+            leetcode 458 Poor Pigs
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to warm all the houses.
-Now, you are given positions of houses and heaters on a horizontal ......
+            If there are n buckets and a pig drinking poison will die within m minutes, how many pigs (x) you need to figure out the poisonous bucket within p minutes? There is exactly one bucket with poison.
+......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-04-25
+            2019-06-10
             </p>
             
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
+              <a href="/tags/#leetcode math" title="leetcode math">leetcode math</a>
             
         </div>
     
@@ -481,26 +480,25 @@ Now, you are given positions of houses and heaters on a horizontal ......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-464-Can-I-Win/">
+    <a href="/article/leetcode-457-Circular-Array-Loop/">
         <h2 class="post-title">
-            leetcode 464 Can I Win
+            leetcode 457 Circular Array Loop
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            In the “100 game,” two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins.
-What if we change the game s......
+            You are given a circular array nums of positive and negative integers. If a number k at an index is positive, then move forward k steps. Conversely, if it’s negative (-k), move backward k steps. Si......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-04-23
+            2019-06-10
             </p>
             
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
+              <a href="/tags/#leetcode array" title="leetcode array">leetcode array</a>
             
         </div>
     
@@ -553,6 +551,14 @@ What if we change the game s......
     <div class="tags">
         
             
+            <a href="/tags/#leetcode" title="leetcode" rel="185">leetcode</a>
+            
+        
+            
+        
+            
+        
+            
             <a href="/tags/#face" title="face" rel="6">face</a>
             
         
@@ -565,15 +571,13 @@ What if we change the game s......
             
         
             
-            <a href="/tags/#leetcode" title="leetcode" rel="174">leetcode</a>
-            
         
             
         
             
         
             
-        
+            <a href="/tags/#tree" title="tree" rel="11">tree</a>
             
         
             
@@ -583,11 +587,11 @@ What if we change the game s......
             
         
             
-        
-            
-        
-            
             <a href="/tags/#leetcode string" title="leetcode string" rel="2">leetcode string</a>
+            
+        
+            
+        
             
         
             
@@ -659,23 +663,23 @@ What if we change the game s......
     <ul>
       
         <li>
-          <a href="/article/为ipic添加腾讯云床/">为ipic添加腾讯云床</a>
+          <a href="/article/leetcode-104-二叉树的最大深度/">leetcode 104 二叉树的最大深度</a>
         </li>
       
         <li>
-          <a href="/article/计算机视觉中的注意力机制/">计算机视觉中的注意力机制</a>
+          <a href="/article/leetcode-105-从前序与中序遍历序列构造二叉树/">leetcode 105 从前序与中序遍历序列构造二叉树</a>
         </li>
       
         <li>
-          <a href="/article/ /">leetcode 427 建立四叉树</a>
+          <a href="/article/leetcode-106-从中序与后序遍历序列构造二叉树/">leetcode 106 从中序与后序遍历序列构造二叉树</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-430-扁平化多级双向链表/">leetcode 430 扁平化多级双向链表</a>
+          <a href="/article/leetcode-107-二叉树的层次遍历-II/">leetcode 107 二叉树的层次遍历 II</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-433-最小基因变化/">leetcode 433 最小基因变化</a>
+          <a href="/article/leetcode-108-将有序数组转换为二叉搜索树/">leetcode 108 将有序数组转换为二叉搜索树</a>
         </li>
       
     </ul>
@@ -686,7 +690,7 @@ What if we change the game s......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

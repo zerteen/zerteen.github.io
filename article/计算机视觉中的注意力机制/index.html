@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -220,6 +220,7 @@
 <li>Hard attention，通过采样，只对部分分量做加权</li>
 </ul>
 <p>下面通过论文的方式对不同的方法进行说明。</p>
+<hr>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-085845.png" alt="img"></p>
 <p>主要是在一些细粒度的图像分类中，类别之间的区别主要体现在一些局部的区域中的细微差别，如果直接用全尺寸的图像特征的话，这些细微的区别表达地不够。论文提出了RA-CNN(Recurrent Attention Convolutional Neural Network）</p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-114326.png" alt="image-20190701194326569"></p>
@@ -272,6 +273,12 @@ L_{r a n k}\left(p_{t}^{(s)}, p_{t}^{(s+1)}\right)=\max \left\{0, p_{t}^{(s)}-p_
 <li><p>在训练好之后，对每一个子APN得到的feature进行归一化，之后融合起来就能得到一个fused feature。</p>
 </li>
 </ol>
+<hr>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-154652.png" alt="image-20190701234652298"></p>
+<p>主要的贡献是提出了这样一个<code>Residual Attention Module</code>，结构如下图所示：</p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-154614.png" alt="image-20190701234614151"></p>
+<p>右边的分支为普通的卷积分支，左边的分支对原图进行下采样和上采样，得到attention mask。左边分支的激活函数是Sigmoid，输出值在（0，1）之间。如果直接用mask和原图相乘，在网络越来越深的时候，由于mask小于1，会导致输出的太小，给网络的训练带来困难。于是作者使用的是$H_{i, c}(x)=\left(1+M_{i, c}(x)\right) * F_{i, c}(x)$.</p>
+<p>那么当M(x)=0时，该层的输入就等于F(x)，因此该层的效果不可能比原始的F(x)差，这一点也借鉴了ResNet中恒等映射的思想，同时这样的加法，也使得Trunk Branch输出的feature map中显著的特征更加显著，增加了特征的判别性。这样，优化的问题解决了，性能的问题也解决了，因此通过将这种残差结构进行堆叠，就能够很容易的将模型的深度达到很深的层次，具有非常好的性能。</p>
 
                 
 
