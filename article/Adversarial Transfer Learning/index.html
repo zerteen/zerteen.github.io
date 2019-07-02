@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,15 +211,16 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="adversarial-transfer-learning"><a href="#Adversarial-Transfer-Learning" class="headerlink" title="Adversarial Transfer Learning"></a>Adversarial Transfer Learning</h1><p>​    在一般的监督学习中，人们会假设训练集和测试集的样本是同分布的，但实际中是有可能存在分布上的差异的。当这里的差异有不同但是存在一定的联系的时候。<strong>迁移学习</strong> 能够将训练集的分布迁移到测试集的分布，使得最终的性能得到提升。</p>
+                <h1 id="adversarial-transfer-learning">Adversarial Transfer Learning</h1>
+<p>​	在一般的监督学习中，人们会假设训练集和测试集的样本是同分布的，但实际中是有可能存在分布上的差异的。当这里的差异有不同但是存在一定的联系的时候。<strong>迁移学习</strong> 能够将训练集的分布迁移到测试集的分布，使得最终的性能得到提升。</p>
 <blockquote>
-<p>When these distributions differ but are related, transfer learning can be used to transfer what is learned on the training distribution to the testing distribution, which often results in improved performance on the testing data in comparison with inaccurately assuming that the training data and testing data were drawn from the same distribution. </p>
+<p>When these distributions differ but are related, transfer learning can be used to transfer what is learned on the training distribution to the testing distribution, which often results in improved performance on the testing data in comparison with inaccurately assuming that the training data and testing data were drawn from the same distribution.</p>
 </blockquote>
-<p>​    Domain Adaption（域适配）属于transfer learning的一个子领域，指的是存在source domain和target domain两个域，在这两个域上的task是一样的，space空间也是一样的，但是两个域之间存在分布上的差别。</p>
+<p>​	Domain Adaption（域适配）属于transfer learning的一个子领域，指的是存在source domain和target domain两个域，在这两个域上的task是一样的，space空间也是一样的，但是两个域之间存在分布上的差别。</p>
 <blockquote>
 <p>A popular case of transfer learning is domain adaptation, where the feature space and task remain fixed between a source domain and a separate target domain while the marginal probability distributions differ</p>
 </blockquote>
-<p>​    例如，在分类问题中，可以在source domain中学习，然后应用到target domain中。有一个应用就是，在target没有标签，利用这种方式构造数据。</p>
+<p>​	例如，在分类问题中，可以在source domain中学习，然后应用到target domain中。有一个应用就是，在target没有标签，利用这种方式构造数据。</p>
 
                 
 

@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -219,26 +219,31 @@
 <hr>
 <p>题目的要求是，求出区间[m,n]中，每一个数的每一位上的<code>AND</code>操作之后得到的数值。例如：</p>
 <ul>
-<li><p>[5,7]：</p>
+<li>
+<p>[5,7]：</p>
 <ul>
-<li><p>0 0 1 0 1</p>
+<li>
+<p>0 0 1 0 1</p>
 <p>0 0 1 1 0</p>
 <p>0 0 1 1 1</p>
-<p>-——-</p>
-<p>0 0 1 0 0 </p>
+<p>------</p>
+<p>0 0 1 0 0</p>
 </li>
 </ul>
 </li>
-<li><p>[0, 1]:</p>
+<li>
+<p>[0, 1]:</p>
 <ul>
-<li><p>0 0 0 0</p>
+<li>
+<p>0 0 0 0</p>
 <p>0 0 0 1</p>
-<p>-——</p>
+<p>-----</p>
 <p>0 0 0 0</p>
 </li>
 </ul>
 </li>
-<li><p>其实就相当于是求二进制的最长的公共前缀</p>
+<li>
+<p>其实就相当于是求二进制的最长的公共前缀</p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rangeBitwiseAnd</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> move = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (m != n) &#123;</span><br><span class="line">            m &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">            n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">            move ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n &lt;&lt; move;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -208,6 +208,68 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/°∂Rethinking-Atrous-Convolution-for-Semantic-Image-Segmentation°∑‘ƒ∂¡± º«/">
+        <h2 class="post-title">
+            《Rethinking Atrous Convolution for Semantic Image Segmentation》阅读笔记
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            显示的调整录波器的感受野的同时控制卷积后特征的分辨率
+为了应对语义分割中的多尺度问题，提出了级联或者并联具有不同multiple atrous rate的atrous convolution的方式来抓取不同尺度的上下文信息。
+增强了Atrous Spatial Pyramid Pooling模块，使得图像级别的特征能够被编码。
+在语义分割领域主要有两个困难：
+
+由于连续的卷积操作，图像的特征......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2018-08-30
+            </p>
+            
+              <a href="/tags/#Semantic Segmentation" title="Semantic Segmentation">Semantic Segmentation</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/°∂Beyond-Trade-off-Accelerate-FCN-based-Face-Detector-with-Higher-Accuracy°∑¬€ŒƒΩ‚∂¡/">
+        <h2 class="post-title">
+            《Beyond Trade-off: Accelerate FCN-based Face Detector with Higher Accuracy》论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            论文提出将图片中人脸的搜索空间分解为两个正交方向的向量，尺度方向和空间方向，尺度方向，进而提出了尺度估计（Scale Estimation）和空间注意力提议机制（Spatial attention proposal， $S^2AP$）。在我们知道粗略的空间位置和人脸尺度时，我们能够将注意力集中在某些特定的范围和位置，这样一来，搜索空间将得到有效的降低。
+尺度方向：保证了Image Pyram......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2018-08-28
+            </p>
+            
+              <a href="/tags/#Face" title="Face">Face</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview" style="font-style: normal;">
 
@@ -322,9 +384,11 @@ Google使用的一个人人脸图像数据集中包含2亿张图片，8百万个
         </h3>
         <div class="post-content-preview">
             数据集加载流程：
+
+
 torchvision.datasets中已经包含众多数据集，先建立一个数据集对。
 1mnist_train = torchvision.datasets.MNIST(root="\data", train=True, download=True, transform= transform)
-不过在建立对象的时候，需要指定transform来确定对原始数据集中的图片的转换过......
+不过在建立对象的时候，需要指定transform来确定对原始数据集中的图片的转......
         </div>
     </a>
     
@@ -350,10 +414,11 @@ torchvision.datasets中已经包含众多数据集，先建立一个数据集对
             
         </h3>
         <div class="post-content-preview">
-            ch01 intro自然语言处理：自然语言处理是研究如何利用计算机技术对语言文本（句子、篇章或话语等）进行处理和加工的一门学科，研究内容包括对词法、句法、语义和语用等信息的识别、分类、提取、转换和生成等各种处理方法和实现技术。
+            ch01 intro
+自然语言处理：自然语言处理是研究如何利用计算机技术对语言文本（句子、篇章或话语等）进行处理和加工的一门学科，研究内容包括对词法、句法、语义和语用等信息的识别、分类、提取、转换和生成等各种处理方法和实现技术。
 屈折语：用词的形态变化表示语法关系，如英语、法语等。
 黏着语：词内有专门表示语法意义的附加成分，词根或词干与附加成分的结合不紧密，如日语、韩语、土耳其语等。
-孤立语：......
+孤立语......
         </div>
     </a>
     
@@ -456,66 +521,6 @@ Follow up: Recursive solution is trivial, could y......
 </div>
 <hr>
 
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/leetcode/leetcode-solution-98/">
-        <h2 class="post-title">
-            leetcode 98 Valid Binary Search Tree
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a binary tree, determine if it is a valid binary search tree (BST).
-Assume a BST is defined as follows:
-
-The left subtree of a node contains only nodes with keys less than the node’s key.
-The......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2018-08-16
-            </p>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/leetcode/leetcode-solution-96/">
-        <h2 class="post-title">
-            leetcode solution 98 Valid Binary Search Tree
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Given a binary tree, determine if it is a valid binary search tree (BST).
-Assume a BST is defined as follows:
-
-The left subtree of a node contains only nodes with keys less than the node’s key.
-The......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2018-08-15
-            </p>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -561,7 +566,7 @@ The......
     <div class="tags">
         
             
-            <a href="/tags/#leetcode" title="leetcode" rel="185">leetcode</a>
+            <a href="/tags/#leetcode" title="leetcode" rel="187">leetcode</a>
             
         
             
@@ -587,7 +592,7 @@ The......
             
         
             
-            <a href="/tags/#tree" title="tree" rel="11">tree</a>
+            <a href="/tags/#tree" title="tree" rel="13">tree</a>
             
         
             
@@ -597,9 +602,9 @@ The......
             
         
             
-            <a href="/tags/#leetcode string" title="leetcode string" rel="2">leetcode string</a>
-            
         
+            
+            <a href="/tags/#leetcode string" title="leetcode string" rel="2">leetcode string</a>
             
         
             
@@ -673,6 +678,14 @@ The......
     <ul>
       
         <li>
+          <a href="/article/leetcode-102-二叉树的层次遍历/">leetcode 102 二叉树的层次遍历</a>
+        </li>
+      
+        <li>
+          <a href="/article/leetcode-100-相同的树/">leetcode 100 相同的树</a>
+        </li>
+      
+        <li>
           <a href="/article/leetcode-104-二叉树的最大深度/">leetcode 104 二叉树的最大深度</a>
         </li>
       
@@ -684,14 +697,6 @@ The......
           <a href="/article/leetcode-106-从中序与后序遍历序列构造二叉树/">leetcode 106 从中序与后序遍历序列构造二叉树</a>
         </li>
       
-        <li>
-          <a href="/article/leetcode-107-二叉树的层次遍历-II/">leetcode 107 二叉树的层次遍历 II</a>
-        </li>
-      
-        <li>
-          <a href="/article/leetcode-108-将有序数组转换为二叉搜索树/">leetcode 108 将有序数组转换为二叉搜索树</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -700,7 +705,7 @@ The......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

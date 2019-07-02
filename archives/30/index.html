@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,6 +211,66 @@
 
 <div class="post-preview" style="font-style: normal;">
 
+    <a href="/article/leetcode-solution-58/">
+        <h2 class="post-title">
+            leetocode 58 Length of Last Word
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Length of Last Word
+
+Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string.
+If the last word does not exist, return 0.......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2017-12-22
+            </p>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/leetcode/leetcode-solution-28/">
+        <h2 class="post-title">
+            leetcode 28 Implement strStr()
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            28. Implement strStr()
+
+Implement strStr().
+Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+Example 1:
+12Input: haystack = &quot;hello&quot;......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2017-12-22
+            </p>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
     <a href="/leetcode/leetcode-solution-62-63/">
         <h2 class="post-title">
             leetcode 62 63 Unique Paths
@@ -220,9 +280,9 @@
         </h3>
         <div class="post-content-preview">
             62. Unique Paths I
+
 给定一个m*n的棋盘，从棋盘左上角到棋盘右下角最多有多少条路径。
 每一次移动，只能向右移一格或者向下移动一格。
-
 
 
 
@@ -250,10 +310,9 @@ end
 
 
 
-
 动态规划问题：
 dp[i][j] = dp[i-1][j] + dp[i][j-1];
-当i==0，或者j == 0时，表示在棋盘的边缘，只有向下或者向右一条路。所以dp[......
+当i==0，或者j == 0时，表示在棋盘的边缘，只有向下或者向右一条路。所以dp[i......
         </div>
     </a>
     
@@ -280,8 +339,9 @@ dp[i][j] = dp[i-1][j] + dp[i][j-1];
         </h3>
         <div class="post-content-preview">
             35. Search Insert Position
+
 Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
-You may assume ......
+You may assume......
         </div>
     </a>
     
@@ -308,8 +368,9 @@ You may assume ......
         </h3>
         <div class="post-content-preview">
             746. Min Cost Climbing Stairs
+
 On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).
-Once you pay the cost, you can either climb one or two steps. You need to find m......
+Once you pay the cost, you can either climb one or two steps. You need to find ......
         </div>
     </a>
     
@@ -335,9 +396,11 @@ Once you pay the cost, you can either climb one or two steps. You need to find m
             
         </h3>
         <div class="post-content-preview">
-            53. Maximum Subarray
+            ###53. Maximum Subarray
+
 Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
-For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous sub......
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
+the contiguou......
         </div>
     </a>
     
@@ -363,11 +426,12 @@ For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous sub......
             
         </h3>
         <div class="post-content-preview">
-            14. Longest Common Prefix
+            ###14. Longest Common Prefix
+
 Write a function to find the longest common prefix string amongst an array of strings.
 
 
-最初始的想法是，取第一个string出来，和之后的每一个进行比较，得到第一个String 和之后的String 的common Prefix substring的i......
+最初始的想法是，取第一个string出来，和之后的每一个进行比较，得到第一个String 和之后的String 的common Prefix substri......
         </div>
     </a>
     
@@ -394,6 +458,7 @@ Write a function to find the longest common prefix string amongst an array of st
         </h3>
         <div class="post-content-preview">
             50. Pow(x, n)
+
 Implement pow(x, n).
 Example 1:
 12Input: 2.00000, 10Output: 1024.00000
@@ -402,7 +467,7 @@ Example 2:
 
 
 最要考察递归，初始的idea是pow(x, n) = x*pow(x, n-1) 但是这样的递归势必会造成栈溢出
-如果n是2的倍......
+如果n是2的......
         </div>
     </a>
     
@@ -431,6 +496,7 @@ Example 2:
         </h3>
         <div class="post-content-preview">
             9. Palindrome Number
+
 Determine whether an integer is a palindrome. Do this without extra space.
 
 
@@ -438,8 +504,9 @@ Determine whether an integer is a palindrome. Do this without extra space.
 reverse只保存了一般
 终止条件为x的大小小于reverse
 例如：
-1234 终止条件：x = 12 y = 32 
-3223 终止条件：x = 3......
+
+1234 终止条件：x = 12 y = 32
+3223 终止条件：x = ......
         </div>
     </a>
     
@@ -468,8 +535,9 @@ reverse只保存了一般
         </h3>
         <div class="post-content-preview">
             8. String to Integer (atoi)
+
 Implement atoi to convert a string to an integer.
-Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself wh......
+Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself w......
         </div>
     </a>
     
@@ -478,71 +546,6 @@ Hint: Carefully consider all possible input cases. If you want a challenge, plea
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
             2017-12-14
             </p>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/leetcode/leetcode-solution-7/">
-        <h2 class="post-title">
-            leetcode 7 Reverse Integer
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            7. Reverse Integer
-Given a 32-bit signed integer, reverse digits of an integer.
-Example 1:
-12Input: 123Output:  321
-Example 2:
-12Input: -123Output: -321
-Example 3:
-12Input: 120Output: 21
-Note:Assum......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2017-12-13
-            </p>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/leetcode-solution-5/">
-        <h2 class="post-title">
-            leetcode 5 Longest Palindromic Substring
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            5. Longest Palindromic Substring
-Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
-Example:
-12345Input: &quot;babad&quot;Output: &q......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2017-12-13
-            </p>
-            
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
             
         </div>
     
@@ -595,7 +598,7 @@ Example:
     <div class="tags">
         
             
-            <a href="/tags/#leetcode" title="leetcode" rel="185">leetcode</a>
+            <a href="/tags/#leetcode" title="leetcode" rel="187">leetcode</a>
             
         
             
@@ -621,7 +624,7 @@ Example:
             
         
             
-            <a href="/tags/#tree" title="tree" rel="11">tree</a>
+            <a href="/tags/#tree" title="tree" rel="13">tree</a>
             
         
             
@@ -631,9 +634,9 @@ Example:
             
         
             
-            <a href="/tags/#leetcode string" title="leetcode string" rel="2">leetcode string</a>
-            
         
+            
+            <a href="/tags/#leetcode string" title="leetcode string" rel="2">leetcode string</a>
             
         
             
@@ -707,6 +710,14 @@ Example:
     <ul>
       
         <li>
+          <a href="/article/leetcode-102-二叉树的层次遍历/">leetcode 102 二叉树的层次遍历</a>
+        </li>
+      
+        <li>
+          <a href="/article/leetcode-100-相同的树/">leetcode 100 相同的树</a>
+        </li>
+      
+        <li>
           <a href="/article/leetcode-104-二叉树的最大深度/">leetcode 104 二叉树的最大深度</a>
         </li>
       
@@ -718,14 +729,6 @@ Example:
           <a href="/article/leetcode-106-从中序与后序遍历序列构造二叉树/">leetcode 106 从中序与后序遍历序列构造二叉树</a>
         </li>
       
-        <li>
-          <a href="/article/leetcode-107-二叉树的层次遍历-II/">leetcode 107 二叉树的层次遍历 II</a>
-        </li>
-      
-        <li>
-          <a href="/article/leetcode-108-将有序数组转换为二叉搜索树/">leetcode 108 将有序数组转换为二叉搜索树</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -734,7 +737,7 @@ Example:
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

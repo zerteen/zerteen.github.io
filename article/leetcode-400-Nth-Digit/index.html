@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -212,29 +212,38 @@
                 post-container">
 
                 <p>Find the $n$ th digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, …</p>
-<p><strong>Note:</strong><br><em>n</em> is positive and will fit within the range of a 32-bit signed integer (<em>n</em> &lt; 231).</p>
+<p><strong>Note:</strong><br>
+<em>n</em> is positive and will fit within the range of a 32-bit signed integer (<em>n</em> &lt; 231).</p>
 <p><strong>Example 1:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">3</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
 <p><strong>Example 2:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">11</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">0</span><br><span class="line"></span><br><span class="line">Explanation:</span><br><span class="line">The 11th digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... is a 0, which is part of the number 10.</span><br></pre></td></tr></table></figure>
 <hr>
 <ul>
-<li><p>先总结一下规律</p>
+<li>
+<p>先总结一下规律</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0		1		2		3		4		5		6		7		8		9			-&gt; start = 0, width = 1, count = 9</span><br><span class="line">---</span><br><span class="line">10	11	12	13	14	15	16	17	18	19		-&gt; start = 10, width = 2, count = 90</span><br><span class="line">20	21	22	23	24	25	26	27	28	29</span><br><span class="line">...</span><br><span class="line">90	91	92	93	94	95	96	97	98	99</span><br><span class="line">---</span><br><span class="line">100	101	102	....													-&gt; start = 100, width = 3, count = 900</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>用<code>start</code>来保存每一个分组的开始的数组</p>
+<li>
+<p>用<code>start</code>来保存每一个分组的开始的数组</p>
 </li>
-<li><p>用<code>width</code>来保存每当前分组中，每一个数包涵几个数字</p>
+<li>
+<p>用<code>width</code>来保存每当前分组中，每一个数包涵几个数字</p>
 </li>
-<li><p>用<code>count</code>来保存每一个分组中，一共有多少个数</p>
+<li>
+<p>用<code>count</code>来保存每一个分组中，一共有多少个数</p>
 </li>
-<li><p>那么，每一个分组中，一共包含 <code>count * width</code>位数</p>
+<li>
+<p>那么，每一个分组中，一共包含 <code>count * width</code>位数</p>
 </li>
-<li><p>第一步，先找到<code>n</code>位于哪个分组，找到该分组的<code>start</code></p>
+<li>
+<p>第一步，先找到<code>n</code>位于哪个分组，找到该分组的<code>start</code></p>
 </li>
-<li><p>第二步，找到<code>n</code>位于当前分组的那个数中</p>
+<li>
+<p>第二步，找到<code>n</code>位于当前分组的那个数中</p>
 </li>
-<li><p>第三步，确定<code>n</code>位是当前这数的第几个位</p>
+<li>
+<p>第三步，确定<code>n</code>位是当前这数的第几个位</p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findNthDigit</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> step = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">long</span> count = <span class="number">9</span>;</span><br><span class="line">        <span class="keyword">while</span> (n &gt; step * count) &#123;</span><br><span class="line">            n -= step * count;</span><br><span class="line">            step += <span class="number">1</span>;</span><br><span class="line">            count *= <span class="number">10</span>;</span><br><span class="line">            start *= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        start += (n-<span class="number">1</span>) / step; <span class="comment">// n-1的目的是为了从0开始索引</span></span><br><span class="line">        String num = String.valueOf(start);</span><br><span class="line">        <span class="keyword">return</span> num.charAt((n - <span class="number">1</span>) % step) - <span class="string">'0'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
