@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,15 +211,15 @@
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-LargestDivisibleSubset/">
+    <a href="/article/leetcode-BurstBalloons/">
         <h2 class="post-title">
-            leetcode  LargestDivisibleSubset
+            leetcode 312 Burst Balloons
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455import java.util.ArrayList;import java.util.Arrays;import java.util.List;public class LargestDiv......
+            Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on it represented by array nums. You are asked to burst all the balloons. If the you burst balloon i you will get nums......
         </div>
     </a>
     
@@ -239,15 +239,15 @@
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-BurstBalloons/">
+    <a href="/article/leetcode-CoinChange/">
         <h2 class="post-title">
-            leetcode 312 Burst Balloons
+            leetcode 322 Coin Change
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on it represented by array nums. You are asked to burst all the balloons. If the you burst balloon i you will get nums......
+            You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of mon......
         </div>
     </a>
     
@@ -587,6 +587,8 @@ Below is one possible representation of s1 = &quot;great&quot;:
             
         
             
+        
+            
             <a href="/tags/#leetcode string" title="leetcode string" rel="2">leetcode string</a>
             
         
@@ -595,21 +597,19 @@ Below is one possible representation of s1 = &quot;great&quot;:
             
         
             
+            <a href="/tags/#数组" title="数组" rel="12">数组</a>
+            
+        
+            
+            <a href="/tags/#动态规划" title="动态规划" rel="4">动态规划</a>
+            
         
             
             <a href="/tags/#字符串" title="字符串" rel="6">字符串</a>
             
         
             
-            <a href="/tags/#数组" title="数组" rel="12">数组</a>
-            
-        
-            
             <a href="/tags/#二分查找" title="二分查找" rel="2">二分查找</a>
-            
-        
-            
-            <a href="/tags/#动态规划" title="动态规划" rel="4">动态规划</a>
             
         
             
@@ -881,8 +881,24 @@ Below is one possible representation of s1 = &quot;great&quot;:
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>
