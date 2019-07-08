@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -212,20 +212,25 @@
                 <p>Given an array of <em>n</em> integers where <em>n</em> &gt; 1, <code>nums</code>, return an array <code>output</code> such that <code>output[i]</code> is equal to the product of all the elements of <code>nums</code> except <code>nums[i]</code>.</p>
 <p>Solve it <strong>without division</strong> and in O(<em>n</em>).</p>
 <p>For example, given <code>[1,2,3,4]</code>, return <code>[24,12,8,6]</code>.</p>
-<p><strong>Follow up:</strong><br>Could you solve it with constant space complexity? (Note: The output array <strong>does not</strong> count as extra space for the purpose of space complexity analysis.)</p>
+<p><strong>Follow up:</strong><br>
+Could you solve it with constant space complexity? (Note: The output array <strong>does not</strong> count as extra space for the purpose of space complexity analysis.)</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] productExceptSelf(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        ans[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">            ans[i] = left * nums[i-<span class="number">1</span>];</span><br><span class="line">            left = ans[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=nums.length-<span class="number">1</span>; i&gt;=<span class="number">0</span>; i--)&#123;</span><br><span class="line">            ans[i] *= right;</span><br><span class="line">            right *= nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>left从左开始，保存当前一个数左边的数的乘积</p>
+<li>
+<p>left从左开始，保存当前一个数左边的数的乘积</p>
 </li>
-<li><p>right从右边开始，保存当前一个数右边的数的乘积</p>
+<li>
+<p>right从右边开始，保存当前一个数右边的数的乘积</p>
 </li>
-<li><p>连着合体即可</p>
-<p>​        1        2        3        4</p>
-<p>left                1        1*2        1*2*3</p>
-<p>right    4*3*2    4*3        4</p>
+<li>
+<p>连着合体即可</p>
+<p>​		1		2		3		4</p>
+<p>left				1		1*2		1*2*3</p>
+<p>right	4*3*2	4*3		4</p>
 </li>
-<li><p>注意ans[0]需要初始化为1，不然ans[0]将会等于0；</p>
+<li>
+<p>注意ans[0]需要初始化为1，不然ans[0]将会等于0；</p>
 </li>
 </ul>
 
@@ -500,24 +505,8 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

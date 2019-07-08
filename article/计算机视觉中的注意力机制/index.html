@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -227,50 +227,69 @@
 <p>这里一共利用了三个相同网络结构，不同输入尺寸的CNN，利用coarse to fine的思想，希望网络能够聚焦到能够体现出细微差别的区域中。</p>
 <p>对每一个网络，前面两个子网络论文将其称为<code>APN</code>(Attention Proposal Network)。每个子网络都用来做两个事情：</p>
 <ol>
-<li>对图像进行分类<script type="math/tex; mode=display">
-\begin{equation}
-\mathbf{p}(\mathbf{X})=f\left(\mathbf{W}_{c} * \mathbf{X}\right)
-\end{equation}</script></li>
+<li>对图像进行分类<br>
+$$<br>
+\begin{equation}<br>
+\mathbf{p}(\mathbf{X})=f\left(\mathbf{W}_{c} * \mathbf{X}\right)<br>
+\end{equation}<br>
+$$</li>
 </ol>
-<ol>
-<li><p>预测attention region</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\left[t_{x}, t_{y}, t_{l}\right]=g\left(\mathbf{W}_{c} * \mathbf{X}\right)
-\end{equation}</script><p>其中：</p>
+<ol start="2">
+<li>
+<p>预测attention region<br>
+$$<br>
+\begin{equation}<br>
+\left[t_{x}, t_{y}, t_{l}\right]=g\left(\mathbf{W}_{c} * \mathbf{X}\right)<br>
+\end{equation}<br>
+$$<br>
+其中：</p>
 <p>$t_x， t_y$ 指 attention region 的中心坐标</p>
 <p>$t_l$ 指预测出的squre边长的一半</p>
 </li>
-<li><p>Crop</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\begin{aligned} t_{x(t l)} &=t_{x}-t_{l}, \quad t_{y(t l)}=t_{y}-t_{l} \\ t_{x(b r)} &=t_{x}+t_{l}, \quad t_{y(b r)}=t_{y}+t_{l} \end{aligned}
-\end{equation}</script><p>通过上一步，可以得到预测的attention region的四个点的坐标如上。crop操作只需要通过一个点乘来完成：</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\mathbf{X}^{a t t}=\mathbf{X} \odot \mathbf{M}\left(t_{x}, t_{y}, t_{l}\right)
-\end{equation}</script><p>这里M的是对原图运用$h(x)=1 /(1+\exp ^{-k x})$ 得到的，当k足够大时，类似于一个阶跃函数。下图是k=50时的情况。</p>
+<li>
+<p>Crop<br>
+$$<br>
+\begin{equation}<br>
+\begin{aligned} t_{x(t l)} &amp;=t_{x}-t_{l}, \quad t_{y(t l)}=t_{y}-t_{l} \ t_{x(b r)} &amp;=t_{x}+t_{l}, \quad t_{y(b r)}=t_{y}+t_{l} \end{aligned}<br>
+\end{equation}<br>
+$$<br>
+通过上一步，可以得到预测的attention region的四个点的坐标如上。crop操作只需要通过一个点乘来完成：<br>
+$$<br>
+\begin{equation}<br>
+\mathbf{X}^{a t t}=\mathbf{X} \odot \mathbf{M}\left(t_{x}, t_{y}, t_{l}\right)<br>
+\end{equation}<br>
+$$<br>
+这里M的是对原图运用$h(x)=1 /(1+\exp ^{-k x})$ 得到的，当k足够大时，类似于一个阶跃函数。下图是k=50时的情况。</p>
 </li>
 </ol>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-120350.png" alt="image-20190701200319806"></p>
-<ol>
-<li><p>在获得attention region之后，利用双线性插值的方法，获得一个增强的图像：</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\mathbf{X}_{(i, j)}^{a m p}=\sum_{\alpha, \beta=0}^{1}|1-\alpha-\{i / \lambda\} \| 1-\beta-\{j / \lambda\}| \mathbf{X}_{(m, n)}^{a t t}
-\end{equation}</script><p>$\lambda$ 是上采样因子、$[]$用来取整，${}$用来取小数部分。</p>
+<ol start="4">
+<li>
+<p>在获得attention region之后，利用双线性插值的方法，获得一个增强的图像：<br>
+$$<br>
+\begin{equation}<br>
+\mathbf{X}<em>{(i, j)}^{a m p}=\sum</em>{\alpha, \beta=0}^{1}|1-\alpha-{i / \lambda} | 1-\beta-{j / \lambda}| \mathbf{X}_{(m, n)}^{a t t}<br>
+\end{equation}<br>
+$$<br>
+$\lambda$ 是上采样因子、$[]$用来取整，${}$用来取小数部分。</p>
 </li>
-<li><p>Loss</p>
-<p>包含两部分LOSS，分类和RANK：</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-L(\mathbf{X})=\sum_{s=1}^{3}\left\{L_{c l s}\left(\mathbf{Y}^{(\mathbf{s})}, \mathbf{Y}^{*}\right)\right\}+\sum_{s=1}^{2}\left\{L_{r a n k}\left(p_{t}^{(s)}, p_{t}^{(s+1)}\right)\right\}
-\end{equation}</script><script type="math/tex; mode=display">
-\begin{equation}
-L_{r a n k}\left(p_{t}^{(s)}, p_{t}^{(s+1)}\right)=\max \left\{0, p_{t}^{(s)}-p_{t}^{(s+1)}+\operatorname{margin}\right\}
-\end{equation}</script><p>直观的理解就是随着attention region的细化，它对应的分类损失也应该提高。</p>
+<li>
+<p>Loss</p>
+<p>包含两部分LOSS，分类和RANK：<br>
+$$<br>
+\begin{equation}<br>
+L(\mathbf{X})=\sum_{s=1}^{3}\left{L_{c l s}\left(\mathbf{Y}^{(\mathbf{s})}, \mathbf{Y}^{*}\right)\right}+\sum_{s=1}^{2}\left{L_{r a n k}\left(p_{t}^{(s)}, p_{t}^{(s+1)}\right)\right}<br>
+\end{equation}<br>
+$$</p>
+<p>$$<br>
+\begin{equation}<br>
+L_{r a n k}\left(p_{t}^{(s)}, p_{t}^{(s+1)}\right)=\max \left{0, p_{t}^{(s)}-p_{t}^{(s+1)}+\operatorname{margin}\right}<br>
+\end{equation}<br>
+$$</p>
+<p>直观的理解就是随着attention region的细化，它对应的分类损失也应该提高。</p>
 </li>
-<li><p>在训练好之后，对每一个子APN得到的feature进行归一化，之后融合起来就能得到一个fused feature。</p>
+<li>
+<p>在训练好之后，对每一个子APN得到的feature进行归一化，之后融合起来就能得到一个fused feature。</p>
 </li>
 </ol>
 <hr>
@@ -553,24 +572,8 @@ L_{r a n k}\left(p_{t}^{(s)}, p_{t}^{(s+1)}\right)=\max \left\{0, p_{t}^{(s)}-p_
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

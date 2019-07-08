@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          面经大杂烩 - zerteen | Blog
+        
+    </title>
+
+    <link rel="canonical" href="https://zerteen.github.io/article/面经大杂烩/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <link rel="stylesheet" href="/css/donate.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article_header/banner.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#面试" title="面试">面试</a>
+                            
+                        </div>
+                        <h1>面经大杂烩</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            2019-07-05
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hey</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>Q. 多线程中线程hang住是什么原因<br>
+A.</p>
+<p>Q. TCP和UDP的区别? 都适用于那些场景？<br>
+A. TCP是面向连接的，通过各种机制来保证数据传输的准确性。例如三次握手，四次挥手、滑动窗口、重传等等。UDP面向无连接，是一个无状态的传输协议，传输速度比TCP要快。由于没有TCP那样的可靠机制，他的连接是不可靠的。在网络状态不好的情况下，容易产生丢包。因此，在要求传输准确无误的场景下需要是用TCP协议，例如文件传输中http、https、FTP、pop、SMTP等协议，都需要保证传输的准确性。而在速度要求较高，准确度要求不高的情况下，可以使用UDP协议，例如一些语音、时频的传输，等<br>
+ref: <a href="https://www.cnblogs.com/williamjie/p/9390164.html" target="_blank" rel="noopener">https://www.cnblogs.com/williamjie/p/9390164.html</a></p>
+<p>Q. 什么时候用长连接什么时候用短连接?<br>
+A. <strong>长连接</strong>多用于操作频繁，点对点的通讯，而且连接数不能太多情况。每个TCP连接都需要三步握手，这需要时间，如果每个操作都是先连接，再操作的话那么处理速度会降低很多，所以每个操作完后都不断开，次处理时直接发送数据包就OK了，不用建立TCP连接。例如：数据库的连接用长连接， 如果用短连接频繁的通信会造成socket错误，而且频繁的socket 创建也是对资源的浪费。 而像WEB网站的http服务一般都用<strong>短链接</strong>，因为长连接对于服务端来说会耗费一定的资源，而像WEB网站这么频繁的成千上万甚至上亿客户端的连接用短连接会更省一些资源，如果用长连接，而且同时有成千上万的用户，如果每个用户都占用一个连接的话，那可想而知吧。所以并发量大，但每个用户无需频繁操作情况下需用短连好。</p>
+<p>Q. 曲折打印二叉树(写对)，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zigzagTree</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> root</span><br><span class="line">    stack = []</span><br><span class="line">    ans = []</span><br><span class="line">    stack.append(root)</span><br><span class="line">    leftToRight = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        n = len(stack)</span><br><span class="line">        temp = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            p = stack.pop()</span><br><span class="line">            print(p.val, end=<span class="string">' '</span>)</span><br><span class="line">            <span class="keyword">if</span> leftToRight:</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    temp.append(p.left)</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    temp.append(p.right)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    temp.append(p.right)</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    temp.append(p.left)</span><br><span class="line">        print()</span><br><span class="line">        leftToRight = <span class="keyword">not</span> leftToRight</span><br><span class="line">        stack.extend(temp)</span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<p>Q. 全组合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">给定两个整数 n 和 k，返回 <span class="number">1</span> ... n 中所有可能的 k 个数的组合。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: n = <span class="number">4</span>, k = <span class="number">2</span></span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">  [<span class="number">2</span>,<span class="number">4</span>],</span><br><span class="line">  [<span class="number">3</span>,<span class="number">4</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">  [<span class="number">1</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">1</span>,<span class="number">4</span>],</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combine</span><span class="params">(self, n, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(ans, n, k, t, start)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> len(t) == k:</span><br><span class="line">                ans.append(copy.copy(t))</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(start, n+<span class="number">1</span>):</span><br><span class="line">                t.append(i)</span><br><span class="line">                dfs(ans, n, k, t, i+<span class="number">1</span>)</span><br><span class="line">                t.pop()</span><br><span class="line">            </span><br><span class="line">        ans = []</span><br><span class="line">        dfs(ans, n, k, [], <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<p>Q. 推导LR公式，LR的梯度下降，sigmoid函数<br>
+A. <a href="https://www.cnblogs.com/lxs0731/p/8573044.html" target="_blank" rel="noopener">https://www.cnblogs.com/lxs0731/p/8573044.html</a></p>
+<p>Q. 推导SVM公式<br>
+A.</p>
+<p>Q. struct{uid 、loginTime、 logoutTime}，一个app的用户可能回登录和登出（并且只有一次登陆登出），给定用户登陆登出的数组，求在一天之内的在线人数的峰值，精确到秒。输出格式是：&lt;峰值出现时间startTime ，峰值结束时间endTime&gt;<br>
+A. 一天总共有3600*24=86400秒。定义一个长度为86400的整数数组intdelta[86400]，每个整数对应这一秒的人数变化值，可能为正也可能为负。开始时将数组元素都初始化为0。然后依次读入每个用户的登录时间和退出时间，将与登录时间对应的整数值加1，将与退出时间对应的整数值减1。这样处理一遍后数组中存储了每秒中的人数变化情况。定义另外一个长度为86400的整数数组intonline_num[86400]，每个整数对应这一秒的论坛在线人数。假设一天开始时论坛在线人数为0，则第1秒的人数online_num[0]=delta[0]。第n+1秒的人数online_num[n]=online_num[n-1]+delta[n]。这样我们就获得了一天中任意时间的在线人数。</p>
+<p>Q. 1-25放在5*5格子里，每一行每一列都按照递增的顺序放，有多少种放法？</p>
+<p>Q. 有一个数组里有n个数，要求从中等概率的取出k个数。<br>
+A. 类似于抽奖的时候，先抽后抽的概率都相等。可以把这个看成是一个无放回的抽奖。如果你还记得高中时候数学课本上抽奖（抽奖这种做法是不是等概率的）那个案例的话，你会瞬间秒懂。答案是肯定的，但也是相当简单的，就一句话，每次选中的元素跟当前选择长度的最后一个元素做交换，即可。最开始N个数字，第一次选了a[i]，那么就将a[i]与a[n-1]做交换，然后呢，再从a[0, 1, 2,……, n-2]中再随机选择，如果选中了a[k]，那么就将a[k]与a[n-2]做交换，然后从a[0, 1, 2,……, n-3]中再随机选择……直到选够M个数字，取出最后M个数字即可。这么做就省去了移动的时间成本，时间复杂度为O(n)，终于完工了。</p>
+<p>无需数组中求第k大的数</p>
+<p>Q. 链表的快排</p>
+<p>Q. 列举常见的一些范数及其应用场景，如 L0，L1，L2，L∞，Frobenius 范数<br>
+<img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-125242.png" alt="image-20190708205242101"></p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-130244.png" alt="image-20190708210226273"></p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-130247.png" alt="image-20190708210243831"></p>
+<p>Q. 简单介绍一下 sigmoid，relu，softplus，tanh，RBF 及其应用场景<br>
+A.<br>
+Sigmoid:</p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131034.png" alt="image-20190708211034466"></p>
+<p>Relu:</p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131301.png" alt="image-20190708211301110"></p>
+<p>Softplus:</p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131324.png" alt="image-20190708211323593"></p>
+<p>tanh:</p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131530.png" alt="image-20190708211529370"></p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131613.png" alt="image-20190708211612888"></p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131627.png" alt="image-20190708211626304"></p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131934.png" alt="image-20190708211933979"></p>
+<p>Q. 数值计算中的计算上溢与下溢问题，如 softmax 中的处理方式<br>
+A. <strong>下溢</strong>： 当接近零的数被四舍五入为零时发生下溢。<br>
+	<strong>上溢</strong>：当大量级的数被近似为∞ 或−∞时发生上溢。进一步的运算通常会导致这些无限值变为非数字。</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/leetcode-85-最大矩形/" data-toggle="tooltip" data-placement="top" title="leetcode 85 最大矩形">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/article/leetcode-86-分隔链表/" data-toggle="tooltip" data-placement="top" title="leetcode 86 分隔链表">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <br>
+
+                <!--打赏-->
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                <!--分享-->
+                <br>                       
+                
+                <!-- require APlayer -->
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#面试" title="面试">面试</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/zerteen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://zerteen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'xxx';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+
+</html>

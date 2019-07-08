@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -217,12 +217,18 @@
 <hr>
 <p>basic idea:</p>
 <ul>
-<li>对数组进行mergesort，每次将left数组和right数组合并成一个数组</li>
-<li>在合并的时候，当这个数是从right数组过来的时候，那么这以后，从left过来的数的count就要加上1.</li>
-<li>当合并的数是从left过来的时候，把left对应的counts[i]加上count</li>
-</ul>
-<ul>
-<li>在merge的时候，不用对原始的nums进行merge，只需要对nums对应的index进行重新排序就好</li>
+<li>
+<p>对数组进行mergesort，每次将left数组和right数组合并成一个数组</p>
+</li>
+<li>
+<p>在合并的时候，当这个数是从right数组过来的时候，那么这以后，从left过来的数的count就要加上1.</p>
+</li>
+<li>
+<p>当合并的数是从left过来的时候，把left对应的counts[i]加上count</p>
+</li>
+<li>
+<p>在merge的时候，不用对原始的nums进行merge，只需要对nums对应的index进行重新排序就好</p>
+</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">countSmaller</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="keyword">int</span>[] idx = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++) idx[i] = i;</span><br><span class="line">        mergeSort(nums, res, idx, <span class="number">0</span>, nums.length-<span class="number">1</span>);</span><br><span class="line">        List&lt;Integer&gt; ans = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i: res) &#123;</span><br><span class="line">            ans.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span>[] res, <span class="keyword">int</span>[] idx, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (right &lt;= left) &#123;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        mergeSort(nums, res, idx, left, mid);</span><br><span class="line">        mergeSort(nums, res, idx, mid+<span class="number">1</span>, right);</span><br><span class="line">        merge(nums, res, idx, left, mid, mid+<span class="number">1</span>, right);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span>[] res, <span class="keyword">int</span>[] idx, <span class="keyword">int</span> l1, <span class="keyword">int</span> r1, <span class="keyword">int</span> l2, <span class="keyword">int</span> r2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[r2-l1+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> t = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> start = l1;</span><br><span class="line">        <span class="keyword">while</span> ( l1 &lt;= r1 || l2 &lt;= r2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1 &gt; r1) &#123;</span><br><span class="line">                temp[t++] = idx[l2++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (l2 &gt; r2) &#123;</span><br><span class="line">                res[idx[l1]] += count;</span><br><span class="line">                temp[t++] = idx[l1++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (nums[idx[l1]] &gt; nums[idx[l2]]) &#123;</span><br><span class="line">                temp[t++] = idx[l2++];</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                res[idx[l1]] += count;</span><br><span class="line">                temp[t++] = idx[l1++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;temp.length; i++) &#123;</span><br><span class="line">            idx[start+i] = temp[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -233,7 +239,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/leetcode-CoinChange/" data-toggle="tooltip" data-placement="top" title="leetcode 322 Coin Change">&larr; Previous Post</a>
+                            <a href="/article/leetcode-BurstBalloons/" data-toggle="tooltip" data-placement="top" title="leetcode 312 Burst Balloons">&larr; Previous Post</a>
                         </li>
                     
                     
@@ -499,24 +505,8 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

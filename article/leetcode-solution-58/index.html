@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -209,8 +209,9 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="length-of-last-word"><a href="#Length-of-Last-Word" class="headerlink" title="Length of Last Word"></a>Length of Last Word</h3><hr>
-<p>Given a string <em>s</em> consists of upper/lower-case alphabets and empty space characters <code>&#39; &#39;</code>, return the length of last word in the string.</p>
+                <h3 id="length-of-last-word">Length of Last Word</h3>
+<hr>
+<p>Given a string <em>s</em> consists of upper/lower-case alphabets and empty space characters <code>' '</code>, return the length of last word in the string.</p>
 <p>If the last word does not exist, return 0.</p>
 <p><strong>Note:</strong> A word is defined as a character sequence consists of non-space characters only.</p>
 <p><strong>Example:</strong></p>
@@ -229,107 +230,154 @@
 <p>总结一下java中String对象常用的方法：</p>
 <p>java中String的常用方法</p>
 <ul>
-<li><p>length() 字符串的长度</p>
-<p>　　char chars[]={‘a’,’b’.’c’};<br>  　　　　String s=new String(chars);<br>  　　　　int len=s.length();</p>
+<li>
+<p>length() 字符串的长度</p>
+<p>char chars[]={‘a’,‘b’.‘c’};<br>
+　　　　String s=new String(chars);<br>
+　　　　int len=s.length();</p>
 </li>
-<li><p>charAt() 截取一个字符</p>
-<p>　　例：char ch;<br>  　　　　ch=”abc”.charAt(1); 返回’b’</p>
+<li>
+<p>charAt() 截取一个字符</p>
+<p>例：char ch;<br>
+　　　　ch=“abc”.charAt(1); 返回’b’</p>
 </li>
-<li><p>getChars() 截取多个字符</p>
-<p>　　void getChars(int sourceStart,int sourceEnd,char target[],int targetStart)<br>  　　<code>sourceStart</code>指定了子串开始字符的下标</p>
-<p>​    <code>sourceEnd</code>指定了子串结束后的下一个字符的下标。因此， 子串包含从sourceStart到sourceEnd-1的字符。    </p>
-<p>​    接收字符的数组由target指定，target中开始复制子串的下标值是targetStart。</p>
-<p>　　例：String s=”this is a demo of the getChars method.”;<br>　　　　char buf[]=new char[20];<br>　　　　s.getChars(10,14,buf,0);</p>
+<li>
+<p>getChars() 截取多个字符</p>
+<p>void getChars(int sourceStart,int sourceEnd,char target[],int targetStart)<br>
+　　<code>sourceStart</code>指定了子串开始字符的下标</p>
+<p>​	<code>sourceEnd</code>指定了子串结束后的下一个字符的下标。因此， 子串包含从sourceStart到sourceEnd-1的字符。</p>
+<p>​	接收字符的数组由target指定，target中开始复制子串的下标值是targetStart。</p>
+<p>例：String s=“this is a demo of the getChars method.”;<br>
+　　　　char buf[]=new char[20];<br>
+　　　　s.getChars(10,14,buf,0);</p>
 </li>
-<li><p>getBytes()</p>
-<p>​    替代getChars()的一种方法是将字符存储在<code>字节数组</code>中，该方法即getBytes()。</p>
+<li>
+<p>getBytes()</p>
+<p>​	替代getChars()的一种方法是将字符存储在<code>字节数组</code>中，该方法即getBytes()。</p>
 </li>
-<li><p>toCharArray()</p>
+<li>
+<p>toCharArray()</p>
 </li>
-<li><p>equals()和equalsIgnoreCase() 比较两个字符串</p>
+<li>
+<p>equals()和equalsIgnoreCase() 比较两个字符串</p>
 </li>
-<li><p>regionMatches() 用于比较一个字符串中特定区域与另一特定区域，它有一个重载的形式允许在比较中忽略大小写。</p>
-<p>　　boolean regionMatches(int startIndex,String str2,int str2StartIndex,int numChars)<br>  　　boolean regionMatches(boolean ignoreCase,int startIndex,String str2,int str2StartIndex,int numChars)</p>
+<li>
+<p>regionMatches() 用于比较一个字符串中特定区域与另一特定区域，它有一个重载的形式允许在比较中忽略大小写。</p>
+<p>boolean regionMatches(int startIndex,String str2,int str2StartIndex,int numChars)<br>
+　　boolean regionMatches(boolean ignoreCase,int startIndex,String str2,int str2StartIndex,int numChars)</p>
 </li>
-<li><p>startsWith()和endsWith()</p>
-<p>​    startsWith()方法决定是否以特定字符串开始</p>
-<p>​    endWith()方法决定是否以特定字符串结束</p>
+<li>
+<p>startsWith()和endsWith()</p>
+<p>​	startsWith()方法决定是否以特定字符串开始</p>
+<p>​	endWith()方法决定是否以特定字符串结束</p>
 </li>
-<li><p>equals() 和 ==</p>
-<p>　　equals()方法比较字符串对象中的字符</p>
-<p>​    ==运算符比较两个对象是否引用同一实例。<br>　　例：String s1=”Hello”;<br>　　　　String s2=new String(s1);<br>　　　　s1.eauals(s2); //true<br>　　　　s1==s2;//false</p>
+<li>
+<p>equals() 和 ==</p>
+<p>equals()方法比较字符串对象中的字符</p>
+<p>​	==运算符比较两个对象是否引用同一实例。<br>
+　　例：String s1=“Hello”;<br>
+　　　　String s2=new String(s1);<br>
+　　　　s1.eauals(s2); //true<br>
+　　　　s1==s2;//false</p>
 </li>
-<li><p>compareTo()和compareToIgnoreCase() 比较字符串</p>
+<li>
+<p>compareTo()和compareToIgnoreCase() 比较字符串</p>
 </li>
-<li><p>indexOf()和lastIndexOf()</p>
-<p>　　indexOf() 查找字符或者子串第一次出现的地方。<br>  　　lastIndexOf() 查找字符或者子串是后一次出现的地方。</p>
+<li>
+<p>indexOf()和lastIndexOf()</p>
+<p>indexOf() 查找字符或者子串第一次出现的地方。<br>
+　　lastIndexOf() 查找字符或者子串是后一次出现的地方。</p>
 </li>
-<li><p>substring()</p>
-<p>​    它有两种形式，第一种是：String substring(int startIndex)</p>
+<li>
+<p>substring()</p>
+<p>​	它有两种形式，第一种是：String substring(int startIndex)</p>
 </li>
 </ul>
-<p>　　　　 第二种是：String substring(int startIndex,int endIndex)</p>
+<p>第二种是：String substring(int startIndex,int endIndex)</p>
 <ul>
-<li><p>concat() </p>
-<p>​    连接两个字符串</p>
+<li>
+<p>concat()</p>
+<p>​	连接两个字符串</p>
 </li>
-<li><p>replace() 替换</p>
-<p>　　它有两种形式，第一种形式用一个字符在调用字符串中所有出现某个字符的地方进行替换，形式如下：<br>  　　    String replace(char original,char replacement)<br>  　　    例如：String s=”Hello”.replace(‘l’,’w’);<br>  　　第二种形式是用一个字符序列替换另一个字符序列，形式如下：<br>  　　    String replace(CharSequence original,CharSequence replacement)</p>
+<li>
+<p>replace() 替换</p>
+<p>它有两种形式，第一种形式用一个字符在调用字符串中所有出现某个字符的地方进行替换，形式如下：<br>
+　　	String replace(char original,char replacement)<br>
+　　	例如：String s=“Hello”.replace(‘l’,‘w’);<br>
+　　第二种形式是用一个字符序列替换另一个字符序列，形式如下：<br>
+　　	String replace(CharSequence original,CharSequence replacement)</p>
 </li>
-<li><p>trim() 去掉起始和结尾的空格</p>
+<li>
+<p>trim() 去掉起始和结尾的空格</p>
 </li>
-<li><p>valueOf() 转换为字符串</p>
+<li>
+<p>valueOf() 转换为字符串</p>
 </li>
-<li><p>toLowerCase() 转换为小写</p>
+<li>
+<p>toLowerCase() 转换为小写</p>
 </li>
-<li><p>toUpperCase() 转换为大写</p>
+<li>
+<p>toUpperCase() 转换为大写</p>
 <p><strong>StringBuffer</strong></p>
 </li>
-<li><p>StringBuffer构造函数</p>
+<li>
+<p>StringBuffer构造函数</p>
 </li>
 </ul>
-<p>　　StringBuffer定义了三个构造函数：<br>　　StringBuffer()<br>　　StringBuffer(int size)<br>　　StringBuffer(String str)<br>　　StringBuffer(CharSequence chars)</p>
+<p>StringBuffer定义了三个构造函数：<br>
+　　StringBuffer()<br>
+　　StringBuffer(int size)<br>
+　　StringBuffer(String str)<br>
+　　StringBuffer(CharSequence chars)</p>
 <ul>
-<li><p>length()和capacity()</p>
-<p>​    一个StringBuffer当前长度可通过length()方法得到,而整个可分配空间通过capacity()方法得到　</p>
+<li>
+<p>length()和capacity()</p>
+<p>​	一个StringBuffer当前长度可通过length()方法得到,而整个可分配空间通过capacity()方法得到</p>
 </li>
 </ul>
 <ul>
 <li>ensureCapacity() 设置缓冲区的大小</li>
 </ul>
-<p>　　　　void ensureCapacity(int capacity)</p>
+<p>void ensureCapacity(int capacity)</p>
 <ul>
 <li>setLength() 设置缓冲区的长度</li>
 </ul>
-<p>　　　　void setLength(int len)</p>
+<p>void setLength(int len)</p>
 <ul>
 <li>charAt()和setCharAt()</li>
 </ul>
-<p>　　　　char charAt(int where)<br>　　　　void setCharAt(int where,char ch)</p>
+<p>char charAt(int where)<br>
+　　　　void setCharAt(int where,char ch)</p>
 <ul>
 <li>getChars()</li>
 </ul>
-<p>　　　　void getChars(int sourceStart,int sourceEnd,char target[],int targetStart)</p>
+<p>void getChars(int sourceStart,int sourceEnd,char target[],int targetStart)</p>
 <ul>
 <li>append() 可把任何类型数据的字符串表示连接到调用的StringBuffer对象的末尾。</li>
 </ul>
-<p>　　　　例：int a=42;<br>　　　　　　StringBuffer sb=new StringBuffer(40);<br>　　　　　　String s=sb.append(“a=”).append(a).append(“!”).toString();</p>
+<p>例：int a=42;<br>
+　　　　　　StringBuffer sb=new StringBuffer(40);<br>
+　　　　　　String s=sb.append(“a=”).append(a).append(&quot;!&quot;).toString();</p>
 <ul>
 <li>insert() 插入字符串</li>
 </ul>
-<p>　　　　StringBuffer insert(int index,String str)<br>　　　　StringBuffer insert(int index,char ch)<br>　　　　StringBuffer insert(int index,Object obj)<br>　　　　index指定将字符串插入到StringBuffer对象中的位置的下标。</p>
+<p>StringBuffer insert(int index,String str)<br>
+　　　　StringBuffer insert(int index,char ch)<br>
+　　　　StringBuffer insert(int index,Object obj)<br>
+　　　　index指定将字符串插入到StringBuffer对象中的位置的下标。</p>
 <ul>
 <li>reverse() 颠倒StringBuffer对象中的字符</li>
 </ul>
-<p>　　　　StringBuffer reverse()</p>
+<p>StringBuffer reverse()</p>
 <ul>
 <li>delete()和deleteCharAt() 删除字符</li>
 </ul>
-<p>　　　　StringBuffer delete(int startIndex,int endIndex)<br>　　　　StringBuffer deleteCharAt(int loc)</p>
+<p>StringBuffer delete(int startIndex,int endIndex)<br>
+　　　　StringBuffer deleteCharAt(int loc)</p>
 <ul>
 <li>replace() 替换</li>
 </ul>
-<p>　　　　StringBuffer replace(int startIndex,int endIndex,String str)</p>
+<p>StringBuffer replace(int startIndex,int endIndex,String str)</p>
 
                 
 
@@ -602,24 +650,8 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>
