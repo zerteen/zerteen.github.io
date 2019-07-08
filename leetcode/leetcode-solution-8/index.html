@@ -139,13 +139,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -154,6 +147,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -209,24 +209,12 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="8-string-to-integer-atoi">8. String to Integer (atoi)</h3>
-<hr>
+                <h3 id="8-string-to-integer-atoi"><a href="#8-String-to-Integer-atoi" class="headerlink" title="8. String to Integer (atoi)"></a>8. String to Integer (atoi)</h3><hr>
 <p>Implement atoi to convert a string to an integer.</p>
 <p><strong>Hint:</strong> Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.</p>
 <hr>
 <p>注意异常的输入：</p>
-<p>“”<br>
-“acbd”<br>
-“±123&quot;<br>
-”   111&quot;<br>
-“0&quot;<br>
-”  “<br>
-“±±”<br>
-”-1&quot;<br>
-&quot;  -0012a42&quot;<br>
-&quot;-11919730356x&quot;<br>
-&quot;999999999999999999999999999999&quot;<br>
-“9223372036854775809”</p>
+<p>“”<br>“acbd”<br>“+-123”<br>“   111”<br>“0”<br>“  “<br>“+-+-“<br>“-1”<br>“  -0012a42”<br>“-11919730356x”<br>“999999999999999999999999999999”<br>“9223372036854775809”</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">      <span class="comment">// 判断是否是空的字符串</span></span><br><span class="line">      <span class="keyword">if</span> (str.length() == <span class="number">0</span>)&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">int</span> positive = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">long</span> result = <span class="number">0</span>;</span><br><span class="line">      <span class="comment">// 字符前面有可能存在空格，去掉</span></span><br><span class="line">      <span class="keyword">while</span>(index &lt; str.length() &amp;&amp; str.charAt(index) == <span class="string">' '</span> )&#123;</span><br><span class="line">          index ++;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 每一次index++操作后，要判断index是否已经超过数组范围</span></span><br><span class="line">      <span class="keyword">if</span> (index == str.length())&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 一个正确的str刚开始的第一个数字应该是正负号</span></span><br><span class="line">      <span class="keyword">if</span>(str.charAt(index) == <span class="string">'-'</span> || str.charAt(index) == <span class="string">'+'</span>)&#123;</span><br><span class="line">          positive = str.charAt(index)==<span class="string">'-'</span>? -<span class="number">1</span>:<span class="number">1</span> ;</span><br><span class="line">          index ++;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (index == str.length())&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">while</span>(index &lt; str.length())&#123;</span><br><span class="line">        <span class="comment">// 判断是否是数字这一段应该放在whle里面，有可能存在一段数字后出现字母的情况</span></span><br><span class="line">          <span class="keyword">if</span> (str.charAt(index) &lt; <span class="string">'0'</span> || str.charAt(index) &gt; <span class="string">'9'</span> )&#123;</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          result = result * <span class="number">10</span> + str.charAt(index)-<span class="string">'0'</span>;</span><br><span class="line">		<span class="comment">// 溢出的情况，虽然用了long型result，但是输入的数字可能造成long溢出，因此应该判断溢出应该放在while里面，而不能是while外。</span></span><br><span class="line">          <span class="keyword">if</span>(result*positive &gt; Integer.MAX_VALUE)&#123;</span><br><span class="line">              <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">          &#125;</span><br><span class="line">        	<span class="keyword">if</span>(result*positive &lt; Integer.MIN_VALUE)&#123;</span><br><span class="line">            	<span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">        	&#125;</span><br><span class="line">        	index ++;</span><br><span class="line">    	&#125;</span><br><span class="line">      	<span class="comment">// 最后不要忘记乘上符号，返回的时候需要强制类型转换</span></span><br><span class="line">    	result = result*positive;</span><br><span class="line">    	<span class="keyword">return</span> (<span class="keyword">int</span>) result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p>感觉我的答案还是不够简练，这里贴上discuss区里得分最高的solution：</p>

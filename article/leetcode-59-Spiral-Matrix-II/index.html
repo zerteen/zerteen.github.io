@@ -141,13 +141,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -156,6 +149,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -221,6 +221,8 @@
 <li>注意输入参数小于0的情况。</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[][] generateMatrix(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n&lt;=<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> content = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> i=<span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> up = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> down = n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = n-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span>[][] ans = <span class="keyword">new</span> <span class="keyword">int</span>[n][n];</span><br><span class="line">        <span class="keyword">while</span>(i&gt;=up &amp;&amp; i&lt;=down &amp;&amp; j&gt;=left &amp;&amp; j&lt;= right)&#123;</span><br><span class="line">            <span class="keyword">while</span>(j&lt;=right)&#123;</span><br><span class="line">                ans[i][j] = content;</span><br><span class="line">                content ++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            up ++;</span><br><span class="line">            j--;</span><br><span class="line">            i++;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;=down)&#123;</span><br><span class="line">                ans[i][j] = content;</span><br><span class="line">                i++;</span><br><span class="line">                content++;</span><br><span class="line">            &#125;</span><br><span class="line">            right --;</span><br><span class="line">            i--;</span><br><span class="line">            j--;</span><br><span class="line">            <span class="keyword">while</span>(j&gt;= left)&#123;</span><br><span class="line">                ans[i][j] = content;</span><br><span class="line">                j --;</span><br><span class="line">                content ++;</span><br><span class="line">            &#125;</span><br><span class="line">            down --;</span><br><span class="line">            j++;</span><br><span class="line">            i--;</span><br><span class="line">            <span class="keyword">while</span>(i&gt;= up)&#123;</span><br><span class="line">                ans[i][j] = content;</span><br><span class="line">                i --;</span><br><span class="line">                content ++;</span><br><span class="line">            &#125;</span><br><span class="line">            left ++;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>python</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
 

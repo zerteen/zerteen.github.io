@@ -198,13 +198,6 @@
     </url>
 
     <url>
-        <loc>https://zerteen.github.io/tags/leetcode/</loc>
-        <lastmod>2019-07-08T08:48:43.560Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://zerteen.github.io/tags/%E6%95%B0%E7%BB%84/</loc>
         <lastmod>2019-07-08T08:48:43.560Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -220,7 +213,14 @@
 
     <url>
         <loc>https://zerteen.github.io/tags/%E9%9D%A2%E8%AF%95/</loc>
-        <lastmod>2019-07-08T13:26:49.557Z</lastmod>
+        <lastmod>2019-07-08T13:33:05.960Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://zerteen.github.io/tags/leetcode/</loc>
+        <lastmod>2019-07-08T16:58:18.327Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

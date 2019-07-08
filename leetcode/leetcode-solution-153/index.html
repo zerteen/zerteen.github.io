@@ -139,13 +139,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -154,6 +147,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -216,10 +216,9 @@
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> end = nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(start &lt; end)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = start + ((end - start)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt; nums[end])&#123;</span><br><span class="line">                start = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                end = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[start];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>每次和最后一个元素比较。
-<ul>
+<li>每次和最后一个元素比较。<ul>
 <li>1 2 3  -&gt; s 1, e 3, m 2 -&gt; s 1, e 1</li>
-<li>3 2 1  -&gt; s 3, e 1, m 2 -&gt; s 2, e 1 -&gt; s 2 e 1 m 2 -&gt; s 1 e 1</li>
+<li>3 2 1  -&gt; s 3, e 1, m 2 -&gt; s 2, e 1 -&gt; s 2 e 1 m 2 -&gt; s 1 e 1 </li>
 </ul>
 </li>
 </ul>
@@ -227,9 +226,8 @@
 <p>what if there is duplicate items,</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> end = nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(start &lt; end)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = start + ((end - start)&gt;&gt;<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt; nums[end])&#123;</span><br><span class="line">                start = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; nums[end])</span><br><span class="line">                end = mid;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                end --;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums[start];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>example: 3, 3, 1, 3
-<ul>
-<li>当出现这种情况时，mid == end, 需要end–</li>
+<li>example: 3, 3, 1, 3<ul>
+<li>当出现这种情况时，mid == end, 需要end—</li>
 </ul>
 </li>
 </ul>

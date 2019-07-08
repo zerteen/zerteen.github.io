@@ -141,13 +141,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -156,6 +149,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -216,8 +216,7 @@
 <p>search(word) can search a literal word or a regular expression string containing only letters <code>a-z</code> or <code>.</code>. A <code>.</code> means it can represent any one letter.</p>
 <p><strong>Example:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">addWord(&quot;bad&quot;)</span><br><span class="line">addWord(&quot;dad&quot;)</span><br><span class="line">addWord(&quot;mad&quot;)</span><br><span class="line">search(&quot;pad&quot;) -&gt; false</span><br><span class="line">search(&quot;bad&quot;) -&gt; true</span><br><span class="line">search(&quot;.ad&quot;) -&gt; true</span><br><span class="line">search(&quot;b..&quot;) -&gt; true</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong><br>
-You may assume that all words are consist of lowercase letters <code>a-z</code>.</p>
+<p><strong>Note:</strong><br>You may assume that all words are consist of lowercase letters <code>a-z</code>.</p>
 <hr>
 <ul>
 <li>可以使用trie数来处理</li>

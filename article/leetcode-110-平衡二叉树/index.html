@@ -143,13 +143,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -158,6 +151,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -218,13 +218,12 @@
 <p>一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。</p>
 <p>示例 1:</p>
 <p>给定二叉树 [3,9,20,null,null,15,7]</p>
-<pre><code>		3
+<pre><code>        3
    / \
   9  20
     /  \
    15   7
-</code></pre>
-<p>返回 true 。</p>
+</code></pre><p>返回 true 。</p>
 <p>示例 2:</p>
 <p>给定二叉树 [1,2,2,3,3,null,null,4,4]</p>
 <pre><code>       1
@@ -234,12 +233,10 @@
    3   3
   / \
  4   4
-</code></pre>
-<p>返回 false 。</p>
+</code></pre><p>返回 false 。</p>
 <hr>
 <ul>
-<li>
-<p>递归的寻找当前节点的左子树和右子树的高度，如果高度差为不满足平衡关系，返回-1</p>
+<li><p>递归的寻找当前节点的左子树和右子树的高度，如果高度差为不满足平衡关系，返回-1</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isBalanced</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">getDepth</span><span class="params">(root)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root.left <span class="keyword">and</span> <span class="keyword">not</span> root.right:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">            left = getDepth(root.left)</span><br><span class="line">            right = getDepth(root.right)</span><br><span class="line">            <span class="keyword">if</span> left==<span class="number">-1</span> <span class="keyword">or</span> right == <span class="number">-1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">            <span class="keyword">elif</span> abs(left-right) &gt; <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> max(left, right) + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> getDepth(root) != <span class="number">-1</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
