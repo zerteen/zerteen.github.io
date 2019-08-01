@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,28 +211,41 @@
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-442-Find-All-Duplicates-in-an-Array/">
+    <a href="/article/leetcode-114-二叉树展开为链表/">
         <h2 class="post-title">
-            leetcode 442 Find All Duplicates in an Array
+            leetcode 114 二叉树展开为链表
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given an array of integers, 1 ≤ a[i] ≤ n (n= size of array), some elements appear twice and others appear once.
-Find all the elements that appear twice in this array.
-Could you do it without extra ......
+            给定一个二叉树，原地将它展开为链表。
+例如，给定二叉树
+        1
+   / \
+  2   5
+ / \   \
+3   4   6
+将其展开为：
+12345678910111 \  2   \    3     \      4       \        5         \          6
+
+
+每一次把根节点的右子树拼接在左子树的右子树上
+例如：
+123456789......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-08
+            2019-07-02
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
             
+              <a href="/tags/#tree" title="tree">tree</a>
+            
         </div>
     
 
@@ -241,30 +254,36 @@ Could you do it without extra ......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-429-N-ary-Tree-Level-Order-Traversal/">
+    <a href="/article/leetcode-111-二叉树的最小深度/">
         <h2 class="post-title">
-            leetcode 429 N-ary Tree Level Order Traversal
+            leetcode 111 二叉树的最小深度
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given an n-ary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).
-For example, given a 3-ary tree:
+            给定一个二叉树，找出其最小深度。
+最小深度是从根节点到最近叶子节点的最短路径上的节点数量。
+说明: 叶子节点是指没有子节点的节点。
+示例:
+给定二叉树 [3,9,20,null,null,15,7],
+3
+   / \  9  20    /  \   15   7返回它的最小深度  2.
 
-We should return its level order traversal:
-1......
+123456789101112131415161718192021222324# Definitio......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-04
+            2019-07-02
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
             
+              <a href="/tags/#tree" title="tree">tree</a>
+            
         </div>
     
 
@@ -273,28 +292,37 @@ We should return its level order traversal:
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-421-Maximum-XOR-of-Two-Numbers-in-an-Array/">
+    <a href="/article/leetcode-112-路径总和/">
         <h2 class="post-title">
-            leetcode 421 Maximum XOR of Two Numbers in an Array
+            leetcode 112 路径总和
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given a non-empty array of numbers, $a_0, a_1, …, a_{n-1}$, where $0 \le a_i \le 2^{32}$.
-Find the maximum result of $a_i  \text{xor}   a_j$, where 0 ≤ i, j &lt; n.
-Could you do this in O(n) runtim......
+            给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。
+说明: 叶子节点是指没有子节点的节点。
+示例:给定如下二叉树，以及目标和 sum = 22，
+          5
+         / \
+        4   8
+       /   / \
+      11  13  4
+     /  \      \
+    7    ......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-06-04
+            2019-07-02
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
             
+              <a href="/tags/#tree" title="tree">tree</a>
+            
         </div>
     
 
@@ -303,26 +331,38 @@ Could you do this in O(n) runtim......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-406-Queue-Reconstruction-by-Height/">
+    <a href="/article/leetcode-113-路径总和-II/">
         <h2 class="post-title">
-            leetcode 406 Queue Reconstruction by Height
+            leetcode 113 路径总和 II
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Suppose you have a random list of people standing in a queue. Each person is described by a pair of integers (h, k), where h is the height of the person and k is the number of people in front of th......
+            给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。
+说明: 叶子节点是指没有子节点的节点。
+示例:给定如下二叉树，以及目标和 sum = 22，
+          5
+         / \
+        4   8
+       /   / \
+      11  13  4
+     /  \    / \
+    7    2  5   1
+返回......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-05-25
+            2019-07-02
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
             
+              <a href="/tags/#tree" title="tree">tree</a>
+            
         </div>
     
 
@@ -331,30 +371,158 @@ Could you do this in O(n) runtim......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-405-Conver-a-Number-to-Hex/">
+    <a href="/article/剑指offer-62-圆圈中最后剩下的数组/">
         <h2 class="post-title">
-            leetcode 405 Convert a Number to Hexadecimal
+            剑指offer 62 圆圈中最后剩下的数组
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, two’s complement method is used.
-Note:
-
-All letters in hexadecimal (a-f) must be in lowercase.
-The hexadecim......
+            给定给一个从1到N的链表围城一个圈圈，从1开始，每次删掉第M个数，求这个链表中剩下的最后一个数。
+12345def LastNodeInCircle(n, m):  last = 0  for i in range(2, n+1):    last = (last + m) % i  return last
+...
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-05-25
+            2019-07-01
+            </p>
+            
+              <a href="/tags/#链表" title="链表">链表</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/为ipic添加腾讯云床/">
+        <h2 class="post-title">
+            为ipic添加腾讯云床
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            之前一直都在使用新浪云床保存博客的图像。最近发现在浏览器打开时，加载不出来：
+
+而在本地的typroa能够正常显示：
+
+后来将新浪云床换成腾讯云床之后问题解决了。
+具体的步骤如下：
+
+登录腾讯云
+
+进入控制台
+
+搜索”存储对象”
+
+
+创建存储桶
+
+
+填写信息
+
+这里：
+
+名称随便写
+所属地也无所谓，随便写
+访问权限选“共有读私有写”
+
+
+创建完之后进入“存储桶列表”
+
+
+进入“基础配置”
+
+......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2019-07-01
+            </p>
+            
+              <a href="/tags/#图床" title="图床">图床</a>
+            
+              <a href="/tags/#ipic" title="ipic">ipic</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/计算机视觉中的注意力机制/">
+        <h2 class="post-title">
+            计算机视觉中的注意力机制
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            简单的来说，注意力机制的目标就是学习到一个权重。
+将权重施加在原来的特征上，使得施加权重后的模型效果更好。
+这里学习到的权重没有一个固定的模式，可以是作用在原图上，可以作用在空间尺度上，也可以作用在channel尺度上。
+对于注意力的分类，大家有分为以下几种：
+
+Soft attention，对所有的分量均做加权
+Hard attention，通过采样，只对部分分量做加权
+
+下面通过论文的方......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2019-07-01
+            </p>
+            
+              <a href="/tags/#深度学习" title="深度学习">深度学习</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/ /">
+        <h2 class="post-title">
+            leetcode 427 建立四叉树
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            我们想要使用一棵四叉树来储存一个 N x N 的布尔值网络。网络中每一格的值只会是真或假。树的根结点代表整个网络。对于每个结点, 它将被分等成四个孩子结点直到这个区域内的值都是相同的.每个结点还有另外两个布尔变量: isLeaf 和 val。isLeaf 当这个节点是一个叶子结点时为真。val 变量储存叶子结点所代表的区域的值。你的任务是使用一个四叉树表示给定的网络。
+下面的例子将有助于你理......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2019-07-01
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
             
+              <a href="/tags/#树" title="树">树</a>
+            
+              <a href="/tags/#递归" title="递归">递归</a>
+            
         </div>
     
 
@@ -363,26 +531,27 @@ The hexadecim......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-475-Heaters/">
+    <a href="/article/leetcode-430-扁平化多级双向链表/">
         <h2 class="post-title">
-            leetcode 475 Heaters
+            leetcode 430 扁平化多级双向链表
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Winter is coming! Your first job during the contest is to design a standard heater with fixed warm radius to warm all the houses.
-Now, you are given positions of houses and heaters on a horizontal ......
+            您将获得一个双向链表，除了下一个和前一个指针之外，它还有一个子指针，可能指向单独的双向链表。这些子列表可能有一个或多个自己的子项，依此类推，生成多级数据结构，如下面的示例所示。扁平化列表，使所有结点出现在单级双链表中。您将获得列表第一级的头部。
+示例:
+输入: 1—-2—-3—-4—-5—-6—NULL         |         7—-8—-9—-10—NULL          ......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-04-25
+            2019-07-01
             </p>
             
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
+              <a href="/tags/#leetcode linkedlist" title="leetcode linkedlist">leetcode linkedlist</a>
             
         </div>
     
@@ -392,122 +561,23 @@ Now, you are given positions of houses and heaters on a horizontal ......
 
 <div class="post-preview" style="font-style: normal;">
 
-    <a href="/article/leetcode-464-Can-I-Win/">
+    <a href="/article/leetcode-433-最小基因变化/">
         <h2 class="post-title">
-            leetcode 464 Can I Win
+            leetcode 433 最小基因变化
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            In the “100 game,” two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins.
-What if we change the game s......
+            一条基因序列由一个带有8个字符的字符串表示，其中每个字符都属于 “A”, “C”, “G”, “T”中的任意一个。假设我们要调查一个基因序列的变化。一次基因变化意味着这个基因序列中的一个字符发生了变化。例如，基因序列由”AACCGGTT” 变化至 “AACCGGTA” 即发生了一次基因变化。与此同时，每一次基因变化的结果，都需要是一个合法的基因串，即该结果属于一个基因库。
+现在给定3个参数 ......
         </div>
     </a>
     
         
         <div class="tags">
             <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-04-23
-            </p>
-            
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/Normalization-总结/">
-        <h2 class="post-title">
-            Normalization 总结
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这些年来，提出了几个normalization的方法，这里做一个总结。主要包括以下几个：
-
-Batch Normalization
-Layer Normalization
-Instance Normalization
-Group Normalization
-
-
-先提出一个问题：
-
-internal covariate shift
-指的是，神经网络的层层叠加，每一层的输入依靠上一层的输出。当层......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-04-23
-            </p>
-            
-              <a href="/tags/#Deep Learning" title="Deep Learning">Deep Learning</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/leetcode-437-Path-Sum-III/">
-        <h2 class="post-title">
-            leetcode 437 Path Sum III
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            You are given a binary tree in which each node contains an integer value.
-Find the number of paths that sum to a given value.
-The path does not need to start or end at the root or a leaf, but it mu......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-04-19
-            </p>
-            
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/leetcode-434-Number-of-Segments-in-a-String/">
-        <h2 class="post-title">
-            leetcode 434 Number of Segments in a String
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Count the number of segments in a string, where a segment is defined to be a contiguous sequence of non-space characters.
-Please note that the string does not contain any non-printablecharacters.
-E......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-04-18
+            2019-07-01
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
@@ -567,13 +637,15 @@ E......
             
         
             
-            <a href="/tags/#leetcode" title="leetcode" rel="218">leetcode</a>
+            <a href="/tags/#leetcode" title="leetcode" rel="249">leetcode</a>
             
         
             
+            <a href="/tags/#树" title="树" rel="3">树</a>
+            
         
             
-            <a href="/tags/#递归" title="递归" rel="2">递归</a>
+            <a href="/tags/#递归" title="递归" rel="3">递归</a>
             
         
             
@@ -589,9 +661,39 @@ E......
             
         
             
+            <a href="/tags/#tree" title="tree" rel="19">tree</a>
+            
         
             
-            <a href="/tags/#tree" title="tree" rel="19">tree</a>
+            <a href="/tags/#字符串" title="字符串" rel="15">字符串</a>
+            
+        
+            
+            <a href="/tags/#数组" title="数组" rel="24">数组</a>
+            
+        
+            
+            <a href="/tags/#动态规划" title="动态规划" rel="8">动态规划</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#链表" title="链表" rel="7">链表</a>
+            
+        
+            
+            <a href="/tags/#双指针" title="双指针" rel="4">双指针</a>
+            
+        
+            
+            <a href="/tags/#数学" title="数学" rel="2">数学</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#二分查找" title="二分查找" rel="3">二分查找</a>
             
         
             
@@ -609,21 +711,7 @@ E......
             
         
             
-        
-            
-            <a href="/tags/#数组" title="数组" rel="12">数组</a>
-            
-        
-            
-            <a href="/tags/#动态规划" title="动态规划" rel="4">动态规划</a>
-            
-        
-            
-            <a href="/tags/#字符串" title="字符串" rel="6">字符串</a>
-            
-        
-            
-            <a href="/tags/#二分查找" title="二分查找" rel="2">二分查找</a>
+            <a href="/tags/#回溯" title="回溯" rel="7">回溯</a>
             
         
             
@@ -631,15 +719,7 @@ E......
             
         
             
-            <a href="/tags/#回溯" title="回溯" rel="4">回溯</a>
-            
         
-            
-            <a href="/tags/#双指针" title="双指针" rel="3">双指针</a>
-            
-        
-            
-            <a href="/tags/#链表" title="链表" rel="5">链表</a>
             
         
             
@@ -652,12 +732,6 @@ E......
         
             
             <a href="/tags/#面试" title="面试" rel="2">面试</a>
-            
-        
-            
-        
-            
-        
             
         
             
@@ -715,23 +789,23 @@ E......
     <ul>
       
         <li>
-          <a href="/article/面试概率题大杂烩/">面试概率题大杂烩</a>
+          <a href="/article/leetcode-122-买卖股票的最佳时机-II/">leetcode 122 买卖股票的最佳时机 II</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-64-最小路径和/">leetcode 64 最小路径和</a>
+          <a href="/article/leetcode-121-买卖股票的最佳时机/">leetcode 121 买卖股票的最佳时机</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-65-有效数字/">leetcode 65 有效数字</a>
+          <a href="/article/leetcode-120-三角形最小路径和/">leetcode 120 三角形最小路径和</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-66-加一/">leetcode 66 加一</a>
+          <a href="/article/leetcode-118-杨辉三角/">leetcode 118 杨辉三角</a>
         </li>
       
         <li>
-          <a href="/article/leetcode-67-二进制求和/">leetcode 67 二进制求和</a>
+          <a href="/article/leetcode-117-填充每个节点的下一个右侧节点指针-II/">leetcode 117 填充每个节点的下一个右侧节点指针 II</a>
         </li>
       
     </ul>
@@ -742,7 +816,7 @@ E......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">53</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">73</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
@@ -899,8 +973,24 @@ E......
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

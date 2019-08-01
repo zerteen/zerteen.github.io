@@ -150,14 +150,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -237,50 +237,117 @@
 <p>参考答案: <a href="https://www.zhihu.com/question/29683794" target="_blank" rel="noopener">https://www.zhihu.com/question/29683794</a>  </p>
 </li>
 <li><p>有8个箱子，现在有一封信，这封信放在这8个箱子中（任意一个）的概率为4/5,不放的概率为1/5（比如忘记了）,现在我打开1号箱子发现是空的，求下面7个箱子中含有这封信的概率为？   </p>
-<p><a href="https://www.nowcoder.com/discuss/36094" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/36094</a>  </p>
-<p>参考答案: <a href="http://www.dscademy.com/probability-theory/bayesian/#letter-box-question" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/bayesian/#letter-box-question</a>  </p>
+<blockquote>
+<p>事件A：放信封</p>
+<p>事件B：1号为空</p>
+<script type="math/tex; mode=display">
+\begin{align}
+p(A|B) &= \frac{p(AB)}{p(B)} \\&= \frac{p(B|A)p(A)}{p(B|A)p(A) + p(B|\hat A)p(\hat A)}
+\end{align}</script></blockquote>
+</li>
+<li><p>已知N枚真硬币，M枚假硬币（两面都是国徽），取一枚硬币抛R次重复都是国徽，问该硬币是真硬币的概率？</p>
 </li>
 </ol>
-<p>  已知N枚真硬币，M枚假硬币（两面都是国徽），R次重复采样都是国徽，问真硬币的概率？<a href="https://www.nowcoder.com/discuss/34250" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/34250</a>  </p>
-<p>  一对夫妻有2个孩子，求一个孩子是女孩的情况下，另一个孩子也是女孩的概率 <a href="https://www.nowcoder.com/discuss/78270" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/78270</a>  </p>
-<p>  有种癌症，早期的治愈率为0.8，中期的治愈率为0.5，晚期的治愈率为0.2.若早期没治好就会转为中期，中期没治好就会变成晚期。现在有一个人被诊断为癌症早期，然后被治愈了，问他被误诊为癌症的概率是多少？<a href="https://www.nowcoder.com/discuss/33737" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/33737</a>  </p>
-<p>  某城市发生了一起汽车撞人逃跑事件，该城市只有两种颜色的车，蓝20%绿80%，事发时现场有一个目击者，他指证是蓝车，但是根据专家在现场分析，当时那种条件能看正确的可能性是80%，那么，肇事的车是蓝车的概率是多少？ <a href="https://www.nowcoder.com/discuss/65344" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/65344</a>  </p>
-<p>  参考答案: <a href="http://www.dscademy.com/probability-theory/bayesian/" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/bayesian/</a>  </p>
+<blockquote>
+<p> <img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-135445.png" alt="image-20190722215444881"></p>
+</blockquote>
+<ol>
+<li>一对夫妻有2个孩子，求一个孩子是女孩的情况下，另一个孩子也是女孩的概率 </li>
+</ol>
+<blockquote>
+<p>有两个孩子，那么所有的组合情况为：</p>
+<p>p(男，女) = 1/4</p>
+<p>p(男，男）= 1/4</p>
+<p>p(男， 男) = 1/4</p>
+<p>p(女，女) = 1/4</p>
+<p>1/3</p>
+</blockquote>
+<ol>
+<li>有种癌症，早期的治愈率为0.8，中期的治愈率为0.5，晚期的治愈率为0.2.若早期没治好就会转为中期，中期没治好就会变成晚期。现在有一个人被诊断为癌症早期，然后被治愈了，问他被误诊为癌症的概率是多少？</li>
+</ol>
+<blockquote>
+<p>p(cur|早) = 0.8</p>
+<p>p(cur|中) = 0.2 * 0.5 = 0.1</p>
+<p>p(cur|晚) = 0.2 <em> 0.5 </em> 0.2 = 0.02</p>
+</blockquote>
+<ol>
+<li>某城市发生了一起汽车撞人逃跑事件，该城市只有两种颜色的车，蓝20%绿80%，事发时现场有一个目击者，他指证是蓝车，但是根据专家在现场分析，当时那种条件能看正确的可能性是80%，那么，肇事的车是蓝车的概率是多少？ <a href="https://www.nowcoder.com/discuss/65344" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/65344</a>  </li>
+</ol>
 <p>  智力:  </p>
 <p>  100人坐飞机，第一个乘客在座位中随便选一个坐下，第100人正确坐到自己坐位的概率是？  </p>
-<p>  <a href="https://www.nowcoder.com/discuss/8328" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/8328</a> <a href="https://www.nowcoder.com/discuss/43139" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/43139</a>  </p>
-<p>  腾讯视频面、便利蜂二面  </p>
-<p>  参考答案: <a href="http://www.dscademy.com/probability-theory/problems/#drunk-passenger-question" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/problems/#drunk-passenger-question</a>  </p>
 <p>  几何分布:  </p>
 <p>  一个国家重男轻女，只要生了女孩就继续生，直到生出男孩为止，问这个国家的男女比例？   </p>
 <p>  <a href="https://www.nowcoder.com/discuss/8328" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/8328</a>  </p>
 <p>  腾讯视频面  </p>
 <p>  条件概率:  </p>
-<p>  有50个红球，50个蓝球，如何放入两个盒子中使得拿到红球的概率最大 <a href="https://www.nowcoder.com/discuss/3179" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/3179</a> <a href="https://www.nowcoder.com/discuss/11971" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/11971</a> <a href="https://www.nowcoder.com/discuss/55004" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/55004</a> <a href="https://www.nowcoder.com/discuss/12497" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/12497</a> <a href="https://www.nowcoder.com/discuss/84736" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84736</a> <a href="https://www.nowcoder.com/discuss/26107" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/26107</a> <a href="https://www.nowcoder.com/discuss/2990" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/2990</a> <a href="https://www.nowcoder.com/discuss/47341" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47341</a> <a href="https://www.nowcoder.com/discuss/33737" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/33737</a> <a href="https://www.nowcoder.com/discuss/11971" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/11971</a>  </p>
+<p> 有50个红球，50个蓝球，如何放入两个盒子中使得拿到红球的概率最大 <a href="https://www.nowcoder.com/discuss/3179" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/3179</a> <a href="https://www.nowcoder.com/discuss/11971" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/11971</a> <a href="https://www.nowcoder.com/discuss/55004" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/55004</a> <a href="https://www.nowcoder.com/discuss/12497" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/12497</a> <a href="https://www.nowcoder.com/discuss/84736" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84736</a> <a href="https://www.nowcoder.com/discuss/26107" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/26107</a> <a href="https://www.nowcoder.com/discuss/2990" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/2990</a> <a href="https://www.nowcoder.com/discuss/47341" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47341</a> <a href="https://www.nowcoder.com/discuss/33737" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/33737</a> <a href="https://www.nowcoder.com/discuss/11971" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/11971</a>  </p>
 <p>  硬币:  </p>
-<p>  某个一直函数返回0/1，0的概率为p，写一函数返回两数概率相等。 <a href="https://www.nowcoder.com/discuss/12420" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/12420</a> <a href="https://www.nowcoder.com/discuss/61907" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/61907</a> <a href="https://www.nowcoder.com/discuss/56142" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/56142</a> <a href="https://www.nowcoder.com/discuss/36815" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/36815</a> <a href="https://www.nowcoder.com/discuss/12239" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/12239</a> <a href="https://www.nowcoder.com/discuss/84899" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84899</a>  </p>
+<p> 某个一直函数返回0/1，0的概率为p，写一函数返回两数概率相等。</p>
 <p>  给你一个函数，这个函数是能得出1-5之间的随机数的，概率相同。现在求1-7之间随机函数，你如何做 <a href="https://www.nowcoder.com/discuss/56712" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/56712</a> <a href="https://www.nowcoder.com/discuss/56158" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/56158</a>  </p>
 <p>  X是一个以p的概率产生1,1-p的概率产生0的随机变量，利用X等概率生成1-n的数 <a href="https://www.nowcoder.com/discuss/75360" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/75360</a> <a href="https://www.nowcoder.com/discuss/53916" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/53916</a> <a href="https://www.nowcoder.com/discuss/47341" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47341</a> <a href="https://www.nowcoder.com/discuss/12393" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/12393</a>   </p>
-<p>  参考答案: <a href="http://www.dscademy.com/probability-theory/problems/#unfair-coin-question" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/problems/#unfair-coin-question</a>  </p>
-<p>  给你一个硬币，你如何获得2/3的概率。 <a href="https://www.nowcoder.com/discuss/6111" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/6111</a>  </p>
-<p>  参考答案: <a href="http://www.dscademy.com/probability-theory/problems/#fair-coin-unfair-probability-question" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/problems/#fair-coin-unfair-probability-question</a>  </p>
-<p>  给定一个函数，它完全随机地产生【1,3】范围内的整数（即每个数的产生机率都是1/3）。用给定的函数去求一个完全随机产生【1,89】范围内的整数函数。。。注意，要求每个数的出现的概率都相同。 <a href="https://www.nowcoder.com/discuss/81939" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/81939</a> <a href="https://www.nowcoder.com/discuss/45659" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/45659</a> <a href="https://www.nowcoder.com/discuss/73903" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/73903</a> <a href="https://www.nowcoder.com/discuss/37948" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/37948</a> <a href="https://www.nowcoder.com/discuss/32004" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/32004</a> <a href="https://www.nowcoder.com/discuss/71777" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/71777</a> <a href="https://www.nowcoder.com/discuss/27237" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/27237</a>   </p>
+<p>  给你一个硬币，你如何获得2/3的概率</p>
+<blockquote>
+<p>这个其实还是比较容易想到的，把这枚硬币扔两次，以下情况出现的概率相等： </p>
+<ol>
+<li>正正 </li>
+<li>正反 </li>
+<li>反正 </li>
+<li>反反 </li>
+</ol>
+<p>所以如果出现第4种情况则相当于采样失败，继续实验，如果在1~3种情况中出现1~2的情况则是一个2323的概率</p>
+</blockquote>
+<p>扔硬币期望掷出‘正反正反……’的序列出来，倘若抛掷硬币没有任何技巧，每次是正是反的概率相同，那么无限地抛掷下去，第一次出错更有可能出在什么地方？</p>
+<p>A．该掷正面的时候掷出了反面<br>B．该掷反面的时候掷出了正面<br>C．上述两种情况的出现概率相同</p>
+<blockquote>
+<p> 这个题目的答案是 A 。下面我们证明，因为该掷反面的时候掷出了正面而挂掉的概率，也就是在第偶数次抛掷时挂掉的概率，精确地等于 1/3 。容易得出，第 2 次就挂了的概率就是前 2 次精确地掷出“正正”序列的概率，它等于 1 / 22 。类似地，到第 4 次才挂的概率就是前 4 次精确地掷出“正反正正”序列的概率，它等于 1 / 24 ；而到第 6 次才挂的概率则是前 6 次精确地掷出“正反正反正正”序列的概率，它等于 1 / 26……所以，在第偶数次挂掉的概率是：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+  &    1 / 2^2 + 1 / 2^4 + 1 / 2^6 + 1 / 2^8 + … + 1/2^n \\
+= & 1 / 4 + 1 / 4^2 + 1 / 4^3 + 1 / 4^4 + … + 1/4^{(n-1)} \\
+= & (1 + 1 / 4 + 1 / 4^2 + 1 / 4^3 + 1 / 4^4 + … + 1/4^{(n-1)}) – 1 \\
+= & 1 / (1 – 1 / 4) – 1 \\
+= & 1 / 3 \\
+\end{align}</script></blockquote>
+<hr>
+<p>  给定一个函数，它完全随机地产生【1,3】范围内的整数（即每个数的产生机率都是1/3）。用给定的函数去求一个完全随机产生【1,89】范围内的整数函数。。。注意，要求每个数的出现的概率都相同。</p>
+<blockquote>
+<p>已知一个函数random()，可以返回1到n是随机值，设法利用它他构造一个random2()，使得random2()可以返回1到m的随机值</p>
+<p>从MITBBS看来的解决方法，使用笛卡尔积，构造(n<em>n)个随机元素，所以这些元素产生的概率都是1/(n</em>n)。</p>
+<p>当 m&lt;=n<em>n 时，只需要略去((n</em>n) % m)个元素，其余的元素总个数可以整除m，就构造了符合要求的random2()了；</p>
+<p>当 m &gt; n<em>n  时，可以考虑n</em>n<em>n来构造元素，然后略去((n</em>n*n) % m)个元素，其余的元素总个数就可以整除m，那就构造了random2()了。</p>
+<p> 例如，假设n=2，笛卡尔积就是 (1, 1)、(1, 2)、(2, 1)、(2, 2)，就得到(2<em>2)个元素，并且出现这(2</em>2)个元素出现的概率是相等的，都是1/4 。</p>
+<p>假设此时m=3， (2<em>2) 不能 整除3，所以随便略去((2</em>2) % 3) (也就是 1 个) 个元素即可构造一个random2()函数。</p>
+<p>依此类推…  </p>
+</blockquote>
 <p>  采样:  </p>
 <p>  随机数的生成算法，比如0~0.6的生成概率是0.7,0.6~1的生成概率是0.3，问怎么实现。 <a href="https://www.nowcoder.com/discuss/13322" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/13322</a> <a href="https://www.nowcoder.com/discuss/36424" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/36424</a>  </p>
-<p>  怎么计算圆周率π的值(通过采样方法实现)  </p>
-<p>  <a href="https://www.nowcoder.com/discuss/53671" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/53671</a>  </p>
-<p>  Bigo一面  </p>
 <p>  网游中有个抽奖活动，抽中各星座的概率为10/200，20/200，。。。120/200.如何实现？ <a href="https://www.nowcoder.com/discuss/1658" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/1658</a>  </p>
 <p>  给一个概率分布均匀的随机数发生器，给一串float型的数，希望通过这个随机数发生器实现对这串数进行随机采样，要求是如果其中的某个数值越大，那么它被采样到的概率也越大 <a href="https://www.nowcoder.com/discuss/80837" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/80837</a>  </p>
 <p>  随机数生成算法，一个float数组相同元素的和除以整个数组的和做为抽取该元素的概率，实现按这种概率随机抽取数组中的元素的算法。 <a href="https://www.nowcoder.com/discuss/13857" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/13857</a>  </p>
 <p>  一本无数个字的书从前往后读，某个时间点突然暂停并返回之前读过的某个字，要求每个字返回的概率是一样的。 <a href="https://www.nowcoder.com/discuss/80218" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/80218</a>  </p>
 <p>  一个有n*n个方格的棋盘，在里面放m个地雷，如何放保证在每个方格上放雷的概率相等。 <a href="https://www.nowcoder.com/discuss/47399" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47399</a>  </p>
 <p>  几何:  </p>
-<p>  一根棍子折三段能组成三角形的概率 <a href="https://www.nowcoder.com/discuss/15615" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/15615</a> <a href="https://www.nowcoder.com/discuss/71109" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/71109</a> <a href="https://www.nowcoder.com/discuss/47341" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47341</a> <a href="https://www.nowcoder.com/discuss/48206" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/48206</a> <a href="https://www.nowcoder.com/discuss/52700" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/52700</a>  </p>
-<p>  参考答案: <a href="http://www.dscademy.com/probability-theory/problems/#segment-triangle-question" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/problems/#segment-triangle-question</a>  </p>
-<p>  一个圆上三个点形成钝角的概率是多少？假如两个点和圆心形成的圆心角已经是直角，那么第三个和这两个点形成钝角的概率是多少？ <a href="https://www.nowcoder.com/discuss/91505" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/91505</a>  </p>
-<p>  X，Y独立均服从（0,1）上的均匀分布，P{X^2+Y^2≤1}等于 <a href="https://www.nowcoder.com/discuss/39309" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/39309</a>  </p>
-<p>  一个圆，在圆上随机取3个点，这3个点组成锐角三角形的概率。 <a href="https://www.nowcoder.com/discuss/78885" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/78885</a> <a href="https://www.nowcoder.com/discuss/84462" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84462</a>   </p>
+<p>  一根棍子折三段能组成三角形的概率 </p>
+<blockquote>
+<p>设折成的三段长分别为x,y和L-x-y,<br>根据三角形中任意两边的和大于第三边的性质，可得<br>x+y &gt; L-x-y①<br>x+(L-x-y) &gt; y②<br>y+(L-x-y)&gt; x③<br>x&gt;0,y&gt;0④<br>0&lt;x+y&lt;L⑤<br>题目所示的概率就是在④⑤围成的三角形区域S中由①②③围成的三角形区域所占的概率<br>由：s=L<em>l/2=L^2/2， S’=(L/2)</em>(L/2)/2=L^2/8，得所求的概率为p=S’/S=1/4.</p>
+</blockquote>
+<p> 一个圆上三个点形成钝角的概率是多少？假如两个点和圆心形成的圆心角已经是直角，那么第三个和这两个点形成钝角的概率是多少？ <a href="https://www.nowcoder.com/discuss/91505" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/91505</a>  </p>
+<blockquote>
+<ol>
+<li><p>3/4</p>
+</li>
+<li><p>3/4</p>
+</li>
+</ol>
+</blockquote>
+<p>  X，Y独立均服从（0,1）上的均匀分布，P{X^2+Y^2≤1}等于</p>
+<blockquote>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-131955.png" alt="image-20190722211954797"></p>
+</blockquote>
+<p>  一个圆，在圆上随机取3个点，这3个点组成锐角三角形的概率。 </p>
+<blockquote>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-131710.png" alt="image-20190722211709903"></p>
+</blockquote>
 <p>  参考答案: <a href="http://www.dscademy.com/probability-theory/problems/#triangle-contains-center-question" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/problems/#triangle-contains-center-question</a>  </p>
 <p>  一个袋子里有100个黑球和100个白球，每次随机拿出两个球丢掉，如果丢掉的是不同颜色的球，则从其他地方补充一个黑球到袋子里，如果颜色相同，则补充一个白球到袋子里。问：最后一个球是黑球和白球的概率分别为多大？ <a href="https://www.nowcoder.com/discuss/70012" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/70012</a>  </p>
 <p>  动态规划:  </p>
@@ -291,16 +358,36 @@
 <p>  硬币正反概率是1/2,一直抛硬币,直到连续两次正面停止，问期望次数 <a href="https://www.nowcoder.com/discuss/69932" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/69932</a>  </p>
 <p>  参考答案: <a href="http://www.dscademy.com/probability-theory/first-step-analysis/" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/first-step-analysis/</a>  </p>
 <p>  其它:  </p>
-<p>​      某大公司有这么一个规定：只要有一个员工过生日，当天所有员工全部放假一天。但在其余时候，所有员工都没有假期，必须正常上班。这个公司需要雇用多少员工，才能让公司一年内所有员工的总工作时间期望值最大？<a href="https://www.nowcoder.com/discuss/73893" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/73893</a>        参考答案: <a href="http://www.dscademy.com/probability-theory/problems/#birthday-work-question" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/problems/#birthday-work-question</a>        </p>
-<p>  不存储数据流的前提下,从输入流中获得这 n 个等概率的随机数据 。 <a href="https://www.nowcoder.com/discuss/71109" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/71109</a> <a href="https://www.nowcoder.com/discuss/65960" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/65960</a> <a href="https://www.nowcoder.com/discuss/36815" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/36815</a> <a href="https://www.nowcoder.com/discuss/35175" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/35175</a> <a href="https://www.nowcoder.com/discuss/7708" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/7708</a> <a href="https://www.nowcoder.com/discuss/82422" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/82422</a> <a href="https://www.nowcoder.com/discuss/1864" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/1864</a> <a href="https://www.nowcoder.com/discuss/3101" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/3101</a>   </p>
-<p>  参考答案: <a href="http://www.dscademy.com/algorithms/problems/#reservoir-sampling-question" target="_blank" rel="noopener">http://www.dscademy.com/algorithms/problems/#reservoir-sampling-question</a>  </p>
-<p>  某段公路上1小时有车通过的概率是0.96，半小时有车通过的概率是多少 <a href="https://www.nowcoder.com/discuss/94008" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/94008</a> <a href="https://www.nowcoder.com/discuss/77924" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/77924</a> <a href="https://www.nowcoder.com/discuss/26107" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/26107</a>   </p>
+<p>某大公司有这么一个规定：只要有一个员工过生日，当天所有员工全部放假一天。但在其余时候，所有员工都没有假期，必须正常上班。这个公司需要雇用多少员工，才能让公司一年内所有员工的总工作时间期望值最大？</p>
+<blockquote>
+<p>链接：<a href="https://www.nowcoder.com/questionTerminal/09a48370f5f74faab22ab7fb684ae5d8?orderByHotValue=0&amp;pos=41&amp;mutiTagIds=601" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/09a48370f5f74faab22ab7fb684ae5d8?orderByHotValue=0&amp;pos=41&amp;mutiTagIds=601</a><br>来源：牛客网</p>
+<p>一个人，对于任意一天，过生日的概率是 1 / 365, 不过生日的概率是 364 / 365<br>  n个人，对于任意一天，没任何人过生日的概率是(364 / 365)^n<br> n个人，对于任意一天，有人过生日的概率是 1 - (364   / 365)^n<br> 那么365天里有人过生日的期望天数是 365（1 - (364 / 365)^n）天，<br>  则n个人，365天，每个人工作的期望天数是365 - 365（1 - (364 / 365)^n）= 365(364 /   365)^n<br> 从而所有人的期望工作天数的和为：365n(364 / 365)^n，求导数，导数不小于0，递增。</p>
+<p>所以是365</p>
+</blockquote>
+<p>不存储数据流的前提下,从输入流中获得这 n 个等概率的随机数据 。</p>
+<blockquote>
+<p>开辟一个长度为n的数组，对与数据流的第i个数据，以$\frac{n}{i}$的概率将其留下。（i&gt;n）<br>设数据流中已经流过了m个数据，一共有n个数据被留下来了，每个数据流下来的概率为n/m</p>
+<ul>
+<li><p>那么在i=n+1时，n中的数据被留下来的概率为：</p>
+<script type="math/tex; mode=display">
+\frac{n}{m} [(1-(\frac{n}{m+1})) + (\frac{n}{m+1}*\frac{n-1}{n})]
+= \frac{n}{m}\frac{m}{m+1} = \frac{n}{m+1}</script></li>
+<li><p>第i个被选中留下的概率为：$\frac{n}{m+1}$</p>
+</li>
+</ul>
+</blockquote>
+<p>  某段公路上1小时有车通过的概率是0.96，半小时有车通过的概率是多少 </p>
+<blockquote>
+<p>反过来想，设半个小时有车经过的概率是p，那么一个小时内没有车经过的概率为$(1-p)^2$,那么一个小时内有车经过的概率为$1-(1-p)^2 = 0.96$， p=0.8</p>
+</blockquote>
 <p>  一个公交站在1分钟内有车经过概率是p，问3分钟内有车经过概率 <a href="https://www.nowcoder.com/discuss/84974" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84974</a> <a href="https://www.nowcoder.com/discuss/84560" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84560</a> <a href="https://www.nowcoder.com/discuss/55378" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/55378</a> <a href="https://www.nowcoder.com/discuss/48485" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/48485</a>  </p>
-<p>  6位数字的8位数码管显示的数字，倒过来看和以前相同的概率是多少。 <a href="https://www.nowcoder.com/discuss/89390" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/89390</a> <a href="https://www.nowcoder.com/discuss/19487" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/19487</a>  </p>
+<blockquote>
+<p>$1-(1-p)^3$</p>
+</blockquote>
+<p> 6位数字的8位数码管显示的数字，倒过来看和以前相同的概率是多少。 <a href="https://www.nowcoder.com/discuss/89390" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/89390</a> <a href="https://www.nowcoder.com/discuss/19487" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/19487</a>  </p>
 <p>  8支球队循环赛，前四名晋级。求晋级可能性   </p>
 <p>  <a href="https://www.nowcoder.com/discuss/94110" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/94110</a>  </p>
-<p>  Vivo一面  </p>
-<p>  一个活动，女生们手里都拿着长短不一的玫瑰花，无序地排成一排，一个男生从队头走到队尾，试图拿到尽可能长的玫瑰花，规则是:一旦他拿了一朵，后面就不能再拿了，如果错过了某朵花，就不能再回头，问最好的策略是什么? <a href="https://www.nowcoder.com/discuss/75715" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/75715</a>  </p>
+<p> 一个活动，女生们手里都拿着长短不一的玫瑰花，无序地排成一排，一个男生从队头走到队尾，试图拿到尽可能长的玫瑰花，规则是:一旦他拿了一朵，后面就不能再拿了，如果错过了某朵花，就不能再回头，问最好的策略是什么? <a href="https://www.nowcoder.com/discuss/75715" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/75715</a>  </p>
 <p>  参考答案: <a href="https://www.guokr.com/article/6768/" target="_blank" rel="noopener">https://www.guokr.com/article/6768/</a>  </p>
 <p>  三个范围在0-1的数，和也在0-1的概率。 <a href="https://www.nowcoder.com/discuss/46418" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/46418</a></p>
 <p>100张牌，每次只能抽一张，抽过的牌会丢掉，怎么选出最大的牌。   </p>
@@ -354,16 +441,34 @@
 <p>   一道概率题，54张牌，平均分成三堆，大小王在同一堆的概率？   </p>
 <p>   一道概率题，一个六位的密码，由0~9组成，问你正过来看和倒过来看密码是一样的概率。   </p>
 <p>   一道组合数学题。10盏灯，灭三盏，两头的必须亮着，不能灭掉相邻的两盏灯，问组合数？   </p>
-<p>   三个硬币，分别是正正，反反，正反。随机抛一个硬币，结果是正面，问选的是那个硬币   </p>
+<p>有三枚硬币,其中一枚的两面都是正面图像,另一枚的两面都是反面图像,第三枚是正常的，一反一正。现从中随机的抽取一枚硬币进行抛掷，得到正面朝上，问这枚硬币的另一面是反面图像的概率是多大？</p>
 <p>   个人玩游戏，100个球，每次挑5个，如何保证必胜。52张牌，四个人抽，黑桃A和红桃A同时在一个人手里的概率。   </p>
 <p>   好像是问有70%的人喜欢玩游戏，30%的人不喜欢玩游戏，现在推送的资源必须是50%游戏，50%非游戏。问怎么分配比较合理。   </p>
-<p>   有n个elements和1个Compare(A, B)函数，用Compare函数作为排序算法中的比较算子给elements排序。Compare函数有p的可能比较错。排序完取Top m个元素，本来就在Top m并被正确分在Top m的元素个数是x。问x的数学期望。   </p>
-<p>   有两个随机数产生器，R1以0.7的概率产生1，以0.3的概率产生0，而R2以0.3的概率产生1，0.7的概率产生0.问如何组合这两种产生器，使新得到的随机数产生器以0.5的概率产生1，0.5的概率产生0。随机数产生器可复用。   </p>
-<p>   有两枚硬币A和B，A正面的概率为0.6，B正面的概率为0.5.现在扔了一枚硬币显示为正面，问：该枚硬币是A的概率是多少？   </p>
-<p>   概率题：有种癌症，早期的治愈率为0.8，中期的治愈率为0.5，晚期的治愈率为0.2.若早期没治好就会转为中期，中期没治好就会变成晚期。现在有一个人被诊断为癌症早期，然后被治愈了，问他被误诊为癌症的概率是多少？   </p>
-<p>   给一个函数，返回0和1，概率为p和1-p，请你实现一个函数，使得返回01概率一样。   </p>
-<p>   给定一个分类器p，它有0.5的概率输出1，0.5的概率输出0。Q1：如何生成一个分类器使该分类器输出1的概率为0.25，输出0的概率为0.75？Q2：如何生成一个分类器使该分类器输出1的概率为0.3，输出0的概率为0.7？   </p>
-<p>   问了一个概率题 54张牌，分成6份，每份9张牌，大小王在一起的概率 </p>
+<p>   有n个elements和1个Compare(A, B)函数，用Compare函数作为排序算法中的比较算子给elements排序.Compare函数有p的可能比较错。排序完取Top m个元素，本来就在Top m并被正确分在Top m的元素个数是x。问x的数学期望。   </p>
+<p>有两个随机数产生器，R1以0.7的概率产生1，以0.3的概率产生0，而R2以0.3的概率产生1，0.7的概率产生0.问如何组合这两种产生器，使新得到的随机数产生器以0.5的概率产生1，0.5的概率产生0。随机数产生器可复用</p>
+<blockquote>
+<p>用R1和R2同时生成两个随机数：</p>
+<script type="math/tex; mode=display">
+p(1, 1) = 0.7 \times 0.3 \\
+p(1, 0) = 0.7 \times 0.7 \\
+p(0, 1) = 0.3 \times 0.3 \\
+p(0, 0) = 0.3 \times 0.7 \\</script><p>可以看到同事产生1，1 和同时产生0，0的概率是相等的。所以可以随机的用R1和R2产生数组</p>
+<ul>
+<li>如果生成的事[1, 1] 则返回1</li>
+<li>如果是生成的[0，0]则返回0</li>
+<li>如果生成 [1, 0]或者[0，1]则放弃这次的结果，继续生成。</li>
+</ul>
+</blockquote>
+<p>有两枚硬币A和B，A正面的概率为0.6，B正面的概率为0.5.现在扔了一枚硬币显示为正面，问：该枚硬币是A的概率是多少？   </p>
+<blockquote>
+<p>p(p|A) = 0.6<br>p(p|B) = 0.5</p>
+<p>$p(A|p) = \frac{p(A,P)}{p(P)} = \frac{p(P|A)p(A)}{p(P|A)p(A) + p(P|B)p(B)} = \frac{0.6\times0.5}{0.6\times0.5+0.5\times0.5}$</p>
+</blockquote>
+<p>  概率题：有种癌症，早期的治愈率为0.8，中期的治愈率为0.5，晚期的治愈率为0.2.若早期没治好就会转为中期，中期没治好就会变成晚期。现在有一个人被诊断为癌症早期，然后被治愈了，问他被误诊为癌症的概率是多少？   </p>
+<p>  给定一个分类器p，它有0.5的概率输出1，0.5的概率输出0。</p>
+<p>Q1：如何生成一个分类器使该分类器输出1的概率为0.25，输出0的概率为0.75？</p>
+<p>Q2：如何生成一个分类器使该分类器输出1的概率为0.3，输出0的概率为0.7？   </p>
+<p>问了一个概率题 54张牌，分成6份，每份9张牌，大小王在一起的概率 </p>
 <h4 id="hr常问问题"><a href="#HR常问问题" class="headerlink" title="HR常问问题"></a>HR常问问题</h4><p>   为什么不读博、对读博报以什么态度。   </p>
 <p>   为什么选择百度，谷歌百度都给你offer你选哪个。   </p>
 <p>   为什么选择跨专业学计算机？   </p>
@@ -530,7 +635,13 @@
 <p>   对于同分布的弱分类器，求分类器均值化之后的分布的均值跟方差。   </p>
 <p>   对于机器学习你都学了哪些？讲一个印象深的。   </p>
 <p>   常见分类模型（ svm，决策树，贝叶斯等）的优缺点，适用场景以及如何选型   </p>
-<p>   归一化方式   </p>
+<p>   归一化方式 </p>
+<blockquote>
+<p>两种常用的归一化方法：<br>（1）min-max标准化<br>（2）Z-score标准化方法<br><strong>min-max标准化（Min-Max Normalization）（线性函数归一化）</strong><br>定义：也称为离差标准化，是对原始数据的线性变换，使得结果映射到0-1之间。<br>本质：把数变为【0,1】之间的小数。<br>转换函数：（X-Min）/(Max-Min)<br>如果想要将数据映射到-1,1，则将公式换成：（X-Mean）/(Max-Min)<br>其中：max为样本数据的最大值，min为样本数据的最小值，Mean表示数据的均值。<br>缺陷：当有新数据加入时，可导致max和min的变化，需要重新定义。</p>
+<p><strong>0均值标准化（Z-score standardization）</strong><br>定义：这种方法给与原始数据的均值（mean）和标准差（standard deviation）进行数据的标准化。经过处理的数据符合标准正态分布，即均值为0，标准差为1.<br>本质：把有量纲表达式变成无量纲表达式。<br>转换函数：（X-Mean）/(Standard deviation) 其中，Mean为所有样本数据的均值。Standard deviation为所有样本数据的标准差。</p>
+<p><strong>应用场景</strong></p>
+<p>（1）在分类、聚类算法中，需要使用距离来度量相似性的时候、或者使用PCA技术进行降维的时候，第二种方法(Z-score standardization)表现更好。<br>因为：第一种方法(线性变换后)，其协方差产生了倍数值的缩放，因此这种方式无法消除量纲对方差、协方差的影响，对PCA分析影响巨大；同时，由于量纲的存在，使用不同的量纲、距离的计算结果会不同。<br>（2）在不涉及距离度量、协方差计算、数据不符合正太分布的时候，可以使用第一种方法或其他归一化方法。比如图像处理中，将RGB图像转换为灰度图像后将其值限定在0 255的范围。<br>因为：第二种归一化方式中，新的数据由于对方差进行了归一化，这时候每个维度的量纲其实已经等价了，每个维度都服从均值为0、方差1的正态分布，在计算距离的时候，每个维度都是去量纲化的，避免了不同量纲的选取对距离计算产生的巨大影响。</p>
+</blockquote>
 <p>   手写k-means的伪代码。   </p>
 <p>   手写k-means的伪代码和代码。（Code）   </p>
 <p>   手撕svm硬软间隔对偶的推导   </p>
@@ -557,7 +668,6 @@
 <p>   由数据引申到数据不平衡怎么处理（10W正例，1W负例，牛客上有原题）   </p>
 <p>   聊聊SVM，这段说了好久，从基本的线性可分到不可分，相关升维，各种核函数，每个是如何实现升。以及出现了XX问题，分析是样本的原因还是其他原因。针对不同情况，采取什么解决方案较好。   </p>
 <p>   自己实现过什么机器学习算法   </p>
-<p>   解决过拟合的方法有哪些？   </p>
 <p>   解释 word2vec 的原理以及哈夫曼树的改进。   </p>
 <p>   解释一下过拟合和欠拟合，有哪些方法防止过拟合。   </p>
 <p>   让我一步一步地构造决策树，怎么计算信息熵、信息增益、然后C4.5 ID3 CART的区别，还说了一下优缺点   </p>
@@ -565,12 +675,16 @@
 <p>   说一下Adaboost，权值更新公式。当弱分类器是LR时，每个样本的的权重是w1，w2…,写出最终的决策公式。   </p>
 <p>   说了一下bagging跟boosting。   </p>
 <p>   说明L1L2正则的效果与为什么形成这种情况（L1正则稀疏，L2正则平滑，之后说明就是画图说明正则化）   </p>
-<p>   过拟合的解决方法；   </p>
+<p>   过拟合的解决方法</p>
+<blockquote>
+<p>数据方面：数据增强，具体体现在在原图上使用patch、反转、小的角度变换</p>
+<p>模型方面：使用小的网络结构、添加dropout、添加BN</p>
+<p>损失方面：添加正则项，l1、l2正则</p>
+</blockquote>
 <p>   选个你熟悉的机器学习方法 ，着重介绍一下产生原因，推导公式，背后统计意义什么等等   </p>
 <p>   逻辑回归估计参数时的目标函数，如果加上一个先验的服从高斯分布的假设，会是什么样。   </p>
 <p>   逻辑回归估计参数时的目标函数   </p>
 <p>   逻辑回归的值表示概率吗？   </p>
-<p>   问了会不会RNN,LSTM。   </p>
 <p>   问了很多数据挖掘的基础知识，包括SVM,逻辑回归、EM、K-means等，然后给我很多场景问我遇到这些情况我要怎么来处理数据，怎么进行建模等等，问得很细   </p>
 <p>   随机梯度下降，标准梯度   </p>
 <p>   随机森林和GBDT的区别？LR的参数怎么求解？有没有最优解？   </p>
@@ -738,13 +852,184 @@
 <p>   长度为N的序列Sequence=abc……Z，问有多少不同的二叉树形态中序遍历是这个。（Code）   </p>
 <p>   问了一两个算法题，记不清了，只记得其中一个是：找数组中2个出现两次的数字，还有3个两次的数字   </p>
 <p>   问了一个1的平方加到100的平方结果   </p>
-<p>   非常经典的0-1背包问题</p>
+<p>Spark 和mapreduce 的不同：</p>
+<blockquote>
+<p>而MapReduce计算模型的架构导致上述两类应用先天缓慢，用户迫切需要一种更快的计算模型，来补充MapReduce的先天不足。Spark的出现就弥补了这些不足，我们来了解一些Spark的优势：</p>
+<p>1.每一个作业独立调度，可以把所有的作业做一个图进行调度，各个作业之间相互依赖，在调度过程中一起调度，速度快。</p>
+<p>2.所有过程都基于内存，所以通常也将Spark称作是基于内存的迭代式运算框架。</p>
+<p>3.spark提供了更丰富的算子，让操作更方便</p>
+</blockquote>
+<p>TCP为啥是三次握手</p>
+<blockquote>
+<p>TCP链接之所以可靠，是因为其链接是面向字节的。</p>
+<p>在通信的过程中，协议会给每个字节一个序分配一个序号。三步握手的过程，主要是为了互相确认双方的起始序列号。</p>
+<p><strong>如果只进行两次握手，</strong>客户端发送链接请求及起始序列号seq = x, 收到 服务器端的起始序列号seq = y及对客户端序列号seq= x 的确认。此时，双方就 客户端的起始序列号达成了共识。</p>
+<p>此时，并没有对服务器的起始序列号达成共识，所以就需要进行第三次握手。对B的起始序列号达成共识，<strong>不能保证通信的可靠。</strong> </p>
+<p><strong>如果进行四次握手</strong>，在四次握手的过程中，可以把第二、三步合并，这样可以提高连接的速度与效率。</p>
+</blockquote>
+<p>如何解决目标检测中的物体尺度大小不一的问题</p>
+<blockquote>
+<p> 多尺度的特征融合</p>
+<p>FPN SSD</p>
+</blockquote>
+<pre><code> （1）腾讯TEG提前批二面挂： 
+
+ 一面：项目+扩展机器学习的基础知识（k-means，svm，LBP算子，mobilnetv2和v1的区别，主流的网络）+一个代码题 
+
+ 二面：项目+基础知识：这次面试失败是我拿到后面offer的关键，有一个问题我在后面被反复问到：目标检测中如何解决目标尺度大小不一的情况）+基础知识（pooling反向传播，python拷贝文件） 
+
+
+
+
+ （2）腾讯AI Lab正式批口头offer 
+
+ 一面：主要是项目，然后基于你的项目做扩展提问 
+
+ 二面：coding test（三道：深度优先搜索相关，网格最短距离，numpy实现CNN） 
+
+
+
+
+ （3）阿里达摩院
+
+ 技术面四面： 
+
+ 一面：全部问项目基础内容 
+
+ 二面：项目（会基于具体项目做扩展）+在线编程：深度优先搜索的一个题 
+
+ 三面：项目（也问了我）+编程：给一组数字添加正负号使他们的和为0 
+
+ 四面：基于项目开展，会提出他们当时在做的场景问题，因为我的方向和他们挺符合的，所以四面的部门主管挺想让我过去的。 
+
+ 交叉面：不难为人，先介绍项目，然后提问。感觉面试官是做人脸的 
+
+
+
+
+ （4）华为
+
+ 现场二面，考察很全面，包括项目介绍，数学知识，编程以及深度学习框架，大体包括：GAN的损失函数，BN的数学形式，主流的网络，python实现判断回文（找最优做法），python扩展维度，导数和偏导的区别，pytorch定义标量，向量，矩阵以及张量。 
+
+
+
+
+ （5）其他公司：美图AI Lab（等结果），海康研究院（等HR），旷视，虎牙，字节跳动，视见科技等： 
+
+ 除了字节跳动其他都是介绍项目开头，后面会问一些基础知识： 
+
+ 比如：激活函数的作用，防止过拟合，如何处理大小不同的图片输入（全卷积网络），常用的损失函数，常见的GAN，如何检测小物体等 
+
+ python深拷贝和浅拷贝的区别 
+
+ pytorch实现CNN，pytorch中类的构造 
+</code></pre><p> Pytorch 显存控制 </p>
+<blockquote>
+<ol>
+<li><p>降低计算的精度，比如float32 变为float16。这个是一个大杀器，基本上有减少内存尤其是显存消耗的模型，都可以这么做，我个人的经验是在CNN图像处理领域，这么做不会带来显著的模型质量的下降。</p>
+</li>
+<li><p>分清楚eval 和 requires_grad = False。</p>
+<p>对于不需要bp的forward，如validation 请使用 torch.no_grad , 注意model.eval() 不等于 torch.no_grad() </p>
+</li>
+<li><p>使用torch.cuda.empty_cache()</p>
+<p>在确定的地方释放显存</p>
+</li>
+</ol>
+</blockquote>
+<p> linux中找到正在运行的某个进程，查看显存，杀死进程等 </p>
+<blockquote>
+<p>查看进程：ps</p>
+<p>查看现存：nvidia-smi</p>
+<p>杀死进程：kill</p>
+</blockquote>
+<p> 旷视数学题：x，y服从0-1之间的均匀分布，求z=max(x,y)的数学期望</p>
+<blockquote>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-102921.png" alt="image-20190722182920108"></p>
+</blockquote>
+<pre><code> 字节跳动一面只有代码题：将数字分成m段求各段和的最大值最小是多少（动态规划或者二分）
+</code></pre><blockquote>
+</blockquote>
+<p> 一张图片多个类别怎么设计损失函数，多标签分类问题</p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-111116.png" alt="image-20190722191116046"></p>
+<p>\5. SVM、决策树优缺点，非线性回归用什么方法，L1、L2 正则化区别</p>
+<p>\6. 链表归并快排 <a href="https://blog.csdn.net/seniusen/article/details/88877994" target="_blank" rel="noopener">LeetCode 148——排序链表</a></p>
+<p>\7. 反转链表 <a href="https://blog.csdn.net/seniusen/article/details/83033827" target="_blank" rel="noopener">LeetCode 206——反转链表</a></p>
+<p>骰子掷出 1-7 的均匀分布</p>
+<blockquote>
+<p>第一次掷骰子的点数为 $X1 X_1 X1$，第二次掷骰子的点数为 X2X_2X2，如果X1=X2=6X_1=X_2=6X1=X2=6，则重掷，令 </p>
+<script type="math/tex; mode=display">
+X=((X1−1)∗6+X2)X =((X_1-1)*6 + X_2) % 7X=((X1−1)∗6+X2)</script><p>，则 XXX 即为取值范围为 1-7 的均匀分布</p>
+</blockquote>
+<p>ResNet 的特点</p>
+<blockquote>
+<p>引入跳跃连接，有效地解决了网络过深时候梯度消失的问题，使得设计更深层次的网络变得可行。 </p>
+</blockquote>
+<p>用 BN 没有，BN 有啥优点，这里问各种细节 </p>
+<blockquote>
+<p>详见论文阅读笔记 <a href="https://blog.csdn.net/seniusen/article/details/88877946" target="_blank" rel="noopener">Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</a></p>
+</blockquote>
+<p>怎么求一个三角形外接圆，</p>
+<blockquote>
+<p> 三条边垂直平分线的交点即为圆心，圆心到顶点的距离为半径</p>
+</blockquote>
+<p>什么是 one-shot、zero-shot，区别     </p>
+<blockquote>
+<p>zero-shot 就是说测试集中的类别都是训练集中没有见到的；</p>
+<p>one-shot 就是说测试集中的类别在训练集中很少或者只能见到一次</p>
+</blockquote>
+<p>梯度下降法和牛顿法区别 </p>
+<blockquote>
+<p>梯度下降法：利用一阶导数<br>牛顿法：利用二阶导数，收敛速度快；但对目标函数有严格要求，必须有连续的一、二阶偏导数，计算量大</p>
+</blockquote>
+<p>Adam 和 SGD 区别，RMSProp 优化算法</p>
+<p>\8. RNN 怎么反向传播</p>
+<p>\9. TensorFlow 怎么在网络结构实现一个 if 判断，<code>定义一个布尔值</code></p>
+<p>\10. SVM 的损失函数，特点，对偶问题求解，<code>用朗格朗日乘子法将有约束优化转化为无约束优化</code>，   直观解释一下拉格朗日乘子法</p>
+<p>给定一个 [0, 1] 的均匀分布，求圆周率</p>
+<blockquote>
+<p>用这个分布产生一个坐标 (x,y)(x, y)(x,y)，则这些点均匀分布在一个边长为 1 的正方形内，如下图所示。由几何概率可知，落在四分之一圆内的概率为 P=π4P = \frac{\pi}{4}P=4π，因此我们只需统计出所有点里面落在圆内的点数即可估计出圆周率。</p>
+</blockquote>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-085643.png" alt="img"></p>
+<p>\12. 编程求数组中的 Top K 大的数 <a href="https://blog.csdn.net/seniusen/article/details/83145413" target="_blank" rel="noopener">LeetCode 215——数组中的第 K 个最大元素</a></p>
+<p>1、目标检测项目</p>
+<ul>
+<li>阀值是怎么选取的？取多少？答：０.75</li>
+<li>阀值的实际意义是什么？答：IOU 值，然后仔细解释</li>
+<li>如果预测出的框过多了怎么办？答：调整 IOU 阀值，然后解释</li>
+<li>FPN 在网络中是怎么加的</li>
+<li>ResNet-50 的选用，因为背景比较单一，没有必要选取更深的网络</li>
+</ul>
+<p>２、常规深度学习问题</p>
+<ul>
+<li>BN 和 L2 正则化</li>
+<li>哪些原因会导致梯度消失。答：网络深度、激活函数</li>
+</ul>
+<p>３、编程题：</p>
+<ul>
+<li>判断两个链表是否相交。</li>
+<li>求一个数列中两个元素的最大和，找到这个两个元素。（Top K 问题）</li>
+</ul>
+<h4 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h4><ul>
+<li>为什么项目中用 Faster R-CNN+FPN，Faster 和 YOLO 对比；为什么叫单步法，两步法？</li>
+<li>R-CNN系列：R-CNN，Fast R-CNN，Fast R-CNN。大概说了一下每代改进。又问了RPN网络。</li>
+<li>C++，问了 map 等是用什么实现的。答：红黑树。（面试官：好了，我也不问你红黑树了），那你在想想还有其他实现的方法吗？平衡二叉树，差不多说了一下。<code>可能是跳表？</code><a href="https://blog.csdn.net/seniusen/article/details/83505034" target="_blank" rel="noopener">数据结构和算法之——跳表</a></li>
+<li>STL 中 vector 是怎么实现的？我答了用数组实现，然后常数时间访问，内存分配。内存不够在原有基础上扩大一倍分配。又问内存减小的时候是怎么做的，我懵逼了。</li>
+<li>问堆和栈。我不太会堆，忘记了。然后说了说栈的特点，怎么用的。又问了一下，在计算机系统中，栈有哪些用处，具体解释了一下。我说了线程和进程。<a href="https://blog.csdn.net/seniusen/article/details/84557036" target="_blank" rel="noopener">堆和堆排序</a>、<a href="https://blog.csdn.net/seniusen/article/details/84618422" target="_blank" rel="noopener">堆的应用</a>、<a href="https://blog.csdn.net/seniusen/article/details/83017108" target="_blank" rel="noopener">数据结构之——栈</a></li>
+<li>Linux的一些常用命令：我说了几个。他又问怎么按时间顺序打印出文件列表，按文件大小打印文件列表</li>
+<li>编程：两个字符串序列的最长公共子序列。<code>动态规划经典题目</code></li>
+<li>开放问题：让我设计神经网络模型（由于硬件限制，Faster 这种网络不让用）<br>数据：许多图片，这些图片是由很多网络分割的，就像棋盘一样。每一个格子中可能存在一条小斜线（因为是直线，所以实际由两个端点就可以确定）。要求设计一个网络来检测出这张图片中的这些小短线。<br>要求：自己定义图片的尺寸，网络的模型，loss，评价指标。问的比较细，每一步的实现细节，整得我一愣一愣的。</li>
+<li>caffe 实现一种新的自定义网络</li>
+</ul>
 
                 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/article/leetcode-52-N-queen-II/" data-toggle="tooltip" data-placement="top" title="leetcode 52 N queen II">&larr; Previous Post</a>
+                        </li>
                     
                     
                         <li class="next">
@@ -1011,8 +1296,24 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>
