@@ -150,14 +150,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -220,23 +220,28 @@
 <p>示例 2:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">输入: [3,1,4,null,null,2]</span><br><span class="line"></span><br><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">1   4</span><br><span class="line">   /</span><br><span class="line">  2</span><br><span class="line"></span><br><span class="line">输出: [2,1,4,null,null,3]</span><br><span class="line"></span><br><span class="line">  2</span><br><span class="line"> / \</span><br><span class="line">1   4</span><br><span class="line">   /</span><br><span class="line">  3</span><br></pre></td></tr></table></figure>
 <p>进阶:</p>
-<p>使用 O(n) 空间复杂度的解法很容易实现。<br>你能想出一个只使用常数空间的解决方案吗？</p>
+<p>使用 O(n) 空间复杂度的解法很容易实现。<br>
+你能想出一个只使用常数空间的解决方案吗？</p>
 <hr>
 <ul>
-<li><p>O(n)的时间复杂度</p>
+<li>
+<p>O(n)的时间复杂度</p>
 <p>正确的中序遍历得到的数组应该是升序的，因此，中序遍历后，将得到的数组排序即是正确的数值分配，再将每一个位置的数值赋值到对应的node中去即可</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recoverTree</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: None Do not return anything, modify root in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(root, nodeList, valueList)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">                <span class="keyword">return</span> </span><br><span class="line">            <span class="keyword">if</span> root.left:</span><br><span class="line">                dfs(root.left, nodeList, valueList)</span><br><span class="line">            nodeList.append(root)</span><br><span class="line">            valueList.append(root.val)</span><br><span class="line">            <span class="keyword">if</span> root.right:</span><br><span class="line">                dfs(root.right, nodeList, valueList)</span><br><span class="line">            </span><br><span class="line">        nodeList = []</span><br><span class="line">        valueList = []</span><br><span class="line">        dfs(root, nodeList, valueList)</span><br><span class="line">        valueList.sort()</span><br><span class="line">        <span class="keyword">for</span> i, n <span class="keyword">in</span> enumerate(valueList):</span><br><span class="line">            nodeList[i].val = n</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
 <ul>
-<li><p>O(1)时间复杂度</p>
+<li>
+<p>O(1)时间复杂度</p>
 <p>O(n)的复杂度主要来自于存储中序遍历的结果以及对应的Node顺序，有没有什么方法能够不保存顺序，直接找出需要交换数值的两个节点。</p>
 <p>对给定的这棵树：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 1</span><br><span class="line"> /</span><br><span class="line">3</span><br><span class="line"> \</span><br><span class="line">  2</span><br></pre></td></tr></table></figure>
 <p>中序遍历的结果是</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3, 2, 1</span><br></pre></td></tr></table></figure>
-<p>需要交换的两个节点<code>first</code> 和<code>last</code>分别是：<br><code>first</code>: 相邻两个数中第一次出现 prev &gt; cur 时的 prev<br><code>last</code>：在<code>first</code>出现之后，又一次出现 prev &gt; cur 中的 cur</p>
+<p>需要交换的两个节点<code>first</code> 和<code>last</code>分别是：<br>
+<code>first</code>: 相邻两个数中第一次出现 prev &gt; cur 时的 prev<br>
+<code>last</code>：在<code>first</code>出现之后，又一次出现 prev &gt; cur 中的 cur</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
 </li>
 </ul>

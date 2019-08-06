@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -211,54 +211,74 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="unsupervised-deep-hashing-with-adaptive-feature-learning-for-image-retrieval"><a href="#Unsupervised-Deep-Hashing-With-Adaptive-Feature-Learning-for-Image-Retrieval" class="headerlink" title="Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval"></a>Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval</h1><p>Notations:</p>
-<p>$I= \lbrace I_{1}, I_{2}, \ldots, I_{n} \rbrace $ : 所有的图像集合<br>$\mathbf{X}=\left[\mathbf{x}_{1}, \mathbf{x}_{2}, \ldots, \mathbf{x}_{n}\right] \in \mathbf{R}^{d \times n}$ : 全局特征，每一列表示一个图像。<br>使用$k$ 个哈希函数 $h= \lbrace h_{1}, h_{2}, \cdots, h_{k} \rbrace $ 来产生k-bit的哈希码 $\mathbf{B}=\left[\mathbf{b}_{1}, \mathbf{b}_{2}, \cdots, \mathbf{b}_{n}\right] \in {+1,-1}^{k \times n}$<br>$F(\cdot)$ 为前向传播： $\mathbf{b}_{i}=h\left(I_{i}\right)=\operatorname{sgn}\left(F\left(I_{i} ; \mathbf{W}\right)\right)$ </p>
-<h2 id="产生伪标签"><a href="#产生伪标签" class="headerlink" title="产生伪标签"></a>产生伪标签</h2><p>对sample使用k-means聚类，生成k个类别（pseudo-class）， 每个类别就对应为自标签信息。</p>
+                <h1 id="unsupervised-deep-hashing-with-adaptive-feature-learning-for-image-retrieval">Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval</h1>
+<p>Notations:</p>
+<p>$I= \lbrace I_{1}, I_{2}, \ldots, I_{n} \rbrace $ : 所有的图像集合<br>
+$\mathbf{X}=\left[\mathbf{x}<em>{1}, \mathbf{x}</em>{2}, \ldots, \mathbf{x}<em>{n}\right] \in \mathbf{R}^{d \times n}$ : 全局特征，每一列表示一个图像。<br>
+使用$k$ 个哈希函数 $h= \lbrace h</em>{1}, h_{2}, \cdots, h_{k} \rbrace $ 来产生k-bit的哈希码 $\mathbf{B}=\left[\mathbf{b}<em>{1}, \mathbf{b}</em>{2}, \cdots, \mathbf{b}<em>{n}\right] \in {+1,-1}^{k \times n}$<br>
+$F(\cdot)$ 为前向传播： $\mathbf{b}</em>{i}=h\left(I_{i}\right)=\operatorname{sgn}\left(F\left(I_{i} ; \mathbf{W}\right)\right)$</p>
+<h2 id="产生伪标签">产生伪标签</h2>
+<p>对sample使用k-means聚类，生成k个类别（pseudo-class）， 每个类别就对应为自标签信息。</p>
 <p>相似度矩阵$\mathbf{S} \in{1,0}^{n \times n}$ ，如果$\bf{x_i}, \bf{x_j} $ 属于同一个类，$S_{i,j} =1 $。</p>
 <p>在很多图像数据中，单一的标签不能够很好的表达出多样的图像属性。这将导致类内的差异大，来自两个不同类的样本可能距离很近。</p>
 <p>对于任意一个样本，如果它到它的类心的距离大于一个设定的阈值，那么他就被视为边界样本（Edge Sample）边界矩阵$\mathbf{E}$, 当$\bf{x_i} $或者$\bf{x_j}$是边界点时，$E_{ij} = 1$  否则为0。</p>
 <p><strong>属于不同类的两个样本之间的汉明距离应该尽可能的大</strong>，这样的话，考虑最大化他的似然函数。</p>
-<p>先定义他的条件概率：</p>
-<script type="math/tex; mode=display">
-p\left(S_{i j} | \mathbf{b}_{i}, \mathbf{b}_{j}\right)= \lbrace \begin{array}{ll}{\sigma\left(\Theta_{i j}\right)} & {S_{i j}=1} \\ {1-\sigma\left(\Theta_{i j}\right)} & {S_{i j}=0}\end{array}\right.</script><p>其中，$\sigma(\cdot)$ 为sigmoid函数，$\Theta_{i j}=\frac{1}{2} \mathbf{b}_{i}^{\mathrm{T}} \mathbf{b}_{j}$ 可以表达之间的距离。</p>
-<p>论文将所有的edge sample都做抛弃处理，这样一来，似然函数就表现为：</p>
-<script type="math/tex; mode=display">
--\sum_{S_{i j}=0 \atop E_{i j}=0} \log p\left(S_{i j} | \mathbf{b}_{i}, \mathbf{b}_{j}\right)=-\sum_{S_{i j}=0 \atop E_{i j}=0}\left(S_{i j} \Theta_{i j}-\log \left(1+e^{\Theta_{i j}}\right)\right)</script><p><strong>属于同一个类的两个样本之间的汉明距离应该尽可能的小</strong>，这样的话，</p>
-<script type="math/tex; mode=display">
-\operatorname{Sim}_{i j}=\tanh \left(\alpha\left(\mathbf{x}_{i}^{\mathrm{T}} \mathbf{x}_{j}-\beta\right)\right)
-\\
-\min \left\|\operatorname{Sim}-\frac{1}{k} \mathbf{B}^{\mathrm{T}} \mathbf{B}\right\|_{F}^{2}</script><p>这里 $Sim_{ij}$ 表示通过样本$\bf{x_i}$和$\bf{x_j}$的距离在汉明空间的投影。由于X经过了归一化操作，因此，$\bf{x_i}^T\bf{x_j}$ 表示的是这两个样本之间的余弦距离，这里到特征空间和汉明空间的差异，使用过了$\alpha, \beta​$ 进行了调节，并且使用了tanh，使用tanh是考虑到，即使是两个非常相似的图像，他们之间特征的汉明距离也不一定接近于1，tanh能够使得当一个数超过一定阈值时非常的接近1.</p>
-<p>所以，总体的目标函数为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned} \min _{\mathbf{B}} &-\gamma_{0} \sum_{S_{i j}=0 \\ E_{ij}=0}\left(-\log \left(1+e^{\Theta_{i j}}\right)\right) \\ &+\gamma_{1} \sum_{S_{i j}=1}\left\|\tanh \left(\alpha\left(\mathbf{x}_{i}^{\mathrm{T}} \mathbf{x}_{j}-\beta\right)\right)-\frac{1}{k} \mathbf{b}_{i}^{\mathrm{T}} \mathbf{b}_{j}\right\|_{2}^{2} \end{aligned}</script><h2 id="可适应的特征学习"><a href="#可适应的特征学习" class="headerlink" title="可适应的特征学习"></a>可适应的特征学习</h2><p>上述的$\bf{x}$指的是handcraft feature。handcraft feature通常都是局部信息，接下来作者试图通过局部信息来生成全局信息。</p>
+<p>先定义他的条件概率：<br>
+$$<br>
+p\left(S_{i j} | \mathbf{b}<em>{i}, \mathbf{b}</em>{j}\right)= \lbrace \begin{array}{ll}{\sigma\left(\Theta_{i j}\right)} &amp; {S_{i j}=1} \ {1-\sigma\left(\Theta_{i j}\right)} &amp; {S_{i j}=0}\end{array}\right.<br>
+$$<br>
+其中，$\sigma(\cdot)$ 为sigmoid函数，$\Theta_{i j}=\frac{1}{2} \mathbf{b}<em>{i}^{\mathrm{T}} \mathbf{b}</em>{j}$ 可以表达之间的距离。</p>
+<p>论文将所有的edge sample都做抛弃处理，这样一来，似然函数就表现为：<br>
+$$<br>
+-\sum_{S_{i j}=0 \atop E_{i j}=0} \log p\left(S_{i j} | \mathbf{b}<em>{i}, \mathbf{b}</em>{j}\right)=-\sum_{S_{i j}=0 \atop E_{i j}=0}\left(S_{i j} \Theta_{i j}-\log \left(1+e^{\Theta_{i j}}\right)\right)<br>
+$$<br>
+<strong>属于同一个类的两个样本之间的汉明距离应该尽可能的小</strong>，这样的话，<br>
+$$<br>
+\operatorname{Sim}<em>{i j}=\tanh \left(\alpha\left(\mathbf{x}</em>{i}^{\mathrm{T}} \mathbf{x}<em>{j}-\beta\right)\right)<br>
+\<br>
+\min \left|\operatorname{Sim}-\frac{1}{k} \mathbf{B}^{\mathrm{T}} \mathbf{B}\right|</em>{F}^{2}<br>
+$$<br>
+这里 $Sim_{ij}$ 表示通过样本$\bf{x_i}$和$\bf{x_j}$的距离在汉明空间的投影。由于X经过了归一化操作，因此，$\bf{x_i}^T\bf{x_j}$ 表示的是这两个样本之间的余弦距离，这里到特征空间和汉明空间的差异，使用过了$\alpha, \beta​$ 进行了调节，并且使用了tanh，使用tanh是考虑到，即使是两个非常相似的图像，他们之间特征的汉明距离也不一定接近于1，tanh能够使得当一个数超过一定阈值时非常的接近1.</p>
+<p>所以，总体的目标函数为：<br>
+$$<br>
+\begin{aligned} \min <em>{\mathbf{B}} &amp;-\gamma</em>{0} \sum_{S_{i j}=0 \ E_{ij}=0}\left(-\log \left(1+e^{\Theta_{i j}}\right)\right) \ &amp;+\gamma_{1} \sum_{S_{i j}=1}\left|\tanh \left(\alpha\left(\mathbf{x}<em>{i}^{\mathrm{T}} \mathbf{x}</em>{j}-\beta\right)\right)-\frac{1}{k} \mathbf{b}<em>{i}^{\mathrm{T}} \mathbf{b}</em>{j}\right|_{2}^{2} \end{aligned}<br>
+$$</p>
+<h2 id="可适应的特征学习">可适应的特征学习</h2>
+<p>上述的$\bf{x}$指的是handcraft feature。handcraft feature通常都是局部信息，接下来作者试图通过局部信息来生成全局信息。</p>
 <p>这里主要考虑到两点：</p>
 <ol>
 <li>对于任何两个相似的sample，他们学习到的全局特征之间的距离要小于原始图像特征的距离一个阈值</li>
 <li>对于两个不相似的sample，他们之间的cosine distance要小于一个阈值</li>
 <li>学习到的全局特征要更适合用来学习哈希码</li>
 </ol>
-<p>综合以上三点，作者定义了如下的损失函数：</p>
-<script type="math/tex; mode=display">
-L=\gamma_{2} \sum_{S_{i j}=1}\|\max ( |f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\mathbf{x}_{\mathrm{i}}^{\mathrm{T}} \mathbf{x}_{\mathrm{j}}-\epsilon_{1}, 0)\|_{2}^{2}
-\\
-+\gamma_{3} \sum_{S_{i j}=0 \atop E_{i j}=0}\left\|\max \left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\epsilon_{2}, 0\right)\right\|_{2}^{2}</script><p>其中，$f(I)$指学到的global feature</p>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>总的目标函数：</p>
-<script type="math/tex; mode=display">
-\min _{B}-\gamma_{0} \sum_{S_{i j}=0 \atop E_{i j}=0}\left(-\log \left(1+e^{\Theta_{i j}}\right)\right)+L
-
-+\gamma_{1} \sum_{S_{ij}=1}\left\|\tanh \left(\alpha\left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\beta\right)\right)-\frac{1}{k} \mathbf{b}_{\mathbf{i}}^{\mathrm{T}} \mathbf{b}_{\mathbf{j}}\right\|_{2}^{2}
-\\
-\text { s.t. } \& \quad \mathbf{B} \in\{+1,-1\}^{k \times n}</script><p>考虑到B难以直接优化，作者就引入了U来优化，这样：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\min _{\mathbf{B}, \alpha, \beta} & - \gamma_{0}  \sum_{S_{i j}=0 \atop E_{i j}=0}\left(-\log \left(1+e^{\Psi_{i j}}\right)\right) \\
-&+\eta\sum_{i=1}^{n}\left\|\mathbf{b}_{i}-\mathbf{u}_{i}\right\|_{2}^{2}\\
-& + \gamma_{1} \sum_{S_{i j}=1}\left\|\tanh \left(\alpha\left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\beta\right)\right)-\frac{1}{k} \mathbf{u}_{i}^{\mathrm{T}} \mathbf{u}_{j}\right\|_{2}^{2}\\
-& +\gamma_{2} \sum_{S_{i j}=1}\|\max ( |f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\mathbf{x}_{i}^{\mathrm{T}} \mathbf{x}_{j}-\epsilon_{1}, 0)\|_{2}^{2}\\
-& +\gamma_{3} \sum_{S_{i j}=0 \atop E_{i j}=0}\left\|\max \left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\epsilon_{2}, 0\right)\right\|_{2}^{2}
-\\
-\text { s.t. } &\quad \mathbf{U} \in \mathbf{R}^{k \times n}, \mathbf{U}=F(I ; \mathbf{W})
-\end{align}</script><p>其中， $\mathbf{\Psi}_{i j}=\frac{1}{2} \mathbf{u}_{i}^{\mathrm{T}} \mathbf{u}_{j}$ ，相当于是吧之前的所有的B都用U来替代了，然后U是网络的输出。</p>
+<p>综合以上三点，作者定义了如下的损失函数：<br>
+$$<br>
+L=\gamma_{2} \sum_{S_{i j}=1}|\max ( |f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\mathbf{x}<em>{\mathrm{i}}^{\mathrm{T}} \mathbf{x}</em>{\mathrm{j}}-\epsilon_{1}, 0)|<em>{2}^{2}<br>
+\<br>
++\gamma</em>{3} \sum_{S_{i j}=0 \atop E_{i j}=0}\left|\max \left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\epsilon_{2}, 0\right)\right|_{2}^{2}<br>
+$$<br>
+其中，$f(I)$指学到的global feature</p>
+<h2 id="优化">优化</h2>
+<p>总的目标函数：<br>
+$$<br>
+\min <em>{B}-\gamma</em>{0} \sum_{S_{i j}=0 \atop E_{i j}=0}\left(-\log \left(1+e^{\Theta_{i j}}\right)\right)+L</p>
+<p>+\gamma_{1} \sum_{S_{ij}=1}\left|\tanh \left(\alpha\left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\beta\right)\right)-\frac{1}{k} \mathbf{b}<em>{\mathbf{i}}^{\mathrm{T}} \mathbf{b}</em>{\mathbf{j}}\right|<em>{2}^{2}<br>
+\<br>
+\text { s.t. } &amp; \quad \mathbf{B} \in{+1,-1}^{k \times n}<br>
+$$<br>
+考虑到B难以直接优化，作者就引入了U来优化，这样：<br>
+$$<br>
+\begin{align}<br>
+\min <em>{\mathbf{B}, \alpha, \beta} &amp; - \gamma</em>{0}  \sum</em>{S_{i j}=0 \atop E_{i j}=0}\left(-\log \left(1+e^{\Psi_{i j}}\right)\right) \<br>
+&amp;+\eta\sum_{i=1}^{n}\left|\mathbf{b}<em>{i}-\mathbf{u}</em>{i}\right|<em>{2}^{2}\<br>
+&amp; + \gamma</em>{1} \sum_{S_{i j}=1}\left|\tanh \left(\alpha\left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\beta\right)\right)-\frac{1}{k} \mathbf{u}<em>{i}^{\mathrm{T}} \mathbf{u}</em>{j}\right|<em>{2}^{2}\<br>
+&amp; +\gamma</em>{2} \sum_{S_{i j}=1}|\max ( |f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\mathbf{x}<em>{i}^{\mathrm{T}} \mathbf{x}</em>{j}-\epsilon_{1}, 0)|<em>{2}^{2}\<br>
+&amp; +\gamma</em>{3} \sum_{S_{i j}=0 \atop E_{i j}=0}\left|\max \left(f\left(I_{i}\right)^{\mathrm{T}} f\left(I_{j}\right)-\epsilon_{2}, 0\right)\right|<em>{2}^{2}<br>
+\<br>
+\text { s.t. } &amp;\quad \mathbf{U} \in \mathbf{R}^{k \times n}, \mathbf{U}=F(I ; \mathbf{W})<br>
+\end{align}<br>
+$$<br>
+其中， $\mathbf{\Psi}</em>{i j}=\frac{1}{2} \mathbf{u}<em>{i}^{\mathrm{T}} \mathbf{u}</em>{j}$ ，相当于是吧之前的所有的B都用U来替代了，然后U是网络的输出。</p>
 <p>总体来说考虑的是几点：</p>
 <ul>
 <li>相似图像之间，网络输出的类哈希码</li>

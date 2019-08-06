@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -208,6 +208,40 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/leetcode-79-单词搜索/">
+        <h2 class="post-title">
+            leetcode 79 单词搜索
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            给定一个二维网格和一个单词，找出该单词是否存在于网格中。单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
+示例:
+12345678910board =[  [&apos;A&apos;,&apos;B&apos;,&apos;C&apos;,&apos;E&apos;],  [&apos;S&apo......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2019-07-07
+            </p>
+            
+              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
+            
+              <a href="/tags/#数组" title="数组">数组</a>
+            
+              <a href="/tags/#回溯" title="回溯">回溯</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview" style="font-style: normal;">
 
@@ -365,13 +399,8 @@
         <div class="post-content-preview">
             给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
 求在该柱状图中，能够勾勒出来的矩形的最大面积。
-
-
-
-
-我们维护一个栈，栈中的元素保持递减的关系
-
-当我们遇到一个数nums[i] 如果nums[i]小于栈顶的元素，这就意味着，对于栈顶元素，他能组成的最大的矩形的左边界为栈中的栈顶元素的前一个元素，右边界为当前的i。这样一来，我们先把当前的栈顶元素po......
+![image-20190706184103401](/Users/xiongz/Library/Application Support/typora-user-images/image-20190706184103401.png)
+![image-201......
         </div>
     </a>
     
@@ -437,8 +466,10 @@
             
         </h3>
         <div class="post-content-preview">
-            Q. 多线程中线程hang住是什么原因A. 
-Q. TCP和UDP的区别? 都适用于那些场景？A. TCP是面向连接的，通过各种机制来保证数据传输的准确性。例如三次握手，四次挥手、滑动窗口、重传等等。UDP面向无连接，是一个无状态的传输协议，传输速度比TCP要快。由于没有TCP那样的可靠机制，他的连接是不可靠的。在网络状态不好的情况下，容易产生丢包。因此，在要求传输准确无误的场景下需要是用T......
+            Q. 多线程中线程hang住是什么原因
+A.
+Q. TCP和UDP的区别? 都适用于那些场景？
+A. TCP是面向连接的，通过各种机制来保证数据传输的准确性。例如三次握手，四次挥手、滑动窗口、重传等等。UDP面向无连接，是一个无状态的传输协议，传输速度比TCP要快。由于没有TCP那样的可靠机制，他的连接是不可靠的。在网络状态不好的情况下，容易产生丢包。因此，在要求传输准确无误的场景下需要是用......
         </div>
     </a>
     
@@ -469,9 +500,10 @@ Q. TCP和UDP的区别? 都适用于那些场景？A. TCP是面向连接的，通
             给定一个链表和一个特定值 x，对链表进行分隔，使得所有小于 x 的节点都在大于或等于 x 的节点之前。
 你应当保留两个分区中每个节点的初始相对位置。
 示例:
-输入: head = 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2, x = 3输出: 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5
+输入: head = 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2, x = 3
+输出: 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5
 
-12345678910111213141516171819202......
+1234567891011121314151617181920......
         </div>
     </a>
     
@@ -505,14 +537,15 @@ Q. TCP和UDP的区别? 都适用于那些场景？A. TCP是面向连接的，通
         <div class="post-content-preview">
             给定一个字符串 s1，我们可以把它递归地分割成两个非空子字符串，从而将其表示为二叉树。
 下图是字符串 s1 = “great” 的一种可能的表示形式。
-    great
+	great
   /    \
   gr    eat
  / \    /  \
 g   r  e   at
            / \
           a   t
-在扰乱这个字符串的过程中，我们可以挑选任何一个非叶节点，然后交换......
+
+在扰乱这个字符串的过程中，我们可以挑选任何一个非叶节点，然后交换它的......
         </div>
     </a>
     
@@ -525,41 +558,6 @@ g   r  e   at
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
             
               <a href="/tags/#递归" title="递归">递归</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/leetcode-88-合并两个有序数组/">
-        <h2 class="post-title">
-            leetcode 88 合并两个有序数组
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。
-说明:
-初始化 nums1 和 nums2 的元素数量分别为 m 和 n。你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素。示例:
-12345输入:nums1 = [1,2,3,0,0,0], m = 3nums2 =......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-07-05
-            </p>
-            
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
-            
-              <a href="/tags/#数组" title="数组">数组</a>
-            
-              <a href="/tags/#双指针" title="双指针">双指针</a>
             
         </div>
     
@@ -612,11 +610,7 @@ g   r  e   at
     <div class="tags">
         
             
-            <a href="/tags/#face" title="face" rel="6">face</a>
-            
-        
-            
-            <a href="/tags/#leetcode" title="leetcode" rel="249">leetcode</a>
+            <a href="/tags/#leetcode" title="leetcode" rel="250">leetcode</a>
             
         
             
@@ -628,9 +622,11 @@ g   r  e   at
             
         
             
-            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
+            <a href="/tags/#face" title="face" rel="6">face</a>
             
         
+            
+            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
             
         
             
@@ -640,11 +636,15 @@ g   r  e   at
             
         
             
-            <a href="/tags/#tree" title="tree" rel="19">tree</a>
+        
             
         
             
-            <a href="/tags/#字符串" title="字符串" rel="15">字符串</a>
+            <a href="/tags/#字符串" title="字符串" rel="16">字符串</a>
+            
+        
+            
+            <a href="/tags/#tree" title="tree" rel="19">tree</a>
             
         
             
@@ -653,8 +653,6 @@ g   r  e   at
         
             
             <a href="/tags/#动态规划" title="动态规划" rel="8">动态规划</a>
-            
-        
             
         
             
@@ -670,8 +668,6 @@ g   r  e   at
             
         
             
-        
-            
             <a href="/tags/#二分查找" title="二分查找" rel="3">二分查找</a>
             
         
@@ -679,6 +675,8 @@ g   r  e   at
         
             
             <a href="/tags/#leetcode array" title="leetcode array" rel="2">leetcode array</a>
+            
+        
             
         
             
@@ -768,6 +766,10 @@ g   r  e   at
     <ul>
       
         <li>
+          <a href="/article/leetcode-125-验证回文串/">leetcode 125 验证回文串</a>
+        </li>
+      
+        <li>
           <a href="/article/leetcode-122-买卖股票的最佳时机-II/">leetcode 122 买卖股票的最佳时机 II</a>
         </li>
       
@@ -783,10 +785,6 @@ g   r  e   at
           <a href="/article/leetcode-118-杨辉三角/">leetcode 118 杨辉三角</a>
         </li>
       
-        <li>
-          <a href="/article/leetcode-117-填充每个节点的下一个右侧节点指针-II/">leetcode 117 填充每个节点的下一个右侧节点指针 II</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -795,7 +793,7 @@ g   r  e   at
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">73</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">73</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

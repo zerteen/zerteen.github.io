@@ -150,14 +150,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -214,13 +214,16 @@
                 post-container">
 
                 <p>反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。</p>
-<p>说明:<br>1 ≤ m ≤ n ≤ 链表长度。</p>
+<p>说明:<br>
+1 ≤ m ≤ n ≤ 链表长度。</p>
 <p>示例:</p>
-<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4<br>输出: 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL</p>
+<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4<br>
+输出: 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL</p>
 <hr>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseBetween</span><span class="params">(self, head, m, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :type m: int</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head <span class="keyword">or</span> m == n:</span><br><span class="line">            <span class="keyword">return</span> head</span><br><span class="line">        dump = TreeNode(<span class="number">-1</span>)</span><br><span class="line">        dump.next = head</span><br><span class="line">        pre = dump</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(m<span class="number">-1</span>):</span><br><span class="line">            pre = pre.next</span><br><span class="line">        </span><br><span class="line">        p = pre.next</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n-m):</span><br><span class="line">            nex = p.next</span><br><span class="line">            p.next = nex.next</span><br><span class="line">            nex.next = pre.next</span><br><span class="line">            pre.next = nex</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dump.next</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>逻辑上稍微有点绕</p>
+<li>
+<p>逻辑上稍微有点绕</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4</span><br><span class="line"></span><br><span class="line">先找到开始反转位置的前一个节点</span><br><span class="line"></span><br><span class="line">  1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</span><br><span class="line">  *</span><br><span class="line"> prev</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">  1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</span><br><span class="line">  *     *</span><br><span class="line"> prev   nex</span><br><span class="line"> </span><br><span class="line">     +-----+</span><br><span class="line">     |     V</span><br><span class="line">  1-&gt;2  3-&gt;4-&gt;5-&gt;NULL</span><br><span class="line">  *     *</span><br><span class="line"> prev   nex</span><br><span class="line"> </span><br><span class="line">     +-----+</span><br><span class="line">     |      V</span><br><span class="line">  1-&gt;2  3  4-&gt;5-&gt;NULL</span><br><span class="line">     ^  |</span><br><span class="line">     +--+</span><br><span class="line">     </span><br><span class="line">  +-----+  </span><br><span class="line">  |     |</span><br><span class="line">  |  +--|----+</span><br><span class="line">  |  |  v    v</span><br><span class="line">  1  2  3  4-&gt;5-&gt;NULL</span><br><span class="line">     ^  |</span><br><span class="line">     +--+</span><br></pre></td></tr></table></figure></li>
 </ul>
 

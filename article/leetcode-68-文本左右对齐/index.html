@@ -150,14 +150,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -213,9 +213,12 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>给定一个单词数组和一个长度 maxWidth，重新排版单词，使其成为每行恰好有 maxWidth 个字符，且左右两端对齐的文本。你应该使用“贪心算法”来放置给定的单词；也就是说，尽可能多地往每行中放置单词。必要时可用空格 ‘ ‘ 填充，使得每行恰好有 maxWidth 个字符。要求尽可能均匀分配单词间的空格数量。如果某一行单词间的空格不能均匀分配，则左侧放置的空格数要多于右侧的空格数。文本的最后一行应为左对齐，且单词之间不插入额外的空格。</p>
-<p>说明: </p>
-<p>单词是指由非空格字符组成的字符序列。<br>每个单词的长度大于 0，小于等于 maxWidth。<br>输入单词数组 words 至少包含一个单词。<br>示例:</p>
+                <p>给定一个单词数组和一个长度 maxWidth，重新排版单词，使其成为每行恰好有 maxWidth 个字符，且左右两端对齐的文本。你应该使用“贪心算法”来放置给定的单词；也就是说，尽可能多地往每行中放置单词。必要时可用空格 ’ ’ 填充，使得每行恰好有 maxWidth 个字符。要求尽可能均匀分配单词间的空格数量。如果某一行单词间的空格不能均匀分配，则左侧放置的空格数要多于右侧的空格数。文本的最后一行应为左对齐，且单词之间不插入额外的空格。</p>
+<p>说明:</p>
+<p>单词是指由非空格字符组成的字符序列。<br>
+每个单词的长度大于 0，小于等于 maxWidth。<br>
+输入单词数组 words 至少包含一个单词。<br>
+示例:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">words = [&quot;This&quot;, &quot;is&quot;, &quot;an&quot;, &quot;example&quot;, &quot;of&quot;, &quot;text&quot;, &quot;justification.&quot;]</span><br><span class="line">maxWidth = 16</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">   &quot;This    is    an&quot;,</span><br><span class="line">   &quot;example  of text&quot;,</span><br><span class="line">   &quot;justification.  &quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>示例 2:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">words = [&quot;What&quot;,&quot;must&quot;,&quot;be&quot;,&quot;acknowledgment&quot;,&quot;shall&quot;,&quot;be&quot;]</span><br><span class="line">maxWidth = 16</span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">  &quot;What   must   be&quot;,</span><br><span class="line">  &quot;acknowledgment  &quot;,</span><br><span class="line">  &quot;shall be        &quot;</span><br><span class="line">]</span><br><span class="line">解释: 注意最后一行的格式应为 &quot;shall be    &quot; 而不是 &quot;shall     be&quot;,</span><br><span class="line">     因为最后一行应为左对齐，而不是左右两端对齐。       </span><br><span class="line">     第二行同样为左对齐，这是因为这行只包含一个单词。</span><br></pre></td></tr></table></figure>

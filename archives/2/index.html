@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -211,6 +211,48 @@
 
 <div class="post-preview" style="font-style: normal;">
 
+    <a href="/article/leetcode-14-最长公共前缀/">
+        <h2 class="post-title">
+            leetcode 14 最长公共前缀
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 “”。
+示例 1:
+输入: [“flower”,“flow”,“flight”]
+输出: &quot;fl&quot;
+示例 2:
+输入: [“dog”,“racecar”,“car”]
+输出: &quot;&quot;
+解释: 输入不存在公共前缀。
+说明:
+所有输入只包含小写字母 a-z 。
+
+1234567......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2019-07-31
+            </p>
+            
+              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
+            
+              <a href="/tags/#字符串" title="字符串">字符串</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
     <a href="/article/leetcode-10-正则表达式匹配/">
         <h2 class="post-title">
             leetcode 10 正则表达式匹配
@@ -220,10 +262,15 @@
         </h3>
         <div class="post-content-preview">
             给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 ‘.’ 和 ‘*’ 的正则表达式匹配。
-‘.’ 匹配任意单个字符‘*’ 匹配零个或多个前面的那一个元素所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+‘.’ 匹配任意单个字符
+’*’ 匹配零个或多个前面的那一个元素
+所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
 说明:
-s 可能为空，且只包含从 a-z 的小写字母。p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。示例 1:
-输入:s = “aa”p = “a”输......
+s 可能为空，且只包含从 a-z 的小写字母。
+p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。
+示例 1:
+输入:
+s = &quot;a......
         </div>
     </a>
     
@@ -327,10 +374,11 @@ k 是一个正整数，它的值小于或等于链表的长度。
             给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
 示例 1:
-给定数组 nums = [1,1,2], 
-函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 
-你不需要考虑数组中超出新长度后面的元素。示例 2:
-给定 n......
+给定数组 nums = [1,1,2],
+函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。
+你不需要考虑数组中超出新长度后面的元素。
+示例 2:
+给定 nu......
         </div>
     </a>
     
@@ -400,8 +448,10 @@ k 是一个正整数，它的值小于或等于链表的长度。
             实现 strStr() 函数。
 给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
 示例 1:
-输入: haystack = “hello”, needle = “ll”输出: 2示例 2:
-输入: haystack = “aaaaa”, needle = “bb......
+输入: haystack = “hello”, needle = &quot;ll&quot;
+输出: 2
+示例 2:
+输入: haystack = “aaaaa”, ......
         </div>
     </a>
     
@@ -434,9 +484,13 @@ k 是一个正整数，它的值小于或等于链表的长度。
             给定两个整数，被除数 dividend 和除数 divisor。将两数相除，要求不使用乘法、除法和 mod 运算符。
 返回被除数 dividend 除以除数 divisor 得到的商。
 示例 1:
-输入: dividend = 10, divisor = 3输出: 3示例 2:
-输入: dividend = 7, divisor = -3输出: -2说明:
-被除数和除数均为 32 位有符号整......
+输入: dividend = 10, divisor = 3
+输出: 3
+示例 2:
+输入: dividend = 7, divisor = -3
+输出: -2
+说明:
+被除数和除数均为 32 位......
         </div>
     </a>
     
@@ -469,7 +523,12 @@ k 是一个正整数，它的值小于或等于链表的长度。
             给定一个字符串 s 和一些长度相同的单词 words。找出 s 中恰好可以由 words 中所有单词串联形成的子串的起始位置。
 注意子串要与 words 中的单词完全匹配，中间不能有其他字符，但不需要考虑 words 中单词串联的顺序。
 示例 1：
-输入：  s = “barfoothefoobarman”,  words = [“foo”,”bar”]输出：[0,9]解释：从索引 0 和 ......
+输入：
+s = “barfoothefoobarman”,
+words = [“foo”,“bar”]
+输出：[0,9]
+解释：
+从索引 0 和......
         </div>
     </a>
     
@@ -502,10 +561,13 @@ k 是一个正整数，它的值小于或等于链表的长度。
             实现获取下一个排列的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
 如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
 必须原地修改，只允许使用额外常数空间。
-以下是一些例子，输入位于左侧列，其相应输出位于右侧列。1,2,3 → 1,3,23,2,1 → 1,2,31,1,5 → 1,5,1
+以下是一些例子，输入位于左侧列，其相应输出位于右侧列。
+1,2,3 → 1,3,2
+3,2,1 → 1,2,3
+1,1,5 → 1,5,1
 
 
-从后往前遍历，每一次判断nums[i]是否大于nums[......
+从后往前遍历，每一次判断nums[i]是否大于nu......
         </div>
     </a>
     
@@ -518,42 +580,6 @@ k 是一个正整数，它的值小于或等于链表的长度。
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
             
               <a href="/tags/#数组" title="数组">数组</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/leetcode-32-最长有效括号/">
-        <h2 class="post-title">
-            leetcode 32 最长有效括号
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            给定一个只包含 ‘(‘ 和 ‘)’ 的字符串，找出最长的包含有效括号的子串的长度。
-示例 1:
-输入: “(()”输出: 2解释: 最长有效括号子串为 “()”示例 2:
-输入: “)()())”输出: 4解释: 最长有效括号子串为 “()()”
-123456789101112131415161718192021class Solution(object):    def longestVa......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-07-13
-            </p>
-            
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
-            
-              <a href="/tags/#字符串" title="字符串">字符串</a>
-            
-              <a href="/tags/#动态规划" title="动态规划">动态规划</a>
             
         </div>
     
@@ -606,11 +632,7 @@ k 是一个正整数，它的值小于或等于链表的长度。
     <div class="tags">
         
             
-            <a href="/tags/#face" title="face" rel="6">face</a>
-            
-        
-            
-            <a href="/tags/#leetcode" title="leetcode" rel="249">leetcode</a>
+            <a href="/tags/#leetcode" title="leetcode" rel="250">leetcode</a>
             
         
             
@@ -622,9 +644,11 @@ k 是一个正整数，它的值小于或等于链表的长度。
             
         
             
-            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
+            <a href="/tags/#face" title="face" rel="6">face</a>
             
         
+            
+            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
             
         
             
@@ -634,11 +658,15 @@ k 是一个正整数，它的值小于或等于链表的长度。
             
         
             
-            <a href="/tags/#tree" title="tree" rel="19">tree</a>
+        
             
         
             
-            <a href="/tags/#字符串" title="字符串" rel="15">字符串</a>
+            <a href="/tags/#字符串" title="字符串" rel="16">字符串</a>
+            
+        
+            
+            <a href="/tags/#tree" title="tree" rel="19">tree</a>
             
         
             
@@ -647,8 +675,6 @@ k 是一个正整数，它的值小于或等于链表的长度。
         
             
             <a href="/tags/#动态规划" title="动态规划" rel="8">动态规划</a>
-            
-        
             
         
             
@@ -664,8 +690,6 @@ k 是一个正整数，它的值小于或等于链表的长度。
             
         
             
-        
-            
             <a href="/tags/#二分查找" title="二分查找" rel="3">二分查找</a>
             
         
@@ -673,6 +697,8 @@ k 是一个正整数，它的值小于或等于链表的长度。
         
             
             <a href="/tags/#leetcode array" title="leetcode array" rel="2">leetcode array</a>
+            
+        
             
         
             
@@ -762,6 +788,10 @@ k 是一个正整数，它的值小于或等于链表的长度。
     <ul>
       
         <li>
+          <a href="/article/leetcode-125-验证回文串/">leetcode 125 验证回文串</a>
+        </li>
+      
+        <li>
           <a href="/article/leetcode-122-买卖股票的最佳时机-II/">leetcode 122 买卖股票的最佳时机 II</a>
         </li>
       
@@ -777,10 +807,6 @@ k 是一个正整数，它的值小于或等于链表的长度。
           <a href="/article/leetcode-118-杨辉三角/">leetcode 118 杨辉三角</a>
         </li>
       
-        <li>
-          <a href="/article/leetcode-117-填充每个节点的下一个右侧节点指针-II/">leetcode 117 填充每个节点的下一个右侧节点指针 II</a>
-        </li>
-      
     </ul>
   </div>
 
@@ -789,7 +815,7 @@ k 是一个正整数，它的值小于或等于链表的长度。
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">73</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">73</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>

@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -227,7 +227,8 @@
 <hr>
 <ul>
 <li>对每一个nums[i]设置一个HashSet&lt;&gt;，用来保存当前nums[i]能走的步长。</li>
-<li>对每一个nums[i]中保存的步长step，看nums[i]+step是否能够到达最后一个数nums[nums.length-1]<ul>
+<li>对每一个nums[i]中保存的步长step，看nums[i]+step是否能够到达最后一个数nums[nums.length-1]
+<ul>
 <li>如果能，则返回true</li>
 <li>如果不能，那么在nums[i]+step的HashSet中保存下step，step+1，step-1 (step-1需要大于0)</li>
 </ul>

@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -209,10 +209,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="62-unique-paths-i"><a href="#62-Unique-Paths-I" class="headerlink" title="62. Unique Paths I"></a>62. Unique Paths I</h3><hr>
+                <h3 id="62-unique-paths-i">62. Unique Paths I</h3>
+<hr>
 <p>给定一个m*n的棋盘，从棋盘左上角到棋盘右下角最多有多少条路径。</p>
 <p>每一次移动，只能向右移一格或者向下移动一格。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -239,15 +239,14 @@
 </tr>
 </tbody>
 </table>
-</div>
 <hr>
 <p>动态规划问题：</p>
 <p>dp[i][j] = dp[i-1][j] + dp[i][j-1];</p>
 <p>当i==0，或者j == 0时，表示在棋盘的边缘，只有向下或者向右一条路。所以dp[i][j] = 1;</p>
-<h3 id="63-unique-path-ii"><a href="#63-Unique-Path-II" class="headerlink" title="63 Unique Path II"></a>63 Unique Path II</h3><hr>
+<h3 id="63-unique-path-ii">63 Unique Path II</h3>
+<hr>
 <p>相对于上一题，增加了一个条件：给定了一个等棋盘大小的01矩阵，1表示对应位置为一个障碍位置，不能走。</p>
 <p>同样求一共有多少条路。</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -274,7 +273,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <hr>
 <p>当obstacleGird[i][j] == 1时，dp[i][j] = 0;</p>
 <p>当i==0 and j==0时，dp[i][j] = 1;</p>

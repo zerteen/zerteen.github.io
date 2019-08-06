@@ -150,14 +150,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -214,45 +214,57 @@
                 post-container">
 
                 <ol>
-<li><p>从一副52张扑克牌中随机抽两种，颜色相等的概率  </p>
-<p>$\frac{C_{2}^{1} C_{13}^{2}}{C_{52}^2} = \frac{40}{221}$   </p>
-<p><a href="https://www.nowcoder.com/discuss/92896" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/92896</a>  </p>
-</li>
-<li><p>54张牌，分成6份，每份9张牌，大小王在一起的概率  </p>
-<script type="math/tex; mode=display">
-\frac{C_6^1 C_2^2 C_{52}^{7} C_{45}^{9}C_{36}^{9}\cdots C_{9}^{9}}{C_{54}^{9}C_{45}^{9}\cdots C_{9}^{9}} = \frac{8}{53}</script><p><a href="https://www.nowcoder.com/discuss/3243" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/3243</a>  </p>
-</li>
-<li><p>52张牌去掉大小王，分成26*2两堆，从其中一堆取4张牌为4个a的概率</p>
+<li>从一副52张扑克牌中随机抽两种，颜色相等的概率</li>
+</ol>
+<blockquote>
+<p>$\frac{C_{2}^{1} C_{13}^{2}}{C_{52}^2} = \frac{40}{221}$</p>
+</blockquote>
+<ol start="2">
+<li>54张牌，分成6份，每份9张牌，大小王在一起的概率</li>
+</ol>
+<blockquote>
+<p>$\frac{C_6^1 C_2^2 C_{52}^{7} C_{45}^{9}C_{36}^{9}\cdots C_{9}^{9}}{C_{54}^{9}C_{45}^{9}\cdots C_{9}^{9}} = \frac{8}{53}$</p>
+</blockquote>
+<ol start="3">
+<li>52张牌去掉大小王，分成26*2两堆，从其中一堆取4张牌为4个a的概率</li>
+</ol>
+<blockquote>
 <p>直觉告诉我分不分堆没有关系，这样想的话，答案是：</p>
-<script type="math/tex; mode=display">
-\frac{C_4^4}{C_{52}^{4}}</script><p>考虑分堆的话：</p>
+<p>$\frac{C_4^4}{C_{52}^{4}}$</p>
+<p>考虑分堆的话：</p>
 <p>1 先求分两堆，4张A出现在同一堆的概率： $ \frac{C_2^1 C_4^4 C_{48}^{22} C_{26}^{26}}{C_{52}^{26}C_{26}^{26}}$</p>
 <p>2 在这两堆中，选中4张A同时出现的那一堆：$ \frac{1}{2}\frac{C_2^1 C_4^4 C_{48}^{22} C_{26}^{26}}{C_{52}^{26}C_{26}^{26}}$</p>
 <p>3 从选中的这堆中，选4张牌出来是A的概率：$ \frac{1}{2}\frac{C_2^1 C_4^4 C_{48}^{22} C_{26}^{26}}{C_{52}^{26}C_{26}^{26}} \frac{C_{4}^{4}}{C_{26}^{4}}$</p>
-<p> <a href="https://www.nowcoder.com/discuss/83804" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/83804</a>  </p>
-</li>
-<li><p>一枚硬币，扔了一亿次都是正面朝上，再扔一次反面朝上的概率是多少？  </p>
-<p>当出现1亿次都是正面朝上的时，有理由怀疑这个硬币两面都是正面。</p>
-<p> <a href="https://www.nowcoder.com/discuss/8328" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/8328</a> <a href="https://www.nowcoder.com/discuss/33737" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/33737</a>  </p>
-<p>参考答案: <a href="https://www.zhihu.com/question/29683794" target="_blank" rel="noopener">https://www.zhihu.com/question/29683794</a>  </p>
-</li>
-<li><p>有8个箱子，现在有一封信，这封信放在这8个箱子中（任意一个）的概率为4/5,不放的概率为1/5（比如忘记了）,现在我打开1号箱子发现是空的，求下面7个箱子中含有这封信的概率为？   </p>
-<blockquote>
-<p>事件A：放信封</p>
-<p>事件B：1号为空</p>
-<script type="math/tex; mode=display">
-\begin{align}
-p(A|B) &= \frac{p(AB)}{p(B)} \\&= \frac{p(B|A)p(A)}{p(B|A)p(A) + p(B|\hat A)p(\hat A)}
-\end{align}</script></blockquote>
-</li>
-<li><p>已知N枚真硬币，M枚假硬币（两面都是国徽），取一枚硬币抛R次重复都是国徽，问该硬币是真硬币的概率？</p>
-</li>
+</blockquote>
+<ol start="4">
+<li>一枚硬币，扔了一亿次都是正面朝上，再扔一次反面朝上的概率是多少？</li>
 </ol>
 <blockquote>
-<p> <img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-135445.png" alt="image-20190722215444881"></p>
+<p>当出现1亿次都是正面朝上的时，有理由怀疑这个硬币两面都是正面。</p>
+<p>参考答案: <a href="https://www.zhihu.com/question/29683794" target="_blank" rel="noopener">https://www.zhihu.com/question/29683794</a></p>
 </blockquote>
-<ol>
-<li>一对夫妻有2个孩子，求一个孩子是女孩的情况下，另一个孩子也是女孩的概率 </li>
+<ol start="5">
+<li>有8个箱子，现在有一封信，这封信放在这8个箱子中（任意一个）的概率为4/5,不放的概率为1/5（比如忘记了）,现在我打开1号箱子发现是空的，求下面7个箱子中含有这封信的概率为？</li>
+</ol>
+<blockquote>
+<p>事件A：放信封</p>
+</blockquote>
+<blockquote>
+<p>事件B：1号为空<br>
+$$<br>
+\begin{align}<br>
+p(A|B) &amp;= \frac{p(AB)}{p(B)} \&amp;= \frac{p(B|A)p(A)}{p(B|A)p(A) + p(B|\hat A)p(\hat A)}<br>
+\end{align}<br>
+$$</p>
+</blockquote>
+<ol start="6">
+<li>已知N枚真硬币，M枚假硬币（两面都是国徽），取一枚硬币抛R次重复都是国徽，问该硬币是真硬币的概率？</li>
+</ol>
+<blockquote>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-135445.png" alt="image-20190722215444881"></p>
+</blockquote>
+<ol start="7">
+<li>一对夫妻有2个孩子，求一个孩子是女孩的情况下，另一个孩子也是女孩的概率</li>
 </ol>
 <blockquote>
 <p>有两个孩子，那么所有的组合情况为：</p>
@@ -262,596 +274,646 @@ p(A|B) &= \frac{p(AB)}{p(B)} \\&= \frac{p(B|A)p(A)}{p(B|A)p(A) + p(B|\hat A)p(\h
 <p>p(女，女) = 1/4</p>
 <p>1/3</p>
 </blockquote>
-<ol>
+<ol start="8">
 <li>有种癌症，早期的治愈率为0.8，中期的治愈率为0.5，晚期的治愈率为0.2.若早期没治好就会转为中期，中期没治好就会变成晚期。现在有一个人被诊断为癌症早期，然后被治愈了，问他被误诊为癌症的概率是多少？</li>
 </ol>
 <blockquote>
 <p>p(cur|早) = 0.8</p>
 <p>p(cur|中) = 0.2 * 0.5 = 0.1</p>
-<p>p(cur|晚) = 0.2 <em> 0.5 </em> 0.2 = 0.02</p>
+<p>p(cur|晚) = 0.2 * 0.5 * 0.2 = 0.02</p>
 </blockquote>
-<ol>
-<li>某城市发生了一起汽车撞人逃跑事件，该城市只有两种颜色的车，蓝20%绿80%，事发时现场有一个目击者，他指证是蓝车，但是根据专家在现场分析，当时那种条件能看正确的可能性是80%，那么，肇事的车是蓝车的概率是多少？ <a href="https://www.nowcoder.com/discuss/65344" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/65344</a>  </li>
+<ol start="9">
+<li>某城市发生了一起汽车撞人逃跑事件，该城市只有两种颜色的车，蓝20%绿80%，事发时现场有一个目击者，他指证是蓝车，但是根据专家在现场分析，当时那种条件能看正确的可能性是80%，那么，肇事的车是蓝车的概率是多少？ <a href="https://www.nowcoder.com/discuss/65344" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/65344</a></li>
 </ol>
-<p>  智力:  </p>
-<p>  100人坐飞机，第一个乘客在座位中随便选一个坐下，第100人正确坐到自己坐位的概率是？  </p>
-<p>  几何分布:  </p>
-<p>  一个国家重男轻女，只要生了女孩就继续生，直到生出男孩为止，问这个国家的男女比例？   </p>
-<p>  <a href="https://www.nowcoder.com/discuss/8328" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/8328</a>  </p>
-<p>  腾讯视频面  </p>
-<p>  条件概率:  </p>
-<p> 有50个红球，50个蓝球，如何放入两个盒子中使得拿到红球的概率最大 <a href="https://www.nowcoder.com/discuss/3179" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/3179</a> <a href="https://www.nowcoder.com/discuss/11971" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/11971</a> <a href="https://www.nowcoder.com/discuss/55004" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/55004</a> <a href="https://www.nowcoder.com/discuss/12497" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/12497</a> <a href="https://www.nowcoder.com/discuss/84736" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84736</a> <a href="https://www.nowcoder.com/discuss/26107" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/26107</a> <a href="https://www.nowcoder.com/discuss/2990" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/2990</a> <a href="https://www.nowcoder.com/discuss/47341" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47341</a> <a href="https://www.nowcoder.com/discuss/33737" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/33737</a> <a href="https://www.nowcoder.com/discuss/11971" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/11971</a>  </p>
-<p>  硬币:  </p>
-<p> 某个一直函数返回0/1，0的概率为p，写一函数返回两数概率相等。</p>
-<p>  给你一个函数，这个函数是能得出1-5之间的随机数的，概率相同。现在求1-7之间随机函数，你如何做 <a href="https://www.nowcoder.com/discuss/56712" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/56712</a> <a href="https://www.nowcoder.com/discuss/56158" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/56158</a>  </p>
-<p>  X是一个以p的概率产生1,1-p的概率产生0的随机变量，利用X等概率生成1-n的数 <a href="https://www.nowcoder.com/discuss/75360" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/75360</a> <a href="https://www.nowcoder.com/discuss/53916" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/53916</a> <a href="https://www.nowcoder.com/discuss/47341" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47341</a> <a href="https://www.nowcoder.com/discuss/12393" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/12393</a>   </p>
-<p>  给你一个硬币，你如何获得2/3的概率</p>
+<p>智力:</p>
+<p>100人坐飞机，第一个乘客在座位中随便选一个坐下，第100人正确坐到自己坐位的概率是？</p>
+<p>几何分布:</p>
+<p>一个国家重男轻女，只要生了女孩就继续生，直到生出男孩为止，问这个国家的男女比例？</p>
+<p><a href="https://www.nowcoder.com/discuss/8328" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/8328</a></p>
+<p>腾讯视频面</p>
+<p>条件概率:</p>
+<p>有50个红球，50个蓝球，如何放入两个盒子中使得拿到红球的概率最大 <a href="https://www.nowcoder.com/discuss/3179" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/3179</a> <a href="https://www.nowcoder.com/discuss/11971" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/11971</a> <a href="https://www.nowcoder.com/discuss/55004" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/55004</a> <a href="https://www.nowcoder.com/discuss/12497" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/12497</a> <a href="https://www.nowcoder.com/discuss/84736" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84736</a> <a href="https://www.nowcoder.com/discuss/26107" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/26107</a> <a href="https://www.nowcoder.com/discuss/2990" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/2990</a> <a href="https://www.nowcoder.com/discuss/47341" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47341</a> <a href="https://www.nowcoder.com/discuss/33737" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/33737</a> <a href="https://www.nowcoder.com/discuss/11971" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/11971</a></p>
+<p>硬币:</p>
+<p>某个一直函数返回0/1，0的概率为p，写一函数返回两数概率相等。</p>
+<p>给你一个函数，这个函数是能得出1-5之间的随机数的，概率相同。现在求1-7之间随机函数，你如何做 <a href="https://www.nowcoder.com/discuss/56712" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/56712</a> <a href="https://www.nowcoder.com/discuss/56158" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/56158</a></p>
+<p>X是一个以p的概率产生1,1-p的概率产生0的随机变量，利用X等概率生成1-n的数 <a href="https://www.nowcoder.com/discuss/75360" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/75360</a> <a href="https://www.nowcoder.com/discuss/53916" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/53916</a> <a href="https://www.nowcoder.com/discuss/47341" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47341</a> <a href="https://www.nowcoder.com/discuss/12393" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/12393</a></p>
+<p>给你一个硬币，你如何获得2/3的概率</p>
 <blockquote>
-<p>这个其实还是比较容易想到的，把这枚硬币扔两次，以下情况出现的概率相等： </p>
+<p>这个其实还是比较容易想到的，把这枚硬币扔两次，以下情况出现的概率相等：</p>
 <ol>
-<li>正正 </li>
-<li>正反 </li>
-<li>反正 </li>
-<li>反反 </li>
+<li>正正</li>
+<li>正反</li>
+<li>反正</li>
+<li>反反</li>
 </ol>
 <p>所以如果出现第4种情况则相当于采样失败，继续实验，如果在1~3种情况中出现1~2的情况则是一个2323的概率</p>
 </blockquote>
 <p>扔硬币期望掷出‘正反正反……’的序列出来，倘若抛掷硬币没有任何技巧，每次是正是反的概率相同，那么无限地抛掷下去，第一次出错更有可能出在什么地方？</p>
-<p>A．该掷正面的时候掷出了反面<br>B．该掷反面的时候掷出了正面<br>C．上述两种情况的出现概率相同</p>
+<p>A．该掷正面的时候掷出了反面<br>
+B．该掷反面的时候掷出了正面<br>
+C．上述两种情况的出现概率相同</p>
 <blockquote>
-<p> 这个题目的答案是 A 。下面我们证明，因为该掷反面的时候掷出了正面而挂掉的概率，也就是在第偶数次抛掷时挂掉的概率，精确地等于 1/3 。容易得出，第 2 次就挂了的概率就是前 2 次精确地掷出“正正”序列的概率，它等于 1 / 22 。类似地，到第 4 次才挂的概率就是前 4 次精确地掷出“正反正正”序列的概率，它等于 1 / 24 ；而到第 6 次才挂的概率则是前 6 次精确地掷出“正反正反正正”序列的概率，它等于 1 / 26……所以，在第偶数次挂掉的概率是：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-  &    1 / 2^2 + 1 / 2^4 + 1 / 2^6 + 1 / 2^8 + … + 1/2^n \\
-= & 1 / 4 + 1 / 4^2 + 1 / 4^3 + 1 / 4^4 + … + 1/4^{(n-1)} \\
-= & (1 + 1 / 4 + 1 / 4^2 + 1 / 4^3 + 1 / 4^4 + … + 1/4^{(n-1)}) – 1 \\
-= & 1 / (1 – 1 / 4) – 1 \\
-= & 1 / 3 \\
-\end{align}</script></blockquote>
+<p>这个题目的答案是 A 。下面我们证明，因为该掷反面的时候掷出了正面而挂掉的概率，也就是在第偶数次抛掷时挂掉的概率，精确地等于 1/3 。容易得出，第 2 次就挂了的概率就是前 2 次精确地掷出“正正”序列的概率，它等于 1 / 22 。类似地，到第 4 次才挂的概率就是前 4 次精确地掷出“正反正正”序列的概率，它等于 1 / 24 ；而到第 6 次才挂的概率则是前 6 次精确地掷出“正反正反正正”序列的概率，它等于 1 / 26……所以，在第偶数次挂掉的概率是：<br>
+$$<br>
+\begin{align}<br>
+&amp;	1 / 2^2 + 1 / 2^4 + 1 / 2^6 + 1 / 2^8 + … + 1/2^n \<br>
+= &amp; 1 / 4 + 1 / 4^2 + 1 / 4^3 + 1 / 4^4 + … + 1/4^{(n-1)} \<br>
+= &amp; (1 + 1 / 4 + 1 / 4^2 + 1 / 4^3 + 1 / 4^4 + … + 1/4^{(n-1)}) – 1 \<br>
+= &amp; 1 / (1 – 1 / 4) – 1 \<br>
+= &amp; 1 / 3 \<br>
+\end{align}<br>
+$$</p>
+</blockquote>
 <hr>
-<p>  给定一个函数，它完全随机地产生【1,3】范围内的整数（即每个数的产生机率都是1/3）。用给定的函数去求一个完全随机产生【1,89】范围内的整数函数。。。注意，要求每个数的出现的概率都相同。</p>
+<p>给定一个函数，它完全随机地产生【1,3】范围内的整数（即每个数的产生机率都是1/3）。用给定的函数去求一个完全随机产生【1,89】范围内的整数函数。。。注意，要求每个数的出现的概率都相同。</p>
 <blockquote>
 <p>已知一个函数random()，可以返回1到n是随机值，设法利用它他构造一个random2()，使得random2()可以返回1到m的随机值</p>
 <p>从MITBBS看来的解决方法，使用笛卡尔积，构造(n<em>n)个随机元素，所以这些元素产生的概率都是1/(n</em>n)。</p>
 <p>当 m&lt;=n<em>n 时，只需要略去((n</em>n) % m)个元素，其余的元素总个数可以整除m，就构造了符合要求的random2()了；</p>
 <p>当 m &gt; n<em>n  时，可以考虑n</em>n<em>n来构造元素，然后略去((n</em>n*n) % m)个元素，其余的元素总个数就可以整除m，那就构造了random2()了。</p>
-<p> 例如，假设n=2，笛卡尔积就是 (1, 1)、(1, 2)、(2, 1)、(2, 2)，就得到(2<em>2)个元素，并且出现这(2</em>2)个元素出现的概率是相等的，都是1/4 。</p>
+<p>例如，假设n=2，笛卡尔积就是 (1, 1)、(1, 2)、(2, 1)、(2, 2)，就得到(2<em>2)个元素，并且出现这(2</em>2)个元素出现的概率是相等的，都是1/4 。</p>
 <p>假设此时m=3， (2<em>2) 不能 整除3，所以随便略去((2</em>2) % 3) (也就是 1 个) 个元素即可构造一个random2()函数。</p>
-<p>依此类推…  </p>
+<p>依此类推…</p>
 </blockquote>
-<p>  采样:  </p>
-<p>  随机数的生成算法，比如0~0.6的生成概率是0.7,0.6~1的生成概率是0.3，问怎么实现。 <a href="https://www.nowcoder.com/discuss/13322" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/13322</a> <a href="https://www.nowcoder.com/discuss/36424" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/36424</a>  </p>
-<p>  网游中有个抽奖活动，抽中各星座的概率为10/200，20/200，。。。120/200.如何实现？ <a href="https://www.nowcoder.com/discuss/1658" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/1658</a>  </p>
-<p>  给一个概率分布均匀的随机数发生器，给一串float型的数，希望通过这个随机数发生器实现对这串数进行随机采样，要求是如果其中的某个数值越大，那么它被采样到的概率也越大 <a href="https://www.nowcoder.com/discuss/80837" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/80837</a>  </p>
-<p>  随机数生成算法，一个float数组相同元素的和除以整个数组的和做为抽取该元素的概率，实现按这种概率随机抽取数组中的元素的算法。 <a href="https://www.nowcoder.com/discuss/13857" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/13857</a>  </p>
-<p>  一本无数个字的书从前往后读，某个时间点突然暂停并返回之前读过的某个字，要求每个字返回的概率是一样的。 <a href="https://www.nowcoder.com/discuss/80218" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/80218</a>  </p>
-<p>  一个有n*n个方格的棋盘，在里面放m个地雷，如何放保证在每个方格上放雷的概率相等。 <a href="https://www.nowcoder.com/discuss/47399" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47399</a>  </p>
-<p>  几何:  </p>
-<p>  一根棍子折三段能组成三角形的概率 </p>
+<p>采样:</p>
+<p>随机数的生成算法，比如0~0.6的生成概率是0.7,0.6~1的生成概率是0.3，问怎么实现。 <a href="https://www.nowcoder.com/discuss/13322" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/13322</a> <a href="https://www.nowcoder.com/discuss/36424" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/36424</a></p>
+<p>网游中有个抽奖活动，抽中各星座的概率为10/200，20/200，。。。120/200.如何实现？ <a href="https://www.nowcoder.com/discuss/1658" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/1658</a></p>
+<p>给一个概率分布均匀的随机数发生器，给一串float型的数，希望通过这个随机数发生器实现对这串数进行随机采样，要求是如果其中的某个数值越大，那么它被采样到的概率也越大 <a href="https://www.nowcoder.com/discuss/80837" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/80837</a></p>
+<p>随机数生成算法，一个float数组相同元素的和除以整个数组的和做为抽取该元素的概率，实现按这种概率随机抽取数组中的元素的算法。 <a href="https://www.nowcoder.com/discuss/13857" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/13857</a></p>
+<p>一本无数个字的书从前往后读，某个时间点突然暂停并返回之前读过的某个字，要求每个字返回的概率是一样的。 <a href="https://www.nowcoder.com/discuss/80218" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/80218</a></p>
+<p>一个有n*n个方格的棋盘，在里面放m个地雷，如何放保证在每个方格上放雷的概率相等。 <a href="https://www.nowcoder.com/discuss/47399" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/47399</a></p>
+<p>几何:</p>
+<p>一根棍子折三段能组成三角形的概率</p>
 <blockquote>
-<p>设折成的三段长分别为x,y和L-x-y,<br>根据三角形中任意两边的和大于第三边的性质，可得<br>x+y &gt; L-x-y①<br>x+(L-x-y) &gt; y②<br>y+(L-x-y)&gt; x③<br>x&gt;0,y&gt;0④<br>0&lt;x+y&lt;L⑤<br>题目所示的概率就是在④⑤围成的三角形区域S中由①②③围成的三角形区域所占的概率<br>由：s=L<em>l/2=L^2/2， S’=(L/2)</em>(L/2)/2=L^2/8，得所求的概率为p=S’/S=1/4.</p>
+<p>设折成的三段长分别为x,y和L-x-y,<br>
+根据三角形中任意两边的和大于第三边的性质，可得<br>
+x+y &gt; L-x-y①<br>
+x+(L-x-y) &gt; y②<br>
+y+(L-x-y)&gt; x③<br>
+x&gt;0,y&gt;0④<br>
+0&lt;x+y&lt;L⑤<br>
+题目所示的概率就是在④⑤围成的三角形区域S中由①②③围成的三角形区域所占的概率<br>
+由：s=L<em>l/2=L^2/2， S’=(L/2)</em>(L/2)/2=L^2/8，得所求的概率为p=S’/S=1/4.</p>
 </blockquote>
-<p> 一个圆上三个点形成钝角的概率是多少？假如两个点和圆心形成的圆心角已经是直角，那么第三个和这两个点形成钝角的概率是多少？ <a href="https://www.nowcoder.com/discuss/91505" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/91505</a>  </p>
+<p>一个圆上三个点形成钝角的概率是多少？假如两个点和圆心形成的圆心角已经是直角，那么第三个和这两个点形成钝角的概率是多少？ <a href="https://www.nowcoder.com/discuss/91505" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/91505</a></p>
 <blockquote>
 <ol>
-<li><p>3/4</p>
+<li>
+<p>3/4</p>
 </li>
-<li><p>3/4</p>
+<li>
+<p>3/4</p>
 </li>
 </ol>
 </blockquote>
-<p>  X，Y独立均服从（0,1）上的均匀分布，P{X^2+Y^2≤1}等于</p>
+<p>X，Y独立均服从（0,1）上的均匀分布，P{X^2+Y^2≤1}等于</p>
 <blockquote>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-131955.png" alt="image-20190722211954797"></p>
 </blockquote>
-<p>  一个圆，在圆上随机取3个点，这3个点组成锐角三角形的概率。 </p>
+<p>一个圆，在圆上随机取3个点，这3个点组成锐角三角形的概率。</p>
 <blockquote>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-131710.png" alt="image-20190722211709903"></p>
 </blockquote>
-<p>  参考答案: <a href="http://www.dscademy.com/probability-theory/problems/#triangle-contains-center-question" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/problems/#triangle-contains-center-question</a>  </p>
-<p>  一个袋子里有100个黑球和100个白球，每次随机拿出两个球丢掉，如果丢掉的是不同颜色的球，则从其他地方补充一个黑球到袋子里，如果颜色相同，则补充一个白球到袋子里。问：最后一个球是黑球和白球的概率分别为多大？ <a href="https://www.nowcoder.com/discuss/70012" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/70012</a>  </p>
-<p>  动态规划:  </p>
-<p>  扔骰子，最多扔两次，第一次扔完可以自行决定要不要扔第二次，去最后一次扔色子的结果为准，求：尽可能得到最大点数的数学期望 <a href="https://www.nowcoder.com/discuss/74234" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/74234</a>  </p>
-<p>  第一步分析:  </p>
-<p>  两人轮流扔硬币，扔出正面获胜，求：先扔者获胜的概率 <a href="https://www.nowcoder.com/discuss/74234" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/74234</a>  </p>
-<p>  a b c 分别循环投掷硬币，直到正面出现胜利，求a b c获胜的概率 <a href="https://www.nowcoder.com/discuss/52700" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/52700</a>  </p>
-<p>  硬币正反概率是1/2,一直抛硬币,直到连续两次正面停止，问期望次数 <a href="https://www.nowcoder.com/discuss/69932" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/69932</a>  </p>
-<p>  参考答案: <a href="http://www.dscademy.com/probability-theory/first-step-analysis/" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/first-step-analysis/</a>  </p>
-<p>  其它:  </p>
+<p>参考答案: <a href="http://www.dscademy.com/probability-theory/problems/#triangle-contains-center-question" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/problems/#triangle-contains-center-question</a></p>
+<p>一个袋子里有100个黑球和100个白球，每次随机拿出两个球丢掉，如果丢掉的是不同颜色的球，则从其他地方补充一个黑球到袋子里，如果颜色相同，则补充一个白球到袋子里。问：最后一个球是黑球和白球的概率分别为多大？ <a href="https://www.nowcoder.com/discuss/70012" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/70012</a></p>
+<p>动态规划:</p>
+<p>扔骰子，最多扔两次，第一次扔完可以自行决定要不要扔第二次，去最后一次扔色子的结果为准，求：尽可能得到最大点数的数学期望 <a href="https://www.nowcoder.com/discuss/74234" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/74234</a></p>
+<p>第一步分析:</p>
+<p>两人轮流扔硬币，扔出正面获胜，求：先扔者获胜的概率 <a href="https://www.nowcoder.com/discuss/74234" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/74234</a></p>
+<p>a b c 分别循环投掷硬币，直到正面出现胜利，求a b c获胜的概率 <a href="https://www.nowcoder.com/discuss/52700" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/52700</a></p>
+<p>硬币正反概率是1/2,一直抛硬币,直到连续两次正面停止，问期望次数 <a href="https://www.nowcoder.com/discuss/69932" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/69932</a></p>
+<p>参考答案: <a href="http://www.dscademy.com/probability-theory/first-step-analysis/" target="_blank" rel="noopener">http://www.dscademy.com/probability-theory/first-step-analysis/</a></p>
+<p>其它:</p>
 <p>某大公司有这么一个规定：只要有一个员工过生日，当天所有员工全部放假一天。但在其余时候，所有员工都没有假期，必须正常上班。这个公司需要雇用多少员工，才能让公司一年内所有员工的总工作时间期望值最大？</p>
 <blockquote>
-<p>链接：<a href="https://www.nowcoder.com/questionTerminal/09a48370f5f74faab22ab7fb684ae5d8?orderByHotValue=0&amp;pos=41&amp;mutiTagIds=601" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/09a48370f5f74faab22ab7fb684ae5d8?orderByHotValue=0&amp;pos=41&amp;mutiTagIds=601</a><br>来源：牛客网</p>
-<p>一个人，对于任意一天，过生日的概率是 1 / 365, 不过生日的概率是 364 / 365<br>  n个人，对于任意一天，没任何人过生日的概率是(364 / 365)^n<br> n个人，对于任意一天，有人过生日的概率是 1 - (364   / 365)^n<br> 那么365天里有人过生日的期望天数是 365（1 - (364 / 365)^n）天，<br>  则n个人，365天，每个人工作的期望天数是365 - 365（1 - (364 / 365)^n）= 365(364 /   365)^n<br> 从而所有人的期望工作天数的和为：365n(364 / 365)^n，求导数，导数不小于0，递增。</p>
+<p>链接：<a href="https://www.nowcoder.com/questionTerminal/09a48370f5f74faab22ab7fb684ae5d8?orderByHotValue=0&amp;pos=41&amp;mutiTagIds=601" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/09a48370f5f74faab22ab7fb684ae5d8?orderByHotValue=0&amp;pos=41&amp;mutiTagIds=601</a><br>
+来源：牛客网</p>
+<p>一个人，对于任意一天，过生日的概率是 1 / 365, 不过生日的概率是 364 / 365<br>
+n个人，对于任意一天，没任何人过生日的概率是(364 / 365)^n<br>
+n个人，对于任意一天，有人过生日的概率是 1 - (364   / 365)^n<br>
+那么365天里有人过生日的期望天数是 365（1 - (364 / 365)^n）天，<br>
+则n个人，365天，每个人工作的期望天数是365 - 365（1 - (364 / 365)^n）= 365(364 /   365)^n<br>
+从而所有人的期望工作天数的和为：365n(364 / 365)^n，求导数，导数不小于0，递增。</p>
 <p>所以是365</p>
 </blockquote>
 <p>不存储数据流的前提下,从输入流中获得这 n 个等概率的随机数据 。</p>
 <blockquote>
-<p>开辟一个长度为n的数组，对与数据流的第i个数据，以$\frac{n}{i}$的概率将其留下。（i&gt;n）<br>设数据流中已经流过了m个数据，一共有n个数据被留下来了，每个数据流下来的概率为n/m</p>
+<p>开辟一个长度为n的数组，对与数据流的第i个数据，以$\frac{n}{i}$的概率将其留下。（i&gt;n）<br>
+设数据流中已经流过了m个数据，一共有n个数据被留下来了，每个数据流下来的概率为n/m</p>
 <ul>
-<li><p>那么在i=n+1时，n中的数据被留下来的概率为：</p>
-<script type="math/tex; mode=display">
-\frac{n}{m} [(1-(\frac{n}{m+1})) + (\frac{n}{m+1}*\frac{n-1}{n})]
-= \frac{n}{m}\frac{m}{m+1} = \frac{n}{m+1}</script></li>
-<li><p>第i个被选中留下的概率为：$\frac{n}{m+1}$</p>
+<li>
+<p>那么在i=n+1时，n中的数据被留下来的概率为：<br>
+$$<br>
+\frac{n}{m} [(1-(\frac{n}{m+1})) + (\frac{n}{m+1}*\frac{n-1}{n})]<br>
+= \frac{n}{m}\frac{m}{m+1} = \frac{n}{m+1}<br>
+$$</p>
+</li>
+<li>
+<p>第i个被选中留下的概率为：$\frac{n}{m+1}$</p>
 </li>
 </ul>
 </blockquote>
-<p>  某段公路上1小时有车通过的概率是0.96，半小时有车通过的概率是多少 </p>
+<p>某段公路上1小时有车通过的概率是0.96，半小时有车通过的概率是多少</p>
 <blockquote>
 <p>反过来想，设半个小时有车经过的概率是p，那么一个小时内没有车经过的概率为$(1-p)^2$,那么一个小时内有车经过的概率为$1-(1-p)^2 = 0.96$， p=0.8</p>
 </blockquote>
-<p>  一个公交站在1分钟内有车经过概率是p，问3分钟内有车经过概率 <a href="https://www.nowcoder.com/discuss/84974" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84974</a> <a href="https://www.nowcoder.com/discuss/84560" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84560</a> <a href="https://www.nowcoder.com/discuss/55378" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/55378</a> <a href="https://www.nowcoder.com/discuss/48485" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/48485</a>  </p>
+<p>一个公交站在1分钟内有车经过概率是p，问3分钟内有车经过概率 <a href="https://www.nowcoder.com/discuss/84974" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84974</a> <a href="https://www.nowcoder.com/discuss/84560" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/84560</a> <a href="https://www.nowcoder.com/discuss/55378" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/55378</a> <a href="https://www.nowcoder.com/discuss/48485" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/48485</a></p>
 <blockquote>
 <p>$1-(1-p)^3$</p>
 </blockquote>
-<p> 6位数字的8位数码管显示的数字，倒过来看和以前相同的概率是多少。 <a href="https://www.nowcoder.com/discuss/89390" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/89390</a> <a href="https://www.nowcoder.com/discuss/19487" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/19487</a>  </p>
-<p>  8支球队循环赛，前四名晋级。求晋级可能性   </p>
-<p>  <a href="https://www.nowcoder.com/discuss/94110" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/94110</a>  </p>
-<p> 一个活动，女生们手里都拿着长短不一的玫瑰花，无序地排成一排，一个男生从队头走到队尾，试图拿到尽可能长的玫瑰花，规则是:一旦他拿了一朵，后面就不能再拿了，如果错过了某朵花，就不能再回头，问最好的策略是什么? <a href="https://www.nowcoder.com/discuss/75715" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/75715</a>  </p>
-<p>  参考答案: <a href="https://www.guokr.com/article/6768/" target="_blank" rel="noopener">https://www.guokr.com/article/6768/</a>  </p>
-<p>  三个范围在0-1的数，和也在0-1的概率。 <a href="https://www.nowcoder.com/discuss/46418" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/46418</a></p>
-<p>100张牌，每次只能抽一张，抽过的牌会丢掉，怎么选出最大的牌。   </p>
-<p>   36匹马，6条跑道，选出最快3匹，最少赛多少场？   </p>
-<p>   5个海盗抢到了100颗宝石，每一颗都一样的大小和价值连城。他们决定：抽签决定自己的号码（1，2，3，4，5）。首先，由1号提出分配方案（你抽到1号），然后大家5人进行表决，当且仅当超过半数的人同意时，按照他的提案进行分配，否则将被扔入大海喂鲨鱼。 如果1号死后，再由2号提出分配方案，依此类推。条件：每颗宝石都是一样的价值。海盗都想保命，尽量多得宝石，尽量多杀人。问题：你会提出怎样的分配方案才能够使自己的收益最大化？   </p>
-<p>   一个人要过一座80米的桥，每走一米需要吃一颗豆子，他最多可以装60颗豆子，问最少需要吃多少颗豆子才能走完桥？证明一下为什么你给的答案是最少的？桥长81米呢？当桥长n米，最多装m颗的时候结果用公式怎么表示？   </p>
-<p>   一个绳子烧完需要1个小时，假设所有绳子的材质都不一样，也不均匀，怎么取出1小时加 15分钟。   </p>
-<p>   把1~9这9个数填入九格宫里,使每一横、竖、斜相等。   </p>
-<p>   有100个黑球，100个白球。两个桶，桶的容量无限，每个球都可以任意放在任何一个桶中，没有限制，请设计一种分配方法，使得白黑球分配到两个桶之后, 某个人从某个桶中取出的球是白球的概率最大化。（这个人去第一个桶取球的概率是1/2,第二个桶也是1/2）   </p>
-<p>   有1亿个货物，不能单个单个检测，只能通过两两对比来找出其中的次品，请设计一个算法来找出次品。   </p>
-<p>   有25匹马 ，5个跑道，一次只能比5匹马，得到跑得最快的前3，至少需要比几次？   </p>
-<p>   有3盏灯，房间外有3个开关，你只有1次机会进入房间，怎么判断哪个开关对应哪盏灯？   </p>
-<p>   给一堆螺母和螺栓，它们可以一一对应，但是现在顺序乱了，只能用螺母和螺栓比较，将它们一一对应起来。 </p>
-<h4 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h4><p>   100亿数字，怎么统计前100大的？   </p>
-<p>   10亿个url，每个url大小小于56B，要求去重，内存4G。   </p>
-<p>   1KW句子算相似度（还是那套分块+hash/建索引，但是因为本人不是做这个的，文本处理根本说一片空白，所以就不误导大家了），之后就是一直围绕大数据的题目不断深化。   </p>
-<p>   Q1：给定一个1T的单词文件，文件中每一行为一个单词，单词无序且有重复，当前有5台计算机。请问如何统计词频？   </p>
-<p>   Q2：每台计算机需要计算200G左右的文件，内存无法存放200G内容，那么如何统计这些文件的词频？   </p>
-<p>   Q3：如何将1T的文件均匀地分配给5台机器，且每台机器统计完词频生成的文件只需要拼接起来即可（即每台机器统计的单词不出现在其他机器中）   </p>
-<p>   一个大文件A和一个小文件B，里面存的是单词，要求出在文件B中但不在文件A中的单词。然后大文件A是无法直接存到内存中的。   </p>
-<p>   一道题目是如果有一个人注册一个qq，如何保证这个qq号码和之前已存在的qq号码不重复呢？   </p>
-<p>   扔硬币，连续出现两次正面即结束，问扔的次数期望   </p>
-<p>   有100W个集合，每个集合中的word是同义词，同义词具有传递性， 比如集合1中有word a, 集合2中也有word a, 则集合1，2中所有词都是同义词，对这100W个集合进行归并，同义词都在一个集合当中。   </p>
-<p>   有几个 G 的文本，每行记录了访问 ip 的 log ，如何快速统计 ip 出现次数最高的 10 个 ip，如果只用 linux 指令又该怎么解决；   </p>
-<p>   海量数据的topk问题 </p>
-<h4 id="计算机基础"><a href="#计算机基础" class="headerlink" title="计算机基础"></a>计算机基础</h4><p>   Linux下的一些指令，$$（进程id），$?（上一条命令退出时状态），怎么查看进程，按照内存大小，CPU占用排序等等。   </p>
-<p>   Linux的命令：pwd、ln、which   </p>
-<p>   Linux线程通信   </p>
-<p>   hash表是怎么实现的？有冲突的时候怎么处理？   </p>
-<p>   linux 文件词频统计   </p>
-<p>   介绍一下hash，怎么解决冲突。   </p>
-<p>   你说一下hashmap的原理   </p>
-<p>   内存泄露出现原因。   </p>
-<p>   悲观锁乐观锁   </p>
-<p>   把两个表按id合并怎么搞？   </p>
-<p>   数据库transaction   </p>
-<p>   浅拷贝深拷贝   </p>
-<p>   第二题是两题 sql ，涉及 join,group by,max,min,sum,count 等操作的结合，以及同个题目多种写法。   </p>
-<p>   线程安全是什么意思？新线程什么情况下会影响原有线程？   </p>
-<p>   网络基础TCP三次握手   </p>
-<p>   计算机网络：描述他发一句hello world到我这边显示，中间经历了哪些过程，我从应用层开始一层层往下分析答的，主要说http和tcp，网络层和链路层有些忘，但主要的几个协议和子网划分什么的也答了，面试官比较满意   </p>
-<p>   词向量的推导，混合高斯，linux硬链接，三次握手，linux inode   </p>
-<p>   进程线程的区别 </p>
-<h4 id="概率题"><a href="#概率题" class="headerlink" title="概率题"></a>概率题</h4><p>   100人坐飞机，第一个乘客在座位中随便选一个坐下，第100人正确坐到自己坐位的概率是？   </p>
-<p>   X是一个以p的概率产生1,1-p的概率产生0的随机变量，利用X产生1/2概率是0,1/2概率是1的随机变量。   </p>
-<p>   X，Y均服存于 [0,1] 的均匀分布，求X+Y。   </p>
-<p>   一个国家重男轻女，只要生了女孩就继续生，直到生出男孩为止，问这个国家的男女比例？   </p>
-<p>   一个有7个格子的环，三种颜色染色，相邻不能颜色重复，问多少种方案   </p>
-<p>   一个袋子里有很多种颜色的球，其中抽红球的概率为1/4，现在有放回地抽10个球，其中7个球为红球的概率是多少？   </p>
-<p>   一枚硬币，扔了一亿次都是正面朝上，再扔一次反面朝上的概率是多少？   </p>
-<p>   一道概率题，54张牌，平均分成三堆，大小王在同一堆的概率？   </p>
-<p>   一道概率题，一个六位的密码，由0~9组成，问你正过来看和倒过来看密码是一样的概率。   </p>
-<p>   一道组合数学题。10盏灯，灭三盏，两头的必须亮着，不能灭掉相邻的两盏灯，问组合数？   </p>
+<p>6位数字的8位数码管显示的数字，倒过来看和以前相同的概率是多少。 <a href="https://www.nowcoder.com/discuss/89390" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/89390</a> <a href="https://www.nowcoder.com/discuss/19487" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/19487</a></p>
+<p>8支球队循环赛，前四名晋级。求晋级可能性</p>
+<p><a href="https://www.nowcoder.com/discuss/94110" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/94110</a></p>
+<p>一个活动，女生们手里都拿着长短不一的玫瑰花，无序地排成一排，一个男生从队头走到队尾，试图拿到尽可能长的玫瑰花，规则是:一旦他拿了一朵，后面就不能再拿了，如果错过了某朵花，就不能再回头，问最好的策略是什么? <a href="https://www.nowcoder.com/discuss/75715" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/75715</a></p>
+<p>参考答案: <a href="https://www.guokr.com/article/6768/" target="_blank" rel="noopener">https://www.guokr.com/article/6768/</a></p>
+<p>三个范围在0-1的数，和也在0-1的概率。 <a href="https://www.nowcoder.com/discuss/46418" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/46418</a></p>
+<p>100张牌，每次只能抽一张，抽过的牌会丢掉，怎么选出最大的牌。</p>
+<p>36匹马，6条跑道，选出最快3匹，最少赛多少场？</p>
+<p>5个海盗抢到了100颗宝石，每一颗都一样的大小和价值连城。他们决定：抽签决定自己的号码（1，2，3，4，5）。首先，由1号提出分配方案（你抽到1号），然后大家5人进行表决，当且仅当超过半数的人同意时，按照他的提案进行分配，否则将被扔入大海喂鲨鱼。 如果1号死后，再由2号提出分配方案，依此类推。条件：每颗宝石都是一样的价值。海盗都想保命，尽量多得宝石，尽量多杀人。问题：你会提出怎样的分配方案才能够使自己的收益最大化？</p>
+<p>一个人要过一座80米的桥，每走一米需要吃一颗豆子，他最多可以装60颗豆子，问最少需要吃多少颗豆子才能走完桥？证明一下为什么你给的答案是最少的？桥长81米呢？当桥长n米，最多装m颗的时候结果用公式怎么表示？</p>
+<p>一个绳子烧完需要1个小时，假设所有绳子的材质都不一样，也不均匀，怎么取出1小时加 15分钟。</p>
+<p>把1~9这9个数填入九格宫里,使每一横、竖、斜相等。</p>
+<p>有100个黑球，100个白球。两个桶，桶的容量无限，每个球都可以任意放在任何一个桶中，没有限制，请设计一种分配方法，使得白黑球分配到两个桶之后, 某个人从某个桶中取出的球是白球的概率最大化。（这个人去第一个桶取球的概率是1/2,第二个桶也是1/2）</p>
+<p>有1亿个货物，不能单个单个检测，只能通过两两对比来找出其中的次品，请设计一个算法来找出次品。</p>
+<p>有25匹马 ，5个跑道，一次只能比5匹马，得到跑得最快的前3，至少需要比几次？</p>
+<p>有3盏灯，房间外有3个开关，你只有1次机会进入房间，怎么判断哪个开关对应哪盏灯？</p>
+<p>给一堆螺母和螺栓，它们可以一一对应，但是现在顺序乱了，只能用螺母和螺栓比较，将它们一一对应起来。</p>
+<h4 id="大数据">大数据</h4>
+<p>100亿数字，怎么统计前100大的？</p>
+<p>10亿个url，每个url大小小于56B，要求去重，内存4G。</p>
+<p>1KW句子算相似度（还是那套分块+hash/建索引，但是因为本人不是做这个的，文本处理根本说一片空白，所以就不误导大家了），之后就是一直围绕大数据的题目不断深化。</p>
+<p>Q1：给定一个1T的单词文件，文件中每一行为一个单词，单词无序且有重复，当前有5台计算机。请问如何统计词频？</p>
+<p>Q2：每台计算机需要计算200G左右的文件，内存无法存放200G内容，那么如何统计这些文件的词频？</p>
+<p>Q3：如何将1T的文件均匀地分配给5台机器，且每台机器统计完词频生成的文件只需要拼接起来即可（即每台机器统计的单词不出现在其他机器中）</p>
+<p>一个大文件A和一个小文件B，里面存的是单词，要求出在文件B中但不在文件A中的单词。然后大文件A是无法直接存到内存中的。</p>
+<p>一道题目是如果有一个人注册一个qq，如何保证这个qq号码和之前已存在的qq号码不重复呢？</p>
+<p>扔硬币，连续出现两次正面即结束，问扔的次数期望</p>
+<p>有100W个集合，每个集合中的word是同义词，同义词具有传递性， 比如集合1中有word a, 集合2中也有word a, 则集合1，2中所有词都是同义词，对这100W个集合进行归并，同义词都在一个集合当中。</p>
+<p>有几个 G 的文本，每行记录了访问 ip 的 log ，如何快速统计 ip 出现次数最高的 10 个 ip，如果只用 linux 指令又该怎么解决；</p>
+<p>海量数据的topk问题</p>
+<h4 id="计算机基础">计算机基础</h4>
+<p>Linux下的一些指令，$$（进程id），$?（上一条命令退出时状态），怎么查看进程，按照内存大小，CPU占用排序等等。</p>
+<p>Linux的命令：pwd、ln、which</p>
+<p>Linux线程通信</p>
+<p>hash表是怎么实现的？有冲突的时候怎么处理？</p>
+<p>linux 文件词频统计</p>
+<p>介绍一下hash，怎么解决冲突。</p>
+<p>你说一下hashmap的原理</p>
+<p>内存泄露出现原因。</p>
+<p>悲观锁乐观锁</p>
+<p>把两个表按id合并怎么搞？</p>
+<p>数据库transaction</p>
+<p>浅拷贝深拷贝</p>
+<p>第二题是两题 sql ，涉及 join,group by,max,min,sum,count 等操作的结合，以及同个题目多种写法。</p>
+<p>线程安全是什么意思？新线程什么情况下会影响原有线程？</p>
+<p>网络基础TCP三次握手</p>
+<p>计算机网络：描述他发一句hello world到我这边显示，中间经历了哪些过程，我从应用层开始一层层往下分析答的，主要说http和tcp，网络层和链路层有些忘，但主要的几个协议和子网划分什么的也答了，面试官比较满意</p>
+<p>词向量的推导，混合高斯，linux硬链接，三次握手，linux inode</p>
+<p>进程线程的区别</p>
+<h4 id="概率题">概率题</h4>
+<p>100人坐飞机，第一个乘客在座位中随便选一个坐下，第100人正确坐到自己坐位的概率是？</p>
+<p>X是一个以p的概率产生1,1-p的概率产生0的随机变量，利用X产生1/2概率是0,1/2概率是1的随机变量。</p>
+<p>X，Y均服存于 [0,1] 的均匀分布，求X+Y。</p>
+<p>一个国家重男轻女，只要生了女孩就继续生，直到生出男孩为止，问这个国家的男女比例？</p>
+<p>一个有7个格子的环，三种颜色染色，相邻不能颜色重复，问多少种方案</p>
+<p>一个袋子里有很多种颜色的球，其中抽红球的概率为1/4，现在有放回地抽10个球，其中7个球为红球的概率是多少？</p>
+<p>一枚硬币，扔了一亿次都是正面朝上，再扔一次反面朝上的概率是多少？</p>
+<p>一道概率题，54张牌，平均分成三堆，大小王在同一堆的概率？</p>
+<p>一道概率题，一个六位的密码，由0~9组成，问你正过来看和倒过来看密码是一样的概率。</p>
+<p>一道组合数学题。10盏灯，灭三盏，两头的必须亮着，不能灭掉相邻的两盏灯，问组合数？</p>
 <p>有三枚硬币,其中一枚的两面都是正面图像,另一枚的两面都是反面图像,第三枚是正常的，一反一正。现从中随机的抽取一枚硬币进行抛掷，得到正面朝上，问这枚硬币的另一面是反面图像的概率是多大？</p>
-<p>   个人玩游戏，100个球，每次挑5个，如何保证必胜。52张牌，四个人抽，黑桃A和红桃A同时在一个人手里的概率。   </p>
-<p>   好像是问有70%的人喜欢玩游戏，30%的人不喜欢玩游戏，现在推送的资源必须是50%游戏，50%非游戏。问怎么分配比较合理。   </p>
-<p>   有n个elements和1个Compare(A, B)函数，用Compare函数作为排序算法中的比较算子给elements排序.Compare函数有p的可能比较错。排序完取Top m个元素，本来就在Top m并被正确分在Top m的元素个数是x。问x的数学期望。   </p>
+<p>个人玩游戏，100个球，每次挑5个，如何保证必胜。52张牌，四个人抽，黑桃A和红桃A同时在一个人手里的概率。</p>
+<p>好像是问有70%的人喜欢玩游戏，30%的人不喜欢玩游戏，现在推送的资源必须是50%游戏，50%非游戏。问怎么分配比较合理。</p>
+<p>有n个elements和1个Compare(A, B)函数，用Compare函数作为排序算法中的比较算子给elements排序.Compare函数有p的可能比较错。排序完取Top m个元素，本来就在Top m并被正确分在Top m的元素个数是x。问x的数学期望。</p>
 <p>有两个随机数产生器，R1以0.7的概率产生1，以0.3的概率产生0，而R2以0.3的概率产生1，0.7的概率产生0.问如何组合这两种产生器，使新得到的随机数产生器以0.5的概率产生1，0.5的概率产生0。随机数产生器可复用</p>
 <blockquote>
-<p>用R1和R2同时生成两个随机数：</p>
-<script type="math/tex; mode=display">
-p(1, 1) = 0.7 \times 0.3 \\
-p(1, 0) = 0.7 \times 0.7 \\
-p(0, 1) = 0.3 \times 0.3 \\
-p(0, 0) = 0.3 \times 0.7 \\</script><p>可以看到同事产生1，1 和同时产生0，0的概率是相等的。所以可以随机的用R1和R2产生数组</p>
+<p>用R1和R2同时生成两个随机数：<br>
+$$<br>
+p(1, 1) = 0.7 \times 0.3 \<br>
+p(1, 0) = 0.7 \times 0.7 \<br>
+p(0, 1) = 0.3 \times 0.3 \<br>
+p(0, 0) = 0.3 \times 0.7 \<br>
+$$<br>
+可以看到同事产生1，1 和同时产生0，0的概率是相等的。所以可以随机的用R1和R2产生数组</p>
 <ul>
 <li>如果生成的事[1, 1] 则返回1</li>
 <li>如果是生成的[0，0]则返回0</li>
 <li>如果生成 [1, 0]或者[0，1]则放弃这次的结果，继续生成。</li>
 </ul>
 </blockquote>
-<p>有两枚硬币A和B，A正面的概率为0.6，B正面的概率为0.5.现在扔了一枚硬币显示为正面，问：该枚硬币是A的概率是多少？   </p>
+<p>有两枚硬币A和B，A正面的概率为0.6，B正面的概率为0.5.现在扔了一枚硬币显示为正面，问：该枚硬币是A的概率是多少？</p>
 <blockquote>
-<p>p(p|A) = 0.6<br>p(p|B) = 0.5</p>
-<p>$p(A|p) = \frac{p(A,P)}{p(P)} = \frac{p(P|A)p(A)}{p(P|A)p(A) + p(P|B)p(B)} = \frac{0.6\times0.5}{0.6\times0.5+0.5\times0.5}$</p>
+<p>p(p|A) = 0.6<br>
+p(p|B) = 0.5</p>
+<p>$p(A|p) = \frac{p(A,P)}{p§} = \frac{p(P|A)p(A)}{p(P|A)p(A) + p(P|B)p(B)} = \frac{0.6\times0.5}{0.6\times0.5+0.5\times0.5}$</p>
 </blockquote>
-<p>  概率题：有种癌症，早期的治愈率为0.8，中期的治愈率为0.5，晚期的治愈率为0.2.若早期没治好就会转为中期，中期没治好就会变成晚期。现在有一个人被诊断为癌症早期，然后被治愈了，问他被误诊为癌症的概率是多少？   </p>
-<p>  给定一个分类器p，它有0.5的概率输出1，0.5的概率输出0。</p>
+<p>概率题：有种癌症，早期的治愈率为0.8，中期的治愈率为0.5，晚期的治愈率为0.2.若早期没治好就会转为中期，中期没治好就会变成晚期。现在有一个人被诊断为癌症早期，然后被治愈了，问他被误诊为癌症的概率是多少？</p>
+<p>给定一个分类器p，它有0.5的概率输出1，0.5的概率输出0。</p>
 <p>Q1：如何生成一个分类器使该分类器输出1的概率为0.25，输出0的概率为0.75？</p>
-<p>Q2：如何生成一个分类器使该分类器输出1的概率为0.3，输出0的概率为0.7？   </p>
-<p>问了一个概率题 54张牌，分成6份，每份9张牌，大小王在一起的概率 </p>
-<h4 id="hr常问问题"><a href="#HR常问问题" class="headerlink" title="HR常问问题"></a>HR常问问题</h4><p>   为什么不读博、对读博报以什么态度。   </p>
-<p>   为什么选择百度，谷歌百度都给你offer你选哪个。   </p>
-<p>   为什么选择跨专业学计算机？   </p>
-<p>   为什么选择阿里   </p>
-<p>   以后可能要学习很多新技术，你怎么看。   </p>
-<p>   你平时喜欢做什么？看过哪些书？最近在看什么书？   </p>
-<p>   你觉得最有挑战的项目是什么。   </p>
-<p>   你觉得最难忘的事情是什么？   </p>
-<p>   你认为你的优（缺）点是什么。   </p>
-<p>   你还有什么想问的？   </p>
-<p>   加班怎么看。   </p>
-<p>   印象最深刻的事？   </p>
-<p>   压力最大的情况是什么时候。   </p>
-<p>   在面试过程中觉得自己那些当面有进步   </p>
-<p>   场景分析题，有一个任务给你，要求一个月完成，但是以目前的能力一个月完成不了，现在你知道有一个同事擅长这部分工作，但是他有自己的活，帮助你就可能耽误他的进度，问你咋办。   </p>
-<p>   大学令你觉得最不爽的事情是什么   </p>
-<p>   如何学习的？   </p>
-<p>   如何看待加班。   </p>
-<p>   实习期间项目，在组内担任的角色，是否熟悉其他组员的工作。   </p>
-<p>   家庭教育观念？   </p>
-<p>   家里什么情况？独生子女？   </p>
-<p>   将来的职业规划？   </p>
-<p>   工作地点   </p>
-<p>   工作地点的问题   </p>
-<p>   平时有什么兴趣爱好。   </p>
-<p>   我觉得我会先去专心钻研技术，到达一定的   </p>
-<p>   最后问了一下我兴趣爱好   </p>
-<p>   有什么问题问我。   </p>
-<p>   有没其他offer   </p>
-<p>   有没有想过去创业公司   </p>
-<p>   现在在哪里实习？实习主要做些什么？   </p>
-<p>   简单介绍一下自己   </p>
-<p>   聊聊offer情况，有什么考虑之类的。   </p>
-<p>   聊聊实验室生活。   </p>
-<p>   能不能来北京   </p>
-<p>   自己有什么优点缺点？   </p>
-<p>   自己本科生和研究生相比有哪些进步   </p>
-<p>   要求用两个字评价大学生涯。   </p>
-<p>   讲一下你觉得你突出的地方，有亮点的地方。   </p>
-<p>   评价一下你自己的优点缺点？   </p>
-<p>   详细介绍项目。   </p>
-<p>   说下你的优缺点   </p>
-<p>   说说你的经历。   </p>
-<p>   说说你自己的性格。   </p>
-<p>   说说研究生阶段最有成就的事，遇到问题具体怎么解决的。   </p>
-<p>   请你说一下你对应聘该岗位的优势。   </p>
-<p>   遇到的最大挫折是什么。   </p>
-<p>   问你的职业规划，遇到挑战怎么处理，有没有之前和同事发生过较大分歧。 </p>
-<h4 id="开放题"><a href="#开放题" class="headerlink" title="开放题"></a>开放题</h4><p>   2016年每个项目有个上线和下线时间段，统计每天在线的项目数量   </p>
-<p>   一堆问题和答案的pair，算它们的相关性   </p>
-<p>   一面现场面，自我介绍加挑一个项目细讲，还有场景题，第一题是QQ添加好友按名称搜索时，怎么区别广告号，诈骗号；   </p>
-<p>   为什么之前没有深度网络出现（数据量不够+机器性能）   </p>
-<p>   为今日头条设计一个热门评论系统，支持实时更新。   </p>
-<p>   从项目中在哪一方面体会最深。   </p>
-<p>   假设一个文档，连续的K个词，认为是一个时间窗口，一个时间窗口的词有关系，如何得到所有的时间窗口。   </p>
-<p>   假设你拥有一切搜索数据，问怎么在不同场景下进行推荐，具体场景忘了（核心点：共线性、语义相似度、主题聚类等等）   </p>
-<p>   假设有100W个单词，如何存储（我答的是trie树，面试官问每个节点会有很多子节点，每个子节点是一个指针，占用8个字节，如何节省空间，我说不知道，面试官提示双数组trie树）   </p>
-<p>   假设要对一场nba球赛进行自动解说，会遇到哪些困难，又该怎么解决呢？   </p>
-<p>   做过哪些项目？项目中遇到哪些难点，你是怎样解决的？   </p>
-<p>   关于集群调度的一些经验 trick 掌握多少；   </p>
-<p>   分词时，为了提高效率，怎么存储词典？（键树）如何压缩存储？   </p>
-<p>   在微信的场景下，如何判断用户的职业？开放问题   </p>
-<p>   场景题如何鉴别淘宝上卖假货的商家，价格维度可以用什么策略等   </p>
-<p>   如何做一个新闻推荐   </p>
-<p>   如何在语料中寻找频繁出现的字串，分析复杂度。   </p>
-<p>   如何用尽可能少的样本训练模型同时又保证模型的性能；   </p>
-<p>   如何预测双十一支付宝的负载峰值。   </p>
-<p>   对推荐算法的未来看法。   </p>
-<p>   平面上有n个点，让你设计一个数据结构，能够返回这个这n个点中距离某特定点最近的一个点。一开始讲了下kd树，然而太复杂面试官不满意，就讲了一个类似GeoHash的方案。   </p>
-<p>   建立一个数据结构，基于此写一段程序用于存储sparse vector，同时编写一个函数实现两个sparse vector的相加运算   </p>
-<p>   很多单词，如何计算单词之间的相似度（或者对单词进行分类）   </p>
-<p>   怎么预测降雨量。   </p>
-<p>   我只有一大批实体词， 如何对他们进行聚类（无监督聚类）， 如何找出这些词中， 哪些词之间有关系， 是强关系还是弱关系， 具体是什么关系，（如刘德华和朱丽倩 属于娱乐分类， 是强关系， 关系为夫妻）   </p>
-<p>   拼车软件是如何定价的以及如何优化。   </p>
-<p>   推荐算法（基于用户的协同过滤，基于内容的协同过滤）   </p>
-<p>   推荐系统的冷启动问题如何解决   </p>
-<p>   文本挖掘中，分词算法？如何选取特征？如何进行相似度计算，文本聚类结果如何评估？   </p>
-<p>   无给定条件，预测蔬菜价格。   </p>
-<p>   有100W个集合，每个集合中有一些词，对于每个集合，找出他是哪些集合的真子集。   </p>
-<p>   有一堆已经分好的词，如何去发现新的词？   </p>
-<p>   比赛相关问题提特征特征选择等   </p>
-<p>   海量的 item 算文本相似度的优化方法；   </p>
-<p>   特征工程经验。   </p>
-<p>   用两分钟介绍自己的项目，创新点在哪里。   </p>
-<p>   用户给三个item（query），如何给出查询网页。   </p>
-<p>   第三题是如何鉴别实施诈骗的QQ用户；   </p>
-<p>   第二题是微信朋友圈内容的安全鉴别；   </p>
-<p>   第四题是如何做反作弊，例如公众号的刷阅读量。   </p>
-<p>   系统设计题，给一个query，如何快速从10亿个query中找出和它最相似的 （面试官说可以对每个query找1000个最相似的，存起来，每天离线更新）   </p>
-<p>   线性代数：特征线性依赖，出现冗余，会导致什么问题？   </p>
-<p>   给一堆数据找找到最佳拟合的直线，数据有较多噪声   </p>
-<p>   给你一个系统（面试官好像是无人车部门的），后台的逻辑已经实现了，但是前端加载很慢，怎么检测。   </p>
-<p>   给你两个文件a和b，大小大概100M，两个文件每行一个整数，要求找到两个文件中相同的整数，存到文件c里，问我怎样尽快的完成这项工作？   </p>
-<p>   给出一个算法实现如何确定快递邮件上的地址，要求从国家到省市到县到乡镇的一个识别，要求效率高（有陷阱，比如有的人把县写到市的前面，有人喜欢写地域名称的省略词比如安徽省写成安徽或者皖）。   </p>
-<p>   给定淘宝上同类目同价格范围的两个商品A和B，如何利用淘宝已有的用户、商品数据、搜索数据、评论数据、用户行为数据等所有能拿到的数据进行建模，判断A和B统计平均性价比高低。统计平均性价比的衡量标准是大量曝光，购买者多则高。   </p>
-<p>   给很多单词，统计某个子串出现次数，我给的方法还是用Trie，只不过一个单词要分成多个插入到Trie数中就行了。   </p>
-<p>   给很多单词，要求统计出现某个前缀出现次数。   </p>
-<p>   统计全球会弹钢琴的人数，我用机器学习的思路答的，面试官还比较满意   </p>
-<p>   自己项目中有哪些可以迁移到其他领域的东西。   </p>
-<p>   讲了讲自己在深度学习的认识，问的问题是几个具体场景的设计，包括怎么从海量数据中提取热点问题。   </p>
-<p>   设计 LRU 系统   </p>
-<p>   设计一个合理的电梯调度策略，调度两个电梯 ，考虑满足基本的接送需求，满足能耗最小，满足用户等待时间最短   </p>
-<p>   设计一个系统可以实时统计任意ip在过去一个小时的访问量；   </p>
-<p>   设计一个结构存取稀疏矩阵（面试官最后告诉我了一个极度压缩的存法，相同行或列存偏差，我当时没听懂，还不懂装懂，最后还是没记住）   </p>
-<p>   设计实现一个git diff   </p>
-<p>   说一下最能代表你技术水平的项目吧？   </p>
-<p>   项目：具体问了特征怎么做的。   </p>
-<p>   （难到我了，我想的方法不好，面试告诉我了他的想法，类似于一个进程调度问题，每一时刻只可能有一个用户按按钮，把这条指令接收，判断当前电梯能否满足，能满足就执行，不能满足则放入一个队列里，实际情况还要细化） </p>
-<h4 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h4><p>   Boost算法   </p>
-<p>   CART（回归树用平方误差最小化准则，分类树用基尼指数最小化准则）   </p>
-<p>   GBDT与随机森林比较。   </p>
-<p>   GBDT（利用损失函数的负梯度在当前模型的值作为回归问题提升树算法中的残差的近似值，拟合一个回归树）   </p>
-<p>   KKT条件用哪些，完整描述   </p>
-<p>   KNN（分类与回归）   </p>
-<p>   L1 与 L2 的区别以及如何解决 L1 求导困难。   </p>
-<p>   L1和L2函数。   </p>
-<p>   L1和L2正则相关问题。   </p>
-<p>   L1和L2正则项，它们间的比较   </p>
-<p>   L1正则为什么可以把系数压缩成0，坐标下降法的具体实现细节   </p>
-<p>   LR为什么用sigmoid函数。这个函数有什么优点和缺点？为什么不用其他函数？   </p>
-<p>   LR和SVM有什么区别，libsvm和liblinear有什么区别。   </p>
-<p>   Logistics与随机森林比较   </p>
-<p>   Logistics（推导）   </p>
-<p>   Logistic回归的推导，怎么得到objective function。   </p>
-<p>   SVM与随机森林比较   </p>
-<p>   SVM为什么要引入拉格朗日的优化方法。   </p>
-<p>   SVM原问题和对偶问题关系？   </p>
-<p>   SVM在哪个地方引入的核函数, 如果用高斯核可以升到多少维。   </p>
-<p>   SVM怎么防止过拟合   </p>
-<p>   SVM的目标函数。常用的核函数。   </p>
-<p>   SVM的过程，讲了推导过程，可能表达不清晰，都是泪   </p>
-<p>   bagging、adaboost、boosting   </p>
-<p>   em 与 kmeans 的关系；   </p>
-<p>   k-means的k怎么取等等   </p>
-<p>   k-means算法初始点怎么选择？你的项目里面推荐算法是怎么实现的？   </p>
-<p>   kmeans的原理，优缺点以及改进。   </p>
-<p>   k折交叉验证中k取值多少有什么关系   </p>
-<p>   l2惩罚项是怎么减小Overfitting的？l1，l2等范数的通式是什么？他们之间的区别是什么？在什么场景下用什么范数？l1在0处不可导，怎么处理？   </p>
-<p>   randomforest,GBDT   </p>
-<p>   rf, gbdt, xgboost的区别。   </p>
-<p>   softmax公式   </p>
-<p>   为什么要做数据归一化？   </p>
-<p>   主要问最优化方面的知识，梯度下降法的原理以及各个变种（批量梯度下降，随机梯度下降法，mini 梯度下降法），以及这几个方法会不会有局部最优问题，牛顿法原理和适用场景，有什么缺点，如何改进（拟牛顿法）   </p>
-<p>   什么情况下一定会发生过拟合？   </p>
-<p>   什么是贝叶斯估计   </p>
-<p>   介绍LR、RF、GBDT ，分析它们的优缺点，是否写过它们的分布式代码   </p>
-<p>   介绍SVD、SVD++   </p>
-<p>   会哪些机器学习算法   </p>
-<p>   信息熵公式   </p>
-<p>   假设面试官什么都不懂，详细解释 CNN 的原理；   </p>
-<p>   决策树原理   </p>
-<p>   决策树处理连续值的方法。   </p>
-<p>   决策树如何防止过拟合   </p>
-<p>   决策树过拟合哪些方法，前后剪枝   </p>
-<p>   分类模型可以做回归分析吗？反过来可以吗？   </p>
-<p>   分类模型和回归模型的区别   </p>
-<p>   判别模型，生成模型   </p>
-<p>   各个模型的Loss function，牛顿学习法、SGD如何训练。   </p>
-<p>   因为面我的总监是做nlp的,所以讲了很多rnn、lstm、还有HMM的东西。不算很熟，但是接触过，以前稍微看过一些相关论文，所以还是勉强能聊的。   </p>
-<p>   在平面内有坐标已知的若干个点P0…Pn，再给出一个点P，找到离P点最近的点。   </p>
-<p>   在模型的训练迭代中，怎么评估效果。   </p>
-<p>   如何减少参数（权值共享、VGG的感受野、GoogLeNet的inception）   </p>
-<p>   如何防止过拟合（增加数据，减少模型复杂度-&gt;正则化）   </p>
-<p>   对于同分布的弱分类器，求分类器均值化之后的分布的均值跟方差。   </p>
-<p>   对于机器学习你都学了哪些？讲一个印象深的。   </p>
-<p>   常见分类模型（ svm，决策树，贝叶斯等）的优缺点，适用场景以及如何选型   </p>
-<p>   归一化方式 </p>
+<p>Q2：如何生成一个分类器使该分类器输出1的概率为0.3，输出0的概率为0.7？</p>
+<p>问了一个概率题 54张牌，分成6份，每份9张牌，大小王在一起的概率</p>
+<h4 id="hr常问问题">HR常问问题</h4>
+<p>为什么不读博、对读博报以什么态度。</p>
+<p>为什么选择百度，谷歌百度都给你offer你选哪个。</p>
+<p>为什么选择跨专业学计算机？</p>
+<p>为什么选择阿里</p>
+<p>以后可能要学习很多新技术，你怎么看。</p>
+<p>你平时喜欢做什么？看过哪些书？最近在看什么书？</p>
+<p>你觉得最有挑战的项目是什么。</p>
+<p>你觉得最难忘的事情是什么？</p>
+<p>你认为你的优（缺）点是什么。</p>
+<p>你还有什么想问的？</p>
+<p>加班怎么看。</p>
+<p>印象最深刻的事？</p>
+<p>压力最大的情况是什么时候。</p>
+<p>在面试过程中觉得自己那些当面有进步</p>
+<p>场景分析题，有一个任务给你，要求一个月完成，但是以目前的能力一个月完成不了，现在你知道有一个同事擅长这部分工作，但是他有自己的活，帮助你就可能耽误他的进度，问你咋办。</p>
+<p>大学令你觉得最不爽的事情是什么</p>
+<p>如何学习的？</p>
+<p>如何看待加班。</p>
+<p>实习期间项目，在组内担任的角色，是否熟悉其他组员的工作。</p>
+<p>家庭教育观念？</p>
+<p>家里什么情况？独生子女？</p>
+<p>将来的职业规划？</p>
+<p>工作地点</p>
+<p>工作地点的问题</p>
+<p>平时有什么兴趣爱好。</p>
+<p>我觉得我会先去专心钻研技术，到达一定的</p>
+<p>最后问了一下我兴趣爱好</p>
+<p>有什么问题问我。</p>
+<p>有没其他offer</p>
+<p>有没有想过去创业公司</p>
+<p>现在在哪里实习？实习主要做些什么？</p>
+<p>简单介绍一下自己</p>
+<p>聊聊offer情况，有什么考虑之类的。</p>
+<p>聊聊实验室生活。</p>
+<p>能不能来北京</p>
+<p>自己有什么优点缺点？</p>
+<p>自己本科生和研究生相比有哪些进步</p>
+<p>要求用两个字评价大学生涯。</p>
+<p>讲一下你觉得你突出的地方，有亮点的地方。</p>
+<p>评价一下你自己的优点缺点？</p>
+<p>详细介绍项目。</p>
+<p>说下你的优缺点</p>
+<p>说说你的经历。</p>
+<p>说说你自己的性格。</p>
+<p>说说研究生阶段最有成就的事，遇到问题具体怎么解决的。</p>
+<p>请你说一下你对应聘该岗位的优势。</p>
+<p>遇到的最大挫折是什么。</p>
+<p>问你的职业规划，遇到挑战怎么处理，有没有之前和同事发生过较大分歧。</p>
+<h4 id="开放题">开放题</h4>
+<p>2016年每个项目有个上线和下线时间段，统计每天在线的项目数量</p>
+<p>一堆问题和答案的pair，算它们的相关性</p>
+<p>一面现场面，自我介绍加挑一个项目细讲，还有场景题，第一题是QQ添加好友按名称搜索时，怎么区别广告号，诈骗号；</p>
+<p>为什么之前没有深度网络出现（数据量不够+机器性能）</p>
+<p>为今日头条设计一个热门评论系统，支持实时更新。</p>
+<p>从项目中在哪一方面体会最深。</p>
+<p>假设一个文档，连续的K个词，认为是一个时间窗口，一个时间窗口的词有关系，如何得到所有的时间窗口。</p>
+<p>假设你拥有一切搜索数据，问怎么在不同场景下进行推荐，具体场景忘了（核心点：共线性、语义相似度、主题聚类等等）</p>
+<p>假设有100W个单词，如何存储（我答的是trie树，面试官问每个节点会有很多子节点，每个子节点是一个指针，占用8个字节，如何节省空间，我说不知道，面试官提示双数组trie树）</p>
+<p>假设要对一场nba球赛进行自动解说，会遇到哪些困难，又该怎么解决呢？</p>
+<p>做过哪些项目？项目中遇到哪些难点，你是怎样解决的？</p>
+<p>关于集群调度的一些经验 trick 掌握多少；</p>
+<p>分词时，为了提高效率，怎么存储词典？（键树）如何压缩存储？</p>
+<p>在微信的场景下，如何判断用户的职业？开放问题</p>
+<p>场景题如何鉴别淘宝上卖假货的商家，价格维度可以用什么策略等</p>
+<p>如何做一个新闻推荐</p>
+<p>如何在语料中寻找频繁出现的字串，分析复杂度。</p>
+<p>如何用尽可能少的样本训练模型同时又保证模型的性能；</p>
+<p>如何预测双十一支付宝的负载峰值。</p>
+<p>对推荐算法的未来看法。</p>
+<p>平面上有n个点，让你设计一个数据结构，能够返回这个这n个点中距离某特定点最近的一个点。一开始讲了下kd树，然而太复杂面试官不满意，就讲了一个类似GeoHash的方案。</p>
+<p>建立一个数据结构，基于此写一段程序用于存储sparse vector，同时编写一个函数实现两个sparse vector的相加运算</p>
+<p>很多单词，如何计算单词之间的相似度（或者对单词进行分类）</p>
+<p>怎么预测降雨量。</p>
+<p>我只有一大批实体词， 如何对他们进行聚类（无监督聚类）， 如何找出这些词中， 哪些词之间有关系， 是强关系还是弱关系， 具体是什么关系，（如刘德华和朱丽倩 属于娱乐分类， 是强关系， 关系为夫妻）</p>
+<p>拼车软件是如何定价的以及如何优化。</p>
+<p>推荐算法（基于用户的协同过滤，基于内容的协同过滤）</p>
+<p>推荐系统的冷启动问题如何解决</p>
+<p>文本挖掘中，分词算法？如何选取特征？如何进行相似度计算，文本聚类结果如何评估？</p>
+<p>无给定条件，预测蔬菜价格。</p>
+<p>有100W个集合，每个集合中有一些词，对于每个集合，找出他是哪些集合的真子集。</p>
+<p>有一堆已经分好的词，如何去发现新的词？</p>
+<p>比赛相关问题提特征特征选择等</p>
+<p>海量的 item 算文本相似度的优化方法；</p>
+<p>特征工程经验。</p>
+<p>用两分钟介绍自己的项目，创新点在哪里。</p>
+<p>用户给三个item（query），如何给出查询网页。</p>
+<p>第三题是如何鉴别实施诈骗的QQ用户；</p>
+<p>第二题是微信朋友圈内容的安全鉴别；</p>
+<p>第四题是如何做反作弊，例如公众号的刷阅读量。</p>
+<p>系统设计题，给一个query，如何快速从10亿个query中找出和它最相似的 （面试官说可以对每个query找1000个最相似的，存起来，每天离线更新）</p>
+<p>线性代数：特征线性依赖，出现冗余，会导致什么问题？</p>
+<p>给一堆数据找找到最佳拟合的直线，数据有较多噪声</p>
+<p>给你一个系统（面试官好像是无人车部门的），后台的逻辑已经实现了，但是前端加载很慢，怎么检测。</p>
+<p>给你两个文件a和b，大小大概100M，两个文件每行一个整数，要求找到两个文件中相同的整数，存到文件c里，问我怎样尽快的完成这项工作？</p>
+<p>给出一个算法实现如何确定快递邮件上的地址，要求从国家到省市到县到乡镇的一个识别，要求效率高（有陷阱，比如有的人把县写到市的前面，有人喜欢写地域名称的省略词比如安徽省写成安徽或者皖）。</p>
+<p>给定淘宝上同类目同价格范围的两个商品A和B，如何利用淘宝已有的用户、商品数据、搜索数据、评论数据、用户行为数据等所有能拿到的数据进行建模，判断A和B统计平均性价比高低。统计平均性价比的衡量标准是大量曝光，购买者多则高。</p>
+<p>给很多单词，统计某个子串出现次数，我给的方法还是用Trie，只不过一个单词要分成多个插入到Trie数中就行了。</p>
+<p>给很多单词，要求统计出现某个前缀出现次数。</p>
+<p>统计全球会弹钢琴的人数，我用机器学习的思路答的，面试官还比较满意</p>
+<p>自己项目中有哪些可以迁移到其他领域的东西。</p>
+<p>讲了讲自己在深度学习的认识，问的问题是几个具体场景的设计，包括怎么从海量数据中提取热点问题。</p>
+<p>设计 LRU 系统</p>
+<p>设计一个合理的电梯调度策略，调度两个电梯 ，考虑满足基本的接送需求，满足能耗最小，满足用户等待时间最短</p>
+<p>设计一个系统可以实时统计任意ip在过去一个小时的访问量；</p>
+<p>设计一个结构存取稀疏矩阵（面试官最后告诉我了一个极度压缩的存法，相同行或列存偏差，我当时没听懂，还不懂装懂，最后还是没记住）</p>
+<p>设计实现一个git diff</p>
+<p>说一下最能代表你技术水平的项目吧？</p>
+<p>项目：具体问了特征怎么做的。</p>
+<p>（难到我了，我想的方法不好，面试告诉我了他的想法，类似于一个进程调度问题，每一时刻只可能有一个用户按按钮，把这条指令接收，判断当前电梯能否满足，能满足就执行，不能满足则放入一个队列里，实际情况还要细化）</p>
+<h4 id="机器学习">机器学习</h4>
+<p>Boost算法</p>
+<p>CART（回归树用平方误差最小化准则，分类树用基尼指数最小化准则）</p>
+<p>GBDT与随机森林比较。</p>
+<p>GBDT（利用损失函数的负梯度在当前模型的值作为回归问题提升树算法中的残差的近似值，拟合一个回归树）</p>
+<p>KKT条件用哪些，完整描述</p>
+<p>KNN（分类与回归）</p>
+<p>L1 与 L2 的区别以及如何解决 L1 求导困难。</p>
+<p>L1和L2函数。</p>
+<p>L1和L2正则相关问题。</p>
+<p>L1和L2正则项，它们间的比较</p>
+<p>L1正则为什么可以把系数压缩成0，坐标下降法的具体实现细节</p>
+<p>LR为什么用sigmoid函数。这个函数有什么优点和缺点？为什么不用其他函数？</p>
+<p>LR和SVM有什么区别，libsvm和liblinear有什么区别。</p>
+<p>Logistics与随机森林比较</p>
+<p>Logistics（推导）</p>
+<p>Logistic回归的推导，怎么得到objective function。</p>
+<p>SVM与随机森林比较</p>
+<p>SVM为什么要引入拉格朗日的优化方法。</p>
+<p>SVM原问题和对偶问题关系？</p>
+<p>SVM在哪个地方引入的核函数, 如果用高斯核可以升到多少维。</p>
+<p>SVM怎么防止过拟合</p>
+<p>SVM的目标函数。常用的核函数。</p>
+<p>SVM的过程，讲了推导过程，可能表达不清晰，都是泪</p>
+<p>bagging、adaboost、boosting</p>
+<p>em 与 kmeans 的关系；</p>
+<p>k-means的k怎么取等等</p>
+<p>k-means算法初始点怎么选择？你的项目里面推荐算法是怎么实现的？</p>
+<p>kmeans的原理，优缺点以及改进。</p>
+<p>k折交叉验证中k取值多少有什么关系</p>
+<p>l2惩罚项是怎么减小Overfitting的？l1，l2等范数的通式是什么？他们之间的区别是什么？在什么场景下用什么范数？l1在0处不可导，怎么处理？</p>
+<p>randomforest,GBDT</p>
+<p>rf, gbdt, xgboost的区别。</p>
+<p>softmax公式</p>
+<p>为什么要做数据归一化？</p>
+<p>主要问最优化方面的知识，梯度下降法的原理以及各个变种（批量梯度下降，随机梯度下降法，mini 梯度下降法），以及这几个方法会不会有局部最优问题，牛顿法原理和适用场景，有什么缺点，如何改进（拟牛顿法）</p>
+<p>什么情况下一定会发生过拟合？</p>
+<p>什么是贝叶斯估计</p>
+<p>介绍LR、RF、GBDT ，分析它们的优缺点，是否写过它们的分布式代码</p>
+<p>介绍SVD、SVD++</p>
+<p>会哪些机器学习算法</p>
+<p>信息熵公式</p>
+<p>假设面试官什么都不懂，详细解释 CNN 的原理；</p>
+<p>决策树原理</p>
+<p>决策树处理连续值的方法。</p>
+<p>决策树如何防止过拟合</p>
+<p>决策树过拟合哪些方法，前后剪枝</p>
+<p>分类模型可以做回归分析吗？反过来可以吗？</p>
+<p>分类模型和回归模型的区别</p>
+<p>判别模型，生成模型</p>
+<p>各个模型的Loss function，牛顿学习法、SGD如何训练。</p>
+<p>因为面我的总监是做nlp的,所以讲了很多rnn、lstm、还有HMM的东西。不算很熟，但是接触过，以前稍微看过一些相关论文，所以还是勉强能聊的。</p>
+<p>在平面内有坐标已知的若干个点P0…Pn，再给出一个点P，找到离P点最近的点。</p>
+<p>在模型的训练迭代中，怎么评估效果。</p>
+<p>如何减少参数（权值共享、VGG的感受野、GoogLeNet的inception）</p>
+<p>如何防止过拟合（增加数据，减少模型复杂度-&gt;正则化）</p>
+<p>对于同分布的弱分类器，求分类器均值化之后的分布的均值跟方差。</p>
+<p>对于机器学习你都学了哪些？讲一个印象深的。</p>
+<p>常见分类模型（ svm，决策树，贝叶斯等）的优缺点，适用场景以及如何选型</p>
+<p>归一化方式</p>
 <blockquote>
-<p>两种常用的归一化方法：<br>（1）min-max标准化<br>（2）Z-score标准化方法<br><strong>min-max标准化（Min-Max Normalization）（线性函数归一化）</strong><br>定义：也称为离差标准化，是对原始数据的线性变换，使得结果映射到0-1之间。<br>本质：把数变为【0,1】之间的小数。<br>转换函数：（X-Min）/(Max-Min)<br>如果想要将数据映射到-1,1，则将公式换成：（X-Mean）/(Max-Min)<br>其中：max为样本数据的最大值，min为样本数据的最小值，Mean表示数据的均值。<br>缺陷：当有新数据加入时，可导致max和min的变化，需要重新定义。</p>
-<p><strong>0均值标准化（Z-score standardization）</strong><br>定义：这种方法给与原始数据的均值（mean）和标准差（standard deviation）进行数据的标准化。经过处理的数据符合标准正态分布，即均值为0，标准差为1.<br>本质：把有量纲表达式变成无量纲表达式。<br>转换函数：（X-Mean）/(Standard deviation) 其中，Mean为所有样本数据的均值。Standard deviation为所有样本数据的标准差。</p>
+<p>两种常用的归一化方法：<br>
+（1）min-max标准化<br>
+（2）Z-score标准化方法<br>
+<strong>min-max标准化（Min-Max Normalization）（线性函数归一化）</strong><br>
+定义：也称为离差标准化，是对原始数据的线性变换，使得结果映射到0-1之间。<br>
+本质：把数变为【0,1】之间的小数。<br>
+转换函数：（X-Min）/(Max-Min)<br>
+如果想要将数据映射到-1,1，则将公式换成：（X-Mean）/(Max-Min)<br>
+其中：max为样本数据的最大值，min为样本数据的最小值，Mean表示数据的均值。<br>
+缺陷：当有新数据加入时，可导致max和min的变化，需要重新定义。</p>
+<p><strong>0均值标准化（Z-score standardization）</strong><br>
+定义：这种方法给与原始数据的均值（mean）和标准差（standard deviation）进行数据的标准化。经过处理的数据符合标准正态分布，即均值为0，标准差为1.<br>
+本质：把有量纲表达式变成无量纲表达式。<br>
+转换函数：（X-Mean）/(Standard deviation) 其中，Mean为所有样本数据的均值。Standard deviation为所有样本数据的标准差。</p>
 <p><strong>应用场景</strong></p>
-<p>（1）在分类、聚类算法中，需要使用距离来度量相似性的时候、或者使用PCA技术进行降维的时候，第二种方法(Z-score standardization)表现更好。<br>因为：第一种方法(线性变换后)，其协方差产生了倍数值的缩放，因此这种方式无法消除量纲对方差、协方差的影响，对PCA分析影响巨大；同时，由于量纲的存在，使用不同的量纲、距离的计算结果会不同。<br>（2）在不涉及距离度量、协方差计算、数据不符合正太分布的时候，可以使用第一种方法或其他归一化方法。比如图像处理中，将RGB图像转换为灰度图像后将其值限定在0 255的范围。<br>因为：第二种归一化方式中，新的数据由于对方差进行了归一化，这时候每个维度的量纲其实已经等价了，每个维度都服从均值为0、方差1的正态分布，在计算距离的时候，每个维度都是去量纲化的，避免了不同量纲的选取对距离计算产生的巨大影响。</p>
+<p>（1）在分类、聚类算法中，需要使用距离来度量相似性的时候、或者使用PCA技术进行降维的时候，第二种方法(Z-score standardization)表现更好。<br>
+因为：第一种方法(线性变换后)，其协方差产生了倍数值的缩放，因此这种方式无法消除量纲对方差、协方差的影响，对PCA分析影响巨大；同时，由于量纲的存在，使用不同的量纲、距离的计算结果会不同。<br>
+（2）在不涉及距离度量、协方差计算、数据不符合正太分布的时候，可以使用第一种方法或其他归一化方法。比如图像处理中，将RGB图像转换为灰度图像后将其值限定在0 255的范围。<br>
+因为：第二种归一化方式中，新的数据由于对方差进行了归一化，这时候每个维度的量纲其实已经等价了，每个维度都服从均值为0、方差1的正态分布，在计算距离的时候，每个维度都是去量纲化的，避免了不同量纲的选取对距离计算产生的巨大影响。</p>
 </blockquote>
-<p>   手写k-means的伪代码。   </p>
-<p>   手写k-means的伪代码和代码。（Code）   </p>
-<p>   手撕svm硬软间隔对偶的推导   </p>
-<p>   手撕逻辑回归（损失函数及更新方式推导）   </p>
-<p>   接着写一下信息增益的公式。   </p>
-<p>   推一下bp算法等等   </p>
-<p>   改变随机森林的训练样本数据量，是否会影响到随机森林学习到的模型的复杂度。   </p>
-<p>   数据挖掘各种算法，以及各种场景下的解决方案   </p>
-<p>   是否了解mutual infomation、chi-square、LR前后向、树模型等特征选择方式。   </p>
-<p>   是否了解线性加权、bagging、boosting、cascade等模型融合方式   </p>
-<p>   有哪些常见的分类器，简单介绍下原理   </p>
-<p>   机器学习与深度学习的区别   </p>
-<p>   机器学习基础（线性回归与逻辑回归区别等）   </p>
-<p>   机器学习：几种树模型的原理和对比，朴素贝叶斯分类器原理以及公式，出现估计概率值为 0 怎么处理（拉普拉斯平滑），缺点； k-means 聚类的原理以及缺点及对应的改进；   </p>
-<p>   梯度下降牛顿拟牛顿原理   </p>
-<p>   梯度下降的优缺点。   </p>
-<p>   深度学习和普通机器学习有什么不同？   </p>
-<p>   深度学习有很大部分是CNN，给他用通俗的语言解释下卷积的概念，解释下CNN中的优势及原因   </p>
-<p>   激活函数的选择（sigmoid-&gt;ReLu-&gt;LReLU-&gt;PReLU）   </p>
-<p>   然后20分钟内手写k-means   </p>
-<p>   牛顿法、随机梯度下降算法和直接梯度下降算法的区别？   </p>
-<p>   牛顿法推导   </p>
-<p>   特征选择的方法   </p>
-<p>   由数据引申到数据不平衡怎么处理（10W正例，1W负例，牛客上有原题）   </p>
-<p>   聊聊SVM，这段说了好久，从基本的线性可分到不可分，相关升维，各种核函数，每个是如何实现升。以及出现了XX问题，分析是样本的原因还是其他原因。针对不同情况，采取什么解决方案较好。   </p>
-<p>   自己实现过什么机器学习算法   </p>
-<p>   解释 word2vec 的原理以及哈夫曼树的改进。   </p>
-<p>   解释一下过拟合和欠拟合，有哪些方法防止过拟合。   </p>
-<p>   让我一步一步地构造决策树，怎么计算信息熵、信息增益、然后C4.5 ID3 CART的区别，还说了一下优缺点   </p>
-<p>   详细讨论了样本采样和bagging的问题   </p>
-<p>   说一下Adaboost，权值更新公式。当弱分类器是LR时，每个样本的的权重是w1，w2…,写出最终的决策公式。   </p>
-<p>   说了一下bagging跟boosting。   </p>
-<p>   说明L1L2正则的效果与为什么形成这种情况（L1正则稀疏，L2正则平滑，之后说明就是画图说明正则化）   </p>
-<p>   过拟合的解决方法</p>
+<p>手写k-means的伪代码。</p>
+<p>手写k-means的伪代码和代码。（Code）</p>
+<p>手撕svm硬软间隔对偶的推导</p>
+<p>手撕逻辑回归（损失函数及更新方式推导）</p>
+<p>接着写一下信息增益的公式。</p>
+<p>推一下bp算法等等</p>
+<p>改变随机森林的训练样本数据量，是否会影响到随机森林学习到的模型的复杂度。</p>
+<p>数据挖掘各种算法，以及各种场景下的解决方案</p>
+<p>是否了解mutual infomation、chi-square、LR前后向、树模型等特征选择方式。</p>
+<p>是否了解线性加权、bagging、boosting、cascade等模型融合方式</p>
+<p>有哪些常见的分类器，简单介绍下原理</p>
+<p>机器学习与深度学习的区别</p>
+<p>机器学习基础（线性回归与逻辑回归区别等）</p>
+<p>机器学习：几种树模型的原理和对比，朴素贝叶斯分类器原理以及公式，出现估计概率值为 0 怎么处理（拉普拉斯平滑），缺点； k-means 聚类的原理以及缺点及对应的改进；</p>
+<p>梯度下降牛顿拟牛顿原理</p>
+<p>梯度下降的优缺点。</p>
+<p>深度学习和普通机器学习有什么不同？</p>
+<p>深度学习有很大部分是CNN，给他用通俗的语言解释下卷积的概念，解释下CNN中的优势及原因</p>
+<p>激活函数的选择（sigmoid-&gt;ReLu-&gt;LReLU-&gt;PReLU）</p>
+<p>然后20分钟内手写k-means</p>
+<p>牛顿法、随机梯度下降算法和直接梯度下降算法的区别？</p>
+<p>牛顿法推导</p>
+<p>特征选择的方法</p>
+<p>由数据引申到数据不平衡怎么处理（10W正例，1W负例，牛客上有原题）</p>
+<p>聊聊SVM，这段说了好久，从基本的线性可分到不可分，相关升维，各种核函数，每个是如何实现升。以及出现了XX问题，分析是样本的原因还是其他原因。针对不同情况，采取什么解决方案较好。</p>
+<p>自己实现过什么机器学习算法</p>
+<p>解释 word2vec 的原理以及哈夫曼树的改进。</p>
+<p>解释一下过拟合和欠拟合，有哪些方法防止过拟合。</p>
+<p>让我一步一步地构造决策树，怎么计算信息熵、信息增益、然后C4.5 ID3 CART的区别，还说了一下优缺点</p>
+<p>详细讨论了样本采样和bagging的问题</p>
+<p>说一下Adaboost，权值更新公式。当弱分类器是LR时，每个样本的的权重是w1，w2…,写出最终的决策公式。</p>
+<p>说了一下bagging跟boosting。</p>
+<p>说明L1L2正则的效果与为什么形成这种情况（L1正则稀疏，L2正则平滑，之后说明就是画图说明正则化）</p>
+<p>过拟合的解决方法</p>
 <blockquote>
 <p>数据方面：数据增强，具体体现在在原图上使用patch、反转、小的角度变换</p>
 <p>模型方面：使用小的网络结构、添加dropout、添加BN</p>
 <p>损失方面：添加正则项，l1、l2正则</p>
 </blockquote>
-<p>   选个你熟悉的机器学习方法 ，着重介绍一下产生原因，推导公式，背后统计意义什么等等   </p>
-<p>   逻辑回归估计参数时的目标函数，如果加上一个先验的服从高斯分布的假设，会是什么样。   </p>
-<p>   逻辑回归估计参数时的目标函数   </p>
-<p>   逻辑回归的值表示概率吗？   </p>
-<p>   问了很多数据挖掘的基础知识，包括SVM,逻辑回归、EM、K-means等，然后给我很多场景问我遇到这些情况我要怎么来处理数据，怎么进行建模等等，问得很细   </p>
-<p>   随机梯度下降，标准梯度   </p>
-<p>   随机森林和GBDT的区别？LR的参数怎么求解？有没有最优解？   </p>
-<p>   随机森林（Bagging+CART） </p>
-<h4 id="编程题"><a href="#编程题" class="headerlink" title="编程题"></a>编程题</h4><p>   1~n这n个数现在去掉两个，如何找到去掉的两个数。 假设去掉的两个数是a和b，那么通过求和，平方和可以知道a+b和a^2+b^2，然后解方程就行了。   </p>
-<p>   char a[4] = {1, 2, 3, 4}; char *b = a; b[0] = 100; 请问输出a的结果是什么？   </p>
-<p>   一个 N*M 的矩阵，从左上走到右下最小需要（N+M）步走完，问一共有多少种走法。   </p>
-<p>   一个严格递增的数组，将前缀取一部分放在后面，在修改后的数组上找到最小的数。(剑指Offer原题)   </p>
-<p>   一个大写字符串如ABABB（len&lt;1000），代表游客进游乐场的顺序及从哪个入口进入，要求每个入口(不多于26个入口)从第一个游客直到该入口的最后一个游客，检票员都不能离开，问最少检票人数K。   </p>
-<p>   一个字符数组中，每个字符都出现了3次，只有一个出现了2次，如果快速找出这个出现2次的？   </p>
-<p>   一个字符矩阵，只可能是R,G,B三种字符。判断是否满足某个条件。这个条件是每种符号连成一个长方体，三个长方体长宽一致,且横着平行   </p>
-<p>   一个广告，它有一个id，一个上线时间，一个下线时间，现在我有很多这样的广告，如果现在给你一个时间，告诉我有多少个广告在这个时间在线的   </p>
-<p>   一个数据流中，如何采样得到100个数，保证采样得到的100个数是随机的？   </p>
-<p>   一个数组中某个数出现次数大于一半，最快找出该数。   </p>
-<p>   一个数组只有一个数字是单独出现，其他出现了三次。   </p>
-<p>   一个数组存着1-1000连续的整数，假如我取出其中一个数，怎么能快速找到（用类二分查找）   </p>
-<p>   一个数组存着负数与正数，将正数放在前面，负数放在后面   </p>
-<p>   一个运算序列只有+、*、数字，计算运算序列的结果。（Code）   </p>
-<p>   一堆ip地址区间，不会重叠，来一个新的ip地址，看它在不在，在哪个区间。   </p>
-<p>   一维数组，swap 其中的几对数字（每个数字只属于一次 swap 操作），实现查找（与二分有关）；   </p>
-<p>   一维有序数组，经过循环位移后，最小的数出现在数列中间，如果原数组严格递增或递减，如何找这个最小数；   </p>
-<p>   一维有序数组，经过循环位移后，最小的数出现在数列中间，如果原数组严格递增，如何找这个最小数。   </p>
-<p>   一维有序数组，经过循环位移后，最小的数出现在数列中间，如果原数组非严格递增或递减，如何找这个最小数；   </p>
-<p>   一维有序数组，经过循环位移后，最小的数出现在数列中间，数组可能是递增、递减、递减后递增、递增后递减四种情况，递增递减都是非严格的，如果有转折点，返回转折点的值，否则返回-1；   </p>
-<p>   一道题：给定一个整数数组，里面有两个数相同，其他数都是不同的，如何尽快找到这两个数（答，用hash表，O（N），有更好的方法么？）   </p>
-<p>   一题是多位数用链表存储（ e.g. 123 用 1-&gt;2-&gt;3 存储），实现相加功能函数   </p>
-<p>   不创建临时产量换两个数   </p>
-<p>   两个同样大小有序数组求中位数，写代码   </p>
-<p>   两个大整数相乘。（Code）   </p>
-<p>   两棵树相加——对应位置两棵树都有值则相加，对应位置只有一棵树有值则取该值；   </p>
-<p>   中序遍历二叉树，利用O(1)空间统计遍历的每个节点的层次。（Bug Free Code）   </p>
-<p>   中缀表达式转逆波兰表达式，逆波兰表达式求值；   </p>
-<p>   为分析用户行为，系统常需存储用户的一些 query ，但因 query 非常多，故系统不能全存，设系统每天只存 m 个 query ，现设计一个算法，对用户请求的 query 进行随机选择 m 个，请给一个方案，使得每个 query 被抽中的概率相等，并分析之，注意：不到最后一刻，并不知用户的总请求量。   </p>
-<p>   二分查找   </p>
-<p>   二分查找，查找target，在区间[start，end]之间，如果有重复元素，返回最后一个下标，其他情况返回-1   </p>
-<p>   二叉树前序递归遍历算法（手写代码）   </p>
-<p>   二叉树的前中后遍历   </p>
-<p>   二叉树的文件存储，也就是序列化。   </p>
-<p>   二叉树遍历，描述下层序遍历。   </p>
-<p>   二维数组，每行递增，每列递增，任意交换其中的两数，发现并恢复。   </p>
-<p>   二维数组，每行递增，每列递增，实现查找。   </p>
-<p>   二维数组，每行递增，每列递增，求第k大的数。   </p>
-<p>   什么样的数据结构可以满足多次插入删除，取最小数，给出时间复杂度。   </p>
-<p>   介绍二叉树前序遍历非递归遍历算法（手写代码）   </p>
-<p>   介绍大顶堆和小顶堆   </p>
-<p>   从一组数中找出和为sum的三个数（leetcode原题，先sort再找，并且剪枝），写代码，四个数呢？说思路。   </p>
-<p>   假设有个M*N的方格，从最左下方开始往最右上方走，每次只能往右或者往上，问有多少种走法，假设中间有若干个格子不能走，又有多少种走法。   </p>
-<p>   允许两个元素交换一次的最大连续子序列和。   </p>
-<p>   全排列   </p>
-<p>   全排列。   </p>
-<p>   冒泡排序(手写代码)   </p>
-<p>   写 find 函数，在目标串中匹配模式串（要考虑中文字符的情况）   </p>
-<p>   写一个二叉树的非递归的后续遍历   </p>
-<p>   写一个简单的正则匹配表达式(将文本中的123.4匹配出来)   </p>
-<p>   写个动态规划，最长公共子序列   </p>
-<p>   判断一个字符串是否为另外一个字符串旋转之后的字符串   </p>
-<p>   前k大的数   </p>
-<p>   单链表的翻转   </p>
-<p>   去掉连续的重复数字，输出新数组，例如：1，2，2，2，1，3，5——&gt; 3，5。   </p>
-<p>   去除字符串S1中的字符使得最终的字符串S2不包含’ab’和’c’。（Code）   </p>
-<p>   合法括号匹配   </p>
-<p>   在一个字符串中，找出最长的无重复字符的字串   </p>
-<p>   在二叉树结点结构中加一个指针域，使其指向层次遍历的下一个结点，特别地，每一层的最后一个结点为空。（Code）   </p>
-<p>   堆排序(手写代码)   </p>
-<p>   堆是怎么调整的。   </p>
-<p>   复杂链表的复制。   </p>
-<p>   如果给出一个二叉搜索树的后续能不能建立（可以，因为只要将遍历结果排序就可以得到中序结果）。   </p>
-<p>   字符串反转（手写代码）   </p>
-<p>   字符串移位，给出字符串abc##dfg##gh，实现将所有#移至字符串串头。输出####abcdfggh。   </p>
-<p>   字符串转整数   </p>
-<p>   字符串，给一个url，求中间的site   </p>
-<p>   字符串，给一个url，求中间的site。   </p>
-<p>   定义满足$n=x^a+y^b$（$x，y，a，b$是非负整数）的n是神奇数。如$4 = 2^0 + 3^1,17 = 2^3 + 3^2$。输入l和r，请求出闭区间$[l,r]$里，最长的一段不含有神奇数的连续区间长度。$x,y,l,r&lt;=10^{18},x&gt;=2,y&gt;=2$，如$3 5 10 22$，在$[10,22]$区间内，$x=3,y=5$的条件下，区间内[14]是神奇数，所以最长的区间是$[15,22]$长度为$8$，如$2，3，1，10$，在$[1,10]$区间内，$x=2，y=3$的条件下，$2，3，4，5，7，9$都是神奇数，所以最长的区间只有长度$1$。   </p>
-<p>   实现栈，使得 添加、删除、max 操作的复杂度为 O(1)。   </p>
-<p>   对于一个字符串，请设计一个算法，只在字符串的单词间做逆序调整，也就是说，字符串由一些由空格分隔的部分组成，你需要将这些部分逆序。给定一个原字符串A和它的长度，请返回逆序后的字符串。   </p>
-<p>   对于一个字符串，请设计一个算法，将字符串的长度为len的前缀平移到字符串的最后。   </p>
-<p>   寻找字符串中第一个只出现一次的字符；   </p>
-<p>   将字符串连续重复出现的字符删到只剩一个，这个可以用双指针，时间复杂度n，空间复杂度1。   </p>
-<p>   常用排序算法的时间和空间复杂度   </p>
-<p>   平衡二叉树是什么   </p>
-<p>   归并排序(手写代码)   </p>
-<p>   快速排序(手写代码)   </p>
-<p>   快速排序+二分查找   </p>
-<p>   手写快排(easy)   </p>
-<p>   打印数组的组合数。   </p>
-<p>   打印螺旋数组；   </p>
-<p>   把一个bst转化成一个双向链表。   </p>
-<p>   把一个字符串的大写字母放到字符串的后面，各个字符的相对位置不变，不能申请额外的空间。例如AbcDeFGhi -&gt;bceiADFG   </p>
-<p>   排序二叉树转双向链表。（Code）   </p>
-<p>   描述Dijkstra最短路径算法   </p>
-<p>   插入排序(手写代码)   </p>
-<p>   数列中找第 k 大的数字（与快排或堆排序有关）   </p>
-<p>   数据解压缩，3(a4(ab)) -&gt; aababababaababababaabababab；   </p>
-<p>   数组有只有一个数出现一次，其他数都出现三次，找出那个数。   </p>
-<p>   旋转数组   </p>
-<p>   最少时间复杂度求数组中第k大的数。（Code）   </p>
-<p>   最短路径代码。   </p>
-<p>   最长公共子串（动态规划有关）；   </p>
-<p>   最长公共子序列   </p>
-<p>   有一堆无向好友列表 1-2， 3-4, 2-3 之类的，问能不能把这些用户划分两组，组内都不互为好友。   </p>
-<p>   有序数组寻找和为某数的一对数字；   </p>
-<p>   正数数组，找三个数使积最小，问有多少种选择。   </p>
-<p>   母鸡、公鸡和小鸡问题：公鸡五块一只，母鸡三块一只，小鸡一块三只，用100元买100只鸡的所有方法。   </p>
-<p>   求double类型的二进制1的个数。   </p>
-<p>   求二叉树最近公共祖先(leetcode原题)   </p>
-<p>   求连续子数组最大乘积，还让考虑边界问题（最后问了：连乘有可能导致溢出，存不下了）   </p>
-<p>   用一个队列，将每个二叉树的root先放入队列。   </p>
-<p>   用数组实现队列，各操作的复杂度分析。   </p>
-<p>   用速度不同的指针可以判断链表中是否有环，问两速度满足怎样的关系可以保证发现环。   </p>
-<p>   直接插入排序写代码   </p>
-<p>   看段代码，问输出是啥。(就是段求二进制中1的个数)   </p>
-<p>   矩阵求最长连续递增的路径长度   </p>
-<p>   矩阵求最长连续递增的路径长度。   </p>
-<p>   第一题是链表倒数第 k 节点；第二题是二叉树打印路径，第三题是矩阵中将 0 元素所在行列全置 0 的最优空间解法   </p>
-<p>   第二轮是写出一个算法输出二叉树的 s 序列，何为 s 序列，比如现在有个二叉树 1-2,3-4,5 6,7 这是一颗完全二叉树， S 序列输出就是按照 1237654 这个顺序输出，用两个栈就能实现比较简单。   </p>
-<p>   算法题，也只记得一个了：存在一个数组，大小98，里面的元素均为在[1,100]，且无重复， 不申请额外空间的情况下，在时间复杂度为O(N)情况下，找出缺失的两个元素值。   </p>
-<p>   给一个n*n的矩阵，矩阵中满足每行每列都是递增的，要查找矩阵是否存在某个数.(leetcode原题)   </p>
-<p>   给一个数组，只有一个元素出现了一次，其他都出现了两次，找出出现一次的数。   </p>
-<p>   给一个数组，数组种存在一种数，它的左边都比它小，右边都比它大，找出所有这些数的位置。   </p>
-<p>   给一个股票，n天的价格，只能两次买入卖出，而且只能只能先卖再买，问最多赚多少钱？   </p>
-<p>   给一个股票，n天的价格，只能进行一次买入和卖出，问最多赚多少钱？   </p>
-<p>   给一个股票，n天的价格，可以买入卖出k次，而且只能只能先卖再买，问最多赚多少钱？   </p>
-<p>   给一个股票，n天的价格，可以无限次买入卖出，问最多赚多少钱？   </p>
-<p>   给了一个链表，第1个结点标号为1，把链表中标号在M到N区间的部分反转。   </p>
-<p>   给你一个无重复的数组输出全排列。   </p>
-<p>   给你一颗二叉树按层输出每一层输出后都换行   </p>
-<p>   给出一个二维矩阵，从（0,0）出发走到右下角，只能向右或向下走，找到一条路径，是这条路径上的总和最大。   </p>
-<p>   给出一段代码问代码作用（二进制数据1的个数）   </p>
-<p>   给出一颗二叉树，两个叶节点，找到这两个叶节点互连通的一条最短路径。   </p>
-<p>   给定一个数组，只有一个元素出现了一次，其他都出现了3次，找出出现一次的数。   </p>
-<p>   给定一个数组，有两个元素出现了一次，其他都出现了两次，找出两个出现一次的数。   </p>
-<p>   给定一个正整数向量，判断这个向量是否存在一个片段，使得反转这个片段后能够使该向量升序排列。如：[1, 2, 4, 3]，就可以通过反转[4, 3]使得向量变为[1, 2, 3, 4]。   </p>
-<p>   给定二叉树的先序跟后序遍历，能不能将二叉树重建（不能，因为先序：父节点-左节点-右节点，后序：左节点-右节点-父节点，两者的拓扑序列是一样的，所以无法建立）   </p>
-<p>   给定循环递增数组 $a=[7,8,9,1,2,3]$和一个值$k=2$,返回该值得再数组中的下标。   </p>
-<p>   给定数组A[]={1,4,7,…}和一个数T。求和为T的A中的数最少要几个。A中的数可复用。 我写了个递归，面试官不建议使用，因为效率不高。但没有反对。   </p>
-<p>   给定数组，寻找 next big（堆排序有关）；   </p>
-<p>   给我一个数组［1，2，5，10，20，50，100］，可以从里面取若干个数，要求得出和为100的不同取法有多少？（说出思路）   </p>
-<p>   统计数列中的逆序对（归并排序有关）；   </p>
-<p>   编程题：实现求正整数平方根整数部分的函数（使用梯度下降）   </p>
-<p>   翻转二叉树（Code）   </p>
-<p>   若干个二叉树，如何按照层序遍历   </p>
-<p>   设 rand （ s ， t ）返回 [s,t] 之间的随机小数，利用该函数在一个半径为 R 的圆内找随机 n 个点，并给出时间复杂度分析。   </p>
-<p>   输入一个大长方形，长宽ab，和一堆小长方形。选择两个小长方形，它能放进大长方形，而这个小长方形面积和最大   </p>
+<p>选个你熟悉的机器学习方法 ，着重介绍一下产生原因，推导公式，背后统计意义什么等等</p>
+<p>逻辑回归估计参数时的目标函数，如果加上一个先验的服从高斯分布的假设，会是什么样。</p>
+<p>逻辑回归估计参数时的目标函数</p>
+<p>逻辑回归的值表示概率吗？</p>
+<p>问了很多数据挖掘的基础知识，包括SVM,逻辑回归、EM、K-means等，然后给我很多场景问我遇到这些情况我要怎么来处理数据，怎么进行建模等等，问得很细</p>
+<p>随机梯度下降，标准梯度</p>
+<p>随机森林和GBDT的区别？LR的参数怎么求解？有没有最优解？</p>
+<p>随机森林（Bagging+CART）</p>
+<h4 id="编程题">编程题</h4>
+<p>1~n这n个数现在去掉两个，如何找到去掉的两个数。 假设去掉的两个数是a和b，那么通过求和，平方和可以知道a+b和a^2+b^2，然后解方程就行了。</p>
+<p>char a[4] = {1, 2, 3, 4}; char *b = a; b[0] = 100; 请问输出a的结果是什么？</p>
+<p>一个 N*M 的矩阵，从左上走到右下最小需要（N+M）步走完，问一共有多少种走法。</p>
+<p>一个严格递增的数组，将前缀取一部分放在后面，在修改后的数组上找到最小的数。(剑指Offer原题)</p>
+<p>一个大写字符串如ABABB（len&lt;1000），代表游客进游乐场的顺序及从哪个入口进入，要求每个入口(不多于26个入口)从第一个游客直到该入口的最后一个游客，检票员都不能离开，问最少检票人数K。</p>
+<p>一个字符数组中，每个字符都出现了3次，只有一个出现了2次，如果快速找出这个出现2次的？</p>
+<p>一个字符矩阵，只可能是R,G,B三种字符。判断是否满足某个条件。这个条件是每种符号连成一个长方体，三个长方体长宽一致,且横着平行</p>
+<p>一个广告，它有一个id，一个上线时间，一个下线时间，现在我有很多这样的广告，如果现在给你一个时间，告诉我有多少个广告在这个时间在线的</p>
+<p>一个数据流中，如何采样得到100个数，保证采样得到的100个数是随机的？</p>
+<p>一个数组中某个数出现次数大于一半，最快找出该数。</p>
+<p>一个数组只有一个数字是单独出现，其他出现了三次。</p>
+<p>一个数组存着1-1000连续的整数，假如我取出其中一个数，怎么能快速找到（用类二分查找）</p>
+<p>一个数组存着负数与正数，将正数放在前面，负数放在后面</p>
+<p>一个运算序列只有+、*、数字，计算运算序列的结果。（Code）</p>
+<p>一堆ip地址区间，不会重叠，来一个新的ip地址，看它在不在，在哪个区间。</p>
+<p>一维数组，swap 其中的几对数字（每个数字只属于一次 swap 操作），实现查找（与二分有关）；</p>
+<p>一维有序数组，经过循环位移后，最小的数出现在数列中间，如果原数组严格递增或递减，如何找这个最小数；</p>
+<p>一维有序数组，经过循环位移后，最小的数出现在数列中间，如果原数组严格递增，如何找这个最小数。</p>
+<p>一维有序数组，经过循环位移后，最小的数出现在数列中间，如果原数组非严格递增或递减，如何找这个最小数；</p>
+<p>一维有序数组，经过循环位移后，最小的数出现在数列中间，数组可能是递增、递减、递减后递增、递增后递减四种情况，递增递减都是非严格的，如果有转折点，返回转折点的值，否则返回-1；</p>
+<p>一道题：给定一个整数数组，里面有两个数相同，其他数都是不同的，如何尽快找到这两个数（答，用hash表，O（N），有更好的方法么？）</p>
+<p>一题是多位数用链表存储（ e.g. 123 用 1-&gt;2-&gt;3 存储），实现相加功能函数</p>
+<p>不创建临时产量换两个数</p>
+<p>两个同样大小有序数组求中位数，写代码</p>
+<p>两个大整数相乘。（Code）</p>
+<p>两棵树相加——对应位置两棵树都有值则相加，对应位置只有一棵树有值则取该值；</p>
+<p>中序遍历二叉树，利用O(1)空间统计遍历的每个节点的层次。（Bug Free Code）</p>
+<p>中缀表达式转逆波兰表达式，逆波兰表达式求值；</p>
+<p>为分析用户行为，系统常需存储用户的一些 query ，但因 query 非常多，故系统不能全存，设系统每天只存 m 个 query ，现设计一个算法，对用户请求的 query 进行随机选择 m 个，请给一个方案，使得每个 query 被抽中的概率相等，并分析之，注意：不到最后一刻，并不知用户的总请求量。</p>
+<p>二分查找</p>
+<p>二分查找，查找target，在区间[start，end]之间，如果有重复元素，返回最后一个下标，其他情况返回-1</p>
+<p>二叉树前序递归遍历算法（手写代码）</p>
+<p>二叉树的前中后遍历</p>
+<p>二叉树的文件存储，也就是序列化。</p>
+<p>二叉树遍历，描述下层序遍历。</p>
+<p>二维数组，每行递增，每列递增，任意交换其中的两数，发现并恢复。</p>
+<p>二维数组，每行递增，每列递增，实现查找。</p>
+<p>二维数组，每行递增，每列递增，求第k大的数。</p>
+<p>什么样的数据结构可以满足多次插入删除，取最小数，给出时间复杂度。</p>
+<p>介绍二叉树前序遍历非递归遍历算法（手写代码）</p>
+<p>介绍大顶堆和小顶堆</p>
+<p>从一组数中找出和为sum的三个数（leetcode原题，先sort再找，并且剪枝），写代码，四个数呢？说思路。</p>
+<p>假设有个M*N的方格，从最左下方开始往最右上方走，每次只能往右或者往上，问有多少种走法，假设中间有若干个格子不能走，又有多少种走法。</p>
+<p>允许两个元素交换一次的最大连续子序列和。</p>
+<p>全排列</p>
+<p>全排列。</p>
+<p>冒泡排序(手写代码)</p>
+<p>写 find 函数，在目标串中匹配模式串（要考虑中文字符的情况）</p>
+<p>写一个二叉树的非递归的后续遍历</p>
+<p>写一个简单的正则匹配表达式(将文本中的123.4匹配出来)</p>
+<p>写个动态规划，最长公共子序列</p>
+<p>判断一个字符串是否为另外一个字符串旋转之后的字符串</p>
+<p>前k大的数</p>
+<p>单链表的翻转</p>
+<p>去掉连续的重复数字，输出新数组，例如：1，2，2，2，1，3，5——&gt; 3，5。</p>
+<p>去除字符串S1中的字符使得最终的字符串S2不包含’ab’和’c’。（Code）</p>
+<p>合法括号匹配</p>
+<p>在一个字符串中，找出最长的无重复字符的字串</p>
+<p>在二叉树结点结构中加一个指针域，使其指向层次遍历的下一个结点，特别地，每一层的最后一个结点为空。（Code）</p>
+<p>堆排序(手写代码)</p>
+<p>堆是怎么调整的。</p>
+<p>复杂链表的复制。</p>
+<p>如果给出一个二叉搜索树的后续能不能建立（可以，因为只要将遍历结果排序就可以得到中序结果）。</p>
+<p>字符串反转（手写代码）</p>
+<p>字符串移位，给出字符串abc##dfg##gh，实现将所有#移至字符串串头。输出####abcdfggh。</p>
+<p>字符串转整数</p>
+<p>字符串，给一个url，求中间的site</p>
+<p>字符串，给一个url，求中间的site。</p>
+<p>定义满足$n=x^a+y^b$（$x，y，a，b$是非负整数）的n是神奇数。如$4 = 2^0 + 3^1,17 = 2^3 + 3^2$。输入l和r，请求出闭区间$[l,r]$里，最长的一段不含有神奇数的连续区间长度。$x,y,l,r&lt;=10^{18},x&gt;=2,y&gt;=2$，如$3\ 5\ 10\ 22$，在$[10,22]$区间内，$x=3,y=5$的条件下，区间内[14]是神奇数，所以最长的区间是$[15,22]$长度为$8$，如$2，3，1，10$，在$[1,10]$区间内，$x=2，y=3$的条件下，$2，3，4，5，7，9$都是神奇数，所以最长的区间只有长度$1$。</p>
+<p>实现栈，使得 添加、删除、max 操作的复杂度为 O(1)。</p>
+<p>对于一个字符串，请设计一个算法，只在字符串的单词间做逆序调整，也就是说，字符串由一些由空格分隔的部分组成，你需要将这些部分逆序。给定一个原字符串A和它的长度，请返回逆序后的字符串。</p>
+<p>对于一个字符串，请设计一个算法，将字符串的长度为len的前缀平移到字符串的最后。</p>
+<p>寻找字符串中第一个只出现一次的字符；</p>
+<p>将字符串连续重复出现的字符删到只剩一个，这个可以用双指针，时间复杂度n，空间复杂度1。</p>
+<p>常用排序算法的时间和空间复杂度</p>
+<p>平衡二叉树是什么</p>
+<p>归并排序(手写代码)</p>
+<p>快速排序(手写代码)</p>
+<p>快速排序+二分查找</p>
+<p>手写快排(easy)</p>
+<p>打印数组的组合数。</p>
+<p>打印螺旋数组；</p>
+<p>把一个bst转化成一个双向链表。</p>
+<p>把一个字符串的大写字母放到字符串的后面，各个字符的相对位置不变，不能申请额外的空间。例如AbcDeFGhi -&gt;bceiADFG</p>
+<p>排序二叉树转双向链表。（Code）</p>
+<p>描述Dijkstra最短路径算法</p>
+<p>插入排序(手写代码)</p>
+<p>数列中找第 k 大的数字（与快排或堆排序有关）</p>
+<p>数据解压缩，3(a4(ab)) -&gt; aababababaababababaabababab；</p>
+<p>数组有只有一个数出现一次，其他数都出现三次，找出那个数。</p>
+<p>旋转数组</p>
+<p>最少时间复杂度求数组中第k大的数。（Code）</p>
+<p>最短路径代码。</p>
+<p>最长公共子串（动态规划有关）；</p>
+<p>最长公共子序列</p>
+<p>有一堆无向好友列表 1-2， 3-4, 2-3 之类的，问能不能把这些用户划分两组，组内都不互为好友。</p>
+<p>有序数组寻找和为某数的一对数字；</p>
+<p>正数数组，找三个数使积最小，问有多少种选择。</p>
+<p>母鸡、公鸡和小鸡问题：公鸡五块一只，母鸡三块一只，小鸡一块三只，用100元买100只鸡的所有方法。</p>
+<p>求double类型的二进制1的个数。</p>
+<p>求二叉树最近公共祖先(leetcode原题)</p>
+<p>求连续子数组最大乘积，还让考虑边界问题（最后问了：连乘有可能导致溢出，存不下了）</p>
+<p>用一个队列，将每个二叉树的root先放入队列。</p>
+<p>用数组实现队列，各操作的复杂度分析。</p>
+<p>用速度不同的指针可以判断链表中是否有环，问两速度满足怎样的关系可以保证发现环。</p>
+<p>直接插入排序写代码</p>
+<p>看段代码，问输出是啥。(就是段求二进制中1的个数)</p>
+<p>矩阵求最长连续递增的路径长度</p>
+<p>矩阵求最长连续递增的路径长度。</p>
+<p>第一题是链表倒数第 k 节点；第二题是二叉树打印路径，第三题是矩阵中将 0 元素所在行列全置 0 的最优空间解法</p>
+<p>第二轮是写出一个算法输出二叉树的 s 序列，何为 s 序列，比如现在有个二叉树 1-2,3-4,5 6,7 这是一颗完全二叉树， S 序列输出就是按照 1237654 这个顺序输出，用两个栈就能实现比较简单。</p>
+<p>算法题，也只记得一个了：存在一个数组，大小98，里面的元素均为在[1,100]，且无重复， 不申请额外空间的情况下，在时间复杂度为O(N)情况下，找出缺失的两个元素值。</p>
+<p>给一个n*n的矩阵，矩阵中满足每行每列都是递增的，要查找矩阵是否存在某个数.(leetcode原题)</p>
+<p>给一个数组，只有一个元素出现了一次，其他都出现了两次，找出出现一次的数。</p>
+<p>给一个数组，数组种存在一种数，它的左边都比它小，右边都比它大，找出所有这些数的位置。</p>
+<p>给一个股票，n天的价格，只能两次买入卖出，而且只能只能先卖再买，问最多赚多少钱？</p>
+<p>给一个股票，n天的价格，只能进行一次买入和卖出，问最多赚多少钱？</p>
+<p>给一个股票，n天的价格，可以买入卖出k次，而且只能只能先卖再买，问最多赚多少钱？</p>
+<p>给一个股票，n天的价格，可以无限次买入卖出，问最多赚多少钱？</p>
+<p>给了一个链表，第1个结点标号为1，把链表中标号在M到N区间的部分反转。</p>
+<p>给你一个无重复的数组输出全排列。</p>
+<p>给你一颗二叉树按层输出每一层输出后都换行</p>
+<p>给出一个二维矩阵，从（0,0）出发走到右下角，只能向右或向下走，找到一条路径，是这条路径上的总和最大。</p>
+<p>给出一段代码问代码作用（二进制数据1的个数）</p>
+<p>给出一颗二叉树，两个叶节点，找到这两个叶节点互连通的一条最短路径。</p>
+<p>给定一个数组，只有一个元素出现了一次，其他都出现了3次，找出出现一次的数。</p>
+<p>给定一个数组，有两个元素出现了一次，其他都出现了两次，找出两个出现一次的数。</p>
+<p>给定一个正整数向量，判断这个向量是否存在一个片段，使得反转这个片段后能够使该向量升序排列。如：[1, 2, 4, 3]，就可以通过反转[4, 3]使得向量变为[1, 2, 3, 4]。</p>
+<p>给定二叉树的先序跟后序遍历，能不能将二叉树重建（不能，因为先序：父节点-左节点-右节点，后序：左节点-右节点-父节点，两者的拓扑序列是一样的，所以无法建立）</p>
+<p>给定循环递增数组 $a=[7,8,9,1,2,3]$和一个值$k=2$,返回该值得再数组中的下标。</p>
+<p>给定数组A[]={1,4,7,…}和一个数T。求和为T的A中的数最少要几个。A中的数可复用。 我写了个递归，面试官不建议使用，因为效率不高。但没有反对。</p>
+<p>给定数组，寻找 next big（堆排序有关）；</p>
+<p>给我一个数组［1，2，5，10，20，50，100］，可以从里面取若干个数，要求得出和为100的不同取法有多少？（说出思路）</p>
+<p>统计数列中的逆序对（归并排序有关）；</p>
+<p>编程题：实现求正整数平方根整数部分的函数（使用梯度下降）</p>
+<p>翻转二叉树（Code）</p>
+<p>若干个二叉树，如何按照层序遍历</p>
+<p>设 rand （ s ， t ）返回 [s,t] 之间的随机小数，利用该函数在一个半径为 R 的圆内找随机 n 个点，并给出时间复杂度分析。</p>
+<p>输入一个大长方形，长宽ab，和一堆小长方形。选择两个小长方形，它能放进大长方形，而这个小长方形面积和最大</p>
 <p>输入一个宿舍楼亮灯描述图，计算把所有灯关掉的最短时间，管理员起点在左下角，只能在最左或最右的楼梯往上一层，不可往下一层。每次往上一层花费1分钟，每次往左或往右一间宿舍花费1分钟，关灯不花时间。输入的高&lt;=15，宽&lt;=100。</p>
 <p>如图:</p>
 <blockquote>
-<p>  0010</p>
-<p>  0100</p>
+<p>0010</p>
+<p>0100</p>
 </blockquote>
-<p>  从左下角开始，最短花费时间是先往右（关灯），再往左，再上一层，再往右两次（关灯）完成：5</p>
-<p>​    再如： </p>
+<p>从左下角开始，最短花费时间是先往右（关灯），再往左，再上一层，再往右两次（关灯）完成：5</p>
+<p>​    再如：</p>
 <blockquote>
-<p>  001000</p>
-<p>  000010</p>
-<p>  000010</p>
+<p>001000</p>
+<p>000010</p>
+<p>000010</p>
 </blockquote>
-<p>  最短时间是先往右四次（关灯），往右一次，上一层，往左一次（关灯），往右一次，上一层，往左三次（关灯），完成，12</p>
-<p>   输入两个正数数组，在两个数组分别选一个数，要求第一个数组选的数的下标小于第二个数组选的数的下标。使得两个数的乘积最大。   </p>
-<p>   输出字符串中的所有重复子串，例如：abcab，输出: a, b, ab   </p>
-<p>   连续子数组最大和   </p>
-<p>   迷宫的深度搜索、广度搜索；   </p>
-<p>   选取任意数据结构实现添加、删除、随机返回三个功能，分析复杂度。   </p>
-<p>   选择排序(手写代码)   </p>
-<p>   链表上的快速排序。   </p>
-<p>   长度为N的序列Sequence=abc……Z，问有多少不同的二叉树形态中序遍历是这个。（Code）   </p>
-<p>   问了一两个算法题，记不清了，只记得其中一个是：找数组中2个出现两次的数字，还有3个两次的数字   </p>
-<p>   问了一个1的平方加到100的平方结果   </p>
+<p>最短时间是先往右四次（关灯），往右一次，上一层，往左一次（关灯），往右一次，上一层，往左三次（关灯），完成，12</p>
+<p>输入两个正数数组，在两个数组分别选一个数，要求第一个数组选的数的下标小于第二个数组选的数的下标。使得两个数的乘积最大。</p>
+<p>输出字符串中的所有重复子串，例如：abcab，输出: a, b, ab</p>
+<p>连续子数组最大和</p>
+<p>迷宫的深度搜索、广度搜索；</p>
+<p>选取任意数据结构实现添加、删除、随机返回三个功能，分析复杂度。</p>
+<p>选择排序(手写代码)</p>
+<p>链表上的快速排序。</p>
+<p>长度为N的序列Sequence=abc…Z，问有多少不同的二叉树形态中序遍历是这个。（Code）</p>
+<p>问了一两个算法题，记不清了，只记得其中一个是：找数组中2个出现两次的数字，还有3个两次的数字</p>
+<p>问了一个1的平方加到100的平方结果</p>
 <p>Spark 和mapreduce 的不同：</p>
 <blockquote>
 <p>而MapReduce计算模型的架构导致上述两类应用先天缓慢，用户迫切需要一种更快的计算模型，来补充MapReduce的先天不足。Spark的出现就弥补了这些不足，我们来了解一些Spark的优势：</p>
@@ -863,123 +925,130 @@ p(0, 0) = 0.3 \times 0.7 \\</script><p>可以看到同事产生1，1 和同时�
 <blockquote>
 <p>TCP链接之所以可靠，是因为其链接是面向字节的。</p>
 <p>在通信的过程中，协议会给每个字节一个序分配一个序号。三步握手的过程，主要是为了互相确认双方的起始序列号。</p>
-<p><strong>如果只进行两次握手，</strong>客户端发送链接请求及起始序列号seq = x, 收到 服务器端的起始序列号seq = y及对客户端序列号seq= x 的确认。此时，双方就 客户端的起始序列号达成了共识。</p>
-<p>此时，并没有对服务器的起始序列号达成共识，所以就需要进行第三次握手。对B的起始序列号达成共识，<strong>不能保证通信的可靠。</strong> </p>
+<p>**如果只进行两次握手，**客户端发送链接请求及起始序列号seq = x, 收到 服务器端的起始序列号seq = y及对客户端序列号seq= x 的确认。此时，双方就 客户端的起始序列号达成了共识。</p>
+<p>此时，并没有对服务器的起始序列号达成共识，所以就需要进行第三次握手。对B的起始序列号达成共识，<strong>不能保证通信的可靠。</strong></p>
 <p><strong>如果进行四次握手</strong>，在四次握手的过程中，可以把第二、三步合并，这样可以提高连接的速度与效率。</p>
 </blockquote>
 <p>如何解决目标检测中的物体尺度大小不一的问题</p>
 <blockquote>
-<p> 多尺度的特征融合</p>
+<p>多尺度的特征融合</p>
 <p>FPN SSD</p>
 </blockquote>
-<pre><code> （1）腾讯TEG提前批二面挂： 
+<pre><code>（1）腾讯TEG提前批二面挂： 
 
- 一面：项目+扩展机器学习的基础知识（k-means，svm，LBP算子，mobilnetv2和v1的区别，主流的网络）+一个代码题 
+一面：项目+扩展机器学习的基础知识（k-means，svm，LBP算子，mobilnetv2和v1的区别，主流的网络）+一个代码题 
 
- 二面：项目+基础知识：这次面试失败是我拿到后面offer的关键，有一个问题我在后面被反复问到：目标检测中如何解决目标尺度大小不一的情况）+基础知识（pooling反向传播，python拷贝文件） 
-
-
-
-
- （2）腾讯AI Lab正式批口头offer 
-
- 一面：主要是项目，然后基于你的项目做扩展提问 
-
- 二面：coding test（三道：深度优先搜索相关，网格最短距离，numpy实现CNN） 
+二面：项目+基础知识：这次面试失败是我拿到后面offer的关键，有一个问题我在后面被反复问到：目标检测中如何解决目标尺度大小不一的情况）+基础知识（pooling反向传播，python拷贝文件） 
 
 
 
 
- （3）阿里达摩院
+（2）腾讯AI Lab正式批口头offer 
 
- 技术面四面： 
+一面：主要是项目，然后基于你的项目做扩展提问 
 
- 一面：全部问项目基础内容 
-
- 二面：项目（会基于具体项目做扩展）+在线编程：深度优先搜索的一个题 
-
- 三面：项目（也问了我）+编程：给一组数字添加正负号使他们的和为0 
-
- 四面：基于项目开展，会提出他们当时在做的场景问题，因为我的方向和他们挺符合的，所以四面的部门主管挺想让我过去的。 
-
- 交叉面：不难为人，先介绍项目，然后提问。感觉面试官是做人脸的 
+二面：coding test（三道：深度优先搜索相关，网格最短距离，numpy实现CNN） 
 
 
 
 
- （4）华为
+（3）阿里达摩院
 
- 现场二面，考察很全面，包括项目介绍，数学知识，编程以及深度学习框架，大体包括：GAN的损失函数，BN的数学形式，主流的网络，python实现判断回文（找最优做法），python扩展维度，导数和偏导的区别，pytorch定义标量，向量，矩阵以及张量。 
+技术面四面： 
+
+一面：全部问项目基础内容 
+
+二面：项目（会基于具体项目做扩展）+在线编程：深度优先搜索的一个题 
+
+三面：项目（也问了我）+编程：给一组数字添加正负号使他们的和为0 
+
+四面：基于项目开展，会提出他们当时在做的场景问题，因为我的方向和他们挺符合的，所以四面的部门主管挺想让我过去的。 
+
+交叉面：不难为人，先介绍项目，然后提问。感觉面试官是做人脸的 
 
 
 
 
- （5）其他公司：美图AI Lab（等结果），海康研究院（等HR），旷视，虎牙，字节跳动，视见科技等： 
+（4）华为
 
- 除了字节跳动其他都是介绍项目开头，后面会问一些基础知识： 
+现场二面，考察很全面，包括项目介绍，数学知识，编程以及深度学习框架，大体包括：GAN的损失函数，BN的数学形式，主流的网络，python实现判断回文（找最优做法），python扩展维度，导数和偏导的区别，pytorch定义标量，向量，矩阵以及张量。 
 
- 比如：激活函数的作用，防止过拟合，如何处理大小不同的图片输入（全卷积网络），常用的损失函数，常见的GAN，如何检测小物体等 
 
- python深拷贝和浅拷贝的区别 
 
- pytorch实现CNN，pytorch中类的构造 
-</code></pre><p> Pytorch 显存控制 </p>
+
+（5）其他公司：美图AI Lab（等结果），海康研究院（等HR），旷视，虎牙，字节跳动，视见科技等： 
+
+除了字节跳动其他都是介绍项目开头，后面会问一些基础知识： 
+
+比如：激活函数的作用，防止过拟合，如何处理大小不同的图片输入（全卷积网络），常用的损失函数，常见的GAN，如何检测小物体等 
+
+python深拷贝和浅拷贝的区别 
+
+pytorch实现CNN，pytorch中类的构造 
+</code></pre>
+<p>Pytorch 显存控制</p>
 <blockquote>
 <ol>
-<li><p>降低计算的精度，比如float32 变为float16。这个是一个大杀器，基本上有减少内存尤其是显存消耗的模型，都可以这么做，我个人的经验是在CNN图像处理领域，这么做不会带来显著的模型质量的下降。</p>
+<li>
+<p>降低计算的精度，比如float32 变为float16。这个是一个大杀器，基本上有减少内存尤其是显存消耗的模型，都可以这么做，我个人的经验是在CNN图像处理领域，这么做不会带来显著的模型质量的下降。</p>
 </li>
-<li><p>分清楚eval 和 requires_grad = False。</p>
-<p>对于不需要bp的forward，如validation 请使用 torch.no_grad , 注意model.eval() 不等于 torch.no_grad() </p>
+<li>
+<p>分清楚eval 和 requires_grad = False。</p>
+<p>对于不需要bp的forward，如validation 请使用 torch.no_grad , 注意model.eval() 不等于 torch.no_grad()</p>
 </li>
-<li><p>使用torch.cuda.empty_cache()</p>
+<li>
+<p>使用torch.cuda.empty_cache()</p>
 <p>在确定的地方释放显存</p>
 </li>
 </ol>
 </blockquote>
-<p> linux中找到正在运行的某个进程，查看显存，杀死进程等 </p>
+<p>linux中找到正在运行的某个进程，查看显存，杀死进程等</p>
 <blockquote>
 <p>查看进程：ps</p>
 <p>查看现存：nvidia-smi</p>
 <p>杀死进程：kill</p>
 </blockquote>
-<p> 旷视数学题：x，y服从0-1之间的均匀分布，求z=max(x,y)的数学期望</p>
+<p>旷视数学题：x，y服从0-1之间的均匀分布，求z=max(x,y)的数学期望</p>
 <blockquote>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-102921.png" alt="image-20190722182920108"></p>
 </blockquote>
-<pre><code> 字节跳动一面只有代码题：将数字分成m段求各段和的最大值最小是多少（动态规划或者二分）
-</code></pre><blockquote>
-</blockquote>
-<p> 一张图片多个类别怎么设计损失函数，多标签分类问题</p>
+<pre><code>字节跳动一面只有代码题：将数字分成m段求各段和的最大值最小是多少（动态规划或者二分）
+</code></pre>
+<blockquote></blockquote>
+<p>一张图片多个类别怎么设计损失函数，多标签分类问题</p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-22-111116.png" alt="image-20190722191116046"></p>
 <p>\5. SVM、决策树优缺点，非线性回归用什么方法，L1、L2 正则化区别</p>
 <p>\6. 链表归并快排 <a href="https://blog.csdn.net/seniusen/article/details/88877994" target="_blank" rel="noopener">LeetCode 148——排序链表</a></p>
 <p>\7. 反转链表 <a href="https://blog.csdn.net/seniusen/article/details/83033827" target="_blank" rel="noopener">LeetCode 206——反转链表</a></p>
 <p>骰子掷出 1-7 的均匀分布</p>
 <blockquote>
-<p>第一次掷骰子的点数为 $X1 X_1 X1$，第二次掷骰子的点数为 X2X_2X2，如果X1=X2=6X_1=X_2=6X1=X2=6，则重掷，令 </p>
-<script type="math/tex; mode=display">
-X=((X1−1)∗6+X2)X =((X_1-1)*6 + X_2) % 7X=((X1−1)∗6+X2)</script><p>，则 XXX 即为取值范围为 1-7 的均匀分布</p>
+<p>第一次掷骰子的点数为 $X1 X_1 X1$，第二次掷骰子的点数为 X2X_2X2，如果X1=X2=6X_1=X_2=6X1=X2=6，则重掷，令<br>
+$$<br>
+X=((X1−1)∗6+X2)X =((X_1-1)*6 + X_2) % 7X=((X1−1)∗6+X2)<br>
+$$</p>
+<p>，则 XXX 即为取值范围为 1-7 的均匀分布</p>
 </blockquote>
 <p>ResNet 的特点</p>
 <blockquote>
-<p>引入跳跃连接，有效地解决了网络过深时候梯度消失的问题，使得设计更深层次的网络变得可行。 </p>
+<p>引入跳跃连接，有效地解决了网络过深时候梯度消失的问题，使得设计更深层次的网络变得可行。</p>
 </blockquote>
-<p>用 BN 没有，BN 有啥优点，这里问各种细节 </p>
+<p>用 BN 没有，BN 有啥优点，这里问各种细节</p>
 <blockquote>
 <p>详见论文阅读笔记 <a href="https://blog.csdn.net/seniusen/article/details/88877946" target="_blank" rel="noopener">Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</a></p>
 </blockquote>
 <p>怎么求一个三角形外接圆，</p>
 <blockquote>
-<p> 三条边垂直平分线的交点即为圆心，圆心到顶点的距离为半径</p>
+<p>三条边垂直平分线的交点即为圆心，圆心到顶点的距离为半径</p>
 </blockquote>
-<p>什么是 one-shot、zero-shot，区别     </p>
+<p>什么是 one-shot、zero-shot，区别</p>
 <blockquote>
 <p>zero-shot 就是说测试集中的类别都是训练集中没有见到的；</p>
 <p>one-shot 就是说测试集中的类别在训练集中很少或者只能见到一次</p>
 </blockquote>
-<p>梯度下降法和牛顿法区别 </p>
+<p>梯度下降法和牛顿法区别</p>
 <blockquote>
-<p>梯度下降法：利用一阶导数<br>牛顿法：利用二阶导数，收敛速度快；但对目标函数有严格要求，必须有连续的一、二阶偏导数，计算量大</p>
+<p>梯度下降法：利用一阶导数<br>
+牛顿法：利用二阶导数，收敛速度快；但对目标函数有严格要求，必须有连续的一、二阶偏导数，计算量大</p>
 </blockquote>
 <p>Adam 和 SGD 区别，RMSProp 优化算法</p>
 <p>\8. RNN 怎么反向传播</p>
@@ -1009,7 +1078,8 @@ X=((X1−1)∗6+X2)X =((X_1-1)*6 + X_2) % 7X=((X1−1)∗6+X2)</script><p>，则
 <li>判断两个链表是否相交。</li>
 <li>求一个数列中两个元素的最大和，找到这个两个元素。（Top K 问题）</li>
 </ul>
-<h4 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h4><ul>
+<h4 id="二面">二面</h4>
+<ul>
 <li>为什么项目中用 Faster R-CNN+FPN，Faster 和 YOLO 对比；为什么叫单步法，两步法？</li>
 <li>R-CNN系列：R-CNN，Fast R-CNN，Fast R-CNN。大概说了一下每代改进。又问了RPN网络。</li>
 <li>C++，问了 map 等是用什么实现的。答：红黑树。（面试官：好了，我也不问你红黑树了），那你在想想还有其他实现的方法吗？平衡二叉树，差不多说了一下。<code>可能是跳表？</code><a href="https://blog.csdn.net/seniusen/article/details/83505034" target="_blank" rel="noopener">数据结构和算法之——跳表</a></li>
@@ -1017,7 +1087,9 @@ X=((X1−1)∗6+X2)X =((X_1-1)*6 + X_2) % 7X=((X1−1)∗6+X2)</script><p>，则
 <li>问堆和栈。我不太会堆，忘记了。然后说了说栈的特点，怎么用的。又问了一下，在计算机系统中，栈有哪些用处，具体解释了一下。我说了线程和进程。<a href="https://blog.csdn.net/seniusen/article/details/84557036" target="_blank" rel="noopener">堆和堆排序</a>、<a href="https://blog.csdn.net/seniusen/article/details/84618422" target="_blank" rel="noopener">堆的应用</a>、<a href="https://blog.csdn.net/seniusen/article/details/83017108" target="_blank" rel="noopener">数据结构之——栈</a></li>
 <li>Linux的一些常用命令：我说了几个。他又问怎么按时间顺序打印出文件列表，按文件大小打印文件列表</li>
 <li>编程：两个字符串序列的最长公共子序列。<code>动态规划经典题目</code></li>
-<li>开放问题：让我设计神经网络模型（由于硬件限制，Faster 这种网络不让用）<br>数据：许多图片，这些图片是由很多网络分割的，就像棋盘一样。每一个格子中可能存在一条小斜线（因为是直线，所以实际由两个端点就可以确定）。要求设计一个网络来检测出这张图片中的这些小短线。<br>要求：自己定义图片的尺寸，网络的模型，loss，评价指标。问的比较细，每一步的实现细节，整得我一愣一愣的。</li>
+<li>开放问题：让我设计神经网络模型（由于硬件限制，Faster 这种网络不让用）<br>
+数据：许多图片，这些图片是由很多网络分割的，就像棋盘一样。每一个格子中可能存在一条小斜线（因为是直线，所以实际由两个端点就可以确定）。要求设计一个网络来检测出这张图片中的这些小短线。<br>
+要求：自己定义图片的尺寸，网络的模型，loss，评价指标。问的比较细，每一步的实现细节，整得我一愣一愣的。</li>
 <li>caffe 实现一种新的自定义网络</li>
 </ul>
 
