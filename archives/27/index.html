@@ -211,6 +211,105 @@
 
 <div class="post-preview" style="font-style: normal;">
 
+    <a href="/article/One-shot-Face-Recognition-by-Promoting-Underrepresented-Classes/">
+        <h2 class="post-title">
+            One-shot Face Recognition by Promoting Underrepresented Classes
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            One-shot Face Recognition by Promoting Underrepresented Classes
+
+主要工作：
+
+
+将数据集分为了 base set 和 novel set，base set中大概有2w个人，1m张图片。 novel set中的每个人的图像只有一张
+
+
+先通过base set进行人脸特征的建模，使得模型具有好的泛化性能。这里提到的这个模型不是on......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2018-12-18
+            </p>
+            
+              <a href="/tags/#face" title="face">face</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/Deep Ordinal Hashing/">
+        <h2 class="post-title">
+            Deep Ordinal Hashing
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Deep Ordinal Hashing
+主要采用的是ranking to hashing的方式。
+大部分的deep hashing的方式是直接使用全连接层的输出并将其映射到hash code空间。但是全局的信息会带来空间信息损失 的问题，导致学习到的hash code不是最优的。所以文章提出来使用注意力机制，来抽取局部空间特征。
+考虑到在hash code进行量化的时候，通常使用的sign......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2018-10-04
+            </p>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/°∂Discriminative-Deep-Hashing-for-Scalable-Face-Image-Retrieval-Jie°∑¬€Œƒ± º«/">
+        <h2 class="post-title">
+            《Discriminative Deep Hashing for Scalable Face Image Retrieval Jie》论文笔记
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Discriminative Deep Hashing for Scalable Face Image Retrieval
+提出辨识力深度哈希网络（Discriminative Deep Hash Network）
+简单来说，可以总结为一下几点：
+
+使用卷积来提取多尺度的特征
+使用divide-and encode分治编码的方式，用来生成紧凑的哈希编码
+设计了一个损失函数来降低预测误差（pr......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2018-09-09
+            </p>
+            
+              <a href="/tags/#Face Retrieval" title="Face Retrieval">Face Retrieval</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
     <a href="/notes/image∂¡»°◊¢“‚ ¬œÓ/">
         <h2 class="post-title">
             image读取&转换
@@ -448,97 +547,6 @@ Google使用的一个人人脸图像数据集中包含2亿张图片，8百万个
 </div>
 <hr>
 
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/pytorch/pytorch-notes/">
-        <h2 class="post-title">
-            pytorch notes
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            数据集加载流程：
-
-
-torchvision.datasets中已经包含众多数据集，先建立一个数据集对。
-1mnist_train = torchvision.datasets.MNIST(root="\data", train=True, download=True, transform= transform)
-不过在建立对象的时候，需要指定transform来确定对原始数据集中的图片的转......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2018-08-23
-            </p>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/NLP/NLP-review-ch01/">
-        <h2 class="post-title">
-            NLP review ch01
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            ch01 intro
-自然语言处理：自然语言处理是研究如何利用计算机技术对语言文本（句子、篇章或话语等）进行处理和加工的一门学科，研究内容包括对词法、句法、语义和语用等信息的识别、分类、提取、转换和生成等各种处理方法和实现技术。
-屈折语：用词的形态变化表示语法关系，如英语、法语等。
-黏着语：词内有专门表示语法意义的附加成分，词根或词干与附加成分的结合不紧密，如日语、韩语、土耳其语等。
-孤立语......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2018-08-23
-            </p>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/leetcode/leetcode-solution-150/">
-        <h2 class="post-title">
-            leetcode  150 Evaluate Reverse Polish Notation
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Evaluate the value of an arithmetic expression in Reverse Polish Notation.
-Valid operators are +, -, *, /. Each operand may be an integer or another expression.
-Note:
-
-Division between two integers......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2018-08-23
-            </p>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -596,17 +604,15 @@ Division between two integers......
             
         
             
-            <a href="/tags/#face" title="face" rel="6">face</a>
-            
-        
-            
             <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
             
         
             
-            <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            <a href="/tags/#face" title="face" rel="6">face</a>
             
         
+            
+            <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
             
         
             
@@ -622,11 +628,13 @@ Division between two integers......
             
         
             
-            <a href="/tags/#数组" title="数组" rel="24">数组</a>
-            
         
             
             <a href="/tags/#动态规划" title="动态规划" rel="8">动态规划</a>
+            
+        
+            
+            <a href="/tags/#数组" title="数组" rel="24">数组</a>
             
         
             
@@ -648,6 +656,8 @@ Division between two integers......
             
         
             
+        
+            
             <a href="/tags/#leetcode array" title="leetcode array" rel="2">leetcode array</a>
             
         
@@ -655,8 +665,6 @@ Division between two integers......
         
             
             <a href="/tags/#leetcode string" title="leetcode string" rel="2">leetcode string</a>
-            
-        
             
         
             
@@ -682,7 +690,9 @@ Division between two integers......
             
         
             
-            <a href="/tags/#面试" title="面试" rel="2">面试</a>
+        
+            
+            <a href="/tags/#面试" title="面试" rel="3">面试</a>
             
         
             
@@ -740,23 +750,23 @@ Division between two integers......
     <ul>
       
         <li>
+          <a href="/article/bytedance-面筋集合/">bytedance 面筋集合</a>
+        </li>
+      
+        <li>
+          <a href="/article/背包问题总结/">背包问题总结</a>
+        </li>
+      
+        <li>
+          <a href="/article/机器学习/">(no title)</a>
+        </li>
+      
+        <li>
           <a href="/article/leetcode-125-验证回文串/">leetcode 125 验证回文串</a>
         </li>
       
         <li>
           <a href="/article/leetcode-122-买卖股票的最佳时机-II/">leetcode 122 买卖股票的最佳时机 II</a>
-        </li>
-      
-        <li>
-          <a href="/article/leetcode-121-买卖股票的最佳时机/">leetcode 121 买卖股票的最佳时机</a>
-        </li>
-      
-        <li>
-          <a href="/article/leetcode-120-三角形最小路径和/">leetcode 120 三角形最小路径和</a>
-        </li>
-      
-        <li>
-          <a href="/article/leetcode-118-杨辉三角/">leetcode 118 杨辉三角</a>
         </li>
       
     </ul>
@@ -767,7 +777,7 @@ Division between two integers......
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">73</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">73</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
