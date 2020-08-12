@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,36 +211,25 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>Q. 多线程中线程hang住是什么原因<br>
-A.</p>
-<p>Q. TCP和UDP的区别? 都适用于那些场景？<br>
-A. TCP是面向连接的，通过各种机制来保证数据传输的准确性。例如三次握手，四次挥手、滑动窗口、重传等等。UDP面向无连接，是一个无状态的传输协议，传输速度比TCP要快。由于没有TCP那样的可靠机制，他的连接是不可靠的。在网络状态不好的情况下，容易产生丢包。因此，在要求传输准确无误的场景下需要是用TCP协议，例如文件传输中http、https、FTP、pop、SMTP等协议，都需要保证传输的准确性。而在速度要求较高，准确度要求不高的情况下，可以使用UDP协议，例如一些语音、时频的传输，等<br>
-ref: <a href="https://www.cnblogs.com/williamjie/p/9390164.html" target="_blank" rel="noopener">https://www.cnblogs.com/williamjie/p/9390164.html</a></p>
-<p>Q. 什么时候用长连接什么时候用短连接?<br>
-A. <strong>长连接</strong>多用于操作频繁，点对点的通讯，而且连接数不能太多情况。每个TCP连接都需要三步握手，这需要时间，如果每个操作都是先连接，再操作的话那么处理速度会降低很多，所以每个操作完后都不断开，次处理时直接发送数据包就OK了，不用建立TCP连接。例如：数据库的连接用长连接， 如果用短连接频繁的通信会造成socket错误，而且频繁的socket 创建也是对资源的浪费。 而像WEB网站的http服务一般都用<strong>短链接</strong>，因为长连接对于服务端来说会耗费一定的资源，而像WEB网站这么频繁的成千上万甚至上亿客户端的连接用短连接会更省一些资源，如果用长连接，而且同时有成千上万的用户，如果每个用户都占用一个连接的话，那可想而知吧。所以并发量大，但每个用户无需频繁操作情况下需用短连好。</p>
+                <p>Q. 多线程中线程hang住是什么原因<br>A. </p>
+<p>Q. TCP和UDP的区别? 都适用于那些场景？<br>A. TCP是面向连接的，通过各种机制来保证数据传输的准确性。例如三次握手，四次挥手、滑动窗口、重传等等。UDP面向无连接，是一个无状态的传输协议，传输速度比TCP要快。由于没有TCP那样的可靠机制，他的连接是不可靠的。在网络状态不好的情况下，容易产生丢包。因此，在要求传输准确无误的场景下需要是用TCP协议，例如文件传输中http、https、FTP、pop、SMTP等协议，都需要保证传输的准确性。而在速度要求较高，准确度要求不高的情况下，可以使用UDP协议，例如一些语音、时频的传输，等<br>ref: <a href="https://www.cnblogs.com/williamjie/p/9390164.html" target="_blank" rel="noopener">https://www.cnblogs.com/williamjie/p/9390164.html</a></p>
+<p>Q. 什么时候用长连接什么时候用短连接?<br>A. <strong>长连接</strong>多用于操作频繁，点对点的通讯，而且连接数不能太多情况。每个TCP连接都需要三步握手，这需要时间，如果每个操作都是先连接，再操作的话那么处理速度会降低很多，所以每个操作完后都不断开，次处理时直接发送数据包就OK了，不用建立TCP连接。例如：数据库的连接用长连接， 如果用短连接频繁的通信会造成socket错误，而且频繁的socket 创建也是对资源的浪费。 而像WEB网站的http服务一般都用<strong>短链接</strong>，因为长连接对于服务端来说会耗费一定的资源，而像WEB网站这么频繁的成千上万甚至上亿客户端的连接用短连接会更省一些资源，如果用长连接，而且同时有成千上万的用户，如果每个用户都占用一个连接的话，那可想而知吧。所以并发量大，但每个用户无需频繁操作情况下需用短连好。</p>
 <p>Q. 曲折打印二叉树(写对)，</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">zigzagTree</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> root</span><br><span class="line">    stack = []</span><br><span class="line">    ans = []</span><br><span class="line">    stack.append(root)</span><br><span class="line">    leftToRight = <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        n = len(stack)</span><br><span class="line">        temp = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            p = stack.pop()</span><br><span class="line">            print(p.val, end=<span class="string">' '</span>)</span><br><span class="line">            <span class="keyword">if</span> leftToRight:</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    temp.append(p.left)</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    temp.append(p.right)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    temp.append(p.right)</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    temp.append(p.left)</span><br><span class="line">        print()</span><br><span class="line">        leftToRight = <span class="keyword">not</span> leftToRight</span><br><span class="line">        stack.extend(temp)</span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-<p>Q. 全组合</p>
+<p>Q. 全组合 </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">给定两个整数 n 和 k，返回 <span class="number">1</span> ... n 中所有可能的 k 个数的组合。</span><br><span class="line"></span><br><span class="line">示例:</span><br><span class="line"></span><br><span class="line">输入: n = <span class="number">4</span>, k = <span class="number">2</span></span><br><span class="line">输出:</span><br><span class="line">[</span><br><span class="line">  [<span class="number">2</span>,<span class="number">4</span>],</span><br><span class="line">  [<span class="number">3</span>,<span class="number">4</span>],</span><br><span class="line">  [<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">  [<span class="number">1</span>,<span class="number">3</span>],</span><br><span class="line">  [<span class="number">1</span>,<span class="number">4</span>],</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combine</span><span class="params">(self, n, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(ans, n, k, t, start)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> len(t) == k:</span><br><span class="line">                ans.append(copy.copy(t))</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(start, n+<span class="number">1</span>):</span><br><span class="line">                t.append(i)</span><br><span class="line">                dfs(ans, n, k, t, i+<span class="number">1</span>)</span><br><span class="line">                t.pop()</span><br><span class="line">            </span><br><span class="line">        ans = []</span><br><span class="line">        dfs(ans, n, k, [], <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-<p>Q. 推导LR公式，LR的梯度下降，sigmoid函数<br>
-A. <a href="https://www.cnblogs.com/lxs0731/p/8573044.html" target="_blank" rel="noopener">https://www.cnblogs.com/lxs0731/p/8573044.html</a></p>
-<p>Q. 推导SVM公式<br>
-A.</p>
-<p>Q. struct{uid 、loginTime、 logoutTime}，一个app的用户可能回登录和登出（并且只有一次登陆登出），给定用户登陆登出的数组，求在一天之内的在线人数的峰值，精确到秒。输出格式是：&lt;峰值出现时间startTime ，峰值结束时间endTime&gt;<br>
-A. 一天总共有3600*24=86400秒。定义一个长度为86400的整数数组intdelta[86400]，每个整数对应这一秒的人数变化值，可能为正也可能为负。开始时将数组元素都初始化为0。然后依次读入每个用户的登录时间和退出时间，将与登录时间对应的整数值加1，将与退出时间对应的整数值减1。这样处理一遍后数组中存储了每秒中的人数变化情况。定义另外一个长度为86400的整数数组intonline_num[86400]，每个整数对应这一秒的论坛在线人数。假设一天开始时论坛在线人数为0，则第1秒的人数online_num[0]=delta[0]。第n+1秒的人数online_num[n]=online_num[n-1]+delta[n]。这样我们就获得了一天中任意时间的在线人数。</p>
+<p>Q. 推导LR公式，LR的梯度下降，sigmoid函数<br>A. <a href="https://www.cnblogs.com/lxs0731/p/8573044.html" target="_blank" rel="noopener">https://www.cnblogs.com/lxs0731/p/8573044.html</a></p>
+<p>Q. 推导SVM公式<br>A. </p>
+<p>Q. struct{uid 、loginTime、 logoutTime}，一个app的用户可能回登录和登出（并且只有一次登陆登出），给定用户登陆登出的数组，求在一天之内的在线人数的峰值，精确到秒。输出格式是：&lt;峰值出现时间startTime ，峰值结束时间endTime&gt;<br>A. 一天总共有3600*24=86400秒。定义一个长度为86400的整数数组intdelta[86400]，每个整数对应这一秒的人数变化值，可能为正也可能为负。开始时将数组元素都初始化为0。然后依次读入每个用户的登录时间和退出时间，将与登录时间对应的整数值加1，将与退出时间对应的整数值减1。这样处理一遍后数组中存储了每秒中的人数变化情况。定义另外一个长度为86400的整数数组intonline_num[86400]，每个整数对应这一秒的论坛在线人数。假设一天开始时论坛在线人数为0，则第1秒的人数online_num[0]=delta[0]。第n+1秒的人数online_num[n]=online_num[n-1]+delta[n]。这样我们就获得了一天中任意时间的在线人数。</p>
 <p>Q. 1-25放在5*5格子里，每一行每一列都按照递增的顺序放，有多少种放法？</p>
-<p>Q. 有一个数组里有n个数，要求从中等概率的取出k个数。<br>
-A. 类似于抽奖的时候，先抽后抽的概率都相等。可以把这个看成是一个无放回的抽奖。如果你还记得高中时候数学课本上抽奖（抽奖这种做法是不是等概率的）那个案例的话，你会瞬间秒懂。答案是肯定的，但也是相当简单的，就一句话，每次选中的元素跟当前选择长度的最后一个元素做交换，即可。最开始N个数字，第一次选了a[i]，那么就将a[i]与a[n-1]做交换，然后呢，再从a[0, 1, 2,……, n-2]中再随机选择，如果选中了a[k]，那么就将a[k]与a[n-2]做交换，然后从a[0, 1, 2,……, n-3]中再随机选择……直到选够M个数字，取出最后M个数字即可。这么做就省去了移动的时间成本，时间复杂度为O(n)，终于完工了。</p>
+<p>Q. 有一个数组里有n个数，要求从中等概率的取出k个数。<br>A. 类似于抽奖的时候，先抽后抽的概率都相等。可以把这个看成是一个无放回的抽奖。如果你还记得高中时候数学课本上抽奖（抽奖这种做法是不是等概率的）那个案例的话，你会瞬间秒懂。答案是肯定的，但也是相当简单的，就一句话，每次选中的元素跟当前选择长度的最后一个元素做交换，即可。最开始N个数字，第一次选了a[i]，那么就将a[i]与a[n-1]做交换，然后呢，再从a[0, 1, 2,….., n-2]中再随机选择，如果选中了a[k]，那么就将a[k]与a[n-2]做交换，然后从a[0, 1, 2,….., n-3]中再随机选择……直到选够M个数字，取出最后M个数字即可。这么做就省去了移动的时间成本，时间复杂度为O(n)，终于完工了。</p>
 <p>无需数组中求第k大的数</p>
 <p>Q. 链表的快排</p>
-<p>Q. 列举常见的一些范数及其应用场景，如 L0，L1，L2，L∞，Frobenius 范数<br>
-<img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-125242.png" alt="image-20190708205242101"></p>
+<p>Q. 列举常见的一些范数及其应用场景，如 L0，L1，L2，L∞，Frobenius 范数<br><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-125242.png" alt="image-20190708205242101"></p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-130244.png" alt="image-20190708210226273"></p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-130247.png" alt="image-20190708210243831"></p>
-<p>Q. 简单介绍一下 sigmoid，relu，softplus，tanh，RBF 及其应用场景<br>
-A.<br>
-Sigmoid:</p>
+<p>Q. 简单介绍一下 sigmoid，relu，softplus，tanh，RBF 及其应用场景<br>A.<br>Sigmoid:</p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131034.png" alt="image-20190708211034466"></p>
 <p>Relu:</p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131301.png" alt="image-20190708211301110"></p>
@@ -251,17 +240,14 @@ Sigmoid:</p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131613.png" alt="image-20190708211612888"></p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131627.png" alt="image-20190708211626304"></p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-131934.png" alt="image-20190708211933979"></p>
-<p>Q. 数值计算中的计算上溢与下溢问题，如 softmax 中的处理方式<br>
-A.</p>
-<p><strong>下溢</strong>： 当接近零的数被四舍五入为零时发生下溢。<br>
-<strong>上溢</strong>：当大量级的数被近似为∞ 或−∞时发生上溢。进一步的运算通常会导致这些无限值变为非数字。<br>
-<img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-133256.png" alt="image-20190708213255770"></p>
+<p>Q. 数值计算中的计算上溢与下溢问题，如 softmax 中的处理方式<br>A. </p>
+<p><strong>下溢</strong>： 当接近零的数被四舍五入为零时发生下溢。<br><strong>上溢</strong>：当大量级的数被近似为∞ 或−∞时发生上溢。进一步的运算通常会导致这些无限值变为非数字。<br><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-08-133256.png" alt="image-20190708213255770"></p>
 <p>①c和c++的结构体、类有什么区别</p>
 <p>概念：class和struct的语法基本相同，从声明到使用，都很相似，但是struct的约束要比class多，理论上，struct能做到的class都能做到，但class能做到的stuct却不一定做的到。</p>
 <p>类型：struct是值类型，class是引用类型，因此它们具有所有值类型和引用类型之间的差异。</p>
 <p>效率：由于堆栈的执行效率要比堆的执行效率高，但是堆栈资源却很有限，不适合处理逻辑复杂的大对象，因此struct常用来处理作为基类型对待的小对象，而class来处理某个商业逻辑。</p>
 <p>关系：struct不仅能继承也能被继承 ，而且可以实现接口，不过Class可以完全扩展。内部结构有区别，struct只能添加带参的构造函数，不能使用abstract和protected等修饰符，不能初始化实例字段。</p>
-<p>②计算机组成原理—层次化存储结构</p>
+<p>②计算机组成原理—-层次化存储结构</p>
 <p>③int和malloc定义数组的区别</p>
 <p>④指针和引用的区别</p>
 <p>⑤深度学习中1*1卷积的作用</p>
@@ -270,35 +256,26 @@ A.</p>
 <p>大概酱，15分钟的样子</p>
 <p><a href="https://blog.csdn.net/u014451076/article/details/79156967/" target="_blank" rel="noopener">https://blog.csdn.net/u014451076/article/details/79156967/</a></p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-10-093441.png" alt="image-20190710173440630"></p>
-<ol start="2">
-<li>
-<p>简历项目和比赛介绍，中间有问一些项目和比赛细节，问了一些延伸和开放性问题：</p>
+<ol>
+<li><p>简历项目和比赛介绍，中间有问一些项目和比赛细节，问了一些延伸和开放性问题：</p>
 <ul>
-<li>
-<p>Adam和SGD优化器哪个更好，好在哪里，哪个使模型更加容易发散?</p>
+<li><p>Adam和SGD优化器哪个更好，好在哪里，哪个使模型更加容易发散?</p>
 </li>
-<li>
-<p>FPN作用</p>
+<li><p>FPN作用</p>
 <p><a href="https://www.jianshu.com/p/5a28ae9b365d" target="_blank" rel="noopener">https://www.jianshu.com/p/5a28ae9b365d</a></p>
 </li>
-<li>
-<p>讲下yolov3的架构，和two-stage的mask-rcnn有什么区别</p>
+<li><p>讲下yolov3的架构，和two-stage的mask-rcnn有什么区别</p>
 </li>
 </ul>
 </li>
-<li>
-<p>代码测试，求n个数里面前k个最大的数。 我最开始说用快排，面试说还有其他方法吗，我一紧张说了个时间复杂度更大的方法，面试官提醒我可以考虑树排序，但是我没学过，回答不上来，最后面试官说你本科没学过数据结构，那就先算了。</p>
+<li><p>代码测试，求n个数里面前k个最大的数。 我最开始说用快排，面试说还有其他方法吗，我一紧张说了个时间复杂度更大的方法，面试官提醒我可以考虑树排序，但是我没学过，回答不上来，最后面试官说你本科没学过数据结构，那就先算了。</p>
 </li>
-<li>
-<p>问了几个机器学习算法，KNN和SVM的细节。 这里答的不好，太久没用传统机器学习算法，很多东西都忘了，中间一个简单的几何中常见距离计算方式(欧式距离)，我忘了居然答余弦距离。</p>
+<li><p>问了几个机器学习算法，KNN和SVM的细节。 这里答的不好，太久没用传统机器学习算法，很多东西都忘了，中间一个简单的几何中常见距离计算方式(欧式距离)，我忘了居然答余弦距离。</p>
 </li>
-<li>
-<p>问了我有什么想问的。</p>
+<li><p>问了我有什么想问的。</p>
 </li>
 </ol>
-<h4 id=""></h4>
-<h2 id=""></h2>
-<p>faster rcnn、Mask rcnn的<strong>细节</strong>，faster rcnn的rpn结构介绍下，rpn的loss是什么，master rcnn和faster rcnn有什么区别和改进</p>
+<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><h2 id=""><a href="#-1" class="headerlink" title=" "></a> </h2><p>faster rcnn、Mask rcnn的<strong>细节</strong>，faster rcnn的rpn结构介绍下，rpn的loss是什么，master rcnn和faster rcnn有什么区别和改进</p>
 <ul>
 <li>retinanet的结构和创新点，讲一下ssd和retinanet的区别</li>
 </ul>
@@ -313,102 +290,82 @@ A.</p>
 <p>ROI Pooling和ROI Align的区别及演进</p>
 <p>离线图像增强与在线图像增强有什么区别</p>
 <ol>
-<li>Python和计算机常考基础
-<ul>
+<li>Python和计算机常考基础<ul>
 <li>装饰器怎么用</li>
 <li>深拷贝和浅拷贝的区别</li>
 <li>多线程和多进程的区别</li>
 </ul>
 </li>
-<li>Linux和git命令操作基础
-<ul>
+<li>Linux和git命令操作基础<ul>
 <li>linux查找、查看文件的3个常用命令：which、find、wheresis。（这里应该是查找命令，当时也没听清楚，连就说了cat查看文件、which、find）</li>
 <li>统计文件夹下的文件个数:ls -l | grep “^_” | wc -l（这个操作，我之前用过很多次，但是没说的很清楚，不过意思应该表达清楚了）</li>
 </ul>
 </li>
 <li>git的一个操作（具体问题真的忘了）</li>
 </ol>
-<h3 id="一面总结">一面总结</h3>
-<ul>
+<h3 id="一面总结"><a href="#一面总结" class="headerlink" title="一面总结"></a>一面总结</h3><ul>
 <li>Python一些基础还是要搞清楚，向迭代器、深拷贝、浅拷贝，我之前都看过面经和用法，都还是忘了，真是不应该。</li>
 <li>地平线机器人面试真的问的很广，偏工程向，碰到不会的也不要太紧张，之后一定要去补课。</li>
 <li>自己要加强Python基础的一些<strong>技术盲点</strong>。</li>
 <li>以后面试表达要有针对性，可以引导面试官往自己熟悉的方向，但不要拓展太多。</li>
 </ul>
-<h3 id="二面70分钟">二面（70分钟）</h3>
-<ol>
-<li>
-<p>项目介绍</p>
+<h3 id="二面70分钟"><a href="#二面（70分钟）" class="headerlink" title="二面（70分钟）"></a>二面（70分钟）</h3><ol>
+<li><p>项目介绍</p>
 <ul>
 <li><strong>项目细节，和由项目延伸的原理问题</strong></li>
 <li>细粒度图像分类了解吗</li>
 </ul>
 </li>
-<li>
-<p>目标检测框架原理问题</p>
+<li><p>目标检测框架原理问题</p>
 <ul>
-<li>
-<p>RPN结构讲下，RPN的loss有哪些，分类loss是二分类还是多分类</p>
+<li><p>RPN结构讲下，RPN的loss有哪些，分类loss是二分类还是多分类</p>
 </li>
-<li>
-<p>ROI Pooling是在RPN前面还是后面，讲下原理，有什么作用</p>
+<li><p>ROI Pooling是在RPN前面还是后面，讲下原理，有什么作用</p>
 </li>
-<li>
-<p>ROI Polling和ROI Align的区别</p>
+<li><p>ROI Polling和ROI Align的区别</p>
 <ul>
-<li>
-<h1 id="httpswwwjianshucomp9db81f1bb439"><a href="https://www.jianshu.com/p/9db81f1bb439" target="_blank" rel="noopener">https://www.jianshu.com/p/9db81f1bb439</a></h1>
-</li>
-<li>
-<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-10-134933.png" alt="image-20190710214932959"></p>
+<li><h1 id="httpswwwjianshucomp9db81f1bb439"><a href="#https-www-jianshu-com-p-9db81f1bb439" class="headerlink" title="https://www.jianshu.com/p/9db81f1bb439"></a><a href="https://www.jianshu.com/p/9db81f1bb439" target="_blank" rel="noopener">https://www.jianshu.com/p/9db81f1bb439</a></h1></li>
+<li><p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-10-134933.png" alt="image-20190710214932959"></p>
 </li>
 </ul>
 </li>
-<li>
-<p><strong>Mask RCNN基本结构</strong>讲下</p>
+<li><p><strong>Mask RCNN基本结构</strong>讲下</p>
 </li>
-<li>
-<p>1*1卷积作用（降维－改变特征通道数，加入非线性）</p>
+<li><p>1*1卷积作用（降维－改变特征通道数，加入非线性）</p>
 </li>
-<li>
-<p>Faster RCNN的loss有哪些，分别讲下</p>
+<li><p>Faster RCNN的loss有哪些，分别讲下</p>
 </li>
 </ul>
 </li>
-<li>
-<p>CNN的SOTA模型原理</p>
+<li><p>CNN的SOTA模型原理</p>
 <ul>
 <li><strong>ResNet结构讲下，它解决了什么问题</strong></li>
 <li>InceptionV3结构讲下</li>
 </ul>
 </li>
-<li>
-<p>C/C++/Python基础</p>
+<li><p>C/C++/Python基础</p>
 <ul>
 <li>Python装饰器解释下，基本要求是什么（参数为函数，返回为函数，本质是嵌套函数）</li>
 <li>C的结构体和C++类的区别(C结构体不能定义函数)</li>
-<li>__init__函数有什么用</li>
-<li>Python怎么继承父类的__init__函数（super操作）</li>
+<li><strong>init</strong>函数有什么用</li>
+<li>Python怎么继承父类的<strong>init</strong>函数（super操作）</li>
 <li><strong>面向对象编程和面向过程编程区别</strong></li>
 </ul>
 </li>
-<li>
-<p>Linux系统基础操作</p>
+<li><p>Linux系统基础操作</p>
 <ul>
 <li>一些基本命令</li>
 <li><strong>管道命令</strong>解释下</li>
 <li>统计文件夹下的文件个数:ls -l | grep “^_” | wc -l</li>
 </ul>
 </li>
-<li>
-<p>git相关操作</p>
+<li><p>git相关操作</p>
 <ul>
 <li>git熟不熟悉，平常怎么用</li>
 <li>除了commit、pull等基本命令，还用过哪些</li>
 </ul>
 </li>
-<li>
-<p>嵌入式Linux系统</p>
+<li><p>嵌入式Linux系统</p>
 <ul>
 <li>tensorflow安装是源码安装还是pip/conda安装，交叉编译用过吗</li>
 <li>cmake语法了解吗</li>
@@ -419,8 +376,7 @@ A.</p>
 <ul>
 <li>图像分割结果，如果边缘信息本来是直线的，但是分割出来效果线确是弯的，怎么解决（有点记不清了）</li>
 </ul>
-<h3 id="一面">一面</h3>
-<ul>
+<h3 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h3><ul>
 <li>Power(a,n) 常规递归方法写完让写一个O（1）的方法</li>
 <li>岛计数问题 dfs</li>
 <li>哪些处理过拟合的办法：正则，剪枝，dropout</li>
@@ -429,15 +385,13 @@ A.</p>
 <li>SGD每步做什么，为什么能online learning</li>
 <li>Logistic Regression损失函数，怎么来的</li>
 </ul>
-<h3 id="二面">二面</h3>
-<ul>
+<h3 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h3><ul>
 <li>CNN反向传播细节，怎么过全联接层、池化层、卷积层</li>
 <li>Adam优化器的迭代公式</li>
 <li>CNN多分类损失函数 softmax</li>
 <li>字符串最小编辑路径</li>
 </ul>
-<h3 id="三面">三面</h3>
-<ul>
+<h3 id="三面"><a href="#三面" class="headerlink" title="三面"></a>三面</h3><ul>
 <li>线性回归R^2公式及意义</li>
 <li>p-value意义，怎么算？怎么做单边检验</li>
 <li>随机过程 稳态是什么</li>
@@ -447,17 +401,14 @@ A.</p>
 <li>找完全二叉树最后一个节点</li>
 <li>找字典序的第k个数</li>
 </ul>
-<h2 id="百度">百度</h2>
-<hr>
-<h2 id="一面">一面</h2>
-<ul>
+<h2 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h2><hr>
+<h2 id="一面"><a href="#一面-1" class="headerlink" title="一面"></a>一面</h2><ul>
 <li>项目相关</li>
 <li>给定一个m*n的矩形，他能包含的不同面积的矩形的数量，返回【面积，对应的计数】</li>
 <li>给定一个树，树的每一个中间节点都会他相邻的父节点有连接，求根节点到叶子结点的最大路径和</li>
 <li>给定一个硬币，抛出正面的概率为p，反面的概率为1-p。用这枚硬币，生成一个等概率返回1和0的方法</li>
 </ul>
-<h2 id="二面">二面</h2>
-<ul>
+<h2 id="二面"><a href="#二面-1" class="headerlink" title="二面"></a>二面</h2><ul>
 <li>整个二面提出了一些比较开放性的问题</li>
 <li>数据清洗有哪些方法</li>
 <li>对缺失的数据改如何处理</li>
@@ -469,362 +420,105 @@ A.</p>
 <li>为什么用softmax可以转换为概率，而不直接用$\frac{wx_i}{\sum_{x_j}{wx_j}}$</li>
 <li>如何用svm实现learning2rank</li>
 </ul>
-<p>题目：<br>
-已知一随机发生器，产生0的概率是p，产生1的概率是1-p，现在要你构造一个发生器，<br>
-使得它构造0和1的概率均为1/2<br>
-解决方案：<br>
-这是随机概率发生器的典型题目。<br>
-由于需要产生1/2，而用1位0，或1位1无法产生等概率，因此，考虑将随机数扩展成2位：<br>
-00 p<em>p<br>
-01 p</em>(1-p)<br>
-10 (1-p)<em>p<br>
-11 (1-p)</em>(1-p)<br>
-有上述分析知道，01和10是等概率的，因此我们只需要产生01和10就行了。<br>
-于是可以，遇到00和11就丢弃，只记录01和10。可以令，01表示0,10表示1，则等概率1/2产生0和1了。</p>
-<p>扩展：<br>
-已知一随机发生器，产生0的概率是p，产生1的概率是1-p，现在要你构造一个发生器，<br>
-使得它构造0和1的概率均为1/2；构造一个发生器，使得它构造1、2、3的概率均为1/3；…，<br>
-构造一个发生器，使得它构造1、2、3、…n的概率均为1/n，要求复杂度最低。<br>
-解答：<br>
-对n=2，认为01表示0、10表示1，等概率，其他情况放弃<br>
-对n=3，认为001表示1、010表示2，100表示3，等概率，其他情况放弃<br>
-对n=4，认为0001表示1、0010表示2，0100表示3，1000表示4，等概率，其他情况放弃</p>
-<p>首先是1/2的情况，我们一次性生成两个数值，如果是00或者11丢弃，否则留下，01为1，10为0，他们的概率都是p*(1-p)是相等的，所以等概率了。然后是1/n的情况了，我们以5为例，此时我们取x=2，因为C(2x,x)=C(4,2)=6是比5大的最小的x，此时我们就是一次性生成4位二进制，把1出现个数不是2的都丢弃，这时候剩下六个:0011,0101,0110,1001,1010,1100，取最小的5个，即丢弃1100，那么我们对于前5个分别编号1到5，这时候他们的概率都是p<em>p</em>(1-p)*(1-p)相等了。</p>
+<p>题目：<br>已知一随机发生器，产生0的概率是p，产生1的概率是1-p，现在要你构造一个发生器，<br>使得它构造0和1的概率均为1/2<br>解决方案：<br>这是随机概率发生器的典型题目。<br>由于需要产生1/2，而用1位0，或1位1无法产生等概率，因此，考虑将随机数扩展成2位：<br>00 p<em>p<br>01 p</em>(1-p)<br>10 (1-p)<em>p<br>11 (1-p)</em>(1-p)<br>有上述分析知道，01和10是等概率的，因此我们只需要产生01和10就行了。<br>于是可以，遇到00和11就丢弃，只记录01和10。可以令，01表示0,10表示1，则等概率1/2产生0和1了。</p>
+<p>扩展：<br>已知一随机发生器，产生0的概率是p，产生1的概率是1-p，现在要你构造一个发生器，<br>使得它构造0和1的概率均为1/2；构造一个发生器，使得它构造1、2、3的概率均为1/3；…，<br>构造一个发生器，使得它构造1、2、3、…n的概率均为1/n，要求复杂度最低。<br>解答：<br>对n=2，认为01表示0、10表示1，等概率，其他情况放弃<br>对n=3，认为001表示1、010表示2，100表示3，等概率，其他情况放弃<br>对n=4，认为0001表示1、0010表示2，0100表示3，1000表示4，等概率，其他情况放弃</p>
+<p>首先是1/2的情况，我们一次性生成两个数值，如果是00或者11丢弃，否则留下，01为1，10为0，他们的概率都是p<em>(1-p)是相等的，所以等概率了。然后是1/n的情况了，我们以5为例，此时我们取x=2，因为C(2x,x)=C(4,2)=6是比5大的最小的x，此时我们就是一次性生成4位二进制，把1出现个数不是2的都丢弃，这时候剩下六个:0011,0101,0110,1001,1010,1100，取最小的5个，即丢弃1100，那么我们对于前5个分别编号1到5，这时候他们的概率都是p</em>p<em>(1-p)</em>(1-p)相等了。</p>
 <p>关键是找那个最小的x，使得C(2x,x)&gt;=n这样能提升查找效率</p>
 <hr>
-<p>2、给一个无序数组，将数组分成两堆，使得两堆数的平均值相差最大。口述思路就好<br>
-3、神经网络中解决过拟合的方法？<br>
-4、神经网络中的优化器有哪些？常用的优化器你是如何进行选择的？</p>
-<p>二面30min：<br>
-1、介绍简历上的项目<br>
-2、常用的机器学习算法用过哪些？介绍lr的一个原理<br>
-3、手写一个二叉排序树的建立过程，写完后拍照发微信<br>
-4、点击率预估模型了解过哪些？</p>
-<p>hr面：<br>
-1、自我介绍<br>
-2、你对工作地点的偏好？<br>
-3、工作内容的偏好？<br>
-4、反问：拼多多的新人培养和晋升机制是什么？</p>
+<p>2、给一个无序数组，将数组分成两堆，使得两堆数的平均值相差最大。口述思路就好<br> 3、神经网络中解决过拟合的方法？<br> 4、神经网络中的优化器有哪些？常用的优化器你是如何进行选择的？</p>
+<p>二面30min：<br> 1、介绍简历上的项目<br> 2、常用的机器学习算法用过哪些？介绍lr的一个原理<br> 3、手写一个二叉排序树的建立过程，写完后拍照发微信<br> 4、点击率预估模型了解过哪些？</p>
+<p>hr面：<br> 1、自我介绍<br> 2、你对工作地点的偏好？<br> 3、工作内容的偏好？<br> 4、反问：拼多多的新人培养和晋升机制是什么？</p>
 <hr>
-<h1 id="秋招记录-百度核心搜索部">秋招记录-百度核心搜索部</h1>
-<p>一面：<br>
-1、链表反转<br>
-2、字符串的最长公共子序列（输出该子序列，用的动态规划）<br>
-动态规划的思路：</p>
+<h1 id="秋招记录-百度核心搜索部"><a href="#秋招记录-百度核心搜索部" class="headerlink" title="秋招记录-百度核心搜索部"></a>秋招记录-百度核心搜索部</h1><p>一面：<br>1、链表反转<br>2、字符串的最长公共子序列（输出该子序列，用的动态规划）<br>动态规划的思路：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">package DynamicProgramming;</span><br><span class="line"></span><br><span class="line">public class LongestCommonSubSequence &#123;</span><br><span class="line"></span><br><span class="line">    public static int[][] findLongestSubStrDP(String str1,String str2)&#123;</span><br><span class="line">        char[] char1 = str1.toCharArray();</span><br><span class="line">        char[] char2 = str2.toCharArray();</span><br><span class="line">        int[][] dp = new int[char1.length][char2.length];</span><br><span class="line">        for(int i=0;i&lt;char1.length;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;char2.length;j++)&#123;</span><br><span class="line">                if(i==0)&#123;</span><br><span class="line">                    dp[i][j] = (char2[j] == char1[i] ? 1:0);</span><br><span class="line">                &#125;</span><br><span class="line">                else if(j==0)&#123;</span><br><span class="line">                    dp[i][j] = (char2[j] == char1[i] ? 1:0);</span><br><span class="line">                &#125;</span><br><span class="line">                else&#123;</span><br><span class="line">                    dp[i][j] = Math.max(dp[i-1][j],dp[i][j-1]);</span><br><span class="line">                    if(char1[i] == char2[j])</span><br><span class="line">                        dp[i][j] = Math.max(dp[i][j],dp[i-1][j-1] + 1);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static String lcse(String str1,String str2,int[][] dp)&#123;</span><br><span class="line">        char[] char1 = str1.toCharArray();</span><br><span class="line">        char[] char2 = str2.toCharArray();</span><br><span class="line">        int m = char1.length-1;</span><br><span class="line">        int n = char2.length-1;</span><br><span class="line">        char[] res = new char[dp[m][n]];</span><br><span class="line">        int index = res.length-1;</span><br><span class="line">        while(index &gt;= 0)&#123;</span><br><span class="line">            if(n&gt;0 &amp;&amp; dp[m][n] == dp[m][n-1])</span><br><span class="line">                n--;</span><br><span class="line">            else if(m&gt;0 &amp;&amp; dp[m-1][n] == dp[m][n])</span><br><span class="line">                m--;</span><br><span class="line">            else&#123;</span><br><span class="line">                res[index--] = char1[m];</span><br><span class="line">                m--;</span><br><span class="line">                n--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return String.valueOf(res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        String str1 = &quot;1A2C3D4B56&quot;;</span><br><span class="line">        String str2 = &quot;B1D23CA45B6A&quot;;</span><br><span class="line"></span><br><span class="line">        int[][] dp = findLongestSubStrDP(str1,str2);</span><br><span class="line">        String res = lcse(str1,str2,dp);</span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3、介绍项目<br>
-4、XGBOOst和GBDT的区别。<br>
-• 传统GBDT以CART作为基分类器，xgboost还支持线性分类器，这个时候xgboost相当于带L1和L2正则化项的逻辑斯蒂回归（分类问题）或者线性回归（回归问题）。<br>
-• 传统GBDT在优化时只用到一阶导数信息，xgboost则对代价函数进行了二阶泰勒展开，同时用到了一阶和二阶导数。顺便提一下，xgboost工具支持自定义代价函数，只要函数可一阶和二阶求导。<br>
-• xgboost在代价函数里加入了正则项，用于控制模型的复杂度。正则项里包含了树的叶子节点个数、每个叶子节点上输出的score的L2模的平方和。从Bias-variance tradeoff角度来讲，正则项降低了模型的variance，使学习出来的模型更加简单，防止过拟合，这也是xgboost优于传统GBDT的一个特性。<br>
-• Shrinkage（缩减），相当于学习速率（xgboost中的eta）。xgboost在进行完一次迭代后，会将叶子节点的权重乘上该系数，主要是为了削弱每棵树的影响，让后面有更大的学习空间。实际应用中，一般把eta设置得小一点，然后迭代次数设置得大一点。（补充：传统GBDT的实现也有学习速率）<br>
-• 列抽样（column subsampling）。xgboost借鉴了随机森林的做法，支持列抽样，不仅能降低过拟合，还能减少计算，这也是xgboost异于传统gbdt的一个特性。<br>
-• 对缺失值的处理。对于特征的值有缺失的样本，xgboost可以自动学习出它的分裂方向。<br>
-• xgboost工具支持并行。boosting不是一种串行的结构吗?怎么并行的？注意xgboost的并行不是tree粒度的并行，xgboost也是一次迭代完才能进行下一次迭代的（第t次迭代的代价函数里包含了前面t-1次迭代的预测值）。xgboost的并行是在特征粒度上的。我们知道，决策树的学习最耗时的一个步骤就是对特征的值进行排序（因为要确定最佳分割点），xgboost在训练之前，预先对数据进行了排序，然后保存为block结构，后面的迭代中重复地使用这个结构，大大减小计算量。这个block结构也使得并行成为了可能，在进行节点的分裂时，需要计算每个特征的增益，最终选增益最大的那个特征去做分裂，那么各个特征的增益计算就可以开多线程进行。<br>
-• 可并行的近似直方图算法。树节点在进行分裂时，我们需要计算每个特征的每个分割点对应的增益，即用贪心法枚举所有可能的分割点。当数据无法一次载入内存或者在分布式情况下，贪心算法效率就会变得很低，所以xgboost还提出了一种可并行的近似直方图算法，用于高效地生成候选的分割点。</p>
-<p>二面：<br>
-1、介绍项目<br>
-2、RNN简单介绍一下，BPTT推导<br>
-3、后面又写了三层神经网络的推导<br>
-4、python中的dict，如何按照值去排序（面试官想考的是lambda函数）<br>
-5、python中，如何交换两个数的值，x，y = y，x<br>
-6、强化学习和监督学习的区别<br>
-1）强化学习是一个多次决策的过程，可以形成一个决策链，即西瓜书上种西瓜的例子；监督学习只是一个一次决策的过程。<br>
-2）有监督学习的训练样本是有标签的，强化学习的训练是没有标签的，它是通过环境给出的奖惩来学习。<br>
-3）监督学习的学习目标是跟给定的标签越接近越好，而强化学习不是，它希望能够获得的reward越大越好。</p>
-<p>7、强化学习DQN有哪些改进方向<br>
-Double -DQN／优先经验回放／Dueling-DQN<br>
-8、神经网络里面的损失函数有哪些<br>
-我写了交叉熵和平方损失，用python实现一个交叉熵函数，考虑的严谨一些<br>
-9、机器学习中常见的激活函数有哪些？<br>
-10、为什么通常需要零均值<br>
-Sigmoid 的输出不是0均值的，这是我们不希望的，因为这会导致后层的神经元的输入是非0均值的信号，这会对梯度产生影响：假设后层神经元的输入都为正(e.g. x&gt;0 elementwise in ),那么对w求局部梯度则都为正，这样在反向传播的过程中w要么都往正方向更新，要么都往负方向更新，导致有一种捆绑的效果，使得收敛缓慢。</p>
-<p>11、如果逻辑回归的所有样本的都是正样本， 那么它学出来的超平面是怎样的？<br>
-所有数据点分布在超平面的一侧</p>
-<p>12、你本科学习的方向有点怪(信息管理与信息系统和金融学的双学位)，前两份实习也有点瞎找的感觉，你是如何思考的?<br>
-13、树的前序遍历和zigzag遍历（非递归）。<br>
-zigzag遍历：两个栈</p>
+<p>3、介绍项目<br>4、XGBOOst和GBDT的区别。<br>• 传统GBDT以CART作为基分类器，xgboost还支持线性分类器，这个时候xgboost相当于带L1和L2正则化项的逻辑斯蒂回归（分类问题）或者线性回归（回归问题）。<br>• 传统GBDT在优化时只用到一阶导数信息，xgboost则对代价函数进行了二阶泰勒展开，同时用到了一阶和二阶导数。顺便提一下，xgboost工具支持自定义代价函数，只要函数可一阶和二阶求导。<br>• xgboost在代价函数里加入了正则项，用于控制模型的复杂度。正则项里包含了树的叶子节点个数、每个叶子节点上输出的score的L2模的平方和。从Bias-variance tradeoff角度来讲，正则项降低了模型的variance，使学习出来的模型更加简单，防止过拟合，这也是xgboost优于传统GBDT的一个特性。<br>• Shrinkage（缩减），相当于学习速率（xgboost中的eta）。xgboost在进行完一次迭代后，会将叶子节点的权重乘上该系数，主要是为了削弱每棵树的影响，让后面有更大的学习空间。实际应用中，一般把eta设置得小一点，然后迭代次数设置得大一点。（补充：传统GBDT的实现也有学习速率）<br>• 列抽样（column subsampling）。xgboost借鉴了随机森林的做法，支持列抽样，不仅能降低过拟合，还能减少计算，这也是xgboost异于传统gbdt的一个特性。<br>• 对缺失值的处理。对于特征的值有缺失的样本，xgboost可以自动学习出它的分裂方向。<br>• xgboost工具支持并行。boosting不是一种串行的结构吗?怎么并行的？注意xgboost的并行不是tree粒度的并行，xgboost也是一次迭代完才能进行下一次迭代的（第t次迭代的代价函数里包含了前面t-1次迭代的预测值）。xgboost的并行是在特征粒度上的。我们知道，决策树的学习最耗时的一个步骤就是对特征的值进行排序（因为要确定最佳分割点），xgboost在训练之前，预先对数据进行了排序，然后保存为block结构，后面的迭代中重复地使用这个结构，大大减小计算量。这个block结构也使得并行成为了可能，在进行节点的分裂时，需要计算每个特征的增益，最终选增益最大的那个特征去做分裂，那么各个特征的增益计算就可以开多线程进行。<br>• 可并行的近似直方图算法。树节点在进行分裂时，我们需要计算每个特征的每个分割点对应的增益，即用贪心法枚举所有可能的分割点。当数据无法一次载入内存或者在分布式情况下，贪心算法效率就会变得很低，所以xgboost还提出了一种可并行的近似直方图算法，用于高效地生成候选的分割点。</p>
+<p>二面：<br>1、介绍项目<br>2、RNN简单介绍一下，BPTT推导<br>3、后面又写了三层神经网络的推导<br>4、python中的dict，如何按照值去排序（面试官想考的是lambda函数）<br>5、python中，如何交换两个数的值，x，y = y，x<br>6、强化学习和监督学习的区别<br>1）强化学习是一个多次决策的过程，可以形成一个决策链，即西瓜书上种西瓜的例子；监督学习只是一个一次决策的过程。<br>2）有监督学习的训练样本是有标签的，强化学习的训练是没有标签的，它是通过环境给出的奖惩来学习。<br>3）监督学习的学习目标是跟给定的标签越接近越好，而强化学习不是，它希望能够获得的reward越大越好。</p>
+<p>7、强化学习DQN有哪些改进方向<br>Double -DQN／优先经验回放／Dueling-DQN<br>8、神经网络里面的损失函数有哪些<br>我写了交叉熵和平方损失，用python实现一个交叉熵函数，考虑的严谨一些<br>9、机器学习中常见的激活函数有哪些？<br>10、为什么通常需要零均值<br>Sigmoid 的输出不是0均值的，这是我们不希望的，因为这会导致后层的神经元的输入是非0均值的信号，这会对梯度产生影响：假设后层神经元的输入都为正(e.g. x&gt;0 elementwise in ),那么对w求局部梯度则都为正，这样在反向传播的过程中w要么都往正方向更新，要么都往负方向更新，导致有一种捆绑的效果，使得收敛缓慢。</p>
+<p>11、如果逻辑回归的所有样本的都是正样本， 那么它学出来的超平面是怎样的？<br>所有数据点分布在超平面的一侧</p>
+<p>12、你本科学习的方向有点怪(信息管理与信息系统和金融学的双学位)，前两份实习也有点瞎找的感觉，你是如何思考的?<br>13、树的前序遍历和zigzag遍历（非递归）。<br>zigzag遍历：两个栈</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public List&lt;List&lt;Integer&gt;&gt; zigzagLevelOrder(TreeNode root) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line">        if(root == null)</span><br><span class="line">            return res;</span><br><span class="line">        Stack&lt;TreeNode&gt; level = new Stack&lt;TreeNode&gt;();</span><br><span class="line">        level.push(root);</span><br><span class="line">        boolean flag = true;</span><br><span class="line">        while(!level.isEmpty())&#123;</span><br><span class="line">            Stack&lt;TreeNode&gt; tmp = level;</span><br><span class="line">            level = new Stack&lt;TreeNode&gt;();</span><br><span class="line">            List&lt;Integer&gt; temp = new ArrayList&lt;Integer&gt;();</span><br><span class="line">            while(!tmp.isEmpty())&#123;</span><br><span class="line">                TreeNode t = tmp.pop();</span><br><span class="line">                temp.add(t.val);</span><br><span class="line">                if(flag)&#123;</span><br><span class="line">                    if(t.left != null)</span><br><span class="line">                        level.push(t.left);</span><br><span class="line">                    if(t.right != null)</span><br><span class="line">                        level.push(t.right);</span><br><span class="line">                &#125;</span><br><span class="line">                else&#123;</span><br><span class="line">                    if(t.right != null)</span><br><span class="line">                        level.push(t.right);</span><br><span class="line">                    if(t.left != null)</span><br><span class="line">                        level.push(t.left);</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            flag = !flag;</span><br><span class="line">            res.add(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>三面：<br>
-1、自我介绍<br>
-2、项目探讨<br>
-3、自己的职业规划是怎样的<br>
-4、你找工作更看重的是哪一个方面<br>
-5、对硬性条件的要求<br>
-6、业务交流</p>
+<p>三面：<br>1、自我介绍<br>2、项目探讨<br>3、自己的职业规划是怎样的<br>4、你找工作更看重的是哪一个方面<br>5、对硬性条件的要求<br>6、业务交流</p>
 <hr>
 <p>知乎连续面了三面，第三面挂了，不过还是学习到了不少的东西。</p>
-<p>一面：<br>
-1、介绍项目<br>
-2、一个数组，所有数组都出现了两次，只有一个数出现了一次，返回这个数<br>
-这个题很简单，两个相同的数的异或是0，因此所有数求异或，剩下的数即为我们要求的数。</p>
+<p>一面：<br> 1、介绍项目<br> 2、一个数组，所有数组都出现了两次，只有一个数出现了一次，返回这个数<br> 这个题很简单，两个相同的数的异或是0，因此所有数求异或，剩下的数即为我们要求的数。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int singleNumber(int[] nums) &#123;</span><br><span class="line">        int res = 0;</span><br><span class="line">        for(int i=0;i&lt;nums.length;i++)</span><br><span class="line">            res ^= nums[I];</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3、一个数组，一个数出现了超过一半次数，返回这个数<br>
-这里用到的就是两两消除的思路。</p>
+<p>3、一个数组，一个数出现了超过一半次数，返回这个数<br> 这里用到的就是两两消除的思路。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int majorityElement(int[] nums) &#123;</span><br><span class="line">        if(nums==null || nums.length==0)</span><br><span class="line">            return -1;</span><br><span class="line">        int res = nums[0];</span><br><span class="line">        int count = 1;</span><br><span class="line">        for(int i=1;i&lt;nums.length;i++)&#123;</span><br><span class="line">            if(res == nums[I])</span><br><span class="line">                count++;</span><br><span class="line">            else&#123;</span><br><span class="line">                if(count==0)&#123;</span><br><span class="line">                    count ++;</span><br><span class="line">                    res = nums[I];</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                    count--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>4、将除法的结果用字符串返回，如果能够除尽，则返回相除的结果，如果不能除尽，则无限循环部分用[]标记。<br>
-这里我采用了队列和Map的做法，使用map记录每个除数出现的位置，如果出现了相同的除数，则表明出现了无限循环部分。如果除数变成了0，则说明除尽了。</p>
+<p>4、将除法的结果用字符串返回，如果能够除尽，则返回相除的结果，如果不能除尽，则无限循环部分用[]标记。<br> 这里我采用了队列和Map的做法，使用map记录每个除数出现的位置，如果出现了相同的除数，则表明出现了无限循环部分。如果除数变成了0，则说明除尽了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line">public class DivideTwoInteger &#123;</span><br><span class="line"></span><br><span class="line">    public static void divide(int p1,int p2)&#123;</span><br><span class="line">        Queue&lt;Integer&gt; queue = new LinkedList&lt;Integer&gt;();</span><br><span class="line">        int intPart = p1 / p2;</span><br><span class="line">        int reminder = p1 % p2;</span><br><span class="line">        if(reminder == 0)&#123;</span><br><span class="line">            System.out.println(&quot;&quot; + intPart);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Map&lt;Integer,Integer&gt; map = new HashMap&lt;Integer,Integer&gt;();</span><br><span class="line">        map.put(reminder,0);</span><br><span class="line">        int index = 0;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            queue.offer(reminder * 10 / p2);</span><br><span class="line">            reminder = reminder * 10 % p2;</span><br><span class="line">            if(map.containsKey(reminder) || reminder==0)</span><br><span class="line">                break;</span><br><span class="line">            else</span><br><span class="line">                map.put(reminder,++index);</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder stb = new StringBuilder();</span><br><span class="line">        stb.append(intPart + &quot;&quot;);</span><br><span class="line">        stb.append(&quot;.&quot;);</span><br><span class="line">        if(reminder == 0)&#123;</span><br><span class="line">            while(!queue.isEmpty())</span><br><span class="line">                stb.append(queue.poll() + &quot;&quot;);</span><br><span class="line">            System.out.println(stb.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            int pos = map.get(reminder);</span><br><span class="line">            index = 0;</span><br><span class="line">            while(index &lt; pos)</span><br><span class="line">                stb.append(queue.poll() + &quot;&quot;);</span><br><span class="line">            stb.append(&quot;[&quot;);</span><br><span class="line">            while(!queue.isEmpty())</span><br><span class="line">                stb.append(queue.poll() + &quot;&quot;);</span><br><span class="line">            stb.append(&quot;]&quot;);</span><br><span class="line">            System.out.println(stb.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        divide(1,3);</span><br><span class="line">        divide(100,3);</span><br><span class="line">        divide(6,3);</span><br><span class="line">        divide(10,4);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>5、介绍下DeepFM</p>
-<p>二面：<br>
-1、介绍项目<br>
-2、word2vec的原理简单介绍下<br>
-有关word2vec的原理，大家可以看https://blog.csdn.net/itplus/article/details/37969519<br>
-3、DeepFM介绍下<br>
-4、FM推导</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-adfff50b2fba3f80?imageMogr2/auto-orient/strip%7CimageView2/2/w/413/format/webp" alt="img"></p>
-<p>5、数组排序，假设数组排序后的位次和排序前的位次绝对值差值小于K，有什么比快排好的算法？<br>
-堆排序，建堆的过程是KlogK。我开始说用堆排序，先将数组的前K+1个元素建堆，然后每次出去一个进来一个，完成排序。面试官问我，这样做是有序的么。我一开始说不一定，但仔细想想，一定是有序的。我们来分析一下。<br>
-因为排序前和排序后，同一个数字的索引之差小于等于K。假设K=3，也就是说，索引为2的数，在排序后，最大位置不超过5。再假设我们当前找到的是排序后索引为2的数，且后面有一个数比这个要小。由于这个数不在堆中，因此这个数的排序前索引一定大于5，这与假设相矛盾。因此用堆排序一定能保证数组有序。</p>
-<p>6、树中两个节点的第一个的公共祖先。<br>
-这个题Leetcode上有原题：<a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/" target="_blank" rel="noopener">https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/</a><br>
-代码贴出来：</p>
+<p>二面：<br> 1、介绍项目<br> 2、word2vec的原理简单介绍下<br> 有关word2vec的原理，大家可以看<a href="https://blog.csdn.net/itplus/article/details/37969519" target="_blank" rel="noopener">https://blog.csdn.net/itplus/article/details/37969519</a><br> 3、DeepFM介绍下<br> 4、FM推导</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-adfff50b2fba3f80?imageMogr2/auto-orient/strip|imageView2/2/w/413/format/webp" alt="img"></p>
+<p>5、数组排序，假设数组排序后的位次和排序前的位次绝对值差值小于K，有什么比快排好的算法？<br> 堆排序，建堆的过程是KlogK。我开始说用堆排序，先将数组的前K+1个元素建堆，然后每次出去一个进来一个，完成排序。面试官问我，这样做是有序的么。我一开始说不一定，但仔细想想，一定是有序的。我们来分析一下。<br> 因为排序前和排序后，同一个数字的索引之差小于等于K。假设K=3，也就是说，索引为2的数，在排序后，最大位置不超过5。再假设我们当前找到的是排序后索引为2的数，且后面有一个数比这个要小。由于这个数不在堆中，因此这个数的排序前索引一定大于5，这与假设相矛盾。因此用堆排序一定能保证数组有序。</p>
+<p>6、树中两个节点的第一个的公共祖先。<br> 这个题Leetcode上有原题：<a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/" target="_blank" rel="noopener">https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/</a><br> 代码贴出来：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) &#123;</span><br><span class="line">        if(root==null || root == p || root== q)</span><br><span class="line">            return root;</span><br><span class="line">        TreeNode left = lowestCommonAncestor(root.left,p,q);</span><br><span class="line">        TreeNode right = lowestCommonAncestor(root.right,p,q);</span><br><span class="line">        if(left!=null &amp;&amp; right!=null) return root;</span><br><span class="line">        return left !=null?left:right!=null?right:null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>三面：<br>
-1、介绍下项目<br>
-2、word2vec里面的层次索引<br>
-3、boosting和bagging的区别？<br>
-1）样本选择上：<br>
-Bagging：训练集是在原始集中有放回选取的，从原始集中选出的各轮训练集之间是独立的.<br>
-Boosting：每一轮的训练集不变，只是训练集中每个样例在分类器中的权重发生变化.而权值是根据上一轮的分类结果进行调整.<br>
-2）样例权重：<br>
-Bagging：使用均匀取样，每个样例的权重相等<br>
-Boosting：根据错误率不断调整样例的权值，错误率越大则权重越大.<br>
-3）预测函数：<br>
-Bagging：所有预测函数的权重相等.<br>
-Boosting：每个弱分类器都有相应的权重，对于分类误差小的分类器会有更大的权重.<br>
-4）并行计算：<br>
-Bagging：各个预测函数可以并行生成<br>
-Boosting：各个预测函数只能顺序生成，因为后一个模型参数需要前一轮模型的结果.</p>
-<p>4、bagging为什么能减小方差？<br>
-参考博客：<a href="https://blog.csdn.net/shenxiaoming77/article/details/53894973" target="_blank" rel="noopener">https://blog.csdn.net/shenxiaoming77/article/details/53894973</a></p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-fa4a0df07b6dfbe4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
+<p>三面：<br> 1、介绍下项目<br> 2、word2vec里面的层次索引<br> 3、boosting和bagging的区别？<br> 1）样本选择上：<br> Bagging：训练集是在原始集中有放回选取的，从原始集中选出的各轮训练集之间是独立的.<br> Boosting：每一轮的训练集不变，只是训练集中每个样例在分类器中的权重发生变化.而权值是根据上一轮的分类结果进行调整.<br> 2）样例权重：<br> Bagging：使用均匀取样，每个样例的权重相等<br> Boosting：根据错误率不断调整样例的权值，错误率越大则权重越大.<br> 3）预测函数：<br> Bagging：所有预测函数的权重相等.<br> Boosting：每个弱分类器都有相应的权重，对于分类误差小的分类器会有更大的权重.<br> 4）并行计算：<br> Bagging：各个预测函数可以并行生成<br> Boosting：各个预测函数只能顺序生成，因为后一个模型参数需要前一轮模型的结果.</p>
+<p>4、bagging为什么能减小方差？<br> 参考博客：<a href="https://blog.csdn.net/shenxiaoming77/article/details/53894973" target="_blank" rel="noopener">https://blog.csdn.net/shenxiaoming77/article/details/53894973</a></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-fa4a0df07b6dfbe4.png?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
 <p>可能不懂的地方看下面的公式就知道了：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-163b0e5f4c5b049a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/687/format/webp" alt="img"></p>
-<p>5、交叉熵损失函数，0-1分类的交叉熵损失函数的。什么是凸函数？0-1分类如果用平方损失为什么用交叉熵而不是平方损失？<br>
-这里我们只回答最后一个问题，也就是说逻辑回归为什么不用平方损失？有两点原因：<br>
-1）平方损失函数非凸函数。为什么非凸？凸函数二阶导数大于等于0，证明一下即可。<br>
-2）但是会在h(wx)接近0和1的地方梯度很小，不容易学习。</p>
-<p>6、python里的gc和多线程。<br>
-在Python中，为了解决内存泄露问题，采用了对象引用计数，并基于引用计数实现自动垃圾回收。</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-163b0e5f4c5b049a.png?imageMogr2/auto-orient/strip|imageView2/2/w/687/format/webp" alt="img"></p>
+<p>5、交叉熵损失函数，0-1分类的交叉熵损失函数的。什么是凸函数？0-1分类如果用平方损失为什么用交叉熵而不是平方损失？<br> 这里我们只回答最后一个问题，也就是说逻辑回归为什么不用平方损失？有两点原因：<br> 1）平方损失函数非凸函数。为什么非凸？凸函数二阶导数大于等于0，证明一下即可。<br> 2）但是会在h(wx)接近0和1的地方梯度很小，不容易学习。</p>
+<p>6、python里的gc和多线程。<br> 在Python中，为了解决内存泄露问题，采用了对象引用计数，并基于引用计数实现自动垃圾回收。</p>
 <hr>
 <p>ThoughtWorks面试总的来说体验非常棒，尤其是算法加面的时候，面试官还给我点了美团外卖。</p>
 <p>笔试：一道小小的编程项目</p>
-<p>HR面：<br>
-1、先介绍一下项目<br>
-2、哪的人<br>
-3、对户口是否有要求<br>
-4、期望的薪资<br>
-5、为什么不留美团要来TW。<br>
-6、一个间断的英语面试，不过我说好几年没学习英语了，面试官就放弃了。</p>
-<p>技术面：<br>
-1、根据笔试作业，提出新的需求，要自带电脑并接投影仪，面试官看着你写代码<br>
-2、问项目<br>
-可能面试官非算法面试官吧，也没问很多技术问题。</p>
+<p>HR面：<br> 1、先介绍一下项目<br> 2、哪的人<br> 3、对户口是否有要求<br> 4、期望的薪资<br> 5、为什么不留美团要来TW。<br> 6、一个间断的英语面试，不过我说好几年没学习英语了，面试官就放弃了。</p>
+<p>技术面：<br> 1、根据笔试作业，提出新的需求，要自带电脑并接投影仪，面试官看着你写代码<br> 2、问项目<br> 可能面试官非算法面试官吧，也没问很多技术问题。</p>
 <p>三天后收到消息，拿到offer了，不过想要是算法工程师的话，需要进行一轮加面。如果加面不通过，可以给软件开发工程师的offer，不管怎样，也算秋招的第一个offer了嘛。</p>
-<p>加面：<br>
-1、指针网络介绍<br>
-2、指针网络／seq2seq的区别／你们的项目可不可以用seq2seq<br>
-3、强化学习DQN介绍<br>
-4、强化学习的应用场景<br>
-这里我说了一个序列决策，比如新闻的分屏推荐<br>
-5、完整介绍一下推荐系统<br>
-先讲了协同过滤，后来发现讲不下去了，干脆直接讲ctr预估，从传统方法LR、FM、FFM、GBDT+LR到深度学习方法再到强化学习方法。<br>
-6、DeepFM介绍<br>
-7、Abtest是怎么做的<br>
-8、Beam-Search介绍</p>
-<p>–</p>
-<h1 id="秋招记录-美团留用面试">秋招记录-美团留用面试</h1>
-<p><a href="https://www.jianshu.com/u/c5df9e229a67" target="_blank" rel="noopener"><img src="https://upload.jianshu.io/users/upload_avatars/4155986/0b79def0-fd6c-44d8-9410-1c13d3a2cf7e.jpg?imageMogr2/auto-orient/strip%7CimageView2/1/w/96/h/96" alt="96"></a></p>
-<p>两个字：细节。感觉凉凉<br>
-只有一面交叉面<br>
-1、自我介绍<br>
-2、你的博客一般是什么内容的，多久更新一次<br>
-3、回归问题的损失函数都有哪些？从哪些角度设计一个合理的损失函数？<br>
-<a href="https://www.zhihu.com/question/68390722/answer/266034620" target="_blank" rel="noopener">https://www.zhihu.com/question/68390722/answer/266034620</a><br>
-4、哪些场景下的分类问题不适用于交叉熵损失函数？<br>
-5、推荐系统中你认为最重要的环节是什么？我答的探索与利用。<br>
-6、多臂老虎机中，有许多方法，比如e-greedy，timponson采样，UCB，这些方法都有哪些适用场景？<br>
-7、L1和L2有什么区别，从数学角度解释L2为什么能提升模型的泛化能力。<br>
-<a href="https://www.zhihu.com/question/35508851" target="_blank" rel="noopener">https://www.zhihu.com/question/35508851</a><br>
-<a href="https://blog.csdn.net/zouxy09/article/details/24971995" target="_blank" rel="noopener">https://blog.csdn.net/zouxy09/article/details/24971995</a><br>
-8、深度学习中，提升模型泛化能力的方法都有哪些？<br>
-9、深度学习中，L2和dropout有哪些区别？<br>
-<a href="https://blog.csdn.net/stdcoutzyx/article/details/49022443" target="_blank" rel="noopener">https://blog.csdn.net/stdcoutzyx/article/details/49022443</a><br>
-10、L1正则化有哪些好处？<br>
-11、职业规划</p>
+<p>加面：<br> 1、指针网络介绍<br> 2、指针网络／seq2seq的区别／你们的项目可不可以用seq2seq<br> 3、强化学习DQN介绍<br> 4、强化学习的应用场景<br> 这里我说了一个序列决策，比如新闻的分屏推荐<br> 5、完整介绍一下推荐系统<br> 先讲了协同过滤，后来发现讲不下去了，干脆直接讲ctr预估，从传统方法LR、FM、FFM、GBDT+LR到深度学习方法再到强化学习方法。<br> 6、DeepFM介绍<br> 7、Abtest是怎么做的<br> 8、Beam-Search介绍</p>
+<p>—</p>
+<h1 id="秋招记录-美团留用面试"><a href="#秋招记录-美团留用面试" class="headerlink" title="秋招记录-美团留用面试"></a>秋招记录-美团留用面试</h1><p><a href="https://www.jianshu.com/u/c5df9e229a67" target="_blank" rel="noopener"><img src="https://upload.jianshu.io/users/upload_avatars/4155986/0b79def0-fd6c-44d8-9410-1c13d3a2cf7e.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96" alt="96"></a> </p>
+<p>两个字：细节。感觉凉凉<br>只有一面交叉面<br>1、自我介绍<br>2、你的博客一般是什么内容的，多久更新一次<br>3、回归问题的损失函数都有哪些？从哪些角度设计一个合理的损失函数？<br><a href="https://www.zhihu.com/question/68390722/answer/266034620" target="_blank" rel="noopener">https://www.zhihu.com/question/68390722/answer/266034620</a><br>4、哪些场景下的分类问题不适用于交叉熵损失函数？<br>5、推荐系统中你认为最重要的环节是什么？我答的探索与利用。<br>6、多臂老虎机中，有许多方法，比如e-greedy，timponson采样，UCB，这些方法都有哪些适用场景？<br>7、L1和L2有什么区别，从数学角度解释L2为什么能提升模型的泛化能力。<br><a href="https://www.zhihu.com/question/35508851" target="_blank" rel="noopener">https://www.zhihu.com/question/35508851</a><br><a href="https://blog.csdn.net/zouxy09/article/details/24971995" target="_blank" rel="noopener">https://blog.csdn.net/zouxy09/article/details/24971995</a><br>8、深度学习中，提升模型泛化能力的方法都有哪些？<br>9、深度学习中，L2和dropout有哪些区别？<br><a href="https://blog.csdn.net/stdcoutzyx/article/details/49022443" target="_blank" rel="noopener">https://blog.csdn.net/stdcoutzyx/article/details/49022443</a><br>10、L1正则化有哪些好处？<br>11、职业规划</p>
 <hr>
-<p>一面：<br>
-1、链表反转<br>
-2、如何预测一家店分品类的销量<br>
-这里没有考虑到的一点是：商家可能存在的活动，比如折扣、满减活动、满赠活动等</p>
-<p>二面：<br>
-1、介绍一个你了解的算法<br>
-我讲了SVM。中间问了几个问题<br>
-1）几何间隔是什么<br>
-2）核函数的作用是什么<br>
-2、类别变量，可以不用one-hot么？<br>
-3、如果有一万个地理坐标，转换成1-10000的数，可以用决策树么？</p>
-<p>三面：<br>
-1、问项目</p>
+<p>一面：<br> 1、链表反转<br> 2、如何预测一家店分品类的销量<br> 这里没有考虑到的一点是：商家可能存在的活动，比如折扣、满减活动、满赠活动等</p>
+<p>二面：<br> 1、介绍一个你了解的算法<br> 我讲了SVM。中间问了几个问题<br> 1）几何间隔是什么<br> 2）核函数的作用是什么<br> 2、类别变量，可以不用one-hot么？<br> 3、如果有一万个地理坐标，转换成1-10000的数，可以用决策树么？</p>
+<p>三面：<br> 1、问项目</p>
 <p>流程非常快。。。</p>
 <hr>
 <p>面试体验不错，就是等的时间有点久，一面等了一个小时，二面等了一个半小时。</p>
 <p>面试一共三轮：两轮技术面+一轮hr面</p>
 <p>结果7-10个工作日出，然后毕业生去贝壳有租房的福利，新人入职的话会有暴走活动、王者荣耀等活动。</p>
-<p>一面：<br>
-1、先考一个二分查找，用python写<br>
-2、用python实现一个读文件，同时对每一列特征进行最大-最小值标准化，再将数据写回文件<br>
-3、一道hive题，题目有点忘记了<br>
-4、用tensorflow实现线性回归，主要考察的是一个tf的一个实现思路<br>
-5、leetcode42题，题解在：<a href="https://leetcode.com/problems/trapping-rain-water/solution/%EF%BC%8C%E6%88%91%E7%94%A8%E4%BA%86%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3%EF%BC%8C%E9%9D%A2%E8%AF%95%E5%AE%98%E8%AF%B4%E6%B2%A1%E9%97%AE%E9%A2%98%E3%80%82" target="_blank" rel="noopener">https://leetcode.com/problems/trapping-rain-water/solution/，我用了第二种方法解决，面试官说没问题。</a><br>
-6、决策树的实现、ID3、C4.5、CART，把公式要记好<br>
-7、CART回归树是怎么实现的<br>
-8、CART分类树和ID3以及C4.5有什么区别。我回答的是CART只能是二叉树<br>
-9、剪枝有哪几种方式<br>
-10、树集成模型有哪几种实现方式：Bagging和Boosting，回答过程中又问到了很多细节。随即森林的随机体现在哪些方面，AdaBoost是如何改变样本权重，GBDT分类树拟合的是什么？等等。<br>
-11、介绍满减神器项目</p>
+<p>一面：<br> 1、先考一个二分查找，用python写<br> 2、用python实现一个读文件，同时对每一列特征进行最大-最小值标准化，再将数据写回文件<br> 3、一道hive题，题目有点忘记了<br> 4、用tensorflow实现线性回归，主要考察的是一个tf的一个实现思路<br> 5、leetcode42题，题解在：<a href="https://leetcode.com/problems/trapping-rain-water/solution/，我用了第二种方法解决，面试官说没问题。" target="_blank" rel="noopener">https://leetcode.com/problems/trapping-rain-water/solution/，我用了第二种方法解决，面试官说没问题。</a><br> 6、决策树的实现、ID3、C4.5、CART，把公式要记好<br> 7、CART回归树是怎么实现的<br> 8、CART分类树和ID3以及C4.5有什么区别。我回答的是CART只能是二叉树<br> 9、剪枝有哪几种方式<br> 10、树集成模型有哪几种实现方式：Bagging和Boosting，回答过程中又问到了很多细节。随即森林的随机体现在哪些方面，AdaBoost是如何改变样本权重，GBDT分类树拟合的是什么？等等。<br> 11、介绍满减神器项目</p>
 <p>一面主要考察了树模型，同时第一次在面试中直接手撕tensorflow、numpy和hive sql代码。</p>
-<p>二面：<br>
-1、介绍项目，问了一些关于美团-满减神器的东西<br>
-2、一道二分查找相关的题目，面试官说独家题目，需要我保密，这里就不贴出来了</p>
-<p>三面-hr面：<br>
-1、你找工作主要看重的是什么？<br>
-2、介绍满减神器项目<br>
-3、你手里有offer了么？<br>
-4、你在项目中的不足之处有哪些？<br>
-5、你最期望的工作方向是什么？</p>
+<p>二面：<br> 1、介绍项目，问了一些关于美团-满减神器的东西<br> 2、一道二分查找相关的题目，面试官说独家题目，需要我保密，这里就不贴出来了</p>
+<p>三面-hr面：<br> 1、你找工作主要看重的是什么？<br> 2、介绍满减神器项目<br> 3、你手里有offer了么？<br> 4、你在项目中的不足之处有哪些？<br> 5、你最期望的工作方向是什么？</p>
 <hr>
-<p>上午面了一点资讯<br>
-一面：<br>
-1、问简历<br>
-2、防止过拟合的方法<br>
-3、DeepFm模型介绍一下<br>
-4、判断是否是回文链表<br>
-5、链表反转<br>
-6、spark任务运行中，发生了数据倾斜，这种情况下你一般如何处理</p>
-<p>二面：<br>
-1、问简历<br>
-2、Dueling DQN和DQN有什么区别<br>
-3、快速排序</p>
-<p>三面：<br>
-1、介绍下DeepFM<br>
-2、信息流采样，有n份数据，但是n的长度并不知道，设计一个采样算法，使得每份被选择的概率是相同的。</p>
-<p>考虑这样是不是可以，总是以1/i的概率去选择每一次遍历的对象，比如从1,2,3,…,N， 每一次遍历到x时，总是以1/x的概率去选择它。<br>
-一开始选择第一个数据，并以概率1/2选择第二个数据,以1/3选择第三个数据，也就是说设结果为result，遍历第一个时result = 1,第二个以1/2的概率替让result = 2,这样一直遍历概率性的替换下去，最终的result就是你的结果。被选择的概率就是1/n。<br>
-第x个数被选择的概率 = x被选择的概率 * (x+1没被选择的概率) * (x+2没有被选择的概率) <em>…</em>(N没有被选择的概率)<br>
-被选择的概率 = 1/2  * 2/3 * 3/4 * 4/5 …* (n-1/n) 我想你知道答案了吧？ 对！ 是1/n.这样就可以在不知道N的大小的情况下等概率的去选择任意一个对象了！</p>
-<p>3、判断两个链表中是否有相同节点<br>
-<a href="https://blog.csdn.net/Audience_/article/details/77648916" target="_blank" rel="noopener">https://blog.csdn.net/Audience_/article/details/77648916</a></p>
+<p>上午面了一点资讯<br> 一面：<br> 1、问简历<br> 2、防止过拟合的方法<br> 3、DeepFm模型介绍一下<br> 4、判断是否是回文链表<br> 5、链表反转<br> 6、spark任务运行中，发生了数据倾斜，这种情况下你一般如何处理</p>
+<p>二面：<br> 1、问简历<br> 2、Dueling DQN和DQN有什么区别<br> 3、快速排序</p>
+<p>三面：<br> 1、介绍下DeepFM<br> 2、信息流采样，有n份数据，但是n的长度并不知道，设计一个采样算法，使得每份被选择的概率是相同的。</p>
+<p>考虑这样是不是可以，总是以1/i的概率去选择每一次遍历的对象，比如从1,2,3,….,N， 每一次遍历到x时，总是以1/x的概率去选择它。<br> 一开始选择第一个数据，并以概率1/2选择第二个数据,以1/3选择第三个数据，也就是说设结果为result，遍历第一个时result = 1,第二个以1/2的概率替让result = 2,这样一直遍历概率性的替换下去，最终的result就是你的结果。被选择的概率就是1/n。<br> 第x个数被选择的概率 = x被选择的概率 <em> (x+1没被选择的概率) </em> (x+2没有被选择的概率) <em>……</em>(N没有被选择的概率)<br> 被选择的概率 = 1/2  <em> 2/3 </em> 3/4 <em> 4/5 …..</em> (n-1/n) 我想你知道答案了吧？ 对！ 是1/n.这样就可以在不知道N的大小的情况下等概率的去选择任意一个对象了！</p>
+<p>3、判断两个链表中是否有相同节点<br> <a href="https://blog.csdn.net/Audience_/article/details/77648916" target="_blank" rel="noopener">https://blog.csdn.net/Audience_/article/details/77648916</a></p>
 <p>4、模型在线下评估和线上使用时，往往出现线上实际效果不如线下效果的情况，请分析可能的原因。</p>
 <hr>
-<p>一面：<br>
-1、简历<br>
-2、c++中的stoi，用java实现了一下<br>
-3、一道概率问题</p>
-<p>二面：<br>
-1、介绍简历<br>
-2、python中 a=1，b=1，那么a is b返回的是true还是false<br>
-<a href="https://blog.csdn.net/weixin_35653315/article/details/71640473" target="_blank" rel="noopener">https://blog.csdn.net/weixin_35653315/article/details/71640473</a><br>
-3、linux中，进程的子进程挂掉了，那么这个父进程会不会dump<br>
-4、在CTR预估问题中，假设训练数据的正负样本数为1:4，测试数据中的正负样本数也为1:4，那么此时模型对测试集，学到的平均点击率为1/（1+4）,假设此时采取了欠采样策略，使正负样本数为1:1，对同样的测试集进行预测，平均点击率应该是多少？（样本量很大，初始总样本数为10亿）<br>
-5、early stop对参数有什么影响？</p>
+<p>一面：<br> 1、简历<br> 2、c++中的stoi，用java实现了一下<br> 3、一道概率问题</p>
+<p>二面：<br> 1、介绍简历<br> 2、python中 a=1，b=1，那么a is b返回的是true还是false<br> <a href="https://blog.csdn.net/weixin_35653315/article/details/71640473" target="_blank" rel="noopener">https://blog.csdn.net/weixin_35653315/article/details/71640473</a><br> 3、linux中，进程的子进程挂掉了，那么这个父进程会不会dump<br> 4、在CTR预估问题中，假设训练数据的正负样本数为1:4，测试数据中的正负样本数也为1:4，那么此时模型对测试集，学到的平均点击率为1/（1+4）,假设此时采取了欠采样策略，使正负样本数为1:1，对同样的测试集进行预测，平均点击率应该是多少？（样本量很大，初始总样本数为10亿）<br> 5、early stop对参数有什么影响？</p>
 <hr>
-<p>一面：<br>
-1、介绍项目<br>
-2、如何做一个依存分析，不会。。<br>
-3、FM、DeepFM介绍一下<br>
-4、介绍一下常用的CTR算法，从传统算法到深度学习算法。具体介绍一下Wide&amp;Deep模型<br>
-5、计算树的深度<br>
-6、旋转数组的二分查找<br>
-7、Word2Vec模型的原理，使用哈夫曼树的原因是什么？word2vec的输入输出层是什么样的？</p>
-<p>二面：<br>
-1、聊了一下人生的规划<br>
-2、聊了一下猫眼在做的事情<br>
-3、海量数据如何求中位数？数据无法放入内存，只需考虑空间复杂度，不需要考虑时间复杂度。<br>
-4、朴素贝叶斯分类</p>
-<p>三面：<br>
-全程怼项目，有一个问题问的比较好，你对你项目本身有没有信心，你对做好这个项目有没有信心。</p>
+<p>一面：<br> 1、介绍项目<br> 2、如何做一个依存分析，不会。。<br> 3、FM、DeepFM介绍一下<br> 4、介绍一下常用的CTR算法，从传统算法到深度学习算法。具体介绍一下Wide&amp;Deep模型<br> 5、计算树的深度<br> 6、旋转数组的二分查找<br> 7、Word2Vec模型的原理，使用哈夫曼树的原因是什么？word2vec的输入输出层是什么样的？</p>
+<p>二面：<br> 1、聊了一下人生的规划<br> 2、聊了一下猫眼在做的事情<br> 3、海量数据如何求中位数？数据无法放入内存，只需考虑空间复杂度，不需要考虑时间复杂度。<br> 4、朴素贝叶斯分类</p>
+<p>三面：<br> 全程怼项目，有一个问题问的比较好，你对你项目本身有没有信心，你对做好这个项目有没有信心。</p>
 <hr>
 <p>总体感觉问简历项目居多，其他方面问的比较少，可能我不太符合这么一个需求吧，面试官说在搜索推荐领域，理解用户的需求是十分重要的，因此可能自然语言处理需要有一定的基础吧。</p>
-<p>一面：<br>
-1、问简历<br>
-2、主要有几道算法题吧：<br>
-大数相乘<br>
-动态规划题<br>
-有重复数字的排序数组的二分搜索问题。</p>
-<p>二面：<br>
-1、问简历项目<br>
-2、有负数存在的排序数组，按照数的绝对值进行排序<br>
-3、介绍了一下搜狗搜索这边主要负责的事情</p>
-<p>三面：<br>
-1、问项目，主要问了你在这个项目中的主要职责是什么<br>
-2、从一个矩阵的左上角到右下角，只能向右或向下，一共有多少种走法？有比动态规划时间复杂度更低的算法么？如果有，时间复杂度是多少？<br>
-3、如果在上面问题的基础上允许向左走，但是一条路径中每一个位置只能经过一次，问一共有多少种走法，我答了回溯法，问回溯法的复杂度是多少？<br>
-4、有什么问题想问我？</p>
+<p>一面：<br> 1、问简历<br> 2、主要有几道算法题吧：<br> 大数相乘<br> 动态规划题<br> 有重复数字的排序数组的二分搜索问题。</p>
+<p>二面：<br> 1、问简历项目<br> 2、有负数存在的排序数组，按照数的绝对值进行排序<br> 3、介绍了一下搜狗搜索这边主要负责的事情</p>
+<p>三面：<br> 1、问项目，主要问了你在这个项目中的主要职责是什么<br> 2、从一个矩阵的左上角到右下角，只能向右或向下，一共有多少种走法？有比动态规划时间复杂度更低的算法么？如果有，时间复杂度是多少？<br> 3、如果在上面问题的基础上允许向左走，但是一条路径中每一个位置只能经过一次，问一共有多少种走法，我答了回溯法，问回溯法的复杂度是多少？<br> 4、有什么问题想问我？</p>
 <hr>
-<p>一面：<br>
-1、问项目<br>
-2、然后是三道笔试题，笔试题做完之后就结束了，笔试题三道题：<br>
-1）子数组最大和<br>
-2）堆排序<br>
-3）数组中出现次数最多的K个数</p>
-<p>二面：<br>
-1、包含重复数字的无序数组，找到所有加和等于target的索引对。<br>
-2、三色旗问题 ，这道题没答上来，已经决定要凉凉了。<br>
-<a href="https://blog.csdn.net/u011200844/article/details/43227301" target="_blank" rel="noopener">https://blog.csdn.net/u011200844/article/details/43227301</a><br>
-3、后面问了一些项目。</p>
+<p>一面：<br> 1、问项目<br> 2、然后是三道笔试题，笔试题做完之后就结束了，笔试题三道题：<br> 1）子数组最大和<br> 2）堆排序<br> 3）数组中出现次数最多的K个数</p>
+<p>二面：<br> 1、包含重复数字的无序数组，找到所有加和等于target的索引对。<br> 2、三色旗问题 ，这道题没答上来，已经决定要凉凉了。<br> <a href="https://blog.csdn.net/u011200844/article/details/43227301" target="_blank" rel="noopener">https://blog.csdn.net/u011200844/article/details/43227301</a><br> 3、后面问了一些项目。</p>
 <hr>
 <p>面试从一点到八点，只面了两面，一面在中关村软件园国际会议中心，通过一面之后打车到滴滴楼下的咖啡厅进行二三面，由于时间太晚了，所以三面的话可能到节后再安排。这里先补充一二面面经。</p>
-<p>一面：<br>
-1、介绍项目<br>
-2、介绍下Adam优化器<br>
-3、链表反转<br>
-4、判断链表是否有环<br>
-5、两个字符串的最小编辑距离<br>
-6、python装饰器的原理<br>
-7、python的迭代器<br>
-8、Deepfm的原理，DeepFM是一个模型还是代表了一类模型，DeepFM对FM做了什么样的改进，FM的公式如何化简并求解梯度<br>
-9、逻辑回归的损失函数，逻辑回归的损失函数为什么是logloss，背后服从的分布是什么？</p>
-<p>二面：<br>
-1、spark sql 和 hive的区别是什么？spark sql和hive哪个更快一些，为什么？<br>
-2、强化学习中有value-based 和 policy-based，这两种的优缺点分别是什么？应用场景分别是什么？<br>
-3、介绍一下简历中的强化学习推荐项目<br>
-4、介绍一下简历中的生成模型<br>
-5、介绍一下常见的优化器<br>
-6、如何判断神经网络的过拟合是否发生， 有什么解决方法<br>
-7、介绍下drop-out 和 batch-normalization<br>
-8、wide &amp; deep是怎么训练的，两部分用的优化器是一样的么？<br>
-9、25匹马，有一条只能5匹马比赛的赛道，我们无法计时，只能看到马的排名，如何用最短的次数找出跑的最快的5匹马<br>
-10、一条无限长的直线，有两个机器人，两个机器人执行同一段代码，这一段代码中只有几条语句：right代表向右走，left代表向左走，if arrived else代表另一个机器人是否走过这个地方。goto代表代码的跳转，请写一段代码确保两个机器人能够相遇。</p>
-<p>三面：<br>
-1、介绍项目<br>
-2、介绍一下常见的分类模型，以及他们的优缺点以及应用场景<br>
-3、GBDT和XGBoost介绍一下，XGBoost做了哪些改进<br>
-4、二叉树的前序遍历<br>
-5、有一个序列，数字依次不断的添加进来，设计一个数据结构，能够快速返回这堆数字的中位数。(考虑堆排序、二叉排序树）<br>
-6、强化学习中的value-based和policy-based的区别以及使用场景<br>
-7、项目中目前的不足以及未来的展望，以及项目中遇到的最大的困难。<br>
-8、梯度下降和拟牛顿法的区别。</p>
+<p>一面：<br> 1、介绍项目<br> 2、介绍下Adam优化器<br> 3、链表反转<br> 4、判断链表是否有环<br> 5、两个字符串的最小编辑距离<br> 6、python装饰器的原理<br> 7、python的迭代器<br> 8、Deepfm的原理，DeepFM是一个模型还是代表了一类模型，DeepFM对FM做了什么样的改进，FM的公式如何化简并求解梯度<br> 9、逻辑回归的损失函数，逻辑回归的损失函数为什么是logloss，背后服从的分布是什么？</p>
+<p>二面：<br> 1、spark sql 和 hive的区别是什么？spark sql和hive哪个更快一些，为什么？<br> 2、强化学习中有value-based 和 policy-based，这两种的优缺点分别是什么？应用场景分别是什么？<br> 3、介绍一下简历中的强化学习推荐项目<br> 4、介绍一下简历中的生成模型<br> 5、介绍一下常见的优化器<br> 6、如何判断神经网络的过拟合是否发生， 有什么解决方法<br> 7、介绍下drop-out 和 batch-normalization<br> 8、wide &amp; deep是怎么训练的，两部分用的优化器是一样的么？<br> 9、25匹马，有一条只能5匹马比赛的赛道，我们无法计时，只能看到马的排名，如何用最短的次数找出跑的最快的5匹马<br> 10、一条无限长的直线，有两个机器人，两个机器人执行同一段代码，这一段代码中只有几条语句：right代表向右走，left代表向左走，if arrived else代表另一个机器人是否走过这个地方。goto代表代码的跳转，请写一段代码确保两个机器人能够相遇。</p>
+<p>三面：<br> 1、介绍项目<br> 2、介绍一下常见的分类模型，以及他们的优缺点以及应用场景<br> 3、GBDT和XGBoost介绍一下，XGBoost做了哪些改进<br> 4、二叉树的前序遍历<br> 5、有一个序列，数字依次不断的添加进来，设计一个数据结构，能够快速返回这堆数字的中位数。(考虑堆排序、二叉排序树）<br> 6、强化学习中的value-based和policy-based的区别以及使用场景<br> 7、项目中目前的不足以及未来的展望，以及项目中遇到的最大的困难。<br> 8、梯度下降和拟牛顿法的区别。</p>
 <p>三面有一些题目想不起来了，面试官最后加了微信，希望能够有一个好结果</p>
 <hr>
-<p>压哨被内推了拼多多，应该是8月底笔试，然后很早就收到了笔试通过的通知，然而人在北京，因此没有选择去上海面试，所以到十月才接到电话面试的通知。<br>
-总流程一共两轮电话面和一轮hr面，总体流程相对轻松，目前已到offer call阶段。</p>
+<p>压哨被内推了拼多多，应该是8月底笔试，然后很早就收到了笔试通过的通知，然而人在北京，因此没有选择去上海面试，所以到十月才接到电话面试的通知。<br> 总流程一共两轮电话面和一轮hr面，总体流程相对轻松，目前已到offer call阶段。</p>
 <p>有些忘记了，先写一些能记住的吧</p>
-<p>一面45min：<br>
-1、介绍简历上的项目<br>
-2、给一个无序数组，将数组分成两堆，使得两堆数的平均值相差最大。口述思路就好<br>
-3、神经网络中解决过拟合的方法？</p>
-<p>1、L1正则化<br>
-L1正则化算法用来防止过拟合时，是在损失函数上加入∣∣w∣∣ ||w||∣∣w∣∣，如下式所示：</p>
+<p>一面45min：<br> 1、介绍简历上的项目<br> 2、给一个无序数组，将数组分成两堆，使得两堆数的平均值相差最大。口述思路就好<br> 3、神经网络中解决过拟合的方法？</p>
+<p>1、L1正则化<br>L1正则化算法用来防止过拟合时，是在损失函数上加入∣∣w∣∣ ||w||∣∣w∣∣，如下式所示：</p>
 <p>在优化损失函数的时候L1正则化会产生稀疏矩阵，导致一部分w为0，注意这也是L1正则化的核心思想。产生稀疏矩阵之后，一部分w为0，一部分不为0，这样即可对特征进行选择。选择比较重要、明显的特征作为分类和预测的依据，抛弃那些不重要的特征。</p>
-<p>2、L2正则化<br>
-L2正则化算法用来防止过拟合时，是在算是函数上加上∣∣w∣∣2 ||w||^2∣∣w∣∣<br>
-2<br>
-,如下式所示：</p>
+<p>2、L2正则化<br>L2正则化算法用来防止过拟合时，是在算是函数上加上∣∣w∣∣2 ||w||^2∣∣w∣∣<br>2<br> ,如下式所示：</p>
 <p>不同于L1正则化，L2正则化则是趋向于把所有参数w都变得比较小，一般认为参数w比较小的时候，模型比较简单。直观上来说，L2正则化的解都比较小，抗扰动能力强。在求解过程中，L2通常倾向让权值尽可能小，最后构造一个所有参数都比较小的模型。因为一般认为参数值小的模型比较简单，能适应不同的数据集，也在一定程度上避免了过拟合现象。参数足够小，数据偏移得多一点也不会对结果造成什么影响，可以说“抗扰动能力强”。</p>
-<p>3、BN算法<br>
-Batch Normalization有两个功能，一个是可以加快训练和收敛速度，另外一个是可以防止过拟合。</p>
+<p>3、BN算法<br>Batch Normalization有两个功能，一个是可以加快训练和收敛速度，另外一个是可以防止过拟合。</p>
 <p>BN算法是如何加快训练和收敛速度的呢？</p>
 <p>BN算法在实际使用的时候会把特征给强制性的归到均值为0，方差为1的数学模型下。深度网络在训练的过程中，如果每层的数据分布都不一样的话，将会导致网络非常难收敛和训练，而如果能把每层的数据转换到均值为0，方差为1的状态下，一方面，数据的分布是相同的，训练会比较容易收敛，另一方面，均值为0，方差为1的状态下，在梯度计算时会产生比较大的梯度值，可以加快参数的训练，更直观的来说，是把数据从饱和区直接拉到非饱和区。更进一步，这也可以很好的控制梯度爆炸和梯度消失现象，因为这两种现象都和梯度有关。</p>
 <p>BN最大的优点为允许网络使用较大的学习速率进行训练，加快网络的训练速度。</p>
@@ -834,8 +528,7 @@ Batch Normalization有两个功能，一个是可以加快训练和收敛速度�
 <p>大概意思是：在训练中，BN的使用使得一个mini-batch中的所有样本都被关联在了一起，因此网络不会从某一个训练样本中生成确定的结果。</p>
 <p>这句话什么意思呢？意思就是同样一个样本的输出不再仅仅取决于样本本身，也取决于跟这个样本属于同一个mini-batch的其它样本。同一个样本跟不同的样本组成一个mini-batch，它们的输出是不同的（仅限于训练阶段，在inference阶段是没有这种情况的）。我把这个理解成一种数据增强：同样一个样本在超平面上被拉扯，每次拉扯的方向的大小均有不同。不同于数据增强的是，这种拉扯是贯穿数据流过神经网络的整个过程的，意味着神经网络每一层的输入都被数据增强处理了。</p>
 <p>相比于Dropout、L1、L2正则化来说，BN算法防止过拟合效果没那末明显。</p>
-<p>4、Dropout算法<br>
-Dropout为什么能够防止过拟合呢？</p>
+<p>4、Dropout算法<br>Dropout为什么能够防止过拟合呢？</p>
 <p>最直观的原因其实就是：防止参数过分依赖训练数据，增加参数对数据集的泛化能力。因为在实际训练的时候，每个参数都有可能被随机的Drop掉，所以参数不会过分的依赖某一个特征的数据，而且不同参数之间的相互关联性也大大减弱，这些操作都可以增加泛化能力。</p>
 <p>更为深入的来讲，Dropout其实是一种分布式表示：</p>
 <p>分布式表征（Distributed Representation），是人工神经网络研究的一个核心思想。那什么是分布式表征呢？简单来说，就是当我们表达一个概念时，神经元和概念之间不是一对一对应映射（map）存储的，它们之间的关系是多对多。具体而言，就是一个概念可以用多个神经元共同定义表达，同时一个神经元也可以参与多个不同概念的表达，只不过所占的权重不同罢了。</p>
@@ -844,304 +537,161 @@ Dropout为什么能够防止过拟合呢？</p>
 <p>再借用某大牛博主的一段话：</p>
 <p>在学习阶段，以概率p主动临时性地忽略掉部分隐藏节点。这一操作的好处在于，在较大程度上减小了网络的大小，而在这个“残缺”的网络中，让神经网络学习数据中的局部特征（即部分分布式特征）。在多个“残缺”之网（相当于多个简单网络）中实施特征，总要比仅在单个健全网络上进行特征学习，其泛化能力来得更加健壮。这里的“泛化”，实际上就是适应各种情况的能力。如果神经网络仅仅在训练集合上表现好（好比“窝里横”），而在应对其他新情况表现不佳，就表明陷入“过拟合（Overfitting）”状态，其实就是泛化能力差。</p>
 <p>经过交叉验证，隐含节点dropout率等于0.5的时候效果最好，原因是0.5的时候dropout随机生成的网络结构最多。</p>
-<p>4、神经网络中的优化器有哪些？常用的优化器你是如何进行选择的？</p>
-<p>二面30min：<br>
-1、介绍简历上的项目<br>
-2、常用的机器学习算法用过哪些？介绍lr的一个原理<br>
-3、手写一个二叉排序树的建立过程，写完后拍照发微信<br>
-4、点击率预估模型了解过哪些？</p>
-<p>hr面：<br>
-1、自我介绍<br>
-2、你对工作地点的偏好？<br>
-3、工作内容的偏好？<br>
-4、反问：拼多多的新人培养和晋升机制是什么？</p>
+<p> 4、神经网络中的优化器有哪些？常用的优化器你是如何进行选择的？</p>
+<p>二面30min：<br> 1、介绍简历上的项目<br> 2、常用的机器学习算法用过哪些？介绍lr的一个原理<br> 3、手写一个二叉排序树的建立过程，写完后拍照发微信<br> 4、点击率预估模型了解过哪些？</p>
+<p>hr面：<br> 1、自我介绍<br> 2、你对工作地点的偏好？<br> 3、工作内容的偏好？<br> 4、反问：拼多多的新人培养和晋升机制是什么？</p>
 <hr>
 <p>9.15笔试，10.30面试，这波操作666哈哈哈，不过面试体验还不错，聊的也蛮开心。</p>
-<p>一面：<br>
-1、简单聊了下简历<br>
-2、说一下deepfm模型的结构，与wide &amp; deep相比，优点在哪里？<br>
-3、说一下fm和lr的区别，fm相对于lr有什么优点<br>
-4、过拟合的解决方式有哪些，l1和l2正则化都有哪些不同，各自有什么优缺点<br>
-5、一个字符串假设为ABCDEF，传入一个字典，代表子串的权重，比如A是5，ABCD是100，有的子串不在字典中，权重为0，求使得子串权重和最大的字符串分割方式。</p>
-<p>二面：<br>
-二面跟我的方向完全不同，所以也没有聊太多的理论性的东西，代码题也没有考。主要聊了一下简历上的项目，同时提出了几个业务问题，考察一下我个人对这个问题的思考。</p>
-<p>三面：<br>
-1、聊了一下简历上的项目<br>
-2、介绍一下XGBoost的原理、LR的损失函数<br>
-3、简单介绍一下CNN和RNN的原理<br>
-4、给你一个视频推荐的任务，你如何考虑采取的算法，该系统中最重要的点是什么<br>
-5、给一个字符串，返回最长数字子串的长度<br>
-6、一张扑克牌54张，抽两张，一红一黑的概率</p>
-<p>hr面：<br>
-1、手里的offer<br>
-2、如何考虑手中的offer<br>
-3、对于爱奇艺，有怎样的认识和顾虑</p>
+<p>一面：<br> 1、简单聊了下简历<br> 2、说一下deepfm模型的结构，与wide &amp; deep相比，优点在哪里？<br> 3、说一下fm和lr的区别，fm相对于lr有什么优点<br> 4、过拟合的解决方式有哪些，l1和l2正则化都有哪些不同，各自有什么优缺点<br> 5、一个字符串假设为ABCDEF，传入一个字典，代表子串的权重，比如A是5，ABCD是100，有的子串不在字典中，权重为0，求使得子串权重和最大的字符串分割方式。</p>
+<p>二面：<br> 二面跟我的方向完全不同，所以也没有聊太多的理论性的东西，代码题也没有考。主要聊了一下简历上的项目，同时提出了几个业务问题，考察一下我个人对这个问题的思考。</p>
+<p>三面：<br> 1、聊了一下简历上的项目<br> 2、介绍一下XGBoost的原理、LR的损失函数<br> 3、简单介绍一下CNN和RNN的原理<br> 4、给你一个视频推荐的任务，你如何考虑采取的算法，该系统中最重要的点是什么<br> 5、给一个字符串，返回最长数字子串的长度<br> 6、一张扑克牌54张，抽两张，一红一黑的概率</p>
+<p>hr面：<br> 1、手里的offer<br> 2、如何考虑手中的offer<br> 3、对于爱奇艺，有怎样的认识和顾虑</p>
 <hr>
 <p>用了同学的白金内推码，所以直接进入了面试，全程都在写题！机器学习的问题非常少！</p>
-<p>一面：<br>
-1、介绍项目<br>
-2、强化学习PG的推导<br>
-3、强化学习DQN，DDQN，AC，DDPG的区别</p>
-<p>4、n个[0,n)的数，求每个数的出现次数（不能开辟额外空间）<br>
-这里关键是看清楚题意，n个数，然后是左闭右开的区间，也就是说每个数都不会大于等于n，那么思路就来了：如果我们给一个索引下的数不管加上多少个n，那么这个数对n取余的话，我们就能知道这个数原来是多少；另一方面，如果一个数出现一次，我们就在对应索引位置下的数加上n，那么每个数对应索引位置上的数对n取商的话，就是这个数出现的次数。这样就做到了没有开辟额外的空间。代码现场直接略过了。</p>
+<p>一面：<br> 1、介绍项目<br> 2、强化学习PG的推导<br> 3、强化学习DQN，DDQN，AC，DDPG的区别</p>
+<p>4、n个[0,n)的数，求每个数的出现次数（不能开辟额外空间）<br> 这里关键是看清楚题意，n个数，然后是左闭右开的区间，也就是说每个数都不会大于等于n，那么思路就来了：如果我们给一个索引下的数不管加上多少个n，那么这个数对n取余的话，我们就能知道这个数原来是多少；另一方面，如果一个数出现一次，我们就在对应索引位置下的数加上n，那么每个数对应索引位置上的数对n取商的话，就是这个数出现的次数。这样就做到了没有开辟额外的空间。代码现场直接略过了。</p>
 <p>5、K个有序数组，找一个长度最小的区间，在这个区间里至少包含每个数组各一个数。</p>
 <p>分析：初始化带下为K的最小堆，K个数字是每个数组中的最小值，设置变量max记录k个数字中的最大值，删除堆顶元素，将原堆顶元素对应的数组中下一个元素加入到堆中，调整堆，并且记录当前区间范围为（max-min），重复执行直到某个数组所有值都被删除。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">package ByteDance;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line">给定K个有序数组，求一个最小长度的区间【s,t】，使得每个数组中最少有一个元素在这个区间内。如果有多个长度相等的区间满足条件，则选择起始点s最小的那一个。</span><br><span class="line"></span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">class HeapNode&#123;</span><br><span class="line">    public int value;</span><br><span class="line">    public int arrNum;</span><br><span class="line">    public int index;</span><br><span class="line">    public HeapNode(int value,int arrNum,int index)&#123;</span><br><span class="line">        this.value = value;</span><br><span class="line">        this.arrNum = arrNum;</span><br><span class="line">        this.index = index;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class minScope &#123;</span><br><span class="line">    public void modifyHeap(HeapNode[] heap,int index,int heapSize)&#123;</span><br><span class="line">        HeapNode temp = heap[index];</span><br><span class="line">        int child = index * 2 + 1;</span><br><span class="line">        while(child &lt; heapSize)&#123;</span><br><span class="line">            if(child + 1 &lt; heapSize &amp;&amp; heap[child + 1].value &lt; heap[child].value)</span><br><span class="line">                child = child + 1;</span><br><span class="line">            if(temp.value &gt; heap[child].value)&#123;</span><br><span class="line">                heap[index] = heap[child];</span><br><span class="line">                index = child;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">                break;</span><br><span class="line">            child = 2 * index + 1;</span><br><span class="line">        &#125;</span><br><span class="line">        heap[index] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void getMinScope(int[][] matrix)&#123;</span><br><span class="line">        int heapSize = matrix.length;</span><br><span class="line">        HeapNode[] heap = new HeapNode[heapSize];</span><br><span class="line">        int max = Integer.MIN_VALUE;</span><br><span class="line">        for(int i=0;i&lt;heapSize;i++)&#123;</span><br><span class="line">            heap[i] = new HeapNode(matrix[i][0],i,0);</span><br><span class="line">            max = Math.max(heap[i].value,max);</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=heapSize / 2 - 1;i&gt;=0;i--)&#123;</span><br><span class="line">            modifyHeap(heap,i,heapSize);</span><br><span class="line">        &#125;</span><br><span class="line">        int min = heap[0].value;</span><br><span class="line">        int res = max - min;</span><br><span class="line">        int tempMax = max;</span><br><span class="line">        int tempMin = min;</span><br><span class="line">        while(heap[0].index &lt; matrix[heap[0].arrNum].length)&#123;</span><br><span class="line">            if(heap[0].index == matrix[heap[0].arrNum].length-1)&#123;</span><br><span class="line">                System.out.println(&quot;最小范围为：&quot; + tempMin + &quot;:&quot; + tempMax);</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            heap[0].value = matrix[heap[0].arrNum][++heap[0].index];</span><br><span class="line">            if(max&lt;heap[0].value)</span><br><span class="line">                max = heap[0].value;</span><br><span class="line">            modifyHeap(heap,0,heapSize);</span><br><span class="line">            min = heap[0].value;</span><br><span class="line">            if(max - min &lt; res)&#123;</span><br><span class="line">                res = max - min;</span><br><span class="line">                tempMax = max;</span><br><span class="line">                tempMin = min;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        int[][] martix = new int[][]&#123;&#123;1,3,5&#125;,&#123;4,8&#125;,&#123;2,5&#125;&#125;;</span><br><span class="line">        new minScope().getMinScope(martix);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>二面<br>
-1、介绍DQN的项目<br>
-2、数组的全排列（空间复杂度O（1））<br>
-数组中有重复元素，所以我们需要一个Set保存已经出现过的排列。因此我先写了一个回溯的方法，可是空间复杂度比较高，面试官说能不能用O（1）的空间复杂度，全排列直接print出来就行。即我们不需要保存已经出现过什么排列。这需要对数组先进性排序：</p>
+<p>二面<br> 1、介绍DQN的项目<br> 2、数组的全排列（空间复杂度O（1））<br> 数组中有重复元素，所以我们需要一个Set保存已经出现过的排列。因此我先写了一个回溯的方法，可是空间复杂度比较高，面试官说能不能用O（1）的空间复杂度，全排列直接print出来就行。即我们不需要保存已经出现过什么排列。这需要对数组先进性排序：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public List&lt;List&lt;Integer&gt;&gt; permuteUnique(int[] nums) &#123;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line">        if(nums==null || nums.length==0) return res;</span><br><span class="line">        boolean[] used = new boolean[nums.length];</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        backtracking(nums,used,new ArrayList&lt;Integer&gt;(),res);</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static void backtracking(int[] nums,boolean[] used,ArrayList&lt;Integer&gt; arr,List&lt;List&lt;Integer&gt;&gt; res)&#123;</span><br><span class="line">        if(arr.size() == nums.length)</span><br><span class="line">            res.add(new ArrayList&lt;Integer&gt;(arr));</span><br><span class="line">        else&#123;</span><br><span class="line">            for(int i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">                if(used[i]) continue;</span><br><span class="line">                if(i&gt;0 &amp;&amp; nums[i-1]==nums[i] &amp;&amp; used[i-1]) continue;</span><br><span class="line">                used[i] = true;</span><br><span class="line">                arr.add(nums[i]);</span><br><span class="line">                backtracking(nums,used,arr,res);</span><br><span class="line">                arr.remove(arr.size()-1);</span><br><span class="line">                used[i] = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3、两堆钞票，尽可能均分（利用背包问题的思想）<br>
-想了半天，写出来一个深度优先搜索的算法。面试官提示我可以考虑从背包问题的角度出发，但最后也没想出来。</p>
+<p>3、两堆钞票，尽可能均分（利用背包问题的思想）<br> 想了半天，写出来一个深度优先搜索的算法。面试官提示我可以考虑从背包问题的角度出发，但最后也没想出来。</p>
 <p>背包问题的思路，参考我们之前写过的文章：<a href="https://www.jianshu.com/p/25f4a183ede5" target="_blank" rel="noopener">https://www.jianshu.com/p/25f4a183ede5</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">package ByteDance;</span><br><span class="line"></span><br><span class="line">public class Package &#123;</span><br><span class="line">    private final int MIN = Integer.MIN_VALUE;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    public void test() &#123;</span><br><span class="line">        int[] w = &#123;3, 2, 2&#125;;</span><br><span class="line">        int[] v = &#123;5, 10, 20&#125;;</span><br><span class="line">        knapsackOptimal(5, w, v);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 01背包-容量压缩</span><br><span class="line">     *</span><br><span class="line">     * @param c      包容量</span><br><span class="line">     * @param weight 各物品质量</span><br><span class="line">     * @param value  各物品价值</span><br><span class="line">     */</span><br><span class="line">    public void knapsackOptimal(int c, int[] weight, int[] value) &#123;</span><br><span class="line">        int n = weight.length; //物品数量</span><br><span class="line">        int[] w = new int[n + 1];</span><br><span class="line">        int[] v = new int[n + 1];</span><br><span class="line">        int[][] G = new int[n + 1][c + 1];</span><br><span class="line">        for (int i = 1; i &lt; n + 1; i++) &#123;</span><br><span class="line">            w[i] = weight[i - 1];</span><br><span class="line">            v[i] = value[i - 1];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //初始化values[0...c]=0————在不超过背包容量的情况下，最多能获得多少价值</span><br><span class="line">        //原因：如果背包并非必须被装满，那么任何容量的背包都有一个合法解“什么都不装”，这个解的价值为0，所以初始时状态的值也就全部为0了</span><br><span class="line">        int[] values = new int[c + 1];</span><br><span class="line">        //初始化values[0]=0，其它全为负无穷————解决在恰好装满背包的情况下，最多能获得多少价值的问题</span><br><span class="line">        //原因：只有容量为0的背包可以什么物品都不装就能装满，此时价值为0，其它容量背包均无合法的解，属于未定义的状态，应该被赋值为负无穷</span><br><span class="line">        /*for (int i = 1; i &lt; values.length; i++) &#123;</span><br><span class="line">            values[i] = MIN;</span><br><span class="line">        &#125;*/</span><br><span class="line"></span><br><span class="line">        for (int i = 1; i &lt; n + 1; i++) &#123;</span><br><span class="line">            for (int t = c; t &gt;= w[i]; t--) &#123;</span><br><span class="line">                if (values[t] &lt; values[t - w[i]] + v[i]) &#123;</span><br><span class="line">                    values[t] = values[t - w[i]] + v[i];</span><br><span class="line">                    G[i][t] = 1;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;最大价值为： &quot; + values[c]);</span><br><span class="line">        System.out.print(&quot;装入背包的物品编号为： &quot;);</span><br><span class="line">        /*</span><br><span class="line">        输出顺序:逆序输出物品编号</span><br><span class="line">        注意：这里另外开辟数组G[i][v],标记上一个状态的位置</span><br><span class="line">        G[i][v] = 1:表示物品i放入背包了，上一状态为G[i - 1][v - w[i]]</span><br><span class="line">        G[i][v] = 0:表示物品i没有放入背包，上一状态为G[i - 1][v]</span><br><span class="line">        */</span><br><span class="line">        int i = n;</span><br><span class="line">        int j = c;</span><br><span class="line">        while (i &gt; 0) &#123;</span><br><span class="line">            if (G[i][j] == 1) &#123;</span><br><span class="line">                System.out.print(i + &quot; &quot;);</span><br><span class="line">                j -= w[i];</span><br><span class="line">            &#125;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>三面：<br>
-1、无向无环图中，最短路径的最大值（O(n^3)的解法)<br>
-这里考察的其实就是Floyd算法。哎，只可惜自己当时没有复习图的相关算法，完全不会写呀。</p>
-<p>算法思想原理：Floyd算法是一个经典的动态规划算法。用通俗的语言来描述的话，首先我们的目标是寻找从点i到点j的最短路径。<br>
-从任意节点i到任意节点j的最短路径不外乎2种可能，1是直接从i到j，2是从i经过若干个节点k到j。所以，我们假设Dis(i,j)为节点u到节点v的最短路径的距离，对于每一个节点k，我们检查Dis(i,k) + Dis(k,j) &lt; Dis(i,j)是否成立，如果成立，证明从i到k再到j的路径比i直接到j的路径短，我们便设置Dis(i,j) = Dis(i,k) + Dis(k,j)，这样一来，当我们遍历完所有节点k，Dis(i,j)中记录的便是i到j的最短路径的距离。</p>
+<p>三面：<br> 1、无向无环图中，最短路径的最大值（O(n^3)的解法)<br> 这里考察的其实就是Floyd算法。哎，只可惜自己当时没有复习图的相关算法，完全不会写呀。</p>
+<p>算法思想原理：Floyd算法是一个经典的动态规划算法。用通俗的语言来描述的话，首先我们的目标是寻找从点i到点j的最短路径。<br> 从任意节点i到任意节点j的最短路径不外乎2种可能，1是直接从i到j，2是从i经过若干个节点k到j。所以，我们假设Dis(i,j)为节点u到节点v的最短路径的距离，对于每一个节点k，我们检查Dis(i,k) + Dis(k,j) &lt; Dis(i,j)是否成立，如果成立，证明从i到k再到j的路径比i直接到j的路径短，我们便设置Dis(i,j) = Dis(i,k) + Dis(k,j)，这样一来，当我们遍历完所有节点k，Dis(i,j)中记录的便是i到j的最短路径的距离。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">public class Floyd &#123;</span><br><span class="line">    </span><br><span class="line">    int[][] Matrix;</span><br><span class="line">    char[]  Nodes;</span><br><span class="line">    </span><br><span class="line">    private final int INF = Integer.MAX_VALUE;</span><br><span class="line">    </span><br><span class="line">    public Floyd(char[] Nodes, int[][] Matrix)&#123;</span><br><span class="line">        this.Nodes = Nodes;</span><br><span class="line">        this.Matrix = Matrix;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void floyd()&#123;</span><br><span class="line">        </span><br><span class="line">        int[][] distance = new int[Nodes.length][Nodes.length];</span><br><span class="line">        </span><br><span class="line">        // 初始化距离矩阵</span><br><span class="line">        for(int i=0; i&lt;Nodes.length; i++)&#123;</span><br><span class="line">            for(int j=0; j&lt;Nodes.length; j++)&#123;</span><br><span class="line">                distance[i][j] = Matrix[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        //循环更新矩阵的值</span><br><span class="line">        for(int k=0; k&lt;Nodes.length; k++)&#123;</span><br><span class="line">            for(int i=0; i&lt;Nodes.length; i++)&#123;</span><br><span class="line">                for(int j=0; j&lt;Nodes.length; j++)&#123;</span><br><span class="line">                    int temp = (distance[i][k] == INF || distance[k][j] == INF) ? INF : distance[i][k] + distance[k][j];</span><br><span class="line">                    if(distance[i][j] &gt; temp)&#123;</span><br><span class="line">                        distance[i][j] = temp;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        // 打印floyd最短路径的结果</span><br><span class="line">        System.out.printf(&quot;floyd: \n&quot;);</span><br><span class="line">        for (int i = 0; i &lt; Nodes.length; i++) &#123;</span><br><span class="line">            for (int j = 0; j &lt; Nodes.length; j++)</span><br><span class="line">                System.out.printf(&quot;%12d  &quot;, distance[i][j]);</span><br><span class="line">            System.out.printf(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>2、LSTM的公式<br>
-3、RNN为什么出现梯度消失<br>
-4、BPTT的推导。</p>
+<p>2、LSTM的公式<br> 3、RNN为什么出现梯度消失<br> 4、BPTT的推导。</p>
 <hr>
-<p>下面推荐一些资料帮你更好的进行复习吧：<br>
-1、《统计机器学习》经典中的经典，建议至少读两遍！<br>
-2、《百面机器学习》对一些面试常见问题进行了总结和梳理<br>
-3、深度学习500问：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fscutan90%2FDeepLearning-500-questions%2F" target="_blank" rel="noopener">https://github.com/scutan90/DeepLearning-500-questions/</a><br>
-4、SVM：<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fblog.pluskid.org%2F%3Fpage_id%3D683" target="_blank" rel="noopener">http://blog.pluskid.org/?page_id=683</a><br>
-5、李宏毅深度学习课：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2Fav9770302%3Ffrom%3Dsearch%26seid%3D9066694202064136038" target="_blank" rel="noopener">https://www.bilibili.com/video/av9770302?from=search&amp;seid=9066694202064136038</a><br>
-6、李宏毅强化学习课：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2Fav24724071%3Ffrom%3Dsearch%26seid%3D11841282802558935758" target="_blank" rel="noopener">https://www.bilibili.com/video/av24724071?from=search&amp;seid=11841282802558935758</a><br>
-7、李宏毅机器学习课：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2Fav35932863%3Ffrom%3Dsearch%26seid%3D7464664329294734466" target="_blank" rel="noopener">https://www.bilibili.com/video/av35932863?from=search&amp;seid=7464664329294734466</a><br>
-8、线性代数的本质：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2Fav44855426%3Ffrom%3Dsearch%26seid%3D15873340646320697328" target="_blank" rel="noopener">https://www.bilibili.com/video/av44855426?from=search&amp;seid=15873340646320697328</a><br>
-作者：文哥的学习日记链接：<a href="https://www.jianshu.com/p/dd5ad361c3f5%E6%9D%A5%E6%BA%90%EF%BC%9A%E7%AE%80%E4%B9%A6%E7%AE%80%E4%B9%A6%E8%91%97%E4%BD%9C%E6%9D%83%E5%BD%92%E4%BD%9C%E8%80%85%E6%89%80%E6%9C%89%EF%BC%8C%E4%BB%BB%E4%BD%95%E5%BD%A2%E5%BC%8F%E7%9A%84%E8%BD%AC%E8%BD%BD%E9%83%BD%E8%AF%B7%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85%E8%8E%B7%E5%BE%97%E6%8E%88%E6%9D%83%E5%B9%B6%E6%B3%A8%E6%98%8E%E5%87%BA%E5%A4%84%E3%80%82" target="_blank" rel="noopener">https://www.jianshu.com/p/dd5ad361c3f5来源：简书简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</a></p>
-<p><strong>面试</strong><br>
-我在去年校招参加了十几家公司的面试，收获了10个左右的offer，总体感觉是：公司对于算法工程师的要求越来越高。面试主要考察的点有以下几个方面：<br>
-1、实习、论文、比赛：面试官一般会让你先进行自我介绍，然后会根据你简历上写的实习经历、论文、比赛经历进行展开。所以简历上的东西一定要是你亲身经历过的，可以按照STAR法则进行讲解。在这过程中，面试官会从算法理解、业务理解等多个方面考察你。<br>
-2、深度学习/机器学习基础：在聊完简历项目之后，往往会考察一些算法的基础。常考的是过拟合的解决、正则项、boosting模型等等，这一块需要你对深度学习/机器学习基础有所了解，同时对常见的模型有深入的认识和理解。对于简单的公式也需要理解和掌握推导(LR、普通神经网络反向传播、RNN和LSTM的前向传播、SVM、XGBoost等等）。<br>
-3、手撕代码：手撕代码题各公司的难度不一样，不过一般leetcode的中等难度的题就可以。小编建议，大家一定要把数组、链表、二叉树和动态规划的题目掌握好。<br>
-4、智力题：常考的就是概率计算问题。<br>
-5、业务理解：这一块小编觉得是非常难的，一般会给你一个场景，让你设计一套算法流程，或者问你对于当前你的项目，后续的工作方向等等。<br>
-6、其他：其他的面试官可能会考察一些工程上的问题如多进程、多线程等、spark／hive等等。<br>
-作者：文哥的学习日记链接：<a href="https://www.jianshu.com/p/dd5ad361c3f5%E6%9D%A5%E6%BA%90%EF%BC%9A%E7%AE%80%E4%B9%A6%E7%AE%80%E4%B9%A6%E8%91%97%E4%BD%9C%E6%9D%83%E5%BD%92%E4%BD%9C%E8%80%85%E6%89%80%E6%9C%89%EF%BC%8C%E4%BB%BB%E4%BD%95%E5%BD%A2%E5%BC%8F%E7%9A%84%E8%BD%AC%E8%BD%BD%E9%83%BD%E8%AF%B7%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85%E8%8E%B7%E5%BE%97%E6%8E%88%E6%9D%83%E5%B9%B6%E6%B3%A8%E6%98%8E%E5%87%BA%E5%A4%84%E3%80%82" target="_blank" rel="noopener">https://www.jianshu.com/p/dd5ad361c3f5来源：简书简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</a></p>
+<p>下面推荐一些资料帮你更好的进行复习吧：<br>1、《统计机器学习》经典中的经典，建议至少读两遍！<br>2、《百面机器学习》对一些面试常见问题进行了总结和梳理<br>3、深度学习500问：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fscutan90%2FDeepLearning-500-questions%2F" target="_blank" rel="noopener">https://github.com/scutan90/DeepLearning-500-questions/</a><br>4、SVM：<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fblog.pluskid.org%2F%3Fpage_id%3D683" target="_blank" rel="noopener">http://blog.pluskid.org/?page_id=683</a><br>5、李宏毅深度学习课：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2Fav9770302%3Ffrom%3Dsearch%26seid%3D9066694202064136038" target="_blank" rel="noopener">https://www.bilibili.com/video/av9770302?from=search&amp;seid=9066694202064136038</a><br>6、李宏毅强化学习课：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2Fav24724071%3Ffrom%3Dsearch%26seid%3D11841282802558935758" target="_blank" rel="noopener">https://www.bilibili.com/video/av24724071?from=search&amp;seid=11841282802558935758</a><br>7、李宏毅机器学习课：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2Fav35932863%3Ffrom%3Dsearch%26seid%3D7464664329294734466" target="_blank" rel="noopener">https://www.bilibili.com/video/av35932863?from=search&amp;seid=7464664329294734466</a><br>8、线性代数的本质：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.bilibili.com%2Fvideo%2Fav44855426%3Ffrom%3Dsearch%26seid%3D15873340646320697328" target="_blank" rel="noopener">https://www.bilibili.com/video/av44855426?from=search&amp;seid=15873340646320697328</a><br>作者：文哥的学习日记链接：<a href="https://www.jianshu.com/p/dd5ad361c3f5来源：简书简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。" target="_blank" rel="noopener">https://www.jianshu.com/p/dd5ad361c3f5来源：简书简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</a></p>
+<p><strong>面试</strong><br>我在去年校招参加了十几家公司的面试，收获了10个左右的offer，总体感觉是：公司对于算法工程师的要求越来越高。面试主要考察的点有以下几个方面：<br>1、实习、论文、比赛：面试官一般会让你先进行自我介绍，然后会根据你简历上写的实习经历、论文、比赛经历进行展开。所以简历上的东西一定要是你亲身经历过的，可以按照STAR法则进行讲解。在这过程中，面试官会从算法理解、业务理解等多个方面考察你。<br>2、深度学习/机器学习基础：在聊完简历项目之后，往往会考察一些算法的基础。常考的是过拟合的解决、正则项、boosting模型等等，这一块需要你对深度学习/机器学习基础有所了解，同时对常见的模型有深入的认识和理解。对于简单的公式也需要理解和掌握推导(LR、普通神经网络反向传播、RNN和LSTM的前向传播、SVM、XGBoost等等）。<br>3、手撕代码：手撕代码题各公司的难度不一样，不过一般leetcode的中等难度的题就可以。小编建议，大家一定要把数组、链表、二叉树和动态规划的题目掌握好。<br>4、智力题：常考的就是概率计算问题。<br>5、业务理解：这一块小编觉得是非常难的，一般会给你一个场景，让你设计一套算法流程，或者问你对于当前你的项目，后续的工作方向等等。<br>6、其他：其他的面试官可能会考察一些工程上的问题如多进程、多线程等、spark／hive等等。<br>作者：文哥的学习日记链接：<a href="https://www.jianshu.com/p/dd5ad361c3f5来源：简书简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。" target="_blank" rel="noopener">https://www.jianshu.com/p/dd5ad361c3f5来源：简书简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</a></p>
 <hr>
-<h3 id="1-常见的机器学习优化器">1、常见的机器学习优化器</h3>
-<h4 id="11-gradient-descent">1.1 gradient descent</h4>
-<p><strong>1.1.1 全量梯度下降(Batch gradient descent)</strong><br>
-每次使用全量的训练集样本来更新模型参数，即<strong>θ=θ−η⋅∇θJ(θ)</strong>。<br>
-<strong>优点</strong>:每次更新都会<strong>朝着正确的方向进行</strong>，最后能够保证收敛于极值点(凸函数收敛于全局极值点，非凸函数可能会收敛于局部极值点)，<br>
-<strong>缺点</strong>:在于每次学习时间过长，并且如果训练集很大以至于需要<strong>消耗大量的内存</strong>，并且全量梯度下降<strong>不能进行在线模型参数更新</strong>。</p>
-<p><strong>1.1.2 随机梯度下降(Stochastic gradient descent)</strong><br>
-随机梯度下降算法每次从训练集中随机选择一个样本来进行学习，即:<strong>θ=θ−η⋅∇θJ(θ;xi;yi)</strong><br>
-<strong>优点</strong>：随机梯度下降算法每次只随机选择一个样本来更新模型参数，因此每次的<strong>学习是非常快速的</strong>，并且可以进行<strong>在线更新</strong>。<br>
-<strong>缺点</strong>：每次更新可能并不会按照正确的方向进行，因此可以带来<strong>优化波动</strong>，不过从另一个方面来看，随机梯度下降所带来的波动有个好处就是，对于类似盆地区域（即很多局部极小值点）那么这个波动的特点可能会使得优化的方向从当前的局部极小值点跳到另一个更好的局部极小值点，这样便可能对于非凸函数，最终收敛于一个较好的局部极值点，甚至全局极值点。 由于波动，因此会使得<strong>迭代次数增多</strong>，即收敛速度变慢。</p>
-<p><strong>1.1.3 小批量梯度下降(Mini-batch gradient descent)</strong><br>
-Mini-batch梯度下降综合了batch梯度下降与stochastic梯度下降，在每次更新速度与更新次数中间取得一个平衡，其每次更新从训练集中随机选择m,m&lt;&lt;n<br>
-个样本进行学习，即：<br>
-<strong>θ=θ−η⋅∇θJ(θ;xi:i+m;yi:i+m)</strong><br>
-<strong>优点</strong>： 相对于随机梯度下降，Mini-batch梯度下降降低了收敛波动性，即<strong>降低了参数更新的方差</strong>，使得更新更加稳定。相对于全量梯度下降，其<strong>提高了每次学习的速度</strong>。并且其不用担心内存瓶颈从而可以利用矩阵运算进行<strong>高效计算</strong>。</p>
-<p><strong>1.1.4 梯度下降法的问题和挑战</strong><br>
-<strong>学习率设定</strong>：学习率的设定带来的挑战有三方面。首先，<strong>选择一个合理的学习率很难</strong>，如果学习速率过小，则会导致收敛速度很慢。如果学习速率过大，那么其会阻碍收敛，即在极值点附近会振荡。其次，<strong>学习速率调整很难</strong>，我们一般使用某种事先设定的策略或者在每次迭代中衰减一个较小的阈值。无论哪种调整方法，都需要事先进行固定设置，这边便无法自适应每次学习的数据集特点。最后，<strong>模型所有的参数每次更新都是使用相同的学习速率</strong>。如果数据特征是稀疏的或者每个特征有着不同的取值统计特征与空间，那么便不能在每次更新中每个参数使用相同的学习速率，那些很少出现的特征应该使用一个相对较大的学习速率。</p>
+<h3 id="1-常见的机器学习优化器"><a href="#1、常见的机器学习优化器" class="headerlink" title="1、常见的机器学习优化器"></a>1、常见的机器学习优化器</h3><h4 id="11-gradient-descent"><a href="#1-1-gradient-descent" class="headerlink" title="1.1 gradient descent"></a>1.1 gradient descent</h4><p><strong>1.1.1 全量梯度下降(Batch gradient descent)</strong><br> 每次使用全量的训练集样本来更新模型参数，即<strong>θ=θ−η⋅∇θJ(θ)</strong>。<br> <strong>优点</strong>:每次更新都会<strong>朝着正确的方向进行</strong>，最后能够保证收敛于极值点(凸函数收敛于全局极值点，非凸函数可能会收敛于局部极值点)，<br> <strong>缺点</strong>:在于每次学习时间过长，并且如果训练集很大以至于需要<strong>消耗大量的内存</strong>，并且全量梯度下降<strong>不能进行在线模型参数更新</strong>。</p>
+<p><strong>1.1.2 随机梯度下降(Stochastic gradient descent)</strong><br> 随机梯度下降算法每次从训练集中随机选择一个样本来进行学习，即:<strong>θ=θ−η⋅∇θJ(θ;xi;yi)</strong><br> <strong>优点</strong>：随机梯度下降算法每次只随机选择一个样本来更新模型参数，因此每次的<strong>学习是非常快速的</strong>，并且可以进行<strong>在线更新</strong>。<br> <strong>缺点</strong>：每次更新可能并不会按照正确的方向进行，因此可以带来<strong>优化波动</strong>，不过从另一个方面来看，随机梯度下降所带来的波动有个好处就是，对于类似盆地区域（即很多局部极小值点）那么这个波动的特点可能会使得优化的方向从当前的局部极小值点跳到另一个更好的局部极小值点，这样便可能对于非凸函数，最终收敛于一个较好的局部极值点，甚至全局极值点。 由于波动，因此会使得<strong>迭代次数增多</strong>，即收敛速度变慢。</p>
+<p><strong>1.1.3 小批量梯度下降(Mini-batch gradient descent)</strong><br> Mini-batch梯度下降综合了batch梯度下降与stochastic梯度下降，在每次更新速度与更新次数中间取得一个平衡，其每次更新从训练集中随机选择m,m&lt;&lt;n<br> 个样本进行学习，即：<br> <strong>θ=θ−η⋅∇θJ(θ;xi:i+m;yi:i+m)</strong><br> <strong>优点</strong>： 相对于随机梯度下降，Mini-batch梯度下降降低了收敛波动性，即<strong>降低了参数更新的方差</strong>，使得更新更加稳定。相对于全量梯度下降，其<strong>提高了每次学习的速度</strong>。并且其不用担心内存瓶颈从而可以利用矩阵运算进行<strong>高效计算</strong>。</p>
+<p><strong>1.1.4 梯度下降法的问题和挑战</strong><br> <strong>学习率设定</strong>：学习率的设定带来的挑战有三方面。首先，<strong>选择一个合理的学习率很难</strong>，如果学习速率过小，则会导致收敛速度很慢。如果学习速率过大，那么其会阻碍收敛，即在极值点附近会振荡。其次，<strong>学习速率调整很难</strong>，我们一般使用某种事先设定的策略或者在每次迭代中衰减一个较小的阈值。无论哪种调整方法，都需要事先进行固定设置，这边便无法自适应每次学习的数据集特点。最后，<strong>模型所有的参数每次更新都是使用相同的学习速率</strong>。如果数据特征是稀疏的或者每个特征有着不同的取值统计特征与空间，那么便不能在每次更新中每个参数使用相同的学习速率，那些很少出现的特征应该使用一个相对较大的学习速率。</p>
 <p><strong>局部极小和鞍点</strong>：对于非凸目标函数，容易陷入那些次优的<strong>局部极值点或者鞍点</strong>中。</p>
-<h4 id="12-momentum">1.2 Momentum</h4>
-<p>如果在峡谷地区(某些方向较另一些方向上陡峭得多，常见于局部极值点)，SGD会在这些地方附近振荡，从而导致收敛速度慢。这种情况下，动量(Momentum)便可以解决。动量在参数更新项中加上一次更新量(即动量项,相当于指数加权平均),即：<br>
-<strong>νt=γνt−1+η ∇θJ(θ)</strong><br>
-<strong>θ=θ−νt</strong></p>
+<h4 id="12-momentum"><a href="#1-2-Momentum" class="headerlink" title="1.2 Momentum"></a>1.2 Momentum</h4><p>如果在峡谷地区(某些方向较另一些方向上陡峭得多，常见于局部极值点)，SGD会在这些地方附近振荡，从而导致收敛速度慢。这种情况下，动量(Momentum)便可以解决。动量在参数更新项中加上一次更新量(即动量项,相当于指数加权平均),即：<br> <strong>νt=γνt−1+η ∇θJ(θ)</strong><br> <strong>θ=θ−νt</strong></p>
 <p>其作用如下图所示：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-95d2262f094a07bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/874/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-95d2262f094a07bb.png?imageMogr2/auto-orient/strip|imageView2/2/w/874/format/webp" alt="img"></p>
 <p>没有动量</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-9f23045e64c33cbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/834/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-9f23045e64c33cbf.png?imageMogr2/auto-orient/strip|imageView2/2/w/834/format/webp" alt="img"></p>
 <p>有动量</p>
-<p><strong>优点</strong>：对方向一致的参数能够加速学习，对梯度改变方向的参数能够减少其更新，因此就是momentum能够在相关方向上加速学习，抑制振荡，从而加速收敛。<br>
-<strong>缺点</strong>：比较难学习一个较好的学习率。</p>
-<h4 id="13-adagrad">1.3 Adagrad</h4>
-<p>在前面介绍的算法中，每个模型参数θi使用相同的学习速率η，而Adagrad在每一个更新步骤中对于每一个模型参数θi使用不同的学习速率ηi。其更新方程为：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-a3be30e2bf9f028b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/532/format/webp" alt="img"></p>
-<p>其中，Gt∈Rd×d是一个对角矩阵，其中第i行的对角元素eii为过去到当前第i个参数θi的梯度的平方和，epsilon是一个平滑参数，为了使得分母不为0。<br>
-进一步，将所有Gt,ii,gt,i的元素写成向量Gt,gt,这样便可以使用向量点乘操作：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-0b97d5a82360fece.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/450/format/webp" alt="img"></p>
-<p><strong>优点</strong>：在于它能够为每个参数自适应不同的学习速率，而一般的人工都是设定为0.01。<br>
-<strong>缺点</strong>：在于需要计算参数梯度序列平方和，并且学习速率趋势是不断衰减最终达到一个非常小的值。</p>
-<h4 id="14-rmsprop">1.4 RMSprop</h4>
-<p>为了降低Adagrad中学习速率衰减过快的问题，RMSprop使用指数加权平均来代替历史梯度的平方和：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-9e202e54078aacea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/530/format/webp" alt="img"></p>
+<p><strong>优点</strong>：对方向一致的参数能够加速学习，对梯度改变方向的参数能够减少其更新，因此就是momentum能够在相关方向上加速学习，抑制振荡，从而加速收敛。<br> <strong>缺点</strong>：比较难学习一个较好的学习率。</p>
+<h4 id="13-adagrad"><a href="#1-3-Adagrad" class="headerlink" title="1.3 Adagrad"></a>1.3 Adagrad</h4><p>在前面介绍的算法中，每个模型参数θi使用相同的学习速率η，而Adagrad在每一个更新步骤中对于每一个模型参数θi使用不同的学习速率ηi。其更新方程为：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-a3be30e2bf9f028b.png?imageMogr2/auto-orient/strip|imageView2/2/w/532/format/webp" alt="img"></p>
+<p>其中，Gt∈Rd×d是一个对角矩阵，其中第i行的对角元素eii为过去到当前第i个参数θi的梯度的平方和，epsilon是一个平滑参数，为了使得分母不为0。<br> 进一步，将所有Gt,ii,gt,i的元素写成向量Gt,gt,这样便可以使用向量点乘操作：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-0b97d5a82360fece.png?imageMogr2/auto-orient/strip|imageView2/2/w/450/format/webp" alt="img"></p>
+<p><strong>优点</strong>：在于它能够为每个参数自适应不同的学习速率，而一般的人工都是设定为0.01。<br> <strong>缺点</strong>：在于需要计算参数梯度序列平方和，并且学习速率趋势是不断衰减最终达到一个非常小的值。</p>
+<h4 id="14-rmsprop"><a href="#1-4-RMSprop" class="headerlink" title="1.4 RMSprop"></a>1.4 RMSprop</h4><p>为了降低Adagrad中学习速率衰减过快的问题，RMSprop使用指数加权平均来代替历史梯度的平方和：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-9e202e54078aacea.png?imageMogr2/auto-orient/strip|imageView2/2/w/530/format/webp" alt="img"></p>
 <p>Rmsprop的的效果如下图所示，对梯度较大的方向减小其学习速率，相反的，在梯度较小的方向上增加其学习速率。</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-a39fe21e8a99f3bf?imageMogr2/auto-orient/strip%7CimageView2/2/w/876/format/webp" alt="img"></p>
-<p><strong>优点</strong>：RMSprop改进了Adagrad学习速率衰减过快的问题，同时其适用于处理非平稳。<br>
-<strong>缺点</strong>：依然依赖一个全局学习率。</p>
-<h4 id="15-adam">1.5 Adam</h4>
-<p>Adam 算法结合了 Momentum 和 RMSprop 梯度下降法，并且是一种极其常<br>
-用的学习算法，被证明能有效适用于不同神经网络，适用于广泛的结构。其计算方式如下：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-18d560f88a652d13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/470/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-a39fe21e8a99f3bf?imageMogr2/auto-orient/strip|imageView2/2/w/876/format/webp" alt="img"></p>
+<p><strong>优点</strong>：RMSprop改进了Adagrad学习速率衰减过快的问题，同时其适用于处理非平稳。<br> <strong>缺点</strong>：依然依赖一个全局学习率。</p>
+<h4 id="15-adam"><a href="#1-5-Adam" class="headerlink" title="1.5 Adam"></a>1.5 Adam</h4><p>Adam 算法结合了 Momentum 和 RMSprop 梯度下降法，并且是一种极其常<br> 用的学习算法，被证明能有效适用于不同神经网络，适用于广泛的结构。其计算方式如下：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-18d560f88a652d13.png?imageMogr2/auto-orient/strip|imageView2/2/w/470/format/webp" alt="img"></p>
 <p>上式中使用的是经过偏差修正后的指数加权平均数：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-5ce6b31468ec57b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/442/format/webp" alt="img"></p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-d0b17e57f49f525c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/584/format/webp" alt="img"></p>
-<h3 id="2-常见的过拟合解决方法">2、常见的过拟合解决方法</h3>
-<h4 id="21-l1和l2正则化">2.1 L1和L2正则化</h4>
-<p>L1和L2正则化来避免过拟合是大家都知道的事情，而且我们都知道L1正则化可以得到稀疏解，L2正则化可以得到平滑解，这是为什么呢？有几种解释吧，可以参考文献8（<a href="https://blog.csdn.net/f156207495/article/details/82794151%EF%BC%89" target="_blank" rel="noopener">https://blog.csdn.net/f156207495/article/details/82794151）</a> 。主要有几个方面：<br>
-1)直观的从图像上观察结论<br>
-2)通过对梯度的求解进行解释<br>
-3)通过L1正则和L2正则假设的参数先验上进行解释。</p>
-<h4 id="22-数据增强">2.2 数据增强</h4>
-<p>通俗得讲，数据增强即需要得到更多的符合要求的数据，即和已有的数据是独立同分布的，或者近似独立同分布的。一般有以下方法：<br>
-1)从数据源头采集更多数据<br>
-2)复制原有数据并加上随机噪声<br>
-3)重采样<br>
-4)根据当前数据集估计数据分布参数，使用该分布产生更多数据等</p>
-<h4 id="23-early-stopping">2.3 Early stopping</h4>
-<p>Early stopping便是一种迭代次数截断的方法来防止过拟合的方法，即在模型对训练数据集迭代收敛之前停止迭代来防止过拟合。</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-5ce6b31468ec57b9.png?imageMogr2/auto-orient/strip|imageView2/2/w/442/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-d0b17e57f49f525c.png?imageMogr2/auto-orient/strip|imageView2/2/w/584/format/webp" alt="img"></p>
+<h3 id="2-常见的过拟合解决方法"><a href="#2、常见的过拟合解决方法" class="headerlink" title="2、常见的过拟合解决方法"></a>2、常见的过拟合解决方法</h3><h4 id="21-l1和l2正则化"><a href="#2-1-L1和L2正则化" class="headerlink" title="2.1 L1和L2正则化"></a>2.1 L1和L2正则化</h4><p>L1和L2正则化来避免过拟合是大家都知道的事情，而且我们都知道L1正则化可以得到稀疏解，L2正则化可以得到平滑解，这是为什么呢？有几种解释吧，可以参考文献8（<a href="https://blog.csdn.net/f156207495/article/details/82794151）" target="_blank" rel="noopener">https://blog.csdn.net/f156207495/article/details/82794151）</a> 。主要有几个方面：<br> 1)直观的从图像上观察结论<br> 2)通过对梯度的求解进行解释<br> 3)通过L1正则和L2正则假设的参数先验上进行解释。</p>
+<h4 id="22-数据增强"><a href="#2-2-数据增强" class="headerlink" title="2.2 数据增强"></a>2.2 数据增强</h4><p>通俗得讲，数据增强即需要得到更多的符合要求的数据，即和已有的数据是独立同分布的，或者近似独立同分布的。一般有以下方法：<br> 1)从数据源头采集更多数据<br> 2)复制原有数据并加上随机噪声<br> 3)重采样<br> 4)根据当前数据集估计数据分布参数，使用该分布产生更多数据等</p>
+<h4 id="23-early-stopping"><a href="#2-3-Early-stopping" class="headerlink" title="2.3 Early stopping"></a>2.3 Early stopping</h4><p>Early stopping便是一种迭代次数截断的方法来防止过拟合的方法，即在模型对训练数据集迭代收敛之前停止迭代来防止过拟合。</p>
 <p>Early stopping可以得到与L2类似的参数平滑效果，可以通过定性和定量两个方面进行分析，具体参考文献10:<a href="http://www.friskit.me/2017/03/27/l2-equals-to-stop-early/" target="_blank" rel="noopener">http://www.friskit.me/2017/03/27/l2-equals-to-stop-early/</a></p>
-<h4 id="24-dropout">2.4 dropout</h4>
-<p>dropout是指在深度学习网络的训练过程中，对于神经网络单元，按照一定的概率将其暂时从网络中丢弃。dropout为什么能防止过拟合，可以通过以下几个方面来解释：</p>
+<h4 id="24-dropout"><a href="#2-4-dropout" class="headerlink" title="2.4 dropout"></a>2.4 dropout</h4><p>dropout是指在深度学习网络的训练过程中，对于神经网络单元，按照一定的概率将其暂时从网络中丢弃。dropout为什么能防止过拟合，可以通过以下几个方面来解释：</p>
 <ol>
 <li>它强迫一个神经单元，和随机挑选出来的其他神经单元共同工作，达到好的效果。消除减弱了神经元节点间的联合适应性，增强了泛化能力。</li>
 <li>类似于bagging的集成效果</li>
 <li>对于每一个dropout后的网络，进行训练时，相当于做了<strong>Data Augmentation</strong>，因为，总可以找到一个样本，使得在原始的网络上也能达到dropout单元后的效果。 比如，对于某一层，dropout一些单元后，形成的结果是(1.5,0,2.5,0,1,2,0)，其中0是被drop的单元，那么总能找到一个样本，使得结果也是如此。这样，每一次dropout其实都相当于增加了样本。</li>
 </ol>
-<h4 id="25-交叉验证">2.5 交叉验证</h4>
-<p>交叉验证的基本思想就是将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。我们常用的交叉验证方法有简单交叉验证、S折交叉验证和留一交叉验证。</p>
-<h4 id="26-决策树剪枝">2.6 决策树剪枝</h4>
-<p>在决策树学习中将已生成的树进行简化的过程称为剪枝。又分为前剪枝和后剪枝，这里我们就不细细介绍了。</p>
-<h3 id="3-ctr预估-amp-推荐系统">3、CTR预估 &amp; 推荐系统</h3>
-<h4 id="31-fm的原理及化简">3.1 FM的原理及化简</h4>
-<p>FM的计算公式如下：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-76ede0f3828a67bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
+<h4 id="25-交叉验证"><a href="#2-5-交叉验证" class="headerlink" title="2.5 交叉验证"></a>2.5 交叉验证</h4><p>交叉验证的基本思想就是将原始数据（dataset）进行分组，一部分做为训练集来训练模型，另一部分做为测试集来评价模型。我们常用的交叉验证方法有简单交叉验证、S折交叉验证和留一交叉验证。</p>
+<h4 id="26-决策树剪枝"><a href="#2-6-决策树剪枝" class="headerlink" title="2.6 决策树剪枝"></a>2.6 决策树剪枝</h4><p>在决策树学习中将已生成的树进行简化的过程称为剪枝。又分为前剪枝和后剪枝，这里我们就不细细介绍了。</p>
+<h3 id="3-ctr预估-amp-推荐系统"><a href="#3、CTR预估-amp-推荐系统" class="headerlink" title="3、CTR预估 &amp; 推荐系统"></a>3、CTR预估 &amp; 推荐系统</h3><h4 id="31-fm的原理及化简"><a href="#3-1-FM的原理及化简" class="headerlink" title="3.1 FM的原理及化简"></a>3.1 FM的原理及化简</h4><p>FM的计算公式如下：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-76ede0f3828a67bb.png?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
 <p>化简过程如下：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-43606a0334b5491d?imageMogr2/auto-orient/strip%7CimageView2/2/w/413/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-43606a0334b5491d?imageMogr2/auto-orient/strip|imageView2/2/w/413/format/webp" alt="img"></p>
 <p>求导结果如下：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-90285c4b1566bc9e?imageMogr2/auto-orient/strip%7CimageView2/2/w/389/format/webp" alt="img"></p>
-<h4 id="32-ffm的原理">3.2 FFM的原理</h4>
-<p>在FFM中，每一维特征 xi，针对其它特征的每一种field fj，都会学习一个隐向量 vi,fj。因此，隐向量不仅与特征相关，也与field相关。</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-90285c4b1566bc9e?imageMogr2/auto-orient/strip|imageView2/2/w/389/format/webp" alt="img"></p>
+<h4 id="32-ffm的原理"><a href="#3-2-FFM的原理" class="headerlink" title="3.2 FFM的原理"></a>3.2 FFM的原理</h4><p>在FFM中，每一维特征 xi，针对其它特征的每一种field fj，都会学习一个隐向量 vi,fj。因此，隐向量不仅与特征相关，也与field相关。</p>
 <p>假设样本的 n个特征属于f个field，那么FFM的二次项有 nf个隐向量。而在FM模型中，每一维特征的隐向量只有一个。FM可以看作FFM的特例，是把所有特征都归属到一个field时的FFM模型。根据FFM的field敏感特性，可以导出其模型方程。</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-c1885fab5e1b7f9e?imageMogr2/auto-orient/strip%7CimageView2/2/w/764/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-c1885fab5e1b7f9e?imageMogr2/auto-orient/strip|imageView2/2/w/764/format/webp" alt="img"></p>
 <p>可以看到，如果隐向量的长度为 k，那么FFM的二次参数有 nfk 个，远多于FM模型的 nk个。此外，由于隐向量与field相关，FFM二次项并不能够化简，其预测复杂度是 O(kn2)。</p>
 <p>FFM将问题定义为分类问题，使用的是logistic loss，同时加入了正则项(这里是分类类别为-1和1时候的log loss)</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-8eed28b510593c3e?imageMogr2/auto-orient/strip%7CimageView2/2/w/716/format/webp" alt="img"></p>
-<h4 id="33-wide-amp-deep的原理">3.3 wide &amp; deep的原理</h4>
-<p>wide &amp; deep的结构如下：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-7166c569ba77b538.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<p><strong>Wide Part</strong><br>
-Wide Part其实是一个广义的线性模型，使用特征包括<br>
-raw input(原始特征)和cross-product transformation(组合特征)</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-8eed28b510593c3e?imageMogr2/auto-orient/strip|imageView2/2/w/716/format/webp" alt="img"></p>
+<h4 id="33-wide-amp-deep的原理"><a href="#3-3-wide-amp-deep的原理" class="headerlink" title="3.3 wide &amp; deep的原理"></a>3.3 wide &amp; deep的原理</h4><p>wide &amp; deep的结构如下：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-7166c569ba77b538.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
+<p><strong>Wide Part</strong><br> Wide Part其实是一个广义的线性模型，使用特征包括<br> raw input(原始特征)和cross-product transformation(组合特征)</p>
 <p><strong>Deep Part</strong></p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-6f9cdc454df83b6b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-6f9cdc454df83b6b.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
 <p>Deep Part通过学习一个低纬度的dense representation（也叫做embedding vector）对于每一个query和item，来<strong>泛化</strong>给你推荐一些字符上看起来不那么相关，但是你可能也是需要的。比如说：你想要炸鸡，Embedding Space中，炸鸡和汉堡很接近，所以也会给你推荐汉堡。</p>
 <p>Embedding vectors被随机初始化，并根据最终的loss来反向训练更新。这些低维度的dense embedding vectors被作为第一个隐藏层的输入。隐藏层的激活函数通常使用ReLU。</p>
 <p><strong>模型的训练</strong></p>
 <p>模型的最终输出为：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-9529d65b711f6b13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/962/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-9529d65b711f6b13.png?imageMogr2/auto-orient/strip|imageView2/2/w/962/format/webp" alt="img"></p>
 <p>通过联合训练方式进行训练。之前面试问到两个部分是否可以用不同的优化器，论文中给出的是：<strong>Wide组件是用FTRL（Follow-the-regularized-leader） + L1正则化学习。Deep组件是用AdaGrad来学习。</strong></p>
-<h4 id="34-deepfm的原理">3.4 DeepFM的原理</h4>
-<p>先来看一下DeepFM的模型结构：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-55069eeb9f6a2ede?imageMogr2/auto-orient/strip%7CimageView2/2/w/535/format/webp" alt="img"></p>
+<h4 id="34-deepfm的原理"><a href="#3-4-DeepFM的原理" class="headerlink" title="3.4 DeepFM的原理"></a>3.4 DeepFM的原理</h4><p>先来看一下DeepFM的模型结构：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-55069eeb9f6a2ede?imageMogr2/auto-orient/strip|imageView2/2/w/535/format/webp" alt="img"></p>
 <p>DeepFM包含两部分：神经网络部分与因子分解机部分，分别负责低阶特征的提取和高阶特征的提取。这两部分<strong>共享同样的输入</strong>。DeepFM的预测结果可以写为：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-d849a2083210094f?imageMogr2/auto-orient/strip%7CimageView2/2/w/646/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-d849a2083210094f?imageMogr2/auto-orient/strip|imageView2/2/w/646/format/webp" alt="img"></p>
 <p><strong>FM部分</strong></p>
 <p>FM部分的详细结构如下：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-287a65280f157d54?imageMogr2/auto-orient/strip%7CimageView2/2/w/582/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-287a65280f157d54?imageMogr2/auto-orient/strip|imageView2/2/w/582/format/webp" alt="img"></p>
 <p>FM的输出公式为：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-5d8ec7c32c134eb1?imageMogr2/auto-orient/strip%7CimageView2/2/w/558/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-5d8ec7c32c134eb1?imageMogr2/auto-orient/strip|imageView2/2/w/558/format/webp" alt="img"></p>
 <p><strong>深度部分</strong></p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-a74e6bfb656e334d?imageMogr2/auto-orient/strip%7CimageView2/2/w/538/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-a74e6bfb656e334d?imageMogr2/auto-orient/strip|imageView2/2/w/538/format/webp" alt="img"></p>
 <p>深度部分是一个前馈神经网络。与图像或者语音这类输入不同，图像语音的输入一般是连续而且密集的，然而用于CTR的输入一般是及其稀疏的。因此需要重新设计网络结构。具体实现中为，在第一层隐含层之前，引入一个嵌入层来完成将输入向量压缩到低维稠密向量。</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-b37ead9c025cb2b8?imageMogr2/auto-orient/strip%7CimageView2/2/w/467/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-b37ead9c025cb2b8?imageMogr2/auto-orient/strip|imageView2/2/w/467/format/webp" alt="img"></p>
 <p>嵌入层(embedding layer)的结构如上图所示。当前网络结构有两个有趣的特性，1）尽管不同field的输入长度不同，但是embedding之后向量的长度均为K。2)在FM里得到的隐变量Vik现在作为了嵌入层网络的权重。</p>
-<h3 id="4-batch-normalization">4、Batch Normalization</h3>
-<h4 id="41-为什么要做bn">4.1 为什么要做BN</h4>
-<p>我们首先来思考一个问题，为什么神经网络需要对输入做标准化处理？原因在于神经网络本身就是为了学习数据的分布，如果训练集和测试集的分布不同，那么导致学习的神经网络泛化性能大大降低。同时，我们在使用mini-batch对神经网络进行训练时，不同的batch的数据的分布也有可能不同，那么网络就要在每次迭代都去学习适应不同的分布，这样将会大大降低网络的训练速度。因此我们需要对输入数据进行标准化处理。</p>
+<h3 id="4-batch-normalization"><a href="#4、Batch-Normalization" class="headerlink" title="4、Batch Normalization"></a>4、Batch Normalization</h3><h4 id="41-为什么要做bn"><a href="#4-1-为什么要做BN" class="headerlink" title="4.1 为什么要做BN"></a>4.1 为什么要做BN</h4><p>我们首先来思考一个问题，为什么神经网络需要对输入做标准化处理？原因在于神经网络本身就是为了学习数据的分布，如果训练集和测试集的分布不同，那么导致学习的神经网络泛化性能大大降低。同时，我们在使用mini-batch对神经网络进行训练时，不同的batch的数据的分布也有可能不同，那么网络就要在每次迭代都去学习适应不同的分布，这样将会大大降低网络的训练速度。因此我们需要对输入数据进行标准化处理。</p>
 <p>对于深度网络的训练是一个复杂的过程，只要网络的前面几层发生微小的改变，那么后面几层就会被累积放大下去。一旦网络某一层的输入数据的分布发生改变，那么这一层网络就需要去适应学习这个新的数据分布，所以如果训练过程中，训练数据的分布一直在发生变化，那么将会影响网络的训练速度。</p>
 <p>我们知道网络一旦train起来，那么参数就要发生更新，除了输入层的数据外(因为输入层数据，我们已经人为的为每个样本归一化)，后面网络每一层的输入数据分布是一直在发生变化的，因为在训练的时候，前面层训练参数的更新将导致后面层输入数据分布的变化。我们把网络中间层在训练过程中，数据分布的改变称之为：<strong>Internal Covariate Shift</strong>。为了解决Internal Covariate Shift，便有了Batch Normalization的诞生。</p>
-<h4 id="42-如何做bn训练和预测">4.2 如何做BN(训练和预测)</h4>
-<p><strong>训练阶段</strong></p>
+<h4 id="42-如何做bn训练和预测"><a href="#4-2-如何做BN-训练和预测" class="headerlink" title="4.2 如何做BN(训练和预测)"></a>4.2 如何做BN(训练和预测)</h4><p><strong>训练阶段</strong></p>
 <p>训练阶段对每一层，BN的计算过程如下：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-77bb76cea053ce02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-77bb76cea053ce02.png?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
 <p>可以看到，在BN的计算过程中，不仅仅有标准化的操作，还有最后一步，被称为<strong>变换重构</strong>。为什么要增加这一步呢？其实如果是仅仅使用上面的归一化公式，对网络某一层A的输出数据做归一化，然后送入网络下一层B，这样是会影响到本层网络A所学习到的特征的。打个比方，比如我网络中间某一层学习到特征数据本身就分布在S型激活函数的两侧，你强制把它给我归一化处理、标准差也限制在了1，把数据变换成分布于s函数的中间部分，这样就相当于我这一层网络所学习到的特征分布被你搞坏了。于是我们增加了<strong>变换重构</strong>，保留了网络所学习到的特征。</p>
 <p><strong>预测阶段</strong></p>
-<p>一个网络一旦训练完了，就没有了min-batch这个概念了。测试阶段我们一般只输入一个测试样本，看看结果而已。因此测试样本，前向传导的时候，上面的均值u、标准差σ 要哪里来？其实网络一旦训练完毕，参数都是固定的，这个时候即使是每批训练样本进入网络，那么BN层计算的均值u、和标准差都是固定不变的。<br>
-因此在预测阶段，对于均值来说直接计算所有训练batch u值的平均值；然后对于标准偏差采用训练阶段每个batch σB的无偏估计，过程如下：</p>
+<p>一个网络一旦训练完了，就没有了min-batch这个概念了。测试阶段我们一般只输入一个测试样本，看看结果而已。因此测试样本，前向传导的时候，上面的均值u、标准差σ 要哪里来？其实网络一旦训练完毕，参数都是固定的，这个时候即使是每批训练样本进入网络，那么BN层计算的均值u、和标准差都是固定不变的。<br> 因此在预测阶段，对于均值来说直接计算所有训练batch u值的平均值；然后对于标准偏差采用训练阶段每个batch σB的无偏估计，过程如下：</p>
 <p>j</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-54e8833999738505.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/900/format/webp" alt="img"></p>
-<h3 id="5-集成学习">5、集成学习</h3>
-<h4 id="51-bagging">5.1 Bagging</h4>
-<p>Bagging即套袋法，其算法过程如下：<br>
-1、从原始样本集中抽取训练集.每轮从原始样本集中使用Bootstraping的方法抽取n个训练样本（在训练集中，有些样本可能被多次抽取到，而有些样本可能一次都没有被抽中）.共进行k轮抽取，得到k个训练集.（k个训练集相互独立）<br>
-2、每次使用一个训练集得到一个模型，k个训练集共得到k个模型.（注：根据具体问题采用不同的分类或回归方法，如决策树、神经网络等）<br>
-3、对分类问题：将上步得到的k个模型采用投票的方式得到分类结果；对回归问题，计算上述模型的均值作为最后的结果.</p>
-<h4 id="52-boosting">5.2 Boosting</h4>
-<p>Boosting是一族可将弱学习器提升为强学习器的算法。关于Boosting的两个核心问题：<br>
-1、在每一轮如何改变训练数据的权值或概率分布？<br>
-通过提高那些在前一轮被弱分类器分错样例的权值，减小前一轮分对样本的权值，而误分的样本在后续受到更多的关注.<br>
-2、通过什么方式来组合弱分类器？<br>
-通过加法模型将弱分类器进行线性组合，比如AdaBoost通过加权多数表决的方式，即增大错误率小的分类器的权值，同时减小错误率较大的分类器的权值。而提升树通过拟合残差的方式逐步减小残差，将每一步生成的模型叠加得到最终模型。</p>
-<h4 id="53-bagging和boosting的方差-偏差分析">5.3 Bagging和Boosting的方差-偏差分析</h4>
-<p>我们都知道，Bagging主要降低的是模型的方差，而Boosting主要减小的是模型的偏差，这是为什么呢？</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-54e8833999738505.png?imageMogr2/auto-orient/strip|imageView2/2/w/900/format/webp" alt="img"></p>
+<h3 id="5-集成学习"><a href="#5、集成学习" class="headerlink" title="5、集成学习"></a>5、集成学习</h3><h4 id="51-bagging"><a href="#5-1-Bagging" class="headerlink" title="5.1 Bagging"></a>5.1 Bagging</h4><p>Bagging即套袋法，其算法过程如下：<br> 1、从原始样本集中抽取训练集.每轮从原始样本集中使用Bootstraping的方法抽取n个训练样本（在训练集中，有些样本可能被多次抽取到，而有些样本可能一次都没有被抽中）.共进行k轮抽取，得到k个训练集.（k个训练集相互独立）<br> 2、每次使用一个训练集得到一个模型，k个训练集共得到k个模型.（注：根据具体问题采用不同的分类或回归方法，如决策树、神经网络等）<br> 3、对分类问题：将上步得到的k个模型采用投票的方式得到分类结果；对回归问题，计算上述模型的均值作为最后的结果.</p>
+<h4 id="52-boosting"><a href="#5-2-Boosting" class="headerlink" title="5.2 Boosting"></a>5.2 Boosting</h4><p>Boosting是一族可将弱学习器提升为强学习器的算法。关于Boosting的两个核心问题：<br> 1、在每一轮如何改变训练数据的权值或概率分布？<br> 通过提高那些在前一轮被弱分类器分错样例的权值，减小前一轮分对样本的权值，而误分的样本在后续受到更多的关注.<br> 2、通过什么方式来组合弱分类器？<br> 通过加法模型将弱分类器进行线性组合，比如AdaBoost通过加权多数表决的方式，即增大错误率小的分类器的权值，同时减小错误率较大的分类器的权值。而提升树通过拟合残差的方式逐步减小残差，将每一步生成的模型叠加得到最终模型。</p>
+<h4 id="53-bagging和boosting的方差-偏差分析"><a href="#5-3-Bagging和Boosting的方差-偏差分析" class="headerlink" title="5.3 Bagging和Boosting的方差-偏差分析"></a>5.3 Bagging和Boosting的方差-偏差分析</h4><p>我们都知道，Bagging主要降低的是模型的方差，而Boosting主要减小的是模型的偏差，这是为什么呢？</p>
 <p>这里我们主要引用参考文献13中的解释：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-c58fc12446d2c2ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<h4 id="54-stacking">5.4 Stacking</h4>
-<p>stacking 就是当用初始训练数据学习出若干个基学习器后，将这几个学习器的预测结果作为新的训练集，来学习一个新的学习器。</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-0a22a3f765034136?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-c58fc12446d2c2ff.png?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
+<h4 id="54-stacking"><a href="#5-4-Stacking" class="headerlink" title="5.4 Stacking"></a>5.4 Stacking</h4><p>stacking 就是当用初始训练数据学习出若干个基学习器后，将这几个学习器的预测结果作为新的训练集，来学习一个新的学习器。</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-0a22a3f765034136?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
 <p>在stacking的模型训练阶段，二级模型的训练集是使用一级模型产生的，如果直接使用一级模型对初始的训练集样本进行预测来产生二级模型的训练集，这样会有极大的过拟合的风险，因此一般是用训练一级模型未使用的样本来产生二级模型的训练集，交叉验证方法是比较常用的方法。</p>
 <p>Stacking的二级模型的训练样本的shape应该是训练集长度 * 基分类器个数，因此对于每个一级模型来说的，通过下面的图示来产生部分该模型对应的部分，最后进行横向拼接：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-ebf983b8346d71ef?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<p>而对于二级模型的测试集来说，由于每次交叉验证的过程中都要进行一次预测，假设我们是5折交叉验证，那么对于每个一级模型来说，得到的shape是测试集行数 * 交叉验证折数，此时的做法是，对axis=1方向取平均值，以得到测试集行数 * 1 的测试数据，最后将每个一级模型的结果进行横向拼接，得到二级模型的测试样本的shape是测试集行数 * 基分类器个数，可以跟训练集保持一致：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-a63445336b456cdc?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
-<h3 id="6-梯度消失-爆炸及解决方案">6、梯度消失、爆炸及解决方案</h3>
-<p>想必大家对梯度消失和梯度爆炸的概念都很了解了，这里我们只谈一谈如何避免梯度消失和爆炸。</p>
-<h4 id="61-预训练加微调">6.1 预训练加微调</h4>
-<p>该方案的基本思想是每次训练一层隐节点，训练时将上一层隐节点的输出作为输入，而本层隐节点的输出作为下一层隐节点的输入，此过程就是逐层“预训练”（pre-training）；在预训练完成后，再对整个网络进行“微调”（fine-tunning）。此思想相当于是先寻找局部最优，然后整合起来寻找全局最优，此方法有一定的好处，但是目前应用的不是很多了。</p>
-<h4 id="62-梯度裁切">6.2 梯度裁切</h4>
-<p>梯度剪切这个方案主要是针对梯度爆炸提出的，其思想是设置一个梯度剪切阈值，然后更新梯度的时候，如果梯度超过这个阈值，那么就将其强制限制在这个范围之内。这可以防止梯度爆炸。</p>
-<h4 id="63-正则化">6.3 正则化</h4>
-<p>正则化在一定程度上也可以避免梯度爆炸的问题，比较常见的是l1<br>
-正则和l2正则。</p>
-<h4 id="64-relu-leakrelu-elu等激活函数">6.4 relu、leakrelu、elu等激活函数</h4>
-<p><strong>relu</strong><br>
-relu的数学表达式为f(x) = max(0, x)，图像如下：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-c88e92077140c43d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/684/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-ebf983b8346d71ef?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
+<p>而对于二级模型的测试集来说，由于每次交叉验证的过程中都要进行一次预测，假设我们是5折交叉验证，那么对于每个一级模型来说，得到的shape是测试集行数 <em> 交叉验证折数，此时的做法是，对axis=1方向取平均值，以得到测试集行数 </em> 1 的测试数据，最后将每个一级模型的结果进行横向拼接，得到二级模型的测试样本的shape是测试集行数 * 基分类器个数，可以跟训练集保持一致：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-a63445336b456cdc?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
+<h3 id="6-梯度消失-爆炸及解决方案"><a href="#6、梯度消失、爆炸及解决方案" class="headerlink" title="6、梯度消失、爆炸及解决方案"></a>6、梯度消失、爆炸及解决方案</h3><p>想必大家对梯度消失和梯度爆炸的概念都很了解了，这里我们只谈一谈如何避免梯度消失和爆炸。</p>
+<h4 id="61-预训练加微调"><a href="#6-1-预训练加微调" class="headerlink" title="6.1 预训练加微调"></a>6.1 预训练加微调</h4><p>该方案的基本思想是每次训练一层隐节点，训练时将上一层隐节点的输出作为输入，而本层隐节点的输出作为下一层隐节点的输入，此过程就是逐层“预训练”（pre-training）；在预训练完成后，再对整个网络进行“微调”（fine-tunning）。此思想相当于是先寻找局部最优，然后整合起来寻找全局最优，此方法有一定的好处，但是目前应用的不是很多了。</p>
+<h4 id="62-梯度裁切"><a href="#6-2-梯度裁切" class="headerlink" title="6.2 梯度裁切"></a>6.2 梯度裁切</h4><p>梯度剪切这个方案主要是针对梯度爆炸提出的，其思想是设置一个梯度剪切阈值，然后更新梯度的时候，如果梯度超过这个阈值，那么就将其强制限制在这个范围之内。这可以防止梯度爆炸。</p>
+<h4 id="63-正则化"><a href="#6-3-正则化" class="headerlink" title="6.3 正则化"></a>6.3 正则化</h4><p>正则化在一定程度上也可以避免梯度爆炸的问题，比较常见的是l1<br> 正则和l2正则。</p>
+<h4 id="64-relu-leakrelu-elu等激活函数"><a href="#6-4-relu、leakrelu、elu等激活函数" class="headerlink" title="6.4 relu、leakrelu、elu等激活函数"></a>6.4 relu、leakrelu、elu等激活函数</h4><p><strong>relu</strong><br> relu的数学表达式为f(x) = max(0, x)，图像如下：</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-c88e92077140c43d.png?imageMogr2/auto-orient/strip|imageView2/2/w/684/format/webp" alt="img"></p>
 <p>我们可以很容易看出，relu函数的导数在正数部分是恒等于1的，因此在深层网络中使用relu激活函数就不会导致梯度消失和爆炸的问题。但由于负数部分恒为0，会导致一些神经元无法激活。</p>
 <p><strong>leak relu</strong></p>
 <p>leakrelu就是为了解决relu的0区间带来的影响，其数学表达为：f(x)=max(k∗x,x)。其中k是leak系数，一般选择0.01或者0.02，或者通过学习而来，其图像如下：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-89da1235f8e7d458.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-89da1235f8e7d458.png?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
 <p><strong>elu</strong></p>
 <p>elu激活函数也是为了解决relu的0区间带来的影响，其表达式为：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-2b12a84d264f3dee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/510/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-2b12a84d264f3dee.png?imageMogr2/auto-orient/strip|imageView2/2/w/510/format/webp" alt="img"></p>
 <p>其图像如下：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-4eccf81029c22549.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/714/format/webp" alt="img"></p>
-<h4 id="65-batch-normalization">6.5 batch normalization</h4>
-<p>有关batch normalization内容，可以参考本文的第四部分。多说一句，我们可以理解BN将输出从饱和区拉倒了非饱和区。 尤其在使用sigmoid激活函数或者tanh激活函数时，这个作用更加明显。</p>
-<h4 id="66-残差结构">6.6 残差结构</h4>
-<p>在一定深度下，深层网络的训练误差大于浅层网络的训练误差，我们称之为<strong>网络退化问题</strong>。而残差结构有效的解决了这个问题，使得深层网络的训练效果好于浅层网络。</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-4eccf81029c22549.png?imageMogr2/auto-orient/strip|imageView2/2/w/714/format/webp" alt="img"></p>
+<h4 id="65-batch-normalization"><a href="#6-5-batch-normalization" class="headerlink" title="6.5 batch normalization"></a>6.5 batch normalization</h4><p>有关batch normalization内容，可以参考本文的第四部分。多说一句，我们可以理解BN将输出从饱和区拉倒了非饱和区。 尤其在使用sigmoid激活函数或者tanh激活函数时，这个作用更加明显。</p>
+<h4 id="66-残差结构"><a href="#6-6-残差结构" class="headerlink" title="6.6 残差结构"></a>6.6 残差结构</h4><p>在一定深度下，深层网络的训练误差大于浅层网络的训练误差，我们称之为<strong>网络退化问题</strong>。而残差结构有效的解决了这个问题，使得深层网络的训练效果好于浅层网络。</p>
 <p>ResNet中的残差块如下图所示：</p>
-<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-c134331954ab6fb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="img"></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4155986-c134331954ab6fb3.png?imageMogr2/auto-orient/strip|imageView2/2/w/1000/format/webp" alt="img"></p>
 <p>我们可以看出此时将A网络的输出误差应该与B网络相同（暂时不考虑网络中的维度大小的细节），因为残差块的输出为F(x) + x,如果将网络中的参数置为0，则F(x)=0,因此得到的输出为0+x=x。因此使用ResNet结构搭建的深度网络至少与浅层网络具有相同的拟合能力，不会出现之前的网络退化问题。</p>
-<h4 id="67-lstm">6.7 LSTM</h4>
-<p>LSTM主要解决的是循环神经网络中的梯度消失问题，传统RNN中为什么会出现梯度消失或爆炸，以及LSTM是如何解决的，参考文献14 和 15.</p>
-<p>RNN梯度消失和爆炸的原因：<a href="https://zhuanlan.zhihu.com/p/28687529" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28687529</a><br>
-LSTM如何解决梯度消失问题：<a href="https://zhuanlan.zhihu.com/p/28749444" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28749444</a></p>
+<h4 id="67-lstm"><a href="#6-7-LSTM" class="headerlink" title="6.7 LSTM"></a>6.7 LSTM</h4><p>LSTM主要解决的是循环神经网络中的梯度消失问题，传统RNN中为什么会出现梯度消失或爆炸，以及LSTM是如何解决的，参考文献14 和 15.</p>
+<p>RNN梯度消失和爆炸的原因：<a href="https://zhuanlan.zhihu.com/p/28687529" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28687529</a><br> LSTM如何解决梯度消失问题：<a href="https://zhuanlan.zhihu.com/p/28749444" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28749444</a></p>
 <p>另外还有一个常见的问题就是，LSTM和RNN中为什么选择tanh作为激活函数，而非relu。可以参考文献16。</p>
-<h3 id="参考文献">参考文献</h3>
-<p>1、梯度下降优化算法综述：<a href="https://blog.csdn.net/heyongluoyao8/article/details/52478715" target="_blank" rel="noopener">https://blog.csdn.net/heyongluoyao8/article/details/52478715</a><br>
-2、各优化算法的优缺点整理：<a href="https://blog.csdn.net/zhouhong0284/article/details/80232412" target="_blank" rel="noopener">https://blog.csdn.net/zhouhong0284/article/details/80232412</a><br>
-3、详解机器学习中的梯度消失、爆炸原因及其解决方法：<a href="https://blog.csdn.net/qq_25737169/article/details/78847691" target="_blank" rel="noopener">https://blog.csdn.net/qq_25737169/article/details/78847691</a><br>
-4、深度学习（二十九）Batch Normalization 学习笔记：<a href="https://blog.csdn.net/hjimce/article/details/50866313" target="_blank" rel="noopener">https://blog.csdn.net/hjimce/article/details/50866313</a><br>
-5、基础 | batchnorm原理及代码详解：<a href="https://blog.csdn.net/qq_25737169/article/details/79048516" target="_blank" rel="noopener">https://blog.csdn.net/qq_25737169/article/details/79048516</a><br>
-6、BN论文：<a href="https://arxiv.org/abs/1502.03167" target="_blank" rel="noopener">https://arxiv.org/abs/1502.03167</a><br>
-7、ResNet学习笔记：<a href="https://zhuanlan.zhihu.com/p/32085715" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32085715</a><br>
-8、为什么L1稀疏，L2平滑？：：<a href="https://blog.csdn.net/f156207495/article/details/82794151" target="_blank" rel="noopener">https://blog.csdn.net/f156207495/article/details/82794151</a><br>
-9、l1 相比于 l2 为什么容易获得稀疏解？：<a href="https://www.zhihu.com/question/37096933" target="_blank" rel="noopener">https://www.zhihu.com/question/37096933</a><br>
-10、<a href="http://www.friskit.me/2017/03/27/l2-equals-to-stop-early/%EF%BC%9Ahttp://www.friskit.me/2017/03/27/l2-equals-to-stop-early/" target="_blank" rel="noopener">http://www.friskit.me/2017/03/27/l2-equals-to-stop-early/：http://www.friskit.me/2017/03/27/l2-equals-to-stop-early/</a><br>
-11、CNN中的dropout理解：<a href="https://blog.csdn.net/dod_jdi/article/details/78379781" target="_blank" rel="noopener">https://blog.csdn.net/dod_jdi/article/details/78379781</a><br>
-12、整理一份万字机器学习资料！：<a href="https://www.jianshu.com/p/70e04c02985c" target="_blank" rel="noopener">https://www.jianshu.com/p/70e04c02985c</a><br>
-13、bagging与boosting两种集成模型的偏差bias以及方差variance 的理解：<a href="https://blog.csdn.net/shenxiaoming77/article/details/53894973" target="_blank" rel="noopener">https://blog.csdn.net/shenxiaoming77/article/details/53894973</a><br>
-14、RNN梯度消失和爆炸的原因：<a href="https://zhuanlan.zhihu.com/p/28687529" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28687529</a><br>
-15、LSTM如何解决梯度消失问题：<a href="https://zhuanlan.zhihu.com/p/28749444" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28749444</a><br>
-16、RNN中为什么要采用tanh而不是ReLu作为激活函数？：<a href="https://www.zhihu.com/question/61265076" target="_blank" rel="noopener">https://www.zhihu.com/question/61265076</a><br>
-17、ResNet学习笔记：<a href="https://zhuanlan.zhihu.com/p/32085715" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32085715</a></p>
-<p>2012年ImageNet比赛的获胜模型AlexNet论文中提出的避免过拟合的方法。其操作方法如下图所示。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>1、梯度下降优化算法综述：<a href="https://blog.csdn.net/heyongluoyao8/article/details/52478715" target="_blank" rel="noopener">https://blog.csdn.net/heyongluoyao8/article/details/52478715</a><br> 2、各优化算法的优缺点整理：<a href="https://blog.csdn.net/zhouhong0284/article/details/80232412" target="_blank" rel="noopener">https://blog.csdn.net/zhouhong0284/article/details/80232412</a><br> 3、详解机器学习中的梯度消失、爆炸原因及其解决方法：<a href="https://blog.csdn.net/qq_25737169/article/details/78847691" target="_blank" rel="noopener">https://blog.csdn.net/qq_25737169/article/details/78847691</a><br> 4、深度学习（二十九）Batch Normalization 学习笔记：<a href="https://blog.csdn.net/hjimce/article/details/50866313" target="_blank" rel="noopener">https://blog.csdn.net/hjimce/article/details/50866313</a><br> 5、基础 | batchnorm原理及代码详解：<a href="https://blog.csdn.net/qq_25737169/article/details/79048516" target="_blank" rel="noopener">https://blog.csdn.net/qq_25737169/article/details/79048516</a><br> 6、BN论文：<a href="https://arxiv.org/abs/1502.03167" target="_blank" rel="noopener">https://arxiv.org/abs/1502.03167</a><br> 7、ResNet学习笔记：<a href="https://zhuanlan.zhihu.com/p/32085715" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32085715</a><br> 8、为什么L1稀疏，L2平滑？：：<a href="https://blog.csdn.net/f156207495/article/details/82794151" target="_blank" rel="noopener">https://blog.csdn.net/f156207495/article/details/82794151</a><br> 9、l1 相比于 l2 为什么容易获得稀疏解？：<a href="https://www.zhihu.com/question/37096933" target="_blank" rel="noopener">https://www.zhihu.com/question/37096933</a><br> 10、<a href="http://www.friskit.me/2017/03/27/l2-equals-to-stop-early/：http://www.friskit.me/2017/03/27/l2-equals-to-stop-early/" target="_blank" rel="noopener">http://www.friskit.me/2017/03/27/l2-equals-to-stop-early/：http://www.friskit.me/2017/03/27/l2-equals-to-stop-early/</a><br> 11、CNN中的dropout理解：<a href="https://blog.csdn.net/dod_jdi/article/details/78379781" target="_blank" rel="noopener">https://blog.csdn.net/dod_jdi/article/details/78379781</a><br> 12、整理一份万字机器学习资料！：<a href="https://www.jianshu.com/p/70e04c02985c" target="_blank" rel="noopener">https://www.jianshu.com/p/70e04c02985c</a><br> 13、bagging与boosting两种集成模型的偏差bias以及方差variance 的理解：<a href="https://blog.csdn.net/shenxiaoming77/article/details/53894973" target="_blank" rel="noopener">https://blog.csdn.net/shenxiaoming77/article/details/53894973</a><br> 14、RNN梯度消失和爆炸的原因：<a href="https://zhuanlan.zhihu.com/p/28687529" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28687529</a><br> 15、LSTM如何解决梯度消失问题：<a href="https://zhuanlan.zhihu.com/p/28749444" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/28749444</a><br> 16、RNN中为什么要采用tanh而不是ReLu作为激活函数？：<a href="https://www.zhihu.com/question/61265076" target="_blank" rel="noopener">https://www.zhihu.com/question/61265076</a><br> 17、ResNet学习笔记：<a href="https://zhuanlan.zhihu.com/p/32085715" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32085715</a></p>
+<p> 2012年ImageNet比赛的获胜模型AlexNet论文中提出的避免过拟合的方法。其操作方法如下图所示。</p>
 <ul>
-<li>
-<ul>
+<li><ul>
 <li>在训练中以概率P(一般为50%)关掉一部分神经元，如图中的虚线的箭头。那么对于某些输出，并不是所有神经元会参与到前向和反向传播中。</li>
 <li>在预测的时候，将使用所有的神经元，但是会将其输出乘以0.5</li>
 </ul>
@@ -1151,17 +701,16 @@ LSTM如何解决梯度消失问题：<a href="https://zhuanlan.zhihu.com/p/28749
 <p>batchnormalization的推理过程：</p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-23-162914.png" alt="image-20190724002913603"></p>
 <ul>
-<li>
-<p>深度哈希的进一步优化： 多层索引：</p>
+<li><p>深度哈希的进一步优化： 多层索引：</p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-30-104150.png" alt="image-20190730184149346"></p>
 </li>
 </ul>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-30-110211.png" alt="image-20190730190211359"></p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-08-04-164955.jpg" alt="img"></p>
 <p>这种编码方式有以下优势：减少查询下发次数，之前多个倒排表的查询必然需要下发多次查询，这样将会带来多余的查询解释以及不必要的时间开销，将每一段加上一个段序号后可以保证检索的准确性的同时，只用下发一次查询；同时该种检索策略还能方便后续的命中段数统数，现有的检索框架支持多关键字的查询，以及命中关键字个数的统计功能，所以本研究中拟采用此种方式进行实验。</p>
-<p>回答：</p>
-<p>1）归一化；2）kmeans（加速）；3）计算当前样本距离每个中心点的距离；4）求最近的中心店，进行归类。</p>
-<p>kmeans的k值如何选取；</p>
+<p>  回答： </p>
+<p>  1）归一化；2）kmeans（加速）；3）计算当前样本距离每个中心点的距离；4）求最近的中心店，进行归类。 </p>
+<p>  kmeans的k值如何选取；</p>
 <blockquote>
 <p><strong>轮廓系数：</strong></p>
 <p>轮廓系数（Silhouette Coefficient）结合了聚类的凝聚度（Cohesion）和分离度（Separation），用于评估聚类的效果。该值处于-1~1之间，值越大，表示聚类效果越好。具体计算方法如下：</p>
@@ -1173,161 +722,137 @@ LSTM如何解决梯度消失问题：<a href="https://zhuanlan.zhihu.com/p/28749
 </ol>
 <p>从上面的公式，不难发现若s(i)小于0，说明i与其簇内元素的平均距离小于最近的其他簇，表示聚类效果不好。如果a(i)趋于0，或者b(i)足够大，即a(i)&lt;&lt;b(i)，那么s(i)趋近与1，说明聚类效果比较好。</p>
 </blockquote>
-<p>2、如何生成一个随机点在圆内；</p>
-<p>3、给定一个随机数发生器在0~7之间，如何生成0~10之间的随机数；</p>
-<h2 id="代码">代码：</h2>
-<p>两数之和；</p>
-<p>三数之和；</p>
-<p>四数之和。</p>
-<p>希望还有后期面试吧，最后祝愿大家都能拿到心仪的offer，加油~</p>
-<p>作者：Ariana0402<br>
-<a href="https://www.nowcoder.com/discuss/178148%E6%9D%A5%E6%BA%90%EF%BC%9A%E7%89%9B%E5%AE%A2%E7%BD%91" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/178148来源：牛客网</a></p>
-<pre><code>1、亿级文件，每一行是一个字符串，单个文件中，字符串没有重复，两个文件中取交集。露珠真不会，引导下说了hash的原理等。 
+<p>  2、如何生成一个随机点在圆内； </p>
+<p>  3、给定一个随机数发生器在0~7之间，如何生成0~10之间的随机数； </p>
+<h2 id="代码"><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><p>  两数之和； </p>
+<p>  三数之和； </p>
+<p>  四数之和。 </p>
+<p>  希望还有后期面试吧，最后祝愿大家都能拿到心仪的offer，加油~</p>
+<p>作者：Ariana0402<br><a href="https://www.nowcoder.com/discuss/178148来源：牛客网" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/178148来源：牛客网</a></p>
+<pre><code> 1、亿级文件，每一行是一个字符串，单个文件中，字符串没有重复，两个文件中取交集。露珠真不会，引导下说了hash的原理等。 
 
-2、亿级用户推荐视频。 
+ 2、亿级用户推荐视频。 
 
-3、高维稀疏的特征怎么处理。答降维。问会不会embedding，说听过word2wec里面解决词向量，但是具体不会。 
+ 3、高维稀疏的特征怎么处理。答降维。问会不会embedding，说听过word2wec里面解决词向量，但是具体不会。 
 
-4、xgboost什么的深入问了下。 
+ 4、xgboost什么的深入问了下。 
 
-5、代码题，很简单但露珠说了二分，代码写了很久，我真的好渣啊T,T。反转数组求最小。
-</code></pre>
-<p>作者：919323<br>
-<a href="https://www.nowcoder.com/discuss/178148%E6%9D%A5%E6%BA%90%EF%BC%9A%E7%89%9B%E5%AE%A2%E7%BD%91" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/178148来源：牛客网</a></p>
-<p>发表于 2019-04-14 22:07:49[回复(3)](javascript:void(0);)[赞(1)](javascript:void(0);)[分享](javascript:void(0);)[举报](javascript:void(0);)</p>
-<p><a href="">Ariana0402</a>  [<img src="https:////uploadfiles.nowcoder.com/images/20190708/56_1562592127316_5889949873E3E23C8A0EC0CC8F6042A8" alt="img">](javascript:void(0);)：</p>
+ 5、代码题，很简单但露珠说了二分，代码写了很久，我真的好渣啊T,T。反转数组求最小。
+</code></pre><p>作者：919323<br><a href="https://www.nowcoder.com/discuss/178148来源：牛客网" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/178148来源：牛客网</a></p>
+<p>发表于 2019-04-14 22:07:49<a href="javascript:void(0" target="_blank" rel="noopener">回复(3)</a>;)<a href="javascript:void(0" target="_blank" rel="noopener">赞(1)</a>;)<a href="javascript:void(0" target="_blank" rel="noopener">分享</a>;)<a href="javascript:void(0" target="_blank" rel="noopener">举报</a>;)</p>
+<p><a href="">Ariana0402</a>  <a href="javascript:void(0" target="_blank" rel="noopener"><img src="https:////uploadfiles.nowcoder.com/images/20190708/56_1562592127316_5889949873E3E23C8A0EC0CC8F6042A8" alt="img"></a>;)：</p>
 <p>我答得也不全面。我答了1、xgb用二阶泰勒展开近似损失，gbdt用一阶泰勒展开近似损失。所以xgb更准确。2、xgb加入了正则项，加入了叶子结点数目及叶子结点取值的平方到损失函数里。3、xgb支持并行操作，这里的并行不是指树和树之间并行而是指挑选特征时的并行，xgb利用block思想，将每个特征的取值分成block形成候选分裂点，这一步可以在建树之前做，所以计算特征分裂点的时候是可以并列进行的。你可以再查查我答的也不全面。</p>
-<p>作者：越越保佑我<br>
-<a href="https://www.nowcoder.com/discuss/128702%E6%9D%A5%E6%BA%90%EF%BC%9A%E7%89%9B%E5%AE%A2%E7%BD%91" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/128702来源：牛客网</a></p>
-<p>常用分类算法</p>
-<p>svm</p>
-<p>lr</p>
-<p>调参一般调试哪些参数</p>
-<p>牛顿法 拟牛顿法</p>
-<p>linux命令</p>
-<p>你遇到过最困难的事情是什么，怎么解决的</p>
-<p>除了ai 你了解哪些现在热门方向以及实现原理</p>
-<p>工作地点选择</p>
-<p>链表是否有环（手撕代码）</p>
-<p>平常怎么学习</p>
-<p>百度笔试题 普通箱和怪物箱</p>
-<p>作者：在路上91<br>
-<a href="https://www.nowcoder.com/discuss/121706%E6%9D%A5%E6%BA%90%EF%BC%9A%E7%89%9B%E5%AE%A2%E7%BD%91" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/121706来源：牛客网</a></p>
-<pre><code>2.面试官想让我手写svm推导，我问她是不是推到SMO算法之前就行了，然后说看样子很懂，那我们就不写了 
+<p>作者：越越保佑我<br><a href="https://www.nowcoder.com/discuss/128702来源：牛客网" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/128702来源：牛客网</a></p>
+<p>  常用分类算法 </p>
+<p>  svm </p>
+<p>  lr </p>
+<p>  调参一般调试哪些参数 </p>
+<p>  牛顿法 拟牛顿法 </p>
+<p>  linux命令 </p>
+<p>  你遇到过最困难的事情是什么，怎么解决的 </p>
+<p>  除了ai 你了解哪些现在热门方向以及实现原理 </p>
+<p>  工作地点选择 </p>
+<p>  链表是否有环（手撕代码） </p>
+<p>  平常怎么学习 </p>
+<p>  百度笔试题 普通箱和怪物箱</p>
+<p>作者：在路上91<br><a href="https://www.nowcoder.com/discuss/121706来源：牛客网" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/121706来源：牛客网</a></p>
+<pre><code> 2.面试官想让我手写svm推导，我问她是不是推到SMO算法之前就行了，然后说看样子很懂，那我们就不写了 
 
-3.手撕代码两个链表分别表示两个数，头指针为低位尾指针为高位，求和返回新链表 
+ 3.手撕代码两个链表分别表示两个数，头指针为低位尾指针为高位，求和返回新链表 
 
-4.智力题.给两个砝码7g和2g，有140g盐，分成50g和90g两堆盐，天平用三次分出这两堆来 
+ 4.智力题.给两个砝码7g和2g，有140g盐，分成50g和90g两堆盐，天平用三次分出这两堆来 
 
-5.问我想做什么方向，我说推荐系统，然后就问了解多少说 
+ 5.问我想做什么方向，我说推荐系统，然后就问了解多少说 
 
-6.接下来就是聊工作地点，性格，优势，以及将来怎么工作
-</code></pre>
-<p>作者：政化天下666<br>
-<a href="https://www.nowcoder.com/discuss/102895%E6%9D%A5%E6%BA%90%EF%BC%9A%E7%89%9B%E5%AE%A2%E7%BD%91" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/102895来源：牛客网</a></p>
-<h2 id="单模型">单模型</h2>
-<p>1、LR的损失函数的公式和函数</p>
-<p>2、LR的推导过程</p>
-<p>3、LR如何解决共线性，为什么深度学习不强调</p>
-<p>4、LR如何防止过拟合</p>
-<p>5、LR分布式训练怎么做</p>
-<p>6、LR为什么使用Sigmoid</p>
-<p>7、SVM的损失函数</p>
-<p>8、SVM的推导过程</p>
-<p>9、SVM怎么扩展到多分类问题</p>
-<p>10、SVM需要解决的重要数学问题是什么</p>
-<p>11、LR和SVM的区别</p>
-<p>12、Gini系数、信息增益、信息增益率的公式</p>
-<p>13、CART回归和分类时节点如何划分的</p>
-<p>14、决策树将一个特征全部乘以2会有什么影响</p>
-<p>15、反向传播算法的推导</p>
-<p>16、贝叶斯原理</p>
-<p>17、L_BFGS，DFP推导</p>
-<p>18、K means算法，如何选择k的个数</p>
-<p>19、DBSCAN介绍</p>
-<p>20、GMM算法</p>
-<p>21、UBM-GMM模型</p>
-<h2 id="集成学习">集成学习</h2>
-<p>1、Boosting 和Bagging的比较</p>
-<p>2、XGB的推导</p>
-<p>3、XGB为什么要用二阶信息不用一阶</p>
-<p>4、XGB的VC维</p>
-<p>5、LGB、XGB的区别和联系，并行是如何并行的</p>
-<p>6、GBDT的原理，以及常用的调参的参数</p>
-<p>7、XGB与GBDT的比较</p>
-<p>8、RF怎么进行节点划分</p>
-<p>9、GBDT和RF的比较</p>
-<p>10、Stacking方法</p>
-<h2 id="特征工程">特征工程</h2>
-<p>1、如何判断特征的有效性</p>
-<p>2、特征选择的几种方法</p>
-<p>3、为什么要做数据归一化，在梯度下降时有什么好处</p>
-<h2 id="评价指标">评价指标</h2>
-<p>1、评价指标及含义</p>
-<p>2、AUC理解和计算方法</p>
-<p>3、样本分布不均衡时，怎么训练怎么评价</p>
-<h2 id="损失函数-优化函数-核函数">损失函数、优化函数、核函数</h2>
-<p>1、各种核函数的比较与使用场景</p>
-<p>2、牛顿法的原理及求解sqrt <a href="https://leetcode.com/problems/sqrtx/" target="_blank" rel="noopener">https://leetcode.com/problems/sqrtx/</a></p>
-<p>3、SGD、Momentum和Adam的区别和联系</p>
-<p>4、GD和SGD等的区别</p>
-<p>5、各个损失函数的形式与区别</p>
-<p>6、交叉熵损失公式及推导</p>
-<p>7、偏差和方差的区别</p>
-<h2 id="正则化-降维-过拟合">正则化、降维、过拟合</h2>
-<p>1、L1和L2的区别与应用场景</p>
-<p>2、各个模型如何防止过拟合</p>
-<p>3、使得|x_1 - x*| + … + |x_n - x*|最小的x*</p>
-<p>4、SVD在遇到数据特别多的时候会产生一定的问题？如何解决？</p>
-<p>5、PCA的原理</p>
-<p>6、PCA与SVD之间区别和联系</p>
-<h2 id="学习链接">学习链接</h2>
-<p><a href="http://www.dscademy.com/supervised-learning/linear-regression/" target="_blank" rel="noopener">http://www.dscademy.com/supervised-learning/linear-regression/</a></p>
-<p><a href="https://www.jianshu.com/p/70e04c02985c" target="_blank" rel="noopener">https://www.jianshu.com/p/70e04c02985c</a></p>
-<h1 id="二-深度学习">二、深度学习</h1>
-<h2 id="cnn相关">CNN相关</h2>
-<p>1、各个CNN模型之间的比较，例如inception、VGG、Resnet等</p>
-<p>2、CNN的模型结构与原理</p>
-<p>3、Pooling的作用</p>
-<p>4、Dropout的理解</p>
-<p>5、BN原理及为什么可以工作</p>
-<p>6、Resnet的原理</p>
-<p>7、胶囊网络的原理</p>
-<p>8、Alphago的原理</p>
-<p>9、Data Augmetaion方法</p>
-<p>10、1X1卷积核的作用</p>
-<h2 id="rnn相关">RNN相关</h2>
-<p>1、LSTM的结构、原理及参数数量</p>
-<p>2、梯度消失原因，解决方法，为什么LSTM可以避免梯度消失</p>
-<p>3、GRU与LSTM的不同</p>
-<p>4、RNN模型的演变过程</p>
-<p>5、RNN中的正则化方法：AR以及TAR</p>
-<h2 id="模型比较-训练">模型比较、训练</h2>
-<p>1、深度学习中的过拟合，如何解决</p>
-<p>2、梯度消失梯度爆炸的原因及解决方法</p>
-<p>3、模型训练停止方法</p>
-<p>4、RNN和CNN的对比</p>
-<h2 id="学习链接">学习链接</h2>
-<p><a href="https://www.cnblogs.com/huanyi0723/p/8470866.html" target="_blank" rel="noopener">https://www.cnblogs.com/huanyi0723/p/8470866.html</a></p>
-<h1 id="三-推荐算法">三、推荐算法</h1>
-<p>1、FM模型的具体公式，FFM的改进</p>
-<p>2、个性化推荐的常用模型</p>
-<p>3、<a href="https://www.jianshu.com/p/99e8f24ec7df" target="_blank" rel="noopener">https://www.jianshu.com/p/99e8f24ec7df</a></p>
-<h1 id="五-概率论">五、概率论</h1>
-<p>1、如何衡量两个分布的相似度</p>
-<p>2、CRF推导</p>
-<p>3、统计中的P值和Alpha值</p>
-<p>4、常问问题：摸扑克牌、硬币、五福的期望等</p>
-<h1 id="六-框架">六、框架</h1>
-<p>1、Hadoop，Hive，Spark相关理论</p>
-<p>2、Tensorflow的图计算模型</p>
-<p>3、with关键字</p>
-<p>4、模型保存的相关描述</p>
-<p>5、session是什么</p>
+ 6.接下来就是聊工作地点，性格，优势，以及将来怎么工作
+</code></pre><p>作者：政化天下666<br><a href="https://www.nowcoder.com/discuss/102895来源：牛客网" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/102895来源：牛客网</a></p>
+<h2 id="单模型"><a href="#单模型" class="headerlink" title="单模型"></a>单模型</h2><p>   1、LR的损失函数的公式和函数  </p>
+<p>   2、LR的推导过程  </p>
+<p>   3、LR如何解决共线性，为什么深度学习不强调  </p>
+<p>   4、LR如何防止过拟合  </p>
+<p>   5、LR分布式训练怎么做  </p>
+<p>   6、LR为什么使用Sigmoid  </p>
+<p>   7、SVM的损失函数  </p>
+<p>   8、SVM的推导过程  </p>
+<p>   9、SVM怎么扩展到多分类问题  </p>
+<p>   10、SVM需要解决的重要数学问题是什么  </p>
+<p>   11、LR和SVM的区别  </p>
+<p>   12、Gini系数、信息增益、信息增益率的公式  </p>
+<p>   13、CART回归和分类时节点如何划分的  </p>
+<p>   14、决策树将一个特征全部乘以2会有什么影响  </p>
+<p>   15、反向传播算法的推导  </p>
+<p>   16、贝叶斯原理  </p>
+<p>   17、L_BFGS，DFP推导  </p>
+<p>   18、K means算法，如何选择k的个数  </p>
+<p>   19、DBSCAN介绍  </p>
+<p>   20、GMM算法  </p>
+<p>   21、UBM-GMM模型  </p>
+<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><p>   1、Boosting 和Bagging的比较  </p>
+<p>   2、XGB的推导  </p>
+<p>   3、XGB为什么要用二阶信息不用一阶  </p>
+<p>   4、XGB的VC维  </p>
+<p>   5、LGB、XGB的区别和联系，并行是如何并行的  </p>
+<p>   6、GBDT的原理，以及常用的调参的参数  </p>
+<p>   7、XGB与GBDT的比较  </p>
+<p>   8、RF怎么进行节点划分  </p>
+<p>   9、GBDT和RF的比较  </p>
+<p>   10、Stacking方法  </p>
+<h2 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h2><p>   1、如何判断特征的有效性  </p>
+<p>   2、特征选择的几种方法  </p>
+<p>   3、为什么要做数据归一化，在梯度下降时有什么好处  </p>
+<h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><p>   1、评价指标及含义  </p>
+<p>   2、AUC理解和计算方法  </p>
+<p>   3、样本分布不均衡时，怎么训练怎么评价  </p>
+<h2 id="损失函数-优化函数-核函数"><a href="#损失函数、优化函数、核函数" class="headerlink" title="损失函数、优化函数、核函数"></a>损失函数、优化函数、核函数</h2><p>   1、各种核函数的比较与使用场景  </p>
+<p>   2、牛顿法的原理及求解sqrt <a href="https://leetcode.com/problems/sqrtx/" target="_blank" rel="noopener">https://leetcode.com/problems/sqrtx/</a>   </p>
+<p>   3、SGD、Momentum和Adam的区别和联系  </p>
+<p>   4、GD和SGD等的区别  </p>
+<p>   5、各个损失函数的形式与区别  </p>
+<p>   6、交叉熵损失公式及推导  </p>
+<p>   7、偏差和方差的区别  </p>
+<h2 id="正则化-降维-过拟合"><a href="#正则化、降维、过拟合" class="headerlink" title="正则化、降维、过拟合"></a>正则化、降维、过拟合</h2><p>   1、L1和L2的区别与应用场景  </p>
+<p>   2、各个模型如何防止过拟合  </p>
+<p>   3、使得|x_1 - x<em>| + .. + |x_n - x</em>|最小的x*  </p>
+<p>   4、SVD在遇到数据特别多的时候会产生一定的问题？如何解决？  </p>
+<p>   5、PCA的原理  </p>
+<p>   6、PCA与SVD之间区别和联系  </p>
+<h2 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h2><p>   <a href="http://www.dscademy.com/supervised-learning/linear-regression/" target="_blank" rel="noopener">http://www.dscademy.com/supervised-learning/linear-regression/</a>   </p>
+<p>   <a href="https://www.jianshu.com/p/70e04c02985c" target="_blank" rel="noopener">https://www.jianshu.com/p/70e04c02985c</a>   </p>
+<h1 id="二-深度学习"><a href="#二、深度学习" class="headerlink" title="二、深度学习"></a>二、深度学习</h1><h2 id="cnn相关"><a href="#CNN相关" class="headerlink" title="CNN相关"></a>CNN相关</h2><p>   1、各个CNN模型之间的比较，例如inception、VGG、Resnet等  </p>
+<p>   2、CNN的模型结构与原理  </p>
+<p>   3、Pooling的作用  </p>
+<p>   4、Dropout的理解  </p>
+<p>   5、BN原理及为什么可以工作  </p>
+<p>   6、Resnet的原理  </p>
+<p>   7、胶囊网络的原理  </p>
+<p>   8、Alphago的原理  </p>
+<p>   9、Data Augmetaion方法  </p>
+<p>   10、1X1卷积核的作用  </p>
+<h2 id="rnn相关"><a href="#RNN相关" class="headerlink" title="RNN相关"></a>RNN相关</h2><p>   1、LSTM的结构、原理及参数数量  </p>
+<p>   2、梯度消失原因，解决方法，为什么LSTM可以避免梯度消失  </p>
+<p>   3、GRU与LSTM的不同  </p>
+<p>   4、RNN模型的演变过程  </p>
+<p>   5、RNN中的正则化方法：AR以及TAR  </p>
+<h2 id="模型比较-训练"><a href="#模型比较、训练" class="headerlink" title="模型比较、训练"></a>模型比较、训练</h2><p>   1、深度学习中的过拟合，如何解决  </p>
+<p>   2、梯度消失梯度爆炸的原因及解决方法  </p>
+<p>   3、模型训练停止方法  </p>
+<p>   4、RNN和CNN的对比  </p>
+<h2 id="学习链接"><a href="#学习链接-1" class="headerlink" title="学习链接"></a>学习链接</h2><p>   <a href="https://www.cnblogs.com/huanyi0723/p/8470866.html" target="_blank" rel="noopener">https://www.cnblogs.com/huanyi0723/p/8470866.html</a>   </p>
+<h1 id="三-推荐算法"><a href="#三、推荐算法" class="headerlink" title="三、推荐算法"></a>三、推荐算法</h1><p>   1、FM模型的具体公式，FFM的改进  </p>
+<p>   2、个性化推荐的常用模型  </p>
+<p>   3、<a href="https://www.jianshu.com/p/99e8f24ec7df" target="_blank" rel="noopener">https://www.jianshu.com/p/99e8f24ec7df</a>   </p>
+<h1 id="五-概率论"><a href="#五、概率论" class="headerlink" title="五、概率论"></a>五、概率论</h1><p>   1、如何衡量两个分布的相似度  </p>
+<p>   2、CRF推导  </p>
+<p>   3、统计中的P值和Alpha值  </p>
+<p>   4、常问问题：摸扑克牌、硬币、五福的期望等  </p>
+<h1 id="六-框架"><a href="#六、框架" class="headerlink" title="六、框架"></a>六、框架</h1><p>   1、Hadoop，Hive，Spark相关理论  </p>
+<p>   2、Tensorflow的图计算模型  </p>
+<p>   3、with关键字  </p>
+<p>   4、模型保存的相关描述  </p>
+<p>   5、session是什么  </p>
 <p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-09-02-012257.png" alt="image-20190902092257185"></p>
 <p><a href="https://baijiahao.baidu.com/s?id=1621054167310242353&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1621054167310242353&amp;wfr=spider&amp;for=pc</a></p>
-<p>作者：黑羽KID2015_560<br>
-<a href="https://www.nowcoder.com/discuss/236329?type=2%E6%9D%A5%E6%BA%90%EF%BC%9A%E7%89%9B%E5%AE%A2%E7%BD%91" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/236329?type=2来源：牛客网</a></p>
+<p>作者：黑羽KID2015_560<br><a href="https://www.nowcoder.com/discuss/236329?type=2来源：牛客网" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/236329?type=2来源：牛客网</a></p>
 <p>列表去重</p>
 <p>字典排序</p>
 <p>列表的排序算法，归并排序的原理</p>
@@ -1610,24 +1135,8 @@ LSTM如何解决梯度消失问题：<a href="https://zhuanlan.zhihu.com/p/28749
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

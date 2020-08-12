@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -209,8 +209,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="28-implement-strstr">28. Implement strStr()</h3>
-<hr>
+                <h3 id="28-implement-strstr"><a href="#28-Implement-strStr" class="headerlink" title="28. Implement strStr()"></a>28. Implement strStr()</h3><hr>
 <p>Implement <a href="http://www.cplusplus.com/reference/cstring/strstr/" target="_blank" rel="noopener">strStr()</a>.</p>
 <p>Return the index of the first occurrence of needle in haystack, or <strong>-1</strong> if needle is not part of haystack.</p>
 <p><strong>Example 1:</strong></p>
@@ -218,7 +217,7 @@
 <p><strong>Example 2:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
 <hr>
-<p>第一反应就是建立一个hashMap&lt;String, Integer&gt; 来存储substring和对应的index。</p>
+<p>第一反应就是建立一个hashMap\<string, integer=""> 来存储substring和对应的index。</string,></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">strStr</span><span class="params">(String haystack, String needle)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 注意当要查找的string为“”时，返回的是0，不是-1</span></span><br><span class="line">      	<span class="keyword">if</span>(needle.length() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> window = needle.length();</span><br><span class="line">        HashMap&lt;String, Integer&gt; m = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=haystack.length()-window; i++)&#123;<span class="comment">// 这里注意是&lt;=，因为有可能两个字符串长度相等</span></span><br><span class="line">            String substring = haystack.substring(i,i+window);</span><br><span class="line">            m.put(substring, i);</span><br><span class="line">            <span class="keyword">if</span>(m.containsKey(needle))&#123;<span class="comment">// 返回首个index，所以这里的判断语句要在for之内</span></span><br><span class="line">                <span class="keyword">return</span> m.get(needle);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p>but，在discuss区看到：</p>
@@ -495,24 +494,8 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

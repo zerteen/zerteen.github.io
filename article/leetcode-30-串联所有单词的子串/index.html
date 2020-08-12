@@ -143,14 +143,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -216,18 +216,8 @@
                 <p>给定一个字符串 s 和一些长度相同的单词 words。找出 s 中恰好可以由 words 中所有单词串联形成的子串的起始位置。</p>
 <p>注意子串要与 words 中的单词完全匹配，中间不能有其他字符，但不需要考虑 words 中单词串联的顺序。</p>
 <p>示例 1：</p>
-<p>输入：<br>
-s = “barfoothefoobarman”,<br>
-words = [“foo”,“bar”]<br>
-输出：[0,9]<br>
-解释：<br>
-从索引 0 和 9 开始的子串分别是 “barfoor” 和 “foobar” 。<br>
-输出的顺序不重要, [9,0] 也是有效答案。<br>
-示例 2：</p>
-<p>输入：<br>
-s = “wordgoodgoodgoodbestword”,<br>
-words = [“word”,“good”,“best”,“word”]<br>
-输出：[]</p>
+<p>输入：<br>  s = “barfoothefoobarman”,<br>  words = [“foo”,”bar”]<br>输出：[0,9]<br>解释：<br>从索引 0 和 9 开始的子串分别是 “barfoor” 和 “foobar” 。<br>输出的顺序不重要, [9,0] 也是有效答案。<br>示例 2：</p>
+<p>输入：<br>  s = “wordgoodgoodgoodbestword”,<br>  words = [“word”,”good”,”best”,”word”]<br>输出：[]</p>
 <hr>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findSubstring</span><span class="params">(self, s, words)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :type words: List[str]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> words:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        wordsSet = sorted(words)</span><br><span class="line">        ans, num, width = [], len(words), len(words[<span class="number">0</span>])</span><br><span class="line">        space = num*width</span><br><span class="line">        <span class="keyword">if</span> len(s) &lt; space:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)-space+<span class="number">1</span>):</span><br><span class="line">            t = []</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i, i+space, width):</span><br><span class="line">                t.append(s[j:j+width])</span><br><span class="line">            <span class="keyword">if</span> sorted(t) == wordsSet:</span><br><span class="line">                ans.append(i)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
 
@@ -506,24 +496,8 @@ words = [“word”,“good”,“best”,“word”]<br>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

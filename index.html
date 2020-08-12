@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,6 +211,93 @@
 
 <div class="post-preview" style="font-style: normal;">
 
+    <a href="/NLP/Transformer/">
+        <h2 class="post-title">
+            Transformer
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Attention Is All Your Need
+
+What is Transformer？
+  Transformer中抛弃了传统的CNN和RNN，由且仅由self-Attenion和Feed Forward Neural Network组成。
+
+Why Transformer？
+  一些序列的模型（RNN， LSTM，GRU等），他们的计算都是一个线性的计算，即，第$t$时刻的的计算......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2020-08-12
+            </p>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/DDH-论文解读/">
+        <h2 class="post-title">
+            DDH 论文解读
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            ...
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2019-11-13
+            </p>
+            
+              <a href="/tags/#face" title="face">face</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
+    <a href="/article/面筋/">
+        <h2 class="post-title">
+            Untitled
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            template match
+模板匹配是一种最原始、最基本的模式识别方法，研究某一特定对象物的图案位于图像的什么地方，进而识别对象物，这就是一个匹配问题。它是图像处理中最基本、最常用的匹配方法。模板匹配具有自身的局限性，主要表现在它只能进行平行移动，若原图像中的匹配目标发生旋转或大小变化，该算法无效。模板就是一副已知的小图像，而模板匹配就是在一副大图像中搜寻目标，已知该图中有要找的目标，且该......
+        </div>
+    </a>
+    
+        
+        <div class="tags">
+            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
+            2019-09-18
+            </p>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview" style="font-style: normal;">
+
     <a href="/article/bytedance-面筋集合/">
         <h2 class="post-title">
             bytedance 面筋集合
@@ -219,14 +306,14 @@
             
         </h3>
         <div class="post-content-preview">
-            提前批的，面试拖了好久，今天刚面完交叉面，虽然还没有意向书，也先发下面经，回馈下牛友
-面的是上海的ailab
-一面
-1、上来直接问论文，他基本上没有问啥细节，主要是我在讲
-2、一道算法题
-稀疏向量的点乘 要求：尽量高效地实现，需要同时考虑时空复杂度。
-代码是当时写的，不一定bug free
-1`#include &lt;iostream&gt;``using` `namespace` `st......
+            提前批的，面试拖了好久，今天刚面完交叉面，虽然还没有意向书，也先发下面经，回馈下牛友 
+面的是上海的ailab 
+一面 
+1、上来直接问论文，他基本上没有问啥细节，主要是我在讲 
+2、一道算法题 
+稀疏向量的点乘 要求：尽量高效地实现，需要同时考虑时空复杂度。 
+代码是当时写的，不一定bug free 
+1`#include &lt;iostream&gt;``using` `namespa......
         </div>
     </a>
     
@@ -255,18 +342,10 @@
         </h3>
         <div class="post-content-preview">
             518. 零钱兑换 II
-
-给定不同面额的硬币和一个总金额。写出函数来计算可以凑成总金额的硬币组合数。假设每一种面额的硬币有无限个。
+给定不同面额的硬币和一个总金额。写出函数来计算可以凑成总金额的硬币组合数。假设每一种面额的硬币有无限个。 
 示例 1:
-输入: amount = 5, coins = [1, 2, 5]
-输出: 4
-解释: 有四种方式可以凑成总金额:
-5=5
-5=2+2+1
-5=2+1+1+1
-5=1+1+1+1+1
-示例 2:
-输入: amount = 3, coins = [2......
+输入: amount = 5, coins = [1, 2, 5]输出: 4解释: 有四种方式可以凑成总金额:5=55=2+2+15=2+1+1+15=1+1+1+1+1示例 2:
+输入: amount = 3, coins = [2]输出: 0解......
         </div>
     </a>
     
@@ -325,11 +404,8 @@
             给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
 说明：本题中，我们将空字符串定义为有效的回文串。
 示例 1:
-输入: &quot;A man, a plan, a canal: Panama&quot;
-输出: true
-示例 2:
-输入: &quot;race a car&quot;
-输出: false
+输入: “A man, a plan, a canal: Panama”输出: true示例 2:
+输入: “race a car”输出: false
 
 ...
         </div>
@@ -365,9 +441,7 @@
 设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。
 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
 示例 1:
-输入: [7,1,5,3,6,4]
-输出: 7
-解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易......
+输入: [7,1,5,3,6,4]输出: 7解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能......
         </div>
     </a>
     
@@ -379,9 +453,9 @@
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
             
-              <a href="/tags/#动态规划" title="动态规划">动态规划</a>
-            
               <a href="/tags/#数组" title="数组">数组</a>
+            
+              <a href="/tags/#动态规划" title="动态规划">动态规划</a>
             
         </div>
     
@@ -403,10 +477,7 @@
 如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。
 注意你不能在买入股票前卖出股票。
 示例 1:
-输入: [7,1,5,3,6,4]
-输出: 5
-解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
-注意利润......
+输入: [7,1,5,3,6,4]输出: 5解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。     注意......
         </div>
     </a>
     
@@ -438,17 +509,11 @@
         <div class="post-content-preview">
             给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。
 例如，给定三角形：
-[
-[2],
-[3,4],
-[6,5,7],
-[4,1,8,3]
-]
-自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。
+[     [2],    [3,4],   [6,5,7],  [4,1,8,3]]自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。
 说明：
 如果你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题，那么你的算法会很加分。
 
-12345678910111213......
+123456789......
         </div>
     </a>
     
@@ -459,136 +524,6 @@
             </p>
             
               <a href="/tags/#leetcode" title="leetcode">leetcode</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/leetcode-118-杨辉三角/">
-        <h2 class="post-title">
-            leetcode 118 杨辉三角
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            给定一个非负整数 numRows，生成杨辉三角的前 numRows 行。
-
-在杨辉三角中，每个数是它左上方和右上方的数的和。
-示例:
-输入: 5
-输出:
-[
-[1],
-[1,1],
-[1,2,1],
-[1,3,3,1],
-[1,4,6,4,1]
-]
-
-1234567891011121314151617181920class Solution(object):    def generate(......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-08-01
-            </p>
-            
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
-            
-              <a href="/tags/#数组" title="数组">数组</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/leetcode-117-填充每个节点的下一个右侧节点指针-II/">
-        <h2 class="post-title">
-            leetcode 117 填充每个节点的下一个右侧节点指针 II
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            给定一个二叉树
-struct Node {
-int val;
-Node *left;
-Node *right;
-Node *next;
-}
-填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。
-初始状态下，所有 next 指针都被设置为 NULL。
-示例：
-输入：{&quot;$id&quot;:“1”,“left”:......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-08-01
-            </p>
-            
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
-            
-              <a href="/tags/#树" title="树">树</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview" style="font-style: normal;">
-
-    <a href="/article/leetcode-101-对称的二叉树/">
-        <h2 class="post-title">
-            leetcode 101 对称的二叉树
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            给定一个二叉树，检查它是否是镜像对称的。
-例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
-1
-
-/ 
-2   2
-/ \ / 
-3  4 4  3
-但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:
-1
-
-/ 
-2   2
-\   
-3    3
-
-12345678910111213141516171819202122# Definition for a ......
-        </div>
-    </a>
-    
-        
-        <div class="tags">
-            <p class="post-meta" style="margin: 5px 0; font-style: normal; font-size: small;">
-            2019-08-01
-            </p>
-            
-              <a href="/tags/#leetcode" title="leetcode">leetcode</a>
-            
-              <a href="/tags/#树" title="树">树</a>
             
         </div>
     
@@ -649,11 +584,13 @@ Node *next;
             
         
             
-            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
+            <a href="/tags/#face" title="face" rel="7">face</a>
             
         
             
-            <a href="/tags/#face" title="face" rel="6">face</a>
+            <a href="/tags/#hashing" title="hashing" rel="2">hashing</a>
+            
+        
             
         
             
@@ -673,13 +610,11 @@ Node *next;
             
         
             
+            <a href="/tags/#数组" title="数组" rel="24">数组</a>
+            
         
             
             <a href="/tags/#动态规划" title="动态规划" rel="8">动态规划</a>
-            
-        
-            
-            <a href="/tags/#数组" title="数组" rel="24">数组</a>
             
         
             
@@ -701,8 +636,6 @@ Node *next;
             
         
             
-        
-            
             <a href="/tags/#leetcode array" title="leetcode array" rel="2">leetcode array</a>
             
         
@@ -710,6 +643,8 @@ Node *next;
         
             
             <a href="/tags/#leetcode string" title="leetcode string" rel="2">leetcode string</a>
+            
+        
             
         
             
@@ -795,23 +730,23 @@ Node *next;
     <ul>
       
         <li>
+          <a href="/NLP/Transformer/">Transformer</a>
+        </li>
+      
+        <li>
+          <a href="/article/DDH-论文解读/">DDH 论文解读</a>
+        </li>
+      
+        <li>
+          <a href="/article/面筋/">(no title)</a>
+        </li>
+      
+        <li>
           <a href="/article/bytedance-面筋集合/">bytedance 面筋集合</a>
         </li>
       
         <li>
           <a href="/article/背包问题总结/">背包问题总结</a>
-        </li>
-      
-        <li>
-          <a href="/article/机器学习/">(no title)</a>
-        </li>
-      
-        <li>
-          <a href="/article/leetcode-125-验证回文串/">leetcode 125 验证回文串</a>
-        </li>
-      
-        <li>
-          <a href="/article/leetcode-122-买卖股票的最佳时机-II/">leetcode 122 买卖股票的最佳时机 II</a>
         </li>
       
     </ul>
@@ -822,7 +757,7 @@ Node *next;
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">73</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">73</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a><span class="archive-list-count">140</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
 
         <hr>
@@ -979,24 +914,8 @@ Node *next;
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>
