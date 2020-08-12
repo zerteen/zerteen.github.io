@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -222,13 +222,14 @@
             今天两个滚哥和鸟哥同一天面试，回来后总结了两个人的面试题。在这里记录一下：
 今日头条·大数据研发
 
+
+
 一面
 
 有序数组A=[1,3,4,6,7,9,11,15,16,17]经过一次旋转变换为A’[9,11,15,16,17,1,3,4,6,7],旋转位置未知，给定数组A和一个数x，在A’中查找x
 Java中的抽象类和接口的定议
 二叉树如何转换成平衡二叉树
-Hash表冲突处理的方法 链表，顺移
-......
+Hash表冲突处理的方法 链表，顺......
         </div>
     </a>
     
@@ -255,13 +256,18 @@ Hash表冲突处理的方法 链表，顺移
         </h3>
         <div class="post-content-preview">
             java notes
+
+
 Java丢弃了C++中很少使用的、很难理解的、令人迷惑的那些特性，如操作符重载、多继承、自动的强制类型转换。
+
 
 Java语言不使用指针，而是引用。并提供了自动的废料收集。
 
+
 Java语言提供类、接口和继承等面向对象的特性，为了简单起见，只支持类之间的单继承，但支持接口之间的多继承，并支持类与接口之间的实现机制（关键字为implements）。
 
-在基本的Java应用编程......
+
+在基本的Jav......
         </div>
     </a>
     
@@ -290,10 +296,12 @@ Java语言提供类、接口和继承等面向对象的特性，为了简单起�
             
 This HuWeihuang theme created by HuWeihuang modified from the original Porter YuHsuan
 
-Live DemoHu Weihuang Blog : www.huweihuang.com
+Live Demo
+Hu Weihuang Blog : www.huweihuang.com
 
-Install HexoInstall Node.js  and Git
-123#For Macbrew install ......
+Install Hexo
+Install Node.js  and Git
+123#For Macbrew instal......
         </div>
     </a>
     
@@ -372,9 +380,9 @@ Install HexoInstall Node.js  and Git
             
         
             
-        
-            
             <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            
+        
             
         
             
@@ -694,8 +702,24 @@ Install HexoInstall Node.js  and Git
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

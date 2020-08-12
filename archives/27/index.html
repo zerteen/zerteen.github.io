@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -220,10 +220,11 @@
         </h3>
         <div class="post-content-preview">
             A Unified Approach for Conventional Zero-Shot, Generalized Zero-Shot, and Few-Shot Learning
+
 论文总结了通用的监督学习存在的问题：
 
 大量的依赖训练数据的监督标签。当数据量巨大的时候，并不能保证每一个类的标注都是充足的和有效的。
-在模型训练完成之后，可能会存在新的类别出现，而当前的模型并没有经过这些新出......
+在模型训练完成之后，可能会存在新的类别出现，而当前的模型并没有经过这些新......
         </div>
     </a>
     
@@ -251,12 +252,14 @@
             
         </h3>
         <div class="post-content-preview">
-            Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking2010年CVPR的论文，作者是Zhong Wu，Tsinghua&amp;MSAR
+            Scalable Face Image Retrieval with Identity-Based Quantization and Multi-Reference Re-ranking
+2010年CVPR的论文，作者是Zhong Wu，Tsinghua&amp;MSAR
 
 Motivation
 
 底层的视觉特征对人脸图像没有很好的鉴别力
-discriminative power =&gt; ......
+
+discriminative power =&gt......
         </div>
     </a>
     
@@ -284,9 +287,10 @@ discriminative power =&gt; ......
             
         </h3>
         <div class="post-content-preview">
-            Adversarial Transfer Learning​    在一般的监督学习中，人们会假设训练集和测试集的样本是同分布的，但实际中是有可能存在分布上的差异的。当这里的差异有不同但是存在一定的联系的时候。迁移学习 能够将训练集的分布迁移到测试集的分布，使得最终的性能得到提升。
+            Adversarial Transfer Learning
+​	在一般的监督学习中，人们会假设训练集和测试集的样本是同分布的，但实际中是有可能存在分布上的差异的。当这里的差异有不同但是存在一定的联系的时候。迁移学习 能够将训练集的分布迁移到测试集的分布，使得最终的性能得到提升。
 
-When these distributions differ but are related, trans......
+When these distributions differ but are related, transfe......
         </div>
     </a>
     
@@ -315,10 +319,14 @@ When these distributions differ but are related, trans......
         </h3>
         <div class="post-content-preview">
             One-shot Face Recognition by Promoting Underrepresented Classes
+
 主要工作：
 
+
 将数据集分为了 base set 和 novel set，base set中大概有2w个人，1m张图片。 novel set中的每个人的图像只有一张
-先通过base set进行人脸特征的建模，使得模型具有好的泛化性能。这里提到的这个模型不是one sh......
+
+
+先通过base set进行人脸特征的建模，使得模型具有好的泛化性能。这里提到的这个模型不是on......
         </div>
     </a>
     
@@ -346,9 +354,10 @@ When these distributions differ but are related, trans......
             
         </h3>
         <div class="post-content-preview">
-            Deep Ordinal Hashing主要采用的是ranking to hashing的方式。
+            Deep Ordinal Hashing
+主要采用的是ranking to hashing的方式。
 大部分的deep hashing的方式是直接使用全连接层的输出并将其映射到hash code空间。但是全局的信息会带来空间信息损失 的问题，导致学习到的hash code不是最优的。所以文章提出来使用注意力机制，来抽取局部空间特征。
-考虑到在hash code进行量化的时候，通常使用的sign(......
+考虑到在hash code进行量化的时候，通常使用的sign......
         </div>
     </a>
     
@@ -374,12 +383,13 @@ When these distributions differ but are related, trans......
             
         </h3>
         <div class="post-content-preview">
-            Discriminative Deep Hashing for Scalable Face Image Retrieval提出辨识力深度哈希网络（Discriminative Deep Hash Network）
+            Discriminative Deep Hashing for Scalable Face Image Retrieval
+提出辨识力深度哈希网络（Discriminative Deep Hash Network）
 简单来说，可以总结为一下几点：
 
 使用卷积来提取多尺度的特征
 使用divide-and encode分治编码的方式，用来生成紧凑的哈希编码
-设计了一个损失函数来降低预测误差（pre......
+设计了一个损失函数来降低预测误差（pr......
         </div>
     </a>
     
@@ -407,9 +417,10 @@ When these distributions differ but are related, trans......
             
         </h3>
         <div class="post-content-preview">
-            1. picke 读取数据许多数据集是使用pickle进行序列化后进行保存的。因此，在还原为图片的时候，使用pickel进行还原：
+            1. picke 读取数据
+许多数据集是使用pickle进行序列化后进行保存的。因此，在还原为图片的时候，使用pickel进行还原：
  123import pickelwith open(file, "rb") as fo:    data = pickel.load(fo, encoding="bytes")
-这里需要注意的是，python3中有encoding参数，而python2中并没有......
+这里需要注意的是，python3中有encoding参数，而python2中并没......
         </div>
     </a>
     
@@ -598,9 +609,9 @@ IJB-A/B/C [......
             
         
             
-        
-            
             <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            
+        
             
         
             
@@ -920,8 +931,24 @@ IJB-A/B/C [......
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -343,8 +343,8 @@
             
         </h3>
         <div class="post-content-preview">
-            Consider the string s to be the infinite wraparound string of “abcdefghijklmnopqrstuvwxyz”, so s will look like this: “…zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd….”.
-Now we have ano......
+            Consider the string s to be the infinite wraparound string of “abcdefghijklmnopqrstuvwxyz”, so s will look like this: “…zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd…”.
+Now we have anot......
         </div>
     </a>
     
@@ -403,7 +403,8 @@ Grid cells are connected horizontally/vertically (not diagonally). The grid is c
         <div class="post-content-preview">
             The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
 Given two integers x and y, calculate the Hamming distance.
-Note:0 ≤ x, y &lt; $2......
+Note:
+0 ≤ x, y &lt; $......
         </div>
     </a>
     
@@ -571,9 +572,9 @@ Note:0 ≤ x, y &lt; $2......
             
         
             
-        
-            
             <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            
+        
             
         
             
@@ -893,8 +894,24 @@ Note:0 ≤ x, y &lt; $2......
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

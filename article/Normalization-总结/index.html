@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -221,28 +221,35 @@
 <hr>
 <p>先提出一个问题：</p>
 <ul>
-<li><p>internal covariate shift</p>
+<li>
+<p>internal covariate shift</p>
 <p>指的是，神经网络的层层叠加，每一层的输入依靠上一层的输出。当层数过高时，底层的微小的变化会导致高层输入的差异很大，使得高层的输入分布会发生非常剧烈的变化，这使得高层需要不断适应这种数据输入分布的变化。</p>
 </li>
 </ul>
 <p>简单的处理方式就是，对每一层的数据进行一个转换，使得他们能够在一个区间之间。</p>
-<script type="math/tex; mode=display">
-h = f\left (g \cdot\frac{x-\mu}{\sigma} + b \right )</script><ul>
-<li><p>$\mu$是<strong>平移参数</strong>（shift parameter)</p>
+<p>$$<br>
+h = f\left (g \cdot\frac{x-\mu}{\sigma} + b \right )<br>
+$$</p>
+<ul>
+<li>
+<p>$\mu$是<strong>平移参数</strong>（shift parameter)</p>
 </li>
-<li><p>$\sigma$是<strong>缩放参数</strong>（scale parameter）</p>
+<li>
+<p>$\sigma$是<strong>缩放参数</strong>（scale parameter）</p>
 </li>
 </ul>
 <p>通过这两个参数进行 shift 和 scale 变换。使得数据分布满足均值为0，方差为1。 但是如果只有这样的话，模型的表达能力有限，非线性拟合能力就会下降，这样一来，作者引入了两个新的参数$g，b$来提高模型的线性拟合能力。这两个参数是模型学习得到的。</p>
 <ul>
-<li><p>$g$ 进行<strong>再缩放</strong>（re-scale parameter）</p>
+<li>
+<p>$g$ 进行<strong>再缩放</strong>（re-scale parameter）</p>
 </li>
-<li><p>$b$进行<strong>再平移</strong>(re-shift parameter)</p>
+<li>
+<p>$b$进行<strong>再平移</strong>(re-shift parameter)</p>
 </li>
 </ul>
 <p>最终得到的数据符合均值为 $b$ 、方差为 $g^2$ 的分布。</p>
 <blockquote>
-<p>如何理解”模型的表达能力有限，非线性拟合能力下降”？</p>
+<p>如何理解&quot;模型的表达能力有限，非线性拟合能力下降&quot;？</p>
 <p>对于一些激活函数，例如 sigmoid函数，它的激活可以分为饱和区和非饱和区，如果仅有第一步的缩放，那么数据都会在sigmoid的非饱和区间，这时候，只有模型只有线性表达能力，这样一来就降低了模型的表达能力。如果再进行一次缩放平移，数据就会映射到饱和区域，这样一来，就又有了非线性表达能力。</p>
 </blockquote>
 <p>虽然论文说BN解决了ICS，但是有人提出来说，没有证据表明BN解决了它。反而，有人提出，BN解决的是梯度弥散问题(消失或者爆炸)，他做到了优化空间变得平滑。</p>
@@ -256,7 +263,8 @@ h = f\left (g \cdot\frac{x-\mu}{\sigma} + b \right )</script><ul>
 </ol>
 <hr>
 <p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g2cckidktvj30la067wj1.jpg" alt="image-20190423101452935"></p>
-<p><strong>BatchNorm</strong>：batch方向做归一化，算$N\times H \times W$的均值<br><strong>LayerNorm</strong>：channel方向做归一化，算$C\times H\times W$的均值</p>
+<p><strong>BatchNorm</strong>：batch方向做归一化，算$N\times H \times W$的均值<br>
+<strong>LayerNorm</strong>：channel方向做归一化，算$C\times H\times W$的均值</p>
 <p>BN在RNN中用起来很不方便，而Layer Normalization这种在同隐层内计算统计量的模式就比较符合RNN这种动态网络，目前在RNN中貌似也只有LayerNorm相对有效，但Layer Normalization目前看好像也只适合应用在RNN场景下，在CNN等环境下效果是不如BatchNorm或者GroupNorm等模型的。</p>
 <p><strong>InstanceNorm</strong>：一个channel内做归一化，算$H\times W$的均值</p>
 <p>对于RNN或者MLP，如果在同一个隐层类似CNN这样缩小范围，那么就只剩下单独一个神经元，输出也是单值而非CNN的二维平面，这意味着没有形成集合S，所以RNN和MLP是无法进行Instance Normalization操作的，这个很好理解。</p>
@@ -536,8 +544,24 @@ h = f\left (g \cdot\frac{x-\mu}{\sigma} + b \right )</script><ul>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

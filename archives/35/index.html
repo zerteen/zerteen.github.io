@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -337,7 +337,9 @@ Example 2:
         </h3>
         <div class="post-content-preview">
             Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
-For example,&quot;A man, a plan, a canal: Panama&quot; is a palindrome.&quot;race a car......
+For example,
+&quot;A man, a plan, a canal: Panama&quot; is a palindrome.
+&quot;race a c......
         </div>
     </a>
     
@@ -364,9 +366,12 @@ For example,&quot;A man, a plan, a canal: Panama&quot; is a palindrome.&quot;rac
         </h3>
         <div class="post-content-preview">
             Given two binary strings, return their sum (also a binary string).
-For example,a = &quot;11&quot;b = &quot;1&quot;Return &quot;100&quot;.
+For example,
+a = &quot;11&quot;
+b = &quot;1&quot;
+Return &quot;100&quot;.
 
-1234567891011121314151617181920212223class solution&#123; ......
+1234567891011121314151617181920212223class solution&#12......
         </div>
     </a>
     
@@ -420,12 +425,14 @@ For example,a = &quot;11&quot;b = &quot;1&quot;Return &quot;100&quot;.
         </h3>
         <div class="post-content-preview">
             Given a singly linked list, determine if it is a palindrome.
-Follow up:Could you do it in O(n) time and O(1) space?
+Follow up:
+Could you do it in O(n) time and O(1) space?
 
 
 using two pointers:
+
 A slow pointer with step length equals One
-A fast pointer w......
+A fast pointer......
         </div>
     </a>
     
@@ -562,9 +569,9 @@ Example 1:
             
         
             
-        
-            
             <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            
+        
             
         
             
@@ -884,8 +891,24 @@ Example 1:
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

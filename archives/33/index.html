@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -220,9 +220,10 @@
         </h3>
         <div class="post-content-preview">
             Given inorder and postorder traversal of a tree, construct the binary tree.
-Note:You may assume that duplicates do not exist in the tree.
+Note:
+You may assume that duplicates do not exist in the tree.
 For example, given
-12inorder = [9,3,15,20,7]postorder = [9,......
+12inorder = [9,3,15,20,7]postorder = [9......
         </div>
     </a>
     
@@ -250,9 +251,10 @@ For example, given
         <div class="post-content-preview">
             
 Given preorder and inorder traversal of a tree, construct the binary tree.
-Note:You may assume that duplicates do not exist in the tree.
+Note:
+You may assume that duplicates do not exist in the tree.
 For example, given
-12preorder = [3,9,20,15,7]inorder = [9,3......
+12preorder = [3,9,20,15,7]inorder = [9,......
         </div>
     </a>
     
@@ -308,8 +310,9 @@ The word can be constructed from letters of sequentially adjacent cell, where â€
             
 Given a set of distinct integers, nums, return all possible subsets (the power set).
 Note: The solution set must not contain duplicate subsets.
-For example,If nums = [1,2,3], a solution is:
-123456......
+For example,
+If nums = [1,2,3], a solution is:
+12345......
         </div>
     </a>
     
@@ -366,7 +369,8 @@ The first integer of each r......
         <div class="post-content-preview">
             Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.
 Follow up:
-Did you use extra space?A straight forward solution using O(m**n) space is probably a bad id......
+Did you use extra space?
+A straight forward solution using O(mn) space is probably a bad ide......
         </div>
     </a>
     
@@ -556,9 +560,9 @@ Exam......
             
         
             
-        
-            
             <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            
+        
             
         
             
@@ -878,8 +882,24 @@ Exam......
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

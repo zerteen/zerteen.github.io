@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -222,17 +222,20 @@
             给定一个二叉树，找出其最大深度。
 二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
 说明: 叶子节点是指没有子节点的节点。
-示例：给定二叉树 [3,9,20,null,null,15,7]，
-        3
+示例：
+给定二叉树 [3,9,20,null,null,15,7]，
+		3
    / \
   9  20
     /  \
    15   7
+
 返回它的最大深度 3 。
 
 
+
 递归
-1234567891011class Solution(object)......
+1234567891011class Solution(object):  ......
         </div>
     </a>
     
@@ -263,14 +266,18 @@
         </h3>
         <div class="post-content-preview">
             根据一棵树的前序遍历与中序遍历构造二叉树。
-注意:你可以假设树中没有重复的元素。
+注意:
+你可以假设树中没有重复的元素。
 例如，给出
-前序遍历 preorder = [3,9,20,15,7]中序遍历 inorder = [9,3,15,20,7]返回如下的二叉树：
-        3
+前序遍历 preorder = [3,9,20,15,7]
+中序遍历 inorder = [9,3,15,20,7]
+返回如下的二叉树：
+		3
    / \
   9  20
     /  \
    15   7
+
 
 ...
         </div>
@@ -303,16 +310,20 @@
         </h3>
         <div class="post-content-preview">
             根据一棵树的中序遍历与后序遍历构造二叉树。
-注意:你可以假设树中没有重复的元素。
+注意:
+你可以假设树中没有重复的元素。
 例如，给出
-中序遍历 inorder = [9,3,15,20,7]后序遍历 postorder = [9,15,7,20,3]返回如下的二叉树：
-        3
+中序遍历 inorder = [9,3,15,20,7]
+后序遍历 postorder = [9,15,7,20,3]
+返回如下的二叉树：
+		3
    / \
   9  20
     /  \
    15   7
 
-1234567891011121314151617181920212223......
+
+1234567891011121314151617181920212223cl......
         </div>
     </a>
     
@@ -343,14 +354,20 @@
         </h3>
         <div class="post-content-preview">
             给定一个二叉树，返回其节点值自底向上的层次遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
-例如：给定二叉树 [3,9,20,null,null,15,7],
-        3
+例如：
+给定二叉树 [3,9,20,null,null,15,7],
+		3
    / \
   9  20
     /  \
    15   7
+
 返回其自底向上的层次遍历为：
-[  [15,7],  [9,20],  [3]]
+[
+[15,7],
+[9,20],
+[3]
+]
 
 ...
         </div>
@@ -463,14 +480,16 @@
 一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。
 示例 1:
 给定二叉树 [3,9,20,null,null,15,7]
-        3
+		3
    / \
   9  20
     /  \
    15   7
+
 返回 true 。
 示例 2:
-给定二叉树 [1,2,2,3,3,null,null,4......
+给定二叉树 [1,2,2,3,3,null,null,4,4]
+ ......
         </div>
     </a>
     
@@ -502,18 +521,20 @@
         <div class="post-content-preview">
             给定一个二叉树，原地将它展开为链表。
 例如，给定二叉树
-        1
+		1
    / \
   2   5
  / \   \
 3   4   6
+
 将其展开为：
 12345678910111 \  2   \    3     \      4       \        5         \          6
 
 
+
 每一次把根节点的右子树拼接在左子树的右子树上
 例如：
-123456789......
+123456789		1 ......
         </div>
     </a>
     
@@ -549,9 +570,14 @@
 示例:
 给定二叉树 [3,9,20,null,null,15,7],
 3
-   / \  9  20    /  \   15   7返回它的最小深度  2.
 
-123456789101112131415161718192021222324# Definitio......
+/ 
+9  20
+/  
+15   7
+返回它的最小深度  2.
+
+123456789101112131415161718192021222324# Definition for a b......
         </div>
     </a>
     
@@ -583,14 +609,15 @@
         <div class="post-content-preview">
             给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。
 说明: 叶子节点是指没有子节点的节点。
-示例:给定如下二叉树，以及目标和 sum = 22，
+示例:
+给定如下二叉树，以及目标和 sum = 22，
           5
          / \
         4   8
        /   / \
       11  13  4
      /  \      \
-    7    ......
+    7   ......
         </div>
     </a>
     
@@ -675,9 +702,9 @@
             
         
             
-        
-            
             <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            
+        
             
         
             
@@ -997,8 +1024,24 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

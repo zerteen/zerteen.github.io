@@ -143,14 +143,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -215,32 +215,35 @@
 
                 <p>给定一个字符串 s1，我们可以把它递归地分割成两个非空子字符串，从而将其表示为二叉树。</p>
 <p>下图是字符串 s1 = “great” 的一种可能的表示形式。</p>
-<pre><code>    great
+<pre><code>	great
   /    \
   gr    eat
  / \    /  \
 g   r  e   at
            / \
           a   t
-</code></pre><p>在扰乱这个字符串的过程中，我们可以挑选任何一个非叶节点，然后交换它的两个子节点。</p>
+</code></pre>
+<p>在扰乱这个字符串的过程中，我们可以挑选任何一个非叶节点，然后交换它的两个子节点。</p>
 <p>例如，如果我们挑选非叶节点 “gr” ，交换它的两个子节点，将会产生扰乱字符串 “rgeat” 。</p>
-<pre><code>        rgeat
+<pre><code>		rgeat
    /    \
   rg    eat
  / \    /  \
 r   g  e   at
            / \
           a   t
-</code></pre><p>我们将 “rgeat” 称作 “great” 的一个扰乱字符串。</p>
+</code></pre>
+<p>我们将 &quot;rgeat” 称作 “great” 的一个扰乱字符串。</p>
 <p>同样地，如果我们继续将其节点 “eat” 和 “at” 进行交换，将会产生另一个新的扰乱字符串 “rgtae” 。</p>
-<pre><code>        rgtae
+<pre><code>		rgtae
    /    \
   rg    tae
  / \    /  \
 r   g  ta  e
        / \
       t   a
-</code></pre><p>我们将 “rgtae” 称作 “great” 的一个扰乱字符串。</p>
+</code></pre>
+<p>我们将 &quot;rgtae” 称作 “great” 的一个扰乱字符串。</p>
 <p>给出两个长度相等的字符串 s1 和 s2，判断 s2 是否是 s1 的扰乱字符串。</p>
 <p>示例 1:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: s1 = &quot;great&quot;, s2 = &quot;rgeat&quot;</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
@@ -524,8 +527,24 @@ r   g  ta  e
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

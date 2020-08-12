@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -209,32 +209,43 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="attention-is-all-your-need"><a href="#Attention-Is-All-Your-Need" class="headerlink" title="Attention Is All Your Need"></a>Attention Is All Your Need</h1><hr>
+                <h1 id="attention-is-all-your-need">Attention Is All Your Need</h1>
+<hr>
 <ul>
-<li><p>What is Transformer？</p>
-<p>  <code>Transformer</code>中抛弃了传统的CNN和RNN，由且仅由<code>self-Attenion</code>和<code>Feed Forward Neural Network</code>组成。</p>
+<li>
+<p>What is Transformer？</p>
+<p><code>Transformer</code>中抛弃了传统的CNN和RNN，由且仅由<code>self-Attenion</code>和<code>Feed Forward Neural Network</code>组成。</p>
 </li>
-<li><p>Why Transformer？</p>
-<p>  一些序列的模型（RNN， LSTM，GRU等），他们的计算都是一个线性的计算，即，第$t$时刻的的计算依赖于$t-1$时刻。限制了并行能力。同时，存在一些长期依赖的信息丢失问题。</p>
-<p>  <code>Transformer</code>并不是一个序列模型，因此能够并行计算。同时序列中任意两个位置的距离被缩小成了一个常量。</p>
+<li>
+<p>Why Transformer？</p>
+<p>一些序列的模型（RNN， LSTM，GRU等），他们的计算都是一个线性的计算，即，第$t$时刻的的计算依赖于$t-1$时刻。限制了并行能力。同时，存在一些长期依赖的信息丢失问题。</p>
+<p><code>Transformer</code>并不是一个序列模型，因此能够并行计算。同时序列中任意两个位置的距离被缩小成了一个常量。</p>
 </li>
-<li><p>What is the construction of Transformer?</p>
-<p>  Transformer的basic block是一个Encoder-Decoder结构：</p>
-<p>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghoceq32wlj30pb0humy3.jpg" alt="image-20200812212102507"></p>
-<p>  论文中，整个模型是由6个这样的basic block组成：</p>
-<p>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghocg7wxdmj30uh0mn40p.jpg" alt="image-20200812212229494"></p>
+<li>
+<p>What is the construction of Transformer?</p>
+<p>Transformer的basic block是一个Encoder-Decoder结构：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghoceq32wlj30pb0humy3.jpg" alt="image-20200812212102507"></p>
+<p>论文中，整个模型是由6个这样的basic block组成：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghocg7wxdmj30uh0mn40p.jpg" alt="image-20200812212229494"></p>
 </li>
-<li><p>Encoder和Decoder的结构又是怎样的？</p>
-<p>  Encoder由两部分组成：</p>
+<li>
+<p>Encoder和Decoder的结构又是怎样的？</p>
+<p>Encoder由两部分组成：</p>
 <ul>
-<li><p>Self-Attention</p>
-<p>  可以得到一个加权的特征向量$Z$:</p>
-<script type="math/tex; mode=display">
-  Z = \operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V</script></li>
-<li><p>Feed Forward Neural Network</p>
-<p>  两层的全联接层：</p>
-<script type="math/tex; mode=display">
-   \operatorname{FFN}(Z)=\max \left(0, Z W_{1}+b_{1}\right) W_{2}+b_{2}</script></li>
+<li>
+<p>Self-Attention</p>
+<p>可以得到一个加权的特征向量$Z$:<br>
+$$<br>
+Z = \operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V<br>
+$$</p>
+</li>
+<li>
+<p>Feed Forward Neural Network</p>
+<p>两层的全联接层：<br>
+$$<br>
+\operatorname{FFN}(Z)=\max \left(0, Z W_{1}+b_{1}\right) W_{2}+b_{2}<br>
+$$</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -251,7 +262,8 @@
 * Feed Forward Neural Network
 
 ![image-20200812220930892](https://tva1.sinaimg.cn/large/007S8ZIlly1ghodtbvxvyj30tj0a3wf8.jpg)
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>Transformer的输入是什么？</li>
 </ul>
 
@@ -522,8 +534,24 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

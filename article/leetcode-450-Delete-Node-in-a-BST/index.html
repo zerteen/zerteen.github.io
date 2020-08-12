@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -225,7 +225,8 @@
 <ul>
 <li>我们假设deleteNode函数返回已经修改的二叉搜索树的子树，我们递归的寻找需要删除的那个root</li>
 <li>当我们找到了这个root之后，判断这个root是否只有一个左子树或者右子树，这种情况下，只要把当前的root替换为其左子树的root或者右子树的root即可</li>
-<li>如果我们要delete的这个root有左右子树都有<ul>
+<li>如果我们要delete的这个root有左右子树都有
+<ul>
 <li>那么我么去他的左子树，找到他左子树的最大的数，令root的值等于该最大值，并且在其root的左子树中delete该最大值节点</li>
 <li>或者我们去他的右子树，找到他右子树的最小的数，令root的值等于该最小值，并且在其root的右子树中delete该最小节点</li>
 </ul>
@@ -506,8 +507,24 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

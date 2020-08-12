@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -211,7 +211,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="deepface-closing-the-gap-to-human-level-performance-in-face-verification"><a href="#Deepface-Closing-the-gap-to-human-level-performance-in-face-verification" class="headerlink" title="Deepface: Closing the gap to human-level performance in face verification"></a>Deepface: Closing the gap to human-level performance in face verification</h1><p>Naive-deep face recognition: Touching the limit of lfw benchmark or not?</p>
+                <p>#Deepface: Closing the gap to human-level performance in face verification</p>
+<p>Naive-deep face recognition: Touching the limit of lfw benchmark or not?</p>
 <p>The do’s and don’ts for cnn-based face verification</p>
 <p>L2-constrained softmax loss for discriminative face verification,</p>
 <p>Additive margin softmax for face verification</p>
@@ -502,8 +503,24 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

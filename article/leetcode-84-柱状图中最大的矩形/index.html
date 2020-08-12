@@ -145,14 +145,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -217,15 +217,18 @@
 
                 <p>给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。</p>
 <p>求在该柱状图中，能够勾勒出来的矩形的最大面积。</p>
-<p><img src="/Users/xiongz/Library/Application Support/typora-user-images/image-20190706184103401.png" alt="image-20190706184103401"></p>
-<p><img src="/Users/xiongz/Library/Application Support/typora-user-images/image-20190706184139193.png" alt="image-20190706184139193"></p>
+<p>![image-20190706184103401](/Users/xiongz/Library/Application Support/typora-user-images/image-20190706184103401.png)</p>
+<p>![image-20190706184139193](/Users/xiongz/Library/Application Support/typora-user-images/image-20190706184139193.png)</p>
 <hr>
 <ul>
-<li><p>我们维护一个栈，栈中的元素保持递减的关系</p>
+<li>
+<p>我们维护一个栈，栈中的元素保持递减的关系</p>
 </li>
-<li><p>当我们遇到一个数<code>nums[i]</code> 如果<code>nums[i]</code>小于栈顶的元素，这就意味着，对于栈顶元素，他能组成的最大的矩形的左边界为栈中的栈顶元素的前一个元素，右边界为当前的<code>i</code>。这样一来，我们先把当前的栈顶元素pop出来，得到<code>h</code>此时的栈顶元素能够组成的最大的矩形面积为<code>nums[h]*(i-1 - stack[-1])</code>。</p>
+<li>
+<p>当我们遇到一个数<code>nums[i]</code> 如果<code>nums[i]</code>小于栈顶的元素，这就意味着，对于栈顶元素，他能组成的最大的矩形的左边界为栈中的栈顶元素的前一个元素，右边界为当前的<code>i</code>。这样一来，我们先把当前的栈顶元素pop出来，得到<code>h</code>此时的栈顶元素能够组成的最大的矩形面积为<code>nums[h]*(i-1 - stack[-1])</code>。</p>
 </li>
-<li><p>这么遍历完一遍之后，stack中可能存在还有元素的情况。那么此时，由于数组已经遍历完毕，对于栈中的所有元素，他的左边界为栈中它前面的一个元素，右边界为整个数组的长度。</p>
+<li>
+<p>这么遍历完一遍之后，stack中可能存在还有元素的情况。那么此时，由于数组已经遍历完毕，对于栈中的所有元素，他的左边界为栈中它前面的一个元素，右边界为整个数组的长度。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure></li>
 </ul>
 
@@ -506,8 +509,24 @@
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

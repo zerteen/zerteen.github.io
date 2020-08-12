@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -286,7 +286,7 @@ Example:
 
 Number of Islands
 
-Given a 2d grid map of &#39;1&#39;s (land) and &#39;0&#39;s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands ho......
+Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or ve......
         </div>
     </a>
     
@@ -346,7 +346,10 @@ Example 1:
             
         </h3>
         <div class="post-content-preview">
-            jar包放置在hadoop平台出现 Caused by: java.util.zip.ZipException: error in opening zip fileat java.util.zip.ZipFile.open(Native Method)at java.util.zip.ZipFile.(ZipFile.java:127)at java.util.jar.JarFile.(Ja......
+            jar包放置在hadoop平台出现 Caused by: java.util.zip.ZipException: error in opening zip file
+at java.util.zip.ZipFile.open(Native Method)
+at java.util.zip.ZipFile.(ZipFile.java:127)
+at java.util.jar.JarFile.......
         </div>
     </a>
     
@@ -373,8 +376,9 @@ Example 1:
         </h3>
         <div class="post-content-preview">
             Given an array of strings, group anagrams together.
-For example, given: [&quot;eat&quot;, &quot;tea&quot;, &quot;tan&quot;, &quot;ate&quot;, &quot;nat&quot;, &quot;bat&quot;],Return:
-12345[  [&quot......
+For example, given: [&quot;eat&quot;, &quot;tea&quot;, &quot;tan&quot;, &quot;ate&quot;, &quot;nat&quot;, &quot;bat&quot;],
+Return:
+12345[  [&quo......
         </div>
     </a>
     
@@ -458,8 +462,9 @@ Both num1 and num2 contains only digi......
         <div class="post-content-preview">
             
 Given a string containing only digits, restore it by returning all possible valid IP address combinations.
-For example:Given &quot;25525511135&quot;,
-return [&quot;255.255.11.135&quot;, &quot;255.......
+For example:
+Given &quot;25525511135&quot;,
+return [&quot;255.255.11.135&quot;, &quot;255......
         </div>
     </a>
     
@@ -569,9 +574,9 @@ Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For 
             
         
             
-        
-            
             <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            
+        
             
         
             
@@ -891,8 +896,24 @@ Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For 
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

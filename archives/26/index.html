@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -339,8 +339,10 @@ Example:
             
         </h3>
         <div class="post-content-preview">
-            Given a 2D board containing &#39;X&#39; and &#39;O&#39; (the letter O), capture all regions surrounded by &#39;X&#39;.
-A region is captured by flipping all &#39;O&#39;s into &#39;X&#39;s in that su......
+            Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'.
+A region is captured by flipping all 'O's into 'X's in that surrounded region.
+Example:
+1234X X X XX O......
         </div>
     </a>
     
@@ -397,8 +399,10 @@ A subsequence of a string is a new string which is formed from the original stri
             
         </h3>
         <div class="post-content-preview">
-            Unsupervised Deep Hashing With Adaptive Feature Learning for Image RetrievalNotations:
-$I= \lbrace I_{1}, I_{2}, \ldots, I_{n} \rbrace $ : 所有的图像集合$\mathbf{X}=\left[\mathbf{x}_{1}, \mathbf{x}_{2}, \......
+            Unsupervised Deep Hashing With Adaptive Feature Learning for Image Retrieval
+Notations:
+$I= \lbrace I_{1}, I_{2}, \ldots, I_{n} \rbrace $ : 所有的图像集合
+$\mathbf{X}=\left[\mathbf{x}{1}, \mathbf{x}{2}, \......
         </div>
     </a>
     
@@ -426,8 +430,9 @@ $I= \lbrace I_{1}, I_{2}, \ldots, I_{n} \rbrace $ : 所有的图像集合$\mathb
             
         </h3>
         <div class="post-content-preview">
-            Deepface: Closing the gap to human-level performance in face verificationNaive-deep face recognition: Touching the limit of lfw benchmark or not?
-The do’s and don’ts for cnn-based face verification......
+            #Deepface: Closing the gap to human-level performance in face verification
+Naive-deep face recognition: Touching the limit of lfw benchmark or not?
+The do’s and don’ts for cnn-based face verificati......
         </div>
     </a>
     
@@ -455,7 +460,8 @@ The do’s and don’ts for cnn-based face verification......
             
         </h3>
         <div class="post-content-preview">
-            ATTRIBUTE HASHING FOR ZERO-SHOT IMAGE RETRIEVAL这一片应该是 zsh （Zero-Shot Hashing via Transferring Supervised Knowledge）提出者的后续工作。在zsh中，对于semantic space 和hash space之间，使用了一个矩阵转换来降低 semantic gap的问题。但是对于高级的......
+            ATTRIBUTE HASHING FOR ZERO-SHOT IMAGE RETRIEVAL
+这一片应该是 zsh （Zero-Shot Hashing via Transferring Supervised Knowledge）提出者的后续工作。在zsh中，对于semantic space 和hash space之间，使用了一个矩阵转换来降低 semantic gap的问题。但是对于高级......
         </div>
     </a>
     
@@ -484,10 +490,11 @@ The do’s and don’ts for cnn-based face verification......
         </h3>
         <div class="post-content-preview">
             A Deep Face Identification Network Enhanced by Facial Attributes Prediction
+
 points：
 
 新的网络结构来predict facial attribute的同时进行 face identification。
-已有的multi-task方法都是共享CNN的特征空间，本文提出用的方法是融合两个task子网络的特征。两个......
+已有的multi-task方法都是共享CNN的特征空间，本文提出用的方法是融合两个task子网络的特征。两......
         </div>
     </a>
     
@@ -570,9 +577,9 @@ points：
             
         
             
-        
-            
             <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            
+        
             
         
             
@@ -892,8 +899,24 @@ points：
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

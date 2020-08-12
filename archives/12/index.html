@@ -134,14 +134,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -248,8 +248,8 @@ Now, you are given positions of houses and heaters on a horizontal ......
             
         </h3>
         <div class="post-content-preview">
-            In the “100 game,” two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins.
-What if we change the game s......
+            In the “100 game,” two players take turns adding, to a running total, any integer from 1…10. The player who first causes the running total to reach or exceed 100 wins.
+What if we change the game so......
         </div>
     </a>
     
@@ -287,8 +287,9 @@ Group Normalization
 
 先提出一个问题：
 
+
 internal covariate shift
-指的是，神经网络的层层叠加，每一层的输入依靠上一层的输出。当层......
+指的是，神经网络的层层叠加，每一层的输入依靠上一层的输出。当......
         </div>
     </a>
     
@@ -467,9 +468,10 @@ Both m and n are less......
         </h3>
         <div class="post-content-preview">
             Find the $n$ th digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, …
-Note:n is positive and will fit within the range of a 32-bit signed integer (n &lt; 231).
+Note:
+n is positive and will fit within the range of a 32-bit signed integer (n &lt; 231).
 Example 1:
-1234......
+123......
         </div>
     </a>
     
@@ -582,9 +584,9 @@ Example:
             
         
             
-        
-            
             <a href="/tags/#Face Recognition" title="Face Recognition" rel="4">Face Recognition</a>
+            
+        
             
         
             
@@ -904,8 +906,24 @@ Example:
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>

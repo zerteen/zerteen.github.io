@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -212,79 +212,110 @@
                 post-container">
 
                 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g23ml9atl5j31540a2myl.jpg" alt="image-20190415211129716"></p>
-<h1 id="intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h1><p>常用的人脸特征向量生成的方法都存在一定的问题：</p>
-<pre><code> 1. 基于分类的方法 
+<h1 id="intro">Intro</h1>
+<p>常用的人脸特征向量生成的方法都存在一定的问题：</p>
+<pre><code>1. 基于分类的方法 
  - 网络中用于分类的全连接层W随着参与训练的identity的增加而增加，使得网络参数量大。
  - 在open-set的情景下，学习到的人脸特征区分力不够。
- 2. 基于三元组的方法
+2. 基于三元组的方法
  - 对于大规模的数据集，三元组的组合呈现出爆炸式的增长。
  - `hard sample`的挖掘很难。
-</code></pre><p>作者提出了<code>Addictive Angular Margin Loss(ArchFace)</code>来提高人脸特征的区分力(discriminative power)。</p>
+</code></pre>
+<p>作者提出了<code>Addictive Angular Margin Loss(ArchFace)</code>来提高人脸特征的区分力(discriminative power)。</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g23et8y6g0j32040m0k3o.jpg" alt="ArchFace 流程图"></p>
 <p>步骤包括如下几点：</p>
 <ol>
-<li><p>对<code>人脸特征</code>和最后的<code>全连接层的参数</code>做归一化操作，在进行点积操作。这里等同于他们的cosine距离。</p>
+<li>
+<p>对<code>人脸特征</code>和最后的<code>全连接层的参数</code>做归一化操作，在进行点积操作。这里等同于他们的cosine距离。</p>
 </li>
-<li><p>通过$\arccos(\cdot)$来计算特征$x_i$和$W_j$ 的之间的角度$\theta_{yi}$。这里$W_j$可以看做是第$j$个类的类心。</p>
+<li>
+<p>通过$\arccos(\cdot)$来计算特征$x_i$和$W_j$ 的之间的角度$\theta_{yi}$。这里$W_j$可以看做是第$j$个类的类心。</p>
 </li>
-<li><p>对$\theta$加上一个marge <code>m</code>后，计算$\cos(\theta + m)$。</p>
+<li>
+<p>对$\theta$加上一个marge <code>m</code>后，计算$\cos(\theta + m)$。</p>
 </li>
-<li><p>对每一个逻辑单元进行上述相同的计算。随后，用一个scale <code>s</code>对求得的添加了margin的cosine值进行缩放。</p>
+<li>
+<p>对每一个逻辑单元进行上述相同的计算。随后，用一个scale <code>s</code>对求得的添加了margin的cosine值进行缩放。</p>
 </li>
-<li><p>接下来的操作和普通的softmax一样。</p>
+<li>
+<p>接下来的操作和普通的softmax一样。</p>
 </li>
 </ol>
-<h1 id="proposed-approach"><a href="#Proposed-Approach" class="headerlink" title="Proposed Approach"></a>Proposed Approach</h1><p>原始的softmax如下：</p>
-<script type="math/tex; mode=display">
-L_{1}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{W_{y_{i}}^{T} x_{i}+b_{y_{i}}}}{\sum_{j=1}^{n} e^{W_{j}^{T} x_{i}+b_{j}}}</script><p>偏置项置零，$W、x$进行$l_2$归一化处理，增加scale变量<code>s</code>， 有：</p>
-<script type="math/tex; mode=display">
-L_{2}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{s \cos \theta_{y_{i}}}}
-{e^{s \cos \theta_{y_{i}}}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cos \theta_{j}}}</script><p>添加一个margin <code>m</code>来增加类内的compactness和类间的discrepancy：</p>
-<script type="math/tex; mode=display">
-L_{3}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{s\left(\cos \left(\theta_{y_{i}}+m\right)\right)}}{e^{s\left(\cos \left(\theta_{y_{i}}+m\right)\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cos \theta_{j}}}</script><p>通过对二维特征的对比，可以明显的看到差别：</p>
+<h1 id="proposed-approach">Proposed Approach</h1>
+<p>原始的softmax如下：<br>
+$$<br>
+L_{1}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{W_{y_{i}}^{T} x_{i}+b_{y_{i}}}}{\sum_{j=1}^{n} e^{W_{j}^{T} x_{i}+b_{j}}}<br>
+$$<br>
+偏置项置零，$W、x$进行$l_2$归一化处理，增加scale变量<code>s</code>， 有：<br>
+$$<br>
+L_{2}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{s \cos \theta_{y_{i}}}}<br>
+{e^{s \cos \theta_{y_{i}}}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cos \theta_{j}}}<br>
+$$<br>
+添加一个margin <code>m</code>来增加类内的compactness和类间的discrepancy：<br>
+$$<br>
+L_{3}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{s\left(\cos \left(\theta_{y_{i}}+m\right)\right)}}{e^{s\left(\cos \left(\theta_{y_{i}}+m\right)\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cos \theta_{j}}}<br>
+$$</p>
+<p>通过对二维特征的对比，可以明显的看到差别：</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g23fwwp68lj30ns0d0q47.jpg" alt="Softmax V.S. ArcFace"></p>
-<h1 id="comparison"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</h1><p>在已有的工作中，有几个相似的工作都是通过对softmax添加margin来进行的。这里对比了一下几个：</p>
+<h1 id="comparison">Comparison</h1>
+<p>在已有的工作中，有几个相似的工作都是通过对softmax添加margin来进行的。这里对比了一下几个：</p>
 <ol>
-<li>SphereFace [cvpr2017]<script type="math/tex; mode=display">
-L_{ang} = \frac{1}{N} \sum _{i} - \log{ \frac{||e^{x_i}|| \cos{(m \theta _{yi, i})}}
-{e^{||x_i|| \cos{(m \theta _{yi, i})}} + \sum _{j \ne y _i} e^{||x_i \cos{(\theta _{j, i})}||}}}</script></li>
+<li>SphereFace [cvpr2017]<br>
+$$<br>
+L_{ang} = \frac{1}{N} \sum _{i} - \log{ \frac{||e^{x_i}|| \cos{(m \theta _{yi, i})}}<br>
+{e^{||x_i|| \cos{(m \theta _{yi, i})}} + \sum _{j \ne y _i} e^{||x_i \cos{(\theta _{j, i})}||}}}<br>
+$$</li>
 </ol>
-<p>   SphereFace在角度空间进行的margin。</p>
-<ol>
+<p>SphereFace在角度空间进行的margin。</p>
+<ol start="2">
 <li>CosFace [cvpr2018]</li>
 </ol>
-<script type="math/tex; mode=display">
-\begin{equation}
-L_{l m c}=\frac{1}{N} \sum_{i}-\log \frac{e^{s\left(\cos \left(\theta_{y_{i}, i}\right)-m\right)}}{e^{s\left(\cos \left(\theta_{y_{i}, i}\right)-m\right)}+\sum_{j \neq y_{i}} e^{s \cos \left(\theta_{j, i}\right)}}
-\end{equation}</script><p>​    CosFace在cosine空间进行的margin。</p>
-<p>作者将这三种loss归纳在一个式子中：</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-L_{4}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{s\left(\cos \left(m_{1} \theta_{y}+m_{2}\right)-m_{3}\right)}}{e^{s\left(\cos \left(m_{1} \theta_{y}+m_{2}\right)-m_{3}\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cos \theta_{j}}}
-\end{equation}</script><p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g23kpqf2ulj30y00egtcl.jpg" alt="Comparison"></p>
-<p>同时，作者还提出了集中变种方案，从不同的角度来诠释”减小类内差异和增大类间差异”：</p>
+<p>$$<br>
+\begin{equation}<br>
+L_{l m c}=\frac{1}{N} \sum_{i}-\log \frac{e^{s\left(\cos \left(\theta_{y_{i}, i}\right)-m\right)}}{e^{s\left(\cos \left(\theta_{y_{i}, i}\right)-m\right)}+\sum_{j \neq y_{i}} e^{s \cos \left(\theta_{j, i}\right)}}<br>
+\end{equation}<br>
+$$</p>
+<p>​	CosFace在cosine空间进行的margin。</p>
+<p>作者将这三种loss归纳在一个式子中：<br>
+$$<br>
+\begin{equation}<br>
+L_{4}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{s\left(\cos \left(m_{1} \theta_{y}+m_{2}\right)-m_{3}\right)}}{e^{s\left(\cos \left(m_{1} \theta_{y}+m_{2}\right)-m_{3}\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cos \theta_{j}}}<br>
+\end{equation}<br>
+$$<br>
+<img src="https://ws3.sinaimg.cn/large/006tNc79ly1g23kpqf2ulj30y00egtcl.jpg" alt="Comparison"></p>
+<p>同时，作者还提出了集中变种方案，从不同的角度来诠释&quot;减小类内差异和增大类间差异&quot;：</p>
 <ul>
-<li><p>Intra-Loss</p>
-<script type="math/tex; mode=display">
-L_{5}=L_{2}+\frac{1}{\pi N} \sum_{i=1}^{N} \theta_{y_{i}}</script></li>
-<li><p>Inter-Loss</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-L_{6}=L_{2}-\frac{1}{\pi N(n-1)} \sum_{i=1}^{N} \sum_{j=1, j \neq y_{i}}^{n} \arccos \left(W_{y_{i}}^{T} W_{j}\right)
-\end{equation}</script></li>
-<li><p>Triplet-Loss</p>
-<script type="math/tex; mode=display">
-\begin{equation}
-\arccos \left(x_{i}^{p o s} x_{i}\right)+m \leq \arccos \left(x_{i}^{n e g} x_{i}\right)
-\end{equation}</script></li>
+<li>
+<p>Intra-Loss<br>
+$$<br>
+L_{5}=L_{2}+\frac{1}{\pi N} \sum_{i=1}^{N} \theta_{y_{i}}<br>
+$$</p>
+</li>
+<li>
+<p>Inter-Loss<br>
+$$<br>
+\begin{equation}<br>
+L_{6}=L_{2}-\frac{1}{\pi N(n-1)} \sum_{i=1}^{N} \sum_{j=1, j \neq y_{i}}^{n} \arccos \left(W_{y_{i}}^{T} W_{j}\right)<br>
+\end{equation}<br>
+$$</p>
+</li>
+<li>
+<p>Triplet-Loss<br>
+$$<br>
+\begin{equation}<br>
+\arccos \left(x_{i}^{p o s} x_{i}\right)+m \leq \arccos \left(x_{i}^{n e g} x_{i}\right)<br>
+\end{equation}<br>
+$$</p>
+</li>
 </ul>
-<h1 id="experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h1><p>对比了大量的数据集：</p>
+<h1 id="experiments">Experiments</h1>
+<p>对比了大量的数据集：</p>
 <p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g23lm64c2yj31200u00z1.jpg" alt="Datasets"></p>
 <p>一些实验设置如下：</p>
 <ul>
 <li>$112\times112$ 对齐后的人脸</li>
 <li>backbone为 ResNet50和ResNet100</li>
-<li>卷积之后的结构为”BN-Dropout-FC-BN”</li>
+<li>卷积之后的结构为&quot;BN-Dropout-FC-BN&quot;</li>
 <li>512D face feature</li>
 <li><code>s</code>=64</li>
 <li><code>m</code>=0.5</li>
@@ -295,24 +326,29 @@ L_{6}=L_{2}-\frac{1}{\pi N(n-1)} \sum_{i=1}^{N} \sum_{j=1, j \neq y_{i}}^{n} \ar
 <li>测试和训练集中没有重合的identity</li>
 </ul>
 <p>实验对比非常详尽，这里不做过多的介绍，可以参考原文。</p>
-<h1 id="parallel-acceleration"><a href="#Parallel-Acceleration" class="headerlink" title="Parallel Acceleration"></a>Parallel Acceleration</h1><p>论文提到了，当identity数量很大时（millions of identites），<code>W</code>可能会超过GPU的显存大小，这时候，可以运用并行加速策略。[A distributed training solution for face recognition]</p>
+<h1 id="parallel-acceleration">Parallel Acceleration</h1>
+<p>论文提到了，当identity数量很大时（millions of identites），<code>W</code>可能会超过GPU的显存大小，这时候，可以运用并行加速策略。[A distributed training solution for face recognition]</p>
 <p>对特征<code>x</code>和全连接层参数<code>w</code>都有进行并行计算。作者在8块1080ti(11GB)上，使用ResNet50， batchsize 为8*64，特征维度为512，float 32的情况下，每秒钟能够跑800个sample。</p>
 <ol>
-<li><p>获得特征x</p>
+<li>
+<p>获得特征x</p>
 <p>对于每一个batch中的特征，是分别从8块GPU中聚合得到的，获得 feature matrix</p>
 <p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g23ncius18j31e20l4dn1.jpg" alt="image-20190415213746012"></p>
 </li>
-<li><p>计算softmax score</p>
+<li>
+<p>计算softmax score</p>
 <p>$score = xW$</p>
 <p>将feature matrix复制到每一块GPU中，并行的sub score，(512个feature * 1M/8 identities)</p>
 <p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g23nd4lnh8j31eg0jcagf.jpg" alt="image-20190415213820980"></p>
 </li>
-<li><p>获得dW</p>
+<li>
+<p>获得dW</p>
 <p>$dW = x^T dscore $</p>
 <p>在每一块GPU中，对feature matrix进行转置，并行的乘每一个sub score的梯度。得到W的梯度</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g23ndmj4b0j31d20hc0zq.jpg" alt="image-20190415213849797"></p>
 </li>
-<li><p>获得dx</p>
+<li>
+<p>获得dx</p>
 <p>$dx = dscoreW^T$</p>
 <p>在每一块GPU中，对sub matrix进行转置，乘以每一个subscore的梯度，将8块GPU产生的梯度加起来，得到x的梯度</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g23ndy2nj9j31cy0oodo7.jpg" alt="image-20190415213908147"></p>
@@ -376,7 +412,7 @@ L_{6}=L_{2}-\frac{1}{\pi N(n-1)} \sum_{i=1}^{N} \sum_{j=1, j \neq y_{i}}^{n} \ar
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#intro"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#proposed-approach"><span class="toc-nav-number">2.</span> <span class="toc-nav-text"><a href="#Proposed-Approach" class="headerlink" title="Proposed Approach"></a>Proposed Approach</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#comparison"><span class="toc-nav-number">3.</span> <span class="toc-nav-text"><a href="#Comparison" class="headerlink" title="Comparison"></a>Comparison</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#experiments"><span class="toc-nav-number">4.</span> <span class="toc-nav-text"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#parallel-acceleration"><span class="toc-nav-number">5.</span> <span class="toc-nav-text"><a href="#Parallel-Acceleration" class="headerlink" title="Parallel Acceleration"></a>Parallel Acceleration</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#intro"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Intro</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#proposed-approach"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Proposed Approach</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#comparison"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Comparison</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#experiments"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Experiments</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#parallel-acceleration"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">Parallel Acceleration</span></a></li></ol>
         
         </div>
       </aside>
@@ -604,8 +640,24 @@ L_{6}=L_{2}-\frac{1}{\pi N(n-1)} \sum_{i=1}^{N} \sum_{j=1, j \neq y_{i}}^{n} \ar
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
 <img src="https://zerteen.github.io/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- Migrate from head to bottom, no longer block render and still work -->
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 
 </html>
