@@ -143,7 +143,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -157,7 +157,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -215,24 +215,21 @@
 
                 <p>给定一个二叉树，原地将它展开为链表。</p>
 <p>例如，给定二叉树</p>
-<pre><code>		1
+<pre><code>        1
    / \
   2   5
  / \   \
 3   4   6
-</code></pre>
-<p>将其展开为：</p>
+</code></pre><p>将其展开为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line"> \</span><br><span class="line">  2</span><br><span class="line">   \</span><br><span class="line">    3</span><br><span class="line">     \</span><br><span class="line">      4</span><br><span class="line">       \</span><br><span class="line">        5</span><br><span class="line">         \</span><br><span class="line">          6</span><br></pre></td></tr></table></figure>
 <hr>
 <ol>
-<li>
-<p>每一次把根节点的右子树拼接在左子树的右子树上</p>
+<li><p>每一次把根节点的右子树拼接在左子树的右子树上</p>
 <p>例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">		1  &lt;- cur                  1</span><br><span class="line">   / \												  \</span><br><span class="line">  2   5														2  &lt;- cur</span><br><span class="line"> / \   \			    ===&gt;			  	/	  \							===&gt; ...</span><br><span class="line">3   4   6											 3		  4</span><br><span class="line">			 / \															\</span><br><span class="line">			7   8																6</span><br><span class="line">																				 /	\</span><br><span class="line">																				7			8</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">flatten</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: None Do not return anything, modify root in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        cur = root</span><br><span class="line">        <span class="keyword">while</span> cur:</span><br><span class="line">            <span class="keyword">if</span> cur.left:</span><br><span class="line">                p = cur.left</span><br><span class="line">                <span class="keyword">while</span> p.right: p = p.right</span><br><span class="line">                p.right = cur.right</span><br><span class="line">                cur.right = cur.left</span><br><span class="line">                cur.left = <span class="keyword">None</span></span><br><span class="line">            cur = cur.right</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>依次像左遍历，并把当前节点的右子树放到列表中，当遍历到最左的叶子节点时，pop列表中最近的一个右子树，继续</p>
+<li><p>依次像左遍历，并把当前节点的右子树放到列表中，当遍历到最左的叶子节点时，pop列表中最近的一个右子树，继续</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">flatten</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: None Do not return anything, modify root in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        pre = <span class="keyword">None</span></span><br><span class="line">        rights = []</span><br><span class="line">        rights.append(root)</span><br><span class="line">        <span class="keyword">while</span> rights:</span><br><span class="line">            p = rights.pop()</span><br><span class="line">            <span class="keyword">while</span> p:</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    rights.append(p.right)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> pre:</span><br><span class="line">                    pre = p</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    pre.right = p</span><br><span class="line">                    pre = pre.right</span><br><span class="line">                p = p.left</span><br><span class="line">                pre.left = <span class="keyword">None</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 

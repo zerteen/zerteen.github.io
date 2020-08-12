@@ -143,7 +143,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -157,7 +157,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -217,11 +217,8 @@
 <p>你的算法时间复杂度必须是 O(log n) 级别。</p>
 <p>如果数组中不存在目标值，返回 [-1, -1]。</p>
 <p>示例 1:</p>
-<p>输入: nums = [5,7,7,8,8,10], target = 8<br>
-输出: [3,4]<br>
-示例 2:</p>
-<p>输入: nums = [5,7,7,8,8,10], target = 6<br>
-输出: [-1,-1]</p>
+<p>输入: nums = [5,7,7,8,8,10], target = 8<br>输出: [3,4]<br>示例 2:</p>
+<p>输入: nums = [5,7,7,8,8,10], target = 6<br>输出: [-1,-1]</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchRange</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        ans = [<span class="number">-1</span>, <span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        right = len(nums)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            mid = left + ((right-left)&gt;&gt;<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> nums[mid] &lt; target:</span><br><span class="line">                left = mid + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right = mid</span><br><span class="line">        <span class="keyword">if</span> nums[right] != target:</span><br><span class="line">            <span class="keyword">return</span> ans</span><br><span class="line">        ans[<span class="number">0</span>] = right</span><br><span class="line">        </span><br><span class="line">        right = len(nums)<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            mid = left + ((right-left+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> nums[mid] &gt; target:</span><br><span class="line">                right = mid<span class="number">-1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                left = mid</span><br><span class="line">        ans[<span class="number">1</span>] = left</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
 
                 

@@ -139,7 +139,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -153,7 +153,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,8 +211,7 @@
 
                 <hr>
 <p>Find the contiguous subarray within an array (containing at least one number) which has the largest product.</p>
-<p>For example, given the array <code>[2,3,-2,4]</code>,<br>
-the contiguous subarray <code>[2,3]</code> has the largest product = <code>6</code>.</p>
+<p>For example, given the array <code>[2,3,-2,4]</code>,<br>the contiguous subarray <code>[2,3]</code> has the largest product = <code>6</code>.</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> max = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> min = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> ans = max;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;n; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> t = max;</span><br><span class="line">            max = Math.max(Math.max(max*nums[i], min*nums[i]), nums[i]);</span><br><span class="line">            min = Math.min(Math.min(t*nums[i], min*nums[i]), nums[i]);</span><br><span class="line">            ans = Math.max(max, ans);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>

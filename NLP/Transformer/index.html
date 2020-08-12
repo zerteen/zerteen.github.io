@@ -139,7 +139,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -153,7 +153,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -209,43 +209,32 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="attention-is-all-your-need">Attention Is All Your Need</h1>
-<hr>
+                <h1 id="attention-is-all-your-need"><a href="#Attention-Is-All-Your-Need" class="headerlink" title="Attention Is All Your Need"></a>Attention Is All Your Need</h1><hr>
 <ul>
-<li>
-<p>What is Transformer？</p>
-<p><code>Transformer</code>中抛弃了传统的CNN和RNN，由且仅由<code>self-Attenion</code>和<code>Feed Forward Neural Network</code>组成。</p>
+<li><p>What is Transformer？</p>
+<p>  <code>Transformer</code>中抛弃了传统的CNN和RNN，由且仅由<code>self-Attenion</code>和<code>Feed Forward Neural Network</code>组成。</p>
 </li>
-<li>
-<p>Why Transformer？</p>
-<p>一些序列的模型（RNN， LSTM，GRU等），他们的计算都是一个线性的计算，即，第$t$时刻的的计算依赖于$t-1$时刻。限制了并行能力。同时，存在一些长期依赖的信息丢失问题。</p>
-<p><code>Transformer</code>并不是一个序列模型，因此能够并行计算。同时序列中任意两个位置的距离被缩小成了一个常量。</p>
+<li><p>Why Transformer？</p>
+<p>  一些序列的模型（RNN， LSTM，GRU等），他们的计算都是一个线性的计算，即，第$t$时刻的的计算依赖于$t-1$时刻。限制了并行能力。同时，存在一些长期依赖的信息丢失问题。</p>
+<p>  <code>Transformer</code>并不是一个序列模型，因此能够并行计算。同时序列中任意两个位置的距离被缩小成了一个常量。</p>
 </li>
-<li>
-<p>What is the construction of Transformer?</p>
-<p>Transformer的basic block是一个Encoder-Decoder结构：</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghoceq32wlj30pb0humy3.jpg" alt="image-20200812212102507"></p>
-<p>论文中，整个模型是由6个这样的basic block组成：</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghocg7wxdmj30uh0mn40p.jpg" alt="image-20200812212229494"></p>
+<li><p>What is the construction of Transformer?</p>
+<p>  Transformer的basic block是一个Encoder-Decoder结构：</p>
+<p>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghoceq32wlj30pb0humy3.jpg" alt="image-20200812212102507"></p>
+<p>  论文中，整个模型是由6个这样的basic block组成：</p>
+<p>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghocg7wxdmj30uh0mn40p.jpg" alt="image-20200812212229494"></p>
 </li>
-<li>
-<p>Encoder和Decoder的结构又是怎样的？</p>
-<p>Encoder由两部分组成：</p>
+<li><p>Encoder和Decoder的结构又是怎样的？</p>
+<p>  Encoder由两部分组成：</p>
 <ul>
-<li>
-<p>Self-Attention</p>
-<p>可以得到一个加权的特征向量$Z$:<br>
-$$<br>
-Z = \operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V<br>
-$$</p>
-</li>
-<li>
-<p>Feed Forward Neural Network</p>
-<p>两层的全联接层：<br>
-$$<br>
-\operatorname{FFN}(Z)=\max \left(0, Z W_{1}+b_{1}\right) W_{2}+b_{2}<br>
-$$</p>
-</li>
+<li><p>Self-Attention</p>
+<p>  可以得到一个加权的特征向量$Z$:</p>
+<script type="math/tex; mode=display">
+  Z = \operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V</script></li>
+<li><p>Feed Forward Neural Network</p>
+<p>  两层的全联接层：</p>
+<script type="math/tex; mode=display">
+  \operatorname{FFN}(Z)=\max \left(0, Z W_{1}+b_{1}\right) W_{2}+b_{2}</script></li>
 </ul>
 </li>
 </ul>
@@ -262,10 +251,36 @@ $$</p>
 * Feed Forward Neural Network
 
 ![image-20200812220930892](https://tva1.sinaimg.cn/large/007S8ZIlly1ghodtbvxvyj30tj0a3wf8.jpg)
-</code></pre>
-<ul>
-<li>Transformer的输入是什么？</li>
+</code></pre><ul>
+<li><p>Transformer的输入是什么？</p>
+<p>  通过word2vector将输入的语聊转换为特征向量。论文中是512维的向量$d_{\text {model}}=512$。</p>
+</li>
+<li><p>Self-Attention是什么？</p>
+<p>  Self-Attention的核心是维输入向量的每一个单词，学习一个权重。</p>
+<p>  举个🌰：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The animal didn&apos;t cross the street because it was too tired</span><br></pre></td></tr></table></figure>
+<p>  中，it到底代表的是什么呢？</p>
+<p>  通过Self-Attention，我们就能够通过it和其他单词间的权重，来进行判断。</p>
+<p>  在Self-Attention中，每一个输入的词向量$x \in \mathbf{R}^{512}$，能够得到三个不同的向量：$q$、$k$ 和 $v \in \mathbf{R}^{64}$。这三个向量的获得，是通过三个不同的矩阵：$W^{Q}$、$W^{K}$ 和 $W^{V} \in \mathbf{R}^{512 \times 64}$ 获得的。$q$ 代表着 Query，$k$ 代表着 key，$v$ 代表着 value。</p>
+<p>  整个Self-Attention的计算如下：</p>
+<ol>
+<li><p>将输入的词向量$x$和矩阵$W^{Q}$、$W^{K}$ 和 $W^{V}$ 相乘，得到对应的$q$、$k$ 和 $v$。</p>
+</li>
+<li><p>计算$s = qk$ （query和key的乘）</p>
+</li>
+<li><p>对$s$进行归一化：$s = s/ \sqrt{d_k}$, 这里的$d_k$ 指的是$k$ 的维度，这里$d_k$ 就是64，那么$s = s/8$</p>
+</li>
+<li><p>对归一化之后的$s$进行softmax激活。</p>
+</li>
+<li><p>随后，将4得到的数值乘以向量$v$，得到加权的输入向量的得分。</p>
+</li>
+<li><p>$z = \sum{v}$</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghofpulizaj30iz0im3z7.jpg" alt="image-20200812231535512"></p>
+</li>
+</ol>
+</li>
 </ul>
+<p>除此之外，self-attention还包含有residual short connection，来是的网络的优化更稳定。</p>
 
                 
 
