@@ -152,14 +152,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -217,7 +217,9 @@
 
                 <p>给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。</p>
 <p>说明:</p>
-<p>初始化 nums1 和 nums2 的元素数量分别为 m 和 n。<br>你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素。<br>示例:</p>
+<p>初始化 nums1 和 nums2 的元素数量分别为 m 和 n。<br>
+你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素。<br>
+示例:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">nums1 = [1,2,3,0,0,0], m = 3</span><br><span class="line">nums2 = [2,5,6],       n = 3</span><br><span class="line"></span><br><span class="line">输出: [1,2,2,3,5,6]</span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self, nums1, m, nums2, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums1: List[int]</span></span><br><span class="line"><span class="string">        :type m: int</span></span><br><span class="line"><span class="string">        :type nums2: List[int]</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: None Do not return anything, modify nums1 in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        k = m+n<span class="number">-1</span></span><br><span class="line">        i = m<span class="number">-1</span></span><br><span class="line">        j = n<span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> i &gt;= <span class="number">0</span> <span class="keyword">and</span> j &gt;= <span class="number">0</span> <span class="keyword">and</span> k &gt;=<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> nums1[i] &gt; nums2[j]:</span><br><span class="line">                nums1[k] = nums1[i]</span><br><span class="line">                i -= <span class="number">1</span></span><br><span class="line">                k -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                nums1[k] = nums2[j]</span><br><span class="line">                j -= <span class="number">1</span></span><br><span class="line">                k -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i == <span class="number">-1</span>:</span><br><span class="line">            <span class="keyword">while</span> k &gt;= <span class="number">0</span>:</span><br><span class="line">                nums1[k] = nums2[j]</span><br><span class="line">                k -= <span class="number">1</span></span><br><span class="line">                j -= <span class="number">1</span></span><br></pre></td></tr></table></figure>

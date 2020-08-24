@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -213,7 +213,8 @@
 <p>A mapping of digit to letters (just like on the telephone buttons) is given below.</p>
 <p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Telephone-keypad2.svg/200px-Telephone-keypad2.svg.png" alt="img"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input:Digit string &quot;23&quot;</span><br><span class="line">Output: [&quot;ad&quot;, &quot;ae&quot;, &quot;af&quot;, &quot;bd&quot;, &quot;be&quot;, &quot;bf&quot;, &quot;cd&quot;, &quot;ce&quot;, &quot;cf&quot;].</span><br></pre></td></tr></table></figure>
-<p><strong>Note:</strong><br>Although the above answer is in lexicographical order, your answer could be in any order you want.</p>
+<p><strong>Note:</strong><br>
+Although the above answer is in lexicographical order, your answer could be in any order you want.</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">letterCombinations</span><span class="params">(String digits)</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;String&gt; answer = <span class="keyword">new</span> LinkedList&lt;String&gt;(); </span><br><span class="line">        <span class="keyword">if</span> (digits.isEmpty()) <span class="keyword">return</span> answer;</span><br><span class="line">        String[] mapping = <span class="keyword">new</span> String[]&#123;<span class="string">" "</span>, <span class="string">" "</span>, <span class="string">"abc"</span>, <span class="string">"def"</span>, <span class="string">"ghi"</span>, <span class="string">"jkl"</span>, <span class="string">"mno"</span>, <span class="string">"pqrs"</span>, <span class="string">"tuv"</span>, <span class="string">"wxyz"</span>&#125;;</span><br><span class="line">        answer.add(<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;digits.length(); i++)&#123;</span><br><span class="line">            String s = mapping[Character.getNumericValue(digits.charAt(i))];</span><br><span class="line">            <span class="keyword">while</span>(answer.peek().length() &lt; i+<span class="number">1</span>)&#123;</span><br><span class="line">                String t = answer.remove();</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">char</span> c: s.toCharArray())&#123;</span><br><span class="line">                    answer.add(t+c);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> answer;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>

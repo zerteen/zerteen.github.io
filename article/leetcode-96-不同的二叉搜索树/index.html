@@ -150,14 +150,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -215,7 +215,10 @@
 
                 <p>给定一个整数 n，求以 1 … n 为节点组成的二叉搜索树有多少种？</p>
 <p>示例:</p>
-<p>输入: 3<br>输出: 5<br>解释:<br>给定 n = 3, 一共有 5 种不同结构的二叉搜索树:</p>
+<p>输入: 3<br>
+输出: 5<br>
+解释:<br>
+给定 n = 3, 一共有 5 种不同结构的二叉搜索树:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1         3     3      2      1</span><br><span class="line">  \       /     /      / \      \</span><br><span class="line">   3     2     1      1   3      2</span><br><span class="line">  /     /       \                 \</span><br><span class="line"> 2     1         2                 3</span><br></pre></td></tr></table></figure>
 <hr>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numTrees</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">5</span></span><br><span class="line">        dp = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(n)]</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">2</span></span><br><span class="line">        dp[<span class="number">2</span>] = <span class="number">5</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>, n):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> j == <span class="number">0</span>:</span><br><span class="line">                    dp[i] += dp[i<span class="number">-1</span>]</span><br><span class="line">                <span class="keyword">elif</span> j==i:</span><br><span class="line">                    dp[i] += dp[i<span class="number">-1</span>]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    dp[i] += dp[j<span class="number">-1</span>] * dp[i-j<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>

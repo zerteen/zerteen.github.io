@@ -150,14 +150,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -216,9 +216,11 @@
                 <p>Given an array of non-negative integers, you are initially positioned at the first index of the array.</p>
 <p>Each element in the array represents your maximum jump length at that position.</p>
 <p>Your goal is to reach the last index in the minimum number of jumps.</p>
-<p>For example:<br>Given array A = <code>[2,3,1,1,4]</code></p>
+<p>For example:<br>
+Given array A = <code>[2,3,1,1,4]</code></p>
 <p>The minimum number of jumps to reach the last index is <code>2</code>. (Jump <code>1</code> step from index 0 to 1, then <code>3</code> steps to the last index.)</p>
-<p><strong>Note:</strong><br>You can assume that you can always reach the last index.</p>
+<p><strong>Note:</strong><br>
+You can assume that you can always reach the last index.</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> currentMax = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> lastMax = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length-<span class="number">1</span>; i++)&#123;</span><br><span class="line">            currentMax = Math.max(currentMax, i+nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(lastMax == i)&#123;</span><br><span class="line">                lastMax = currentMax;</span><br><span class="line">                count ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>

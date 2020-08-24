@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -211,7 +211,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="5-longest-palindromic-substring"><a href="#5-Longest-Palindromic-Substring" class="headerlink" title="5. Longest Palindromic Substring"></a>5. Longest Palindromic Substring</h3><hr>
+                <h3 id="5-longest-palindromic-substring">5. Longest Palindromic Substring</h3>
+<hr>
 <p>Given a string <strong>s</strong>, find the longest palindromic substring in <strong>s</strong>. You may assume that the maximum length of <strong>s</strong> is 1000.</p>
 <p><strong>Example:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;babad&quot;</span><br><span class="line"></span><br><span class="line">Output: &quot;bab&quot;</span><br><span class="line"></span><br><span class="line">Note: &quot;aba&quot; is also a valid answer.</span><br></pre></td></tr></table></figure>
@@ -226,7 +227,7 @@
 <p>临界条件同样也可以改为</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>((i-j &gt;=<span class="number">2</span> &amp;&amp; s.charAt(j)==s.charAt(i) &amp;&amp; dp[j+<span class="number">1</span>][i-<span class="number">1</span>])|| (i-j&lt;=<span class="number">1</span> &amp;&amp; s.charAt(j)==s.charAt(i)))</span><br></pre></td></tr></table></figure>
 <p>因为当j-i == 2时，dp[i+1][j-1] 表示的是长度为1的字符串，已经在之前判断过，可以放在第一个判断里面。</p>
-<p><strong>注意：</strong>问清楚，当字符串为：<code>abcdefg</code>这种形式时，返回什么。</p>
+<p>**注意：**问清楚，当字符串为：<code>abcdefg</code>这种形式时，返回什么。</p>
 <hr>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (s.length() == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        String result = s.substring(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">boolean</span> dp[][] = <span class="keyword">new</span> <span class="keyword">boolean</span>[n][n];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;=i; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>((i-j &gt;<span class="number">2</span> &amp;&amp; s.charAt(j)==s.charAt(i) &amp;&amp; dp[j+<span class="number">1</span>][i-<span class="number">1</span>])|| (i-j&lt;=<span class="number">2</span> &amp;&amp; s.charAt(j)==s.charAt(i))) &#123;</span><br><span class="line">                    dp[j][i] = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">if</span>(max &lt; i-j)&#123;</span><br><span class="line">                        max = i-j;</span><br><span class="line">                        result = s.substring(j,i+<span class="number">1</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

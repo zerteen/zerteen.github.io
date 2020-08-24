@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -209,37 +209,55 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="attention-is-all-your-need"><a href="#Attention-Is-All-Your-Need" class="headerlink" title="Attention Is All Your Need"></a>Attention Is All Your Need</h1><hr>
-<h2 id="what-is-transformer"><a href="#What-is-Transformer？" class="headerlink" title="What is Transformer？"></a>What is Transformer？</h2><p><code>Transformer</code>中抛弃了传统的CNN和RNN，由且仅由<code>self-Attenion</code>和<code>Feed Forward Neural Network</code>组成。</p>
-<h2 id="why-transformer"><a href="#Why-Transformer？" class="headerlink" title="Why Transformer？"></a>Why Transformer？</h2><p>一些序列的模型（RNN， LSTM，GRU等），他们的计算都是一个线性的计算，即，第$t$时刻的的计算依赖于$t-1$时刻。限制了并行能力。同时，存在一些长期依赖的信息丢失问题。</p>
+                <h1 id="attention-is-all-your-need">Attention Is All Your Need</h1>
+<hr>
+<h2 id="what-is-transformer">What is Transformer？</h2>
+<p><code>Transformer</code>中抛弃了传统的CNN和RNN，由且仅由<code>self-Attenion</code>和<code>Feed Forward Neural Network</code>组成。</p>
+<h2 id="why-transformer">Why Transformer？</h2>
+<p>一些序列的模型（RNN， LSTM，GRU等），他们的计算都是一个线性的计算，即，第$t$时刻的的计算依赖于$t-1$时刻。限制了并行能力。同时，存在一些长期依赖的信息丢失问题。</p>
 <p><code>Transformer</code>并不是一个序列模型，因此能够并行计算。同时序列中任意两个位置的距离被缩小成了一个常量。</p>
-<h2 id="what-is-the-construction-of-transformer"><a href="#What-is-the-construction-of-Transformer" class="headerlink" title="What is the construction of Transformer?"></a>What is the construction of Transformer?</h2><p>Transformer的basic block是一个Encoder-Decoder结构：</p>
+<h2 id="what-is-the-construction-of-transformer">What is the construction of Transformer?</h2>
+<p>Transformer的basic block是一个Encoder-Decoder结构：</p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghoceq32wlj30pb0humy3.jpg" alt="image-20200812212102507"></p>
 <p>论文中，整个模型是由6个这样的basic block组成：</p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghocg7wxdmj30uh0mn40p.jpg" alt="image-20200812212229494"></p>
-<h2 id="encoder和decoder的结构又是怎样的"><a href="#Encoder和Decoder的结构又是怎样的？" class="headerlink" title="Encoder和Decoder的结构又是怎样的？"></a>Encoder和Decoder的结构又是怎样的？</h2><h3 id="encoder由两部分组成"><a href="#Encoder由两部分组成：" class="headerlink" title="Encoder由两部分组成："></a>Encoder由两部分组成：</h3><ul>
-<li><p>Self-Attention</p>
-<p>  可以得到一个加权的特征向量$Z$:</p>
-<script type="math/tex; mode=display">
-  Z = \operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V</script></li>
-<li><p>Feed Forward Neural Network</p>
-<p>  两层的全联接层：</p>
-<script type="math/tex; mode=display">
-  \operatorname{FFN}(Z)=\max \left(0, Z W_{1}+b_{1}\right) W_{2}+b_{2}</script></li>
+<h2 id="encoder和decoder的结构又是怎样的">Encoder和Decoder的结构又是怎样的？</h2>
+<h3 id="encoder由两部分组成">Encoder由两部分组成：</h3>
+<ul>
+<li>
+<p>Self-Attention</p>
+<p>可以得到一个加权的特征向量$Z$:<br>
+$$<br>
+Z = \operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V<br>
+$$</p>
+</li>
+<li>
+<p>Feed Forward Neural Network</p>
+<p>两层的全联接层：<br>
+$$<br>
+\operatorname{FFN}(Z)=\max \left(0, Z W_{1}+b_{1}\right) W_{2}+b_{2}<br>
+$$</p>
+</li>
 </ul>
-<h3 id="decoder包含三部分"><a href="#Decoder包含三部分：" class="headerlink" title="Decoder包含三部分："></a>Decoder包含三部分：</h3><ul>
-<li><p>Self-Attention</p>
-<p>  这个self-Attention可以理解为”当前的翻译和已经翻译的内容之间的关系”</p>
+<h3 id="decoder包含三部分">Decoder包含三部分：</h3>
+<ul>
+<li>
+<p>Self-Attention</p>
+<p>这个self-Attention可以理解为&quot;当前的翻译和已经翻译的内容之间的关系&quot;</p>
 </li>
-<li><p>Encoder-Decoder Attention</p>
-<p>  可以理解为当前翻译和编码的特征向量的关系</p>
+<li>
+<p>Encoder-Decoder Attention</p>
+<p>可以理解为当前翻译和编码的特征向量的关系</p>
 </li>
-<li><p>Feed Forward Neural Network</p>
+<li>
+<p>Feed Forward Neural Network</p>
 </li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghodtbvxvyj30tj0a3wf8.jpg" alt="image-20200812220930892"></p>
-<h2 id="transformer的输入是什么"><a href="#Transformer的输入是什么？" class="headerlink" title="Transformer的输入是什么？"></a>Transformer的输入是什么？</h2><p>通过word2vector将输入的语聊转换为特征向量。论文中是512维的向量$d_{\text {model}}=512$。</p>
-<h2 id="self-attention是什么"><a href="#Self-Attention是什么？" class="headerlink" title="Self-Attention是什么？"></a>Self-Attention是什么？</h2><p>Self-Attention的核心是维输入向量的每一个单词，学习一个权重。</p>
+<h2 id="transformer的输入是什么">Transformer的输入是什么？</h2>
+<p>通过word2vector将输入的语聊转换为特征向量。论文中是512维的向量$d_{\text {model}}=512$。</p>
+<h2 id="self-attention是什么">Self-Attention是什么？</h2>
+<p>Self-Attention的核心是维输入向量的每一个单词，学习一个权重。</p>
 <p>举个🌰：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The animal didn&apos;t cross the street because it was too tired</span><br></pre></td></tr></table></figure>
 <p>中，it到底代表的是什么呢？</p>
@@ -247,37 +265,51 @@
 <p>在Self-Attention中，每一个输入的词向量$x \in \mathbf{R}^{512}$，能够得到三个不同的向量：$q$、$k$ 和 $v \in \mathbf{R}^{64}$。这三个向量的获得，是通过三个不同的矩阵：$W^{Q}$、$W^{K}$ 和 $W^{V} \in \mathbf{R}^{512 \times 64}$ 获得的。$q$ 代表着 Query，$k$ 代表着 key，$v$ 代表着 value。</p>
 <p>整个Self-Attention的计算如下：</p>
 <ol>
-<li><p>将输入的词向量$x$和矩阵$W^{Q}$、$W^{K}$ 和 $W^{V}$ 相乘，得到对应的$q$、$k$ 和 $v$。</p>
+<li>
+<p>将输入的词向量$x$和矩阵$W^{Q}$、$W^{K}$ 和 $W^{V}$ 相乘，得到对应的$q$、$k$ 和 $v$。</p>
 </li>
-<li><p>计算$s = qk$ （query和key的乘）</p>
+<li>
+<p>计算$s = qk$ （query和key的乘）</p>
 </li>
-<li><p>对$s$进行归一化：$s = s/ \sqrt{d_k}$, 这里的$d_k$ 指的是$k$ 的维度，这里$d_k$ 就是64，那么$s = s/8$</p>
+<li>
+<p>对$s$进行归一化：$s = s/ \sqrt{d_k}$, 这里的$d_k$ 指的是$k$ 的维度，这里$d_k$ 就是64，那么$s = s/8$</p>
 </li>
-<li><p>对归一化之后的$s$进行softmax激活。</p>
+<li>
+<p>对归一化之后的$s$进行softmax激活。</p>
 </li>
-<li><p>随后，将4得到的数值乘以向量$v$，得到加权的输入向量的得分。</p>
+<li>
+<p>随后，将4得到的数值乘以向量$v$，得到加权的输入向量的得分。</p>
 </li>
-<li><p>$z = \sum{v}$</p>
+<li>
+<p>$z = \sum{v}$</p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghofpulizaj30iz0im3z7.jpg" alt="image-20200812231535512"></p>
 </li>
 </ol>
 <p>除此之外，self-attention还包含有residual short connection，来是的网络的优化更稳定。</p>
-<h2 id="multi-head-attention"><a href="#Multi-Head-Attention" class="headerlink" title="Multi-Head Attention"></a>Multi-Head Attention</h2><p>就是将Self-Attention进行堆叠，每一个输入向量$x$会被输入到$h$个不同的self-attention模块中。将得到的加权向量concate后，进行一个全联接操作降维。</p>
+<h2 id="multi-head-attention">Multi-Head Attention</h2>
+<p>就是将Self-Attention进行堆叠，每一个输入向量$x$会被输入到$h$个不同的self-attention模块中。将得到的加权向量concate后，进行一个全联接操作降维。</p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghogtx2hplj30ji0bsdgn.jpg" alt="image-20200812235405611"></p>
-<h2 id="位置编码"><a href="#位置编码" class="headerlink" title="位置编码"></a>位置编码</h2><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghoh1lwh81j30v30ly0u6.jpg" alt="image-20200813000129418"></p>
+<h2 id="位置编码">位置编码</h2>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghoh1lwh81j30v30ly0u6.jpg" alt="image-20200813000129418"></p>
 <p>输入的词向量，并没有保留他的位置信息。对于位置的编码，一般有两种做法，一种是根据数据学习，另外一种是自己设计一种规则来编码。</p>
-<p>这里，作者设计了一种位置编码：</p>
-<script type="math/tex; mode=display">
-\begin{array}{c}
-P E(\text {pos}, 2 i)=\sin \left(\frac{p o s}{10000^{\frac{2 i}{d_{\text {madd} l}}}}\right) \\ \\
-P E(\text {pos}, 2 i+1)=\cos \left(\frac{p o s}{10000^{\frac{2 i}{d_{\text {modd} l}}}}\right)
-\end{array}</script><p>作者这么设计的原因是考虑到在NLP任务重，除了单词的绝对位置，单词的相对位置也非常重要。</p>
+<p>这里，作者设计了一种位置编码：<br>
+$$<br>
+\begin{array}{c}<br>
+P E(\text {pos}, 2 i)=\sin \left(\frac{p o s}{10000^{\frac{2 i}{d_{\text {madd} l}}}}\right) \ \<br>
+P E(\text {pos}, 2 i+1)=\cos \left(\frac{p o s}{10000^{\frac{2 i}{d_{\text {modd} l}}}}\right)<br>
+\end{array}<br>
+$$</p>
+<p>作者这么设计的原因是考虑到在NLP任务重，除了单词的绝对位置，单词的相对位置也非常重要。</p>
 
                 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/leetcode/leetcode-#-679-24-点游戏/" data-toggle="tooltip" data-placement="top" title="leetcode">&larr; Previous Post</a>
+                        </li>
                     
                     
                         <li class="next">

@@ -150,14 +150,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -214,14 +214,21 @@
                 post-container">
 
                 <p>给定一个二叉树</p>
-<p>struct Node {<br>  int val;<br>  Node <em>left;<br>  Node </em>right;<br>  Node *next;<br>}<br>填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。</p>
+<p>struct Node {<br>
+int val;<br>
+Node *left;<br>
+Node *right;<br>
+Node *next;<br>
+}<br>
+填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。</p>
 <p>初始状态下，所有 next 指针都被设置为 NULL。</p>
 <p>示例：</p>
-<p>输入：{“$id”:”1”,”left”:{“$id”:”2”,”left”:{“$id”:”3”,”left”:null,”next”:null,”right”:null,”val”:4},”next”:null,”right”:{“$id”:”4”,”left”:null,”next”:null,”right”:null,”val”:5},”val”:2},”next”:null,”right”:{“$id”:”5”,”left”:null,”next”:null,”right”:{“$id”:”6”,”left”:null,”next”:null,”right”:null,”val”:7},”val”:3},”val”:1}</p>
-<p>输出：{“$id”:”1”,”left”:{“$id”:”2”,”left”:{“$id”:”3”,”left”:null,”next”:{“$id”:”4”,”left”:null,”next”:{“$id”:”5”,”left”:null,”next”:null,”right”:null,”val”:7},”right”:null,”val”:5},”right”:null,”val”:4},”next”:{“$id”:”6”,”left”:null,”next”:null,”right”:{“$ref”:”5”},”val”:3},”right”:{“$ref”:”4”},”val”:2},”next”:null,”right”:{“$ref”:”6”},”val”:1}</p>
+<p>输入：{&quot;$id&quot;:“1”,“left”:{&quot;$id&quot;:“2”,“left”:{&quot;$id&quot;:“3”,“left”:null,“next”:null,“right”:null,“val”:4},“next”:null,“right”:{&quot;$id&quot;:“4”,“left”:null,“next”:null,“right”:null,“val”:5},“val”:2},“next”:null,“right”:{&quot;$id&quot;:“5”,“left”:null,“next”:null,“right”:{&quot;$id&quot;:“6”,“left”:null,“next”:null,“right”:null,“val”:7},“val”:3},“val”:1}</p>
+<p>输出：{&quot;$id&quot;:“1”,“left”:{&quot;$id&quot;:“2”,“left”:{&quot;$id&quot;:“3”,“left”:null,“next”:{&quot;$id&quot;:“4”,“left”:null,“next”:{&quot;$id&quot;:“5”,“left”:null,“next”:null,“right”:null,“val”:7},“right”:null,“val”:5},“right”:null,“val”:4},“next”:{&quot;$id&quot;:“6”,“left”:null,“next”:null,“right”:{&quot;$ref&quot;:“5”},“val”:3},“right”:{&quot;$ref&quot;:“4”},“val”:2},“next”:null,“right”:{&quot;$ref&quot;:“6”},“val”:1}</p>
 <p>解释：给定二叉树如图 A 所示，你的函数应该填充它的每个 next 指针，以指向其下一个右侧节点，如图 B 所示。</p>
 <p>提示：</p>
-<p>你只能使用常量级额外空间。<br>使用递归解题也符合要求，本题中递归程序占用的栈空间不算做额外的空间复杂度。</p>
+<p>你只能使用常量级额外空间。<br>
+使用递归解题也符合要求，本题中递归程序占用的栈空间不算做额外的空间复杂度。</p>
 <hr>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string"># Definition for a Node.</span></span><br><span class="line"><span class="string">class Node(object):</span></span><br><span class="line"><span class="string">    def __init__(self, val, left, right, next):</span></span><br><span class="line"><span class="string">        self.val = val</span></span><br><span class="line"><span class="string">        self.left = left</span></span><br><span class="line"><span class="string">        self.right = right</span></span><br><span class="line"><span class="string">        self.next = next</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">connect</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: Node</span></span><br><span class="line"><span class="string">        :rtype: Node</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> root</span><br><span class="line">        p = root</span><br><span class="line">        <span class="keyword">while</span> p:</span><br><span class="line">            nextStart = <span class="keyword">None</span></span><br><span class="line">            prev = <span class="keyword">None</span></span><br><span class="line">            <span class="keyword">while</span> p:</span><br><span class="line">                <span class="keyword">if</span> p.left:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> nextStart:</span><br><span class="line">                        nextStart = p.left</span><br><span class="line">                        prev = p.left</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        prev.next = p.left</span><br><span class="line">                        prev = prev.next</span><br><span class="line">                <span class="keyword">if</span> p.right:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> nextStart:</span><br><span class="line">                        nextStart = p.right</span><br><span class="line">                        prev = p.right</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        prev.next = p.right</span><br><span class="line">                        prev = prev.next</span><br><span class="line">                p = p.next</span><br><span class="line">            p = nextStart</span><br><span class="line">        <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
 
