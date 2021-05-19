@@ -877,6 +877,9 @@ $$<br>
 <hr>
 <h2 id="what-is-transformer">What is Transformer？</h2>
 <p><code>Transformer</code>中抛弃了传统的CNN和RNN，由且仅由<code>self-Attenion</code>和<code>Feed Forward Neural Network</code>组成。</p>
+<p>$$<br>
+test \frac{1}{2}<br>
+$$</p>
 <h2 id="why-transformer">Why Transformer？</h2>
 <p>一些序列的模型（RNN， LSTM，GRU等），他们的计算都是一个线性的计算，即，第$t$时刻的的计算依赖于$t-1$时刻。限制了并行能力。同时，存在一些长期依赖的信息丢失问题。</p>
 <p><code>Transformer</code>并不是一个序列模型，因此能够并行计算。同时序列中任意两个位置的距离被缩小成了一个常量。</p>
@@ -919,7 +922,7 @@ $$</p>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghodtbvxvyj30tj0a3wf8.jpg" alt="image-20200812220930892"></p>
 <h2 id="transformer的输入是什么">Transformer的输入是什么？</h2>
-<p>通过word2vector将输入的语聊转换为特征向量。论文中是512维的向量$d_{\text {model}}=512$。</p>
+<p>通过word2vector将输入的语聊转换为特征向量。论文中是512维的向量 $$d_{\text {model}}=512$$。</p>
 <h2 id="self-attention是什么">Self-Attention是什么？</h2>
 <p>Self-Attention的核心是维输入向量的每一个单词，学习一个权重。</p>
 <p>举个🌰：</p>
