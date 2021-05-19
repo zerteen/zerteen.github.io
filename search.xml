@@ -13798,4 +13798,42 @@ $$</p>
         <tag>概率</tag>
       </tags>
   </entry>
+  <entry>
+    <title>推荐系统《Recommending What Video to Watch Next A Multitask Ranking System》</title>
+    <url>/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E3%80%8ARecommending-What-Video-to-Watch-Next-A-Multitask-Ranking-System%E3%80%8B/</url>
+    <content><![CDATA[<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg17i9tko0j31lm0dc41n.jpg" alt="image-20200622174307097"></p>
+<hr>
+<h2 id="目标">目标</h2>
+<p>​	给定一个用户当前在看的视屏，推荐下一个视屏。</p>
+<hr>
+<h2 id="综述">综述</h2>
+<p>​	一般而言，一个视屏推荐系统包含两个部分：</p>
+<ol>
+<li>candidate generation  【Improving User Topic Interest Profiles by Behavior Factorization】【Effective Training on Very Large corpora via gramian estimation】</li>
+<li>ranking</li>
+</ol>
+<p>这篇文章主要集中在ranking部分。也就是说，通过candidate generation之后，我们能够获得数量在上百个的候选集合。最后，我们通过一些较为复杂的网络，来进一步进行排序。</p>
+<hr>
+<h2 id="挑战">挑战</h2>
+<p>在这个真实的大规模系统中，存在一系列的挑战：</p>
+<ol>
+<li>我们的优化目标可能是不确定的，比如，我们可能希望向用户推荐他们会分享给他人的视屏。</li>
+<li>系统存在很多bias，比如说，某个用户看了某个视屏，不是因为喜欢这个视频，而仅仅只是因为这个视屏的热度高，而用户点击了它。这种情况下就容易导致【feedback loop efect】</li>
+</ol>
+<hr>
+<h2 id="方法">方法</h2>
+<p>针对上面的问题，提出了一下的几个component：</p>
+<ol>
+<li>使用了<code>Deep &amp; Wide</code> 结构。</li>
+<li>在多任务方面引入了<code>Multi-gate &amp; Mixture of Experts</code>。</li>
+<li>引入了<code>Shallow Tower</code> 来处理上面说到的bias的问题。</li>
+</ol>
+<hr>
+<h2 id="结构">结构</h2>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gg180sypdpj31b20u0n3k.jpg" alt="image-20200622180059917"></p>
+]]></content>
+      <categories>
+        <category>推荐系统</category>
+      </categories>
+  </entry>
 </search>
