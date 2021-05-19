@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="null">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Keep Team">
+    
+    <title>
+        
+            ArcFace: Additive Angular Margin Loss for Deep Face Recognition |
+        
+        Keep Theme
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"zerteen.github.io","root":"/","language":null,"path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Keep Theme
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">ArcFace: Additive Angular Margin Loss for Deep Face Recognition</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Keep Team</span>
+                        
+                            <span class="author-label">Lv7</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-04-15 16:29:14
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/face-recognition/">face recognition</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g23ml9atl5j31540a2myl.jpg" alt="image-20190415211129716"></p>
+<h1 id="intro">Intro</h1>
+<p>常用的人脸特征向量生成的方法都存在一定的问题：</p>
+<pre><code>1. 基于分类的方法 
+ - 网络中用于分类的全连接层W随着参与训练的identity的增加而增加，使得网络参数量大。
+ - 在open-set的情景下，学习到的人脸特征区分力不够。
+2. 基于三元组的方法
+ - 对于大规模的数据集，三元组的组合呈现出爆炸式的增长。
+ - `hard sample`的挖掘很难。
+</code></pre>
+<p>作者提出了<code>Addictive Angular Margin Loss(ArchFace)</code>来提高人脸特征的区分力(discriminative power)。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g23et8y6g0j32040m0k3o.jpg" alt="ArchFace 流程图"></p>
+<p>步骤包括如下几点：</p>
+<ol>
+<li>
+<p>对<code>人脸特征</code>和最后的<code>全连接层的参数</code>做归一化操作，在进行点积操作。这里等同于他们的cosine距离。</p>
+</li>
+<li>
+<p>通过$\arccos(\cdot)$来计算特征$x_i$和$W_j$ 的之间的角度$\theta_{yi}$。这里$W_j$可以看做是第$j$个类的类心。</p>
+</li>
+<li>
+<p>对$\theta$加上一个marge <code>m</code>后，计算$\cos(\theta + m)$。</p>
+</li>
+<li>
+<p>对每一个逻辑单元进行上述相同的计算。随后，用一个scale <code>s</code>对求得的添加了margin的cosine值进行缩放。</p>
+</li>
+<li>
+<p>接下来的操作和普通的softmax一样。</p>
+</li>
+</ol>
+<h1 id="proposed-approach">Proposed Approach</h1>
+<p>原始的softmax如下：<br>
+$$<br>
+L_{1}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{W_{y_{i}}^{T} x_{i}+b_{y_{i}}}}{\sum_{j=1}^{n} e^{W_{j}^{T} x_{i}+b_{j}}}<br>
+$$<br>
+偏置项置零，$W、x$进行$l_2$归一化处理，增加scale变量<code>s</code>， 有：<br>
+$$<br>
+L_{2}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{s \cos \theta_{y_{i}}}}<br>
+{e^{s \cos \theta_{y_{i}}}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cos \theta_{j}}}<br>
+$$<br>
+添加一个margin <code>m</code>来增加类内的compactness和类间的discrepancy：<br>
+$$<br>
+L_{3}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{s\left(\cos \left(\theta_{y_{i}}+m\right)\right)}}{e^{s\left(\cos \left(\theta_{y_{i}}+m\right)\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cos \theta_{j}}}<br>
+$$</p>
+<p>通过对二维特征的对比，可以明显的看到差别：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g23fwwp68lj30ns0d0q47.jpg" alt="Softmax V.S. ArcFace"></p>
+<h1 id="comparison">Comparison</h1>
+<p>在已有的工作中，有几个相似的工作都是通过对softmax添加margin来进行的。这里对比了一下几个：</p>
+<ol>
+<li>SphereFace [cvpr2017]<br>
+$$<br>
+L_{ang} = \frac{1}{N} \sum _{i} - \log{ \frac{||e^{x_i}|| \cos{(m \theta _{yi, i})}}<br>
+{e^{||x_i|| \cos{(m \theta _{yi, i})}} + \sum _{j \ne y _i} e^{||x_i \cos{(\theta _{j, i})}||}}}<br>
+$$</li>
+</ol>
+<p>SphereFace在角度空间进行的margin。</p>
+<ol start="2">
+<li>CosFace [cvpr2018]</li>
+</ol>
+<p>$$<br>
+\begin{equation}<br>
+L_{l m c}=\frac{1}{N} \sum_{i}-\log \frac{e^{s\left(\cos \left(\theta_{y_{i}, i}\right)-m\right)}}{e^{s\left(\cos \left(\theta_{y_{i}, i}\right)-m\right)}+\sum_{j \neq y_{i}} e^{s \cos \left(\theta_{j, i}\right)}}<br>
+\end{equation}<br>
+$$</p>
+<p>​	CosFace在cosine空间进行的margin。</p>
+<p>作者将这三种loss归纳在一个式子中：<br>
+$$<br>
+\begin{equation}<br>
+L_{4}=-\frac{1}{N} \sum_{i=1}^{N} \log \frac{e^{s\left(\cos \left(m_{1} \theta_{y}+m_{2}\right)-m_{3}\right)}}{e^{s\left(\cos \left(m_{1} \theta_{y}+m_{2}\right)-m_{3}\right)}+\sum_{j=1, j \neq y_{i}}^{n} e^{s \cos \theta_{j}}}<br>
+\end{equation}<br>
+$$<br>
+<img src="https://ws3.sinaimg.cn/large/006tNc79ly1g23kpqf2ulj30y00egtcl.jpg" alt="Comparison"></p>
+<p>同时，作者还提出了集中变种方案，从不同的角度来诠释&quot;减小类内差异和增大类间差异&quot;：</p>
+<ul>
+<li>
+<p>Intra-Loss<br>
+$$<br>
+L_{5}=L_{2}+\frac{1}{\pi N} \sum_{i=1}^{N} \theta_{y_{i}}<br>
+$$</p>
+</li>
+<li>
+<p>Inter-Loss<br>
+$$<br>
+\begin{equation}<br>
+L_{6}=L_{2}-\frac{1}{\pi N(n-1)} \sum_{i=1}^{N} \sum_{j=1, j \neq y_{i}}^{n} \arccos \left(W_{y_{i}}^{T} W_{j}\right)<br>
+\end{equation}<br>
+$$</p>
+</li>
+<li>
+<p>Triplet-Loss<br>
+$$<br>
+\begin{equation}<br>
+\arccos \left(x_{i}^{p o s} x_{i}\right)+m \leq \arccos \left(x_{i}^{n e g} x_{i}\right)<br>
+\end{equation}<br>
+$$</p>
+</li>
+</ul>
+<h1 id="experiments">Experiments</h1>
+<p>对比了大量的数据集：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g23lm64c2yj31200u00z1.jpg" alt="Datasets"></p>
+<p>一些实验设置如下：</p>
+<ul>
+<li>$112\times112$ 对齐后的人脸</li>
+<li>backbone为 ResNet50和ResNet100</li>
+<li>卷积之后的结构为&quot;BN-Dropout-FC-BN&quot;</li>
+<li>512D face feature</li>
+<li><code>s</code>=64</li>
+<li><code>m</code>=0.5</li>
+<li>Batchsize = 512</li>
+<li>在Celeab中，lr=0.1，lr/10@20k @28k epoch， 总共迭代32K次</li>
+<li>在MS1MV2中，lr/10 @100k, @160k</li>
+<li>momentum = 0.9， weight-decay = 5e-4</li>
+<li>测试和训练集中没有重合的identity</li>
+</ul>
+<p>实验对比非常详尽，这里不做过多的介绍，可以参考原文。</p>
+<h1 id="parallel-acceleration">Parallel Acceleration</h1>
+<p>论文提到了，当identity数量很大时（millions of identites），<code>W</code>可能会超过GPU的显存大小，这时候，可以运用并行加速策略。[A distributed training solution for face recognition]</p>
+<p>对特征<code>x</code>和全连接层参数<code>w</code>都有进行并行计算。作者在8块1080ti(11GB)上，使用ResNet50， batchsize 为8*64，特征维度为512，float 32的情况下，每秒钟能够跑800个sample。</p>
+<ol>
+<li>
+<p>获得特征x</p>
+<p>对于每一个batch中的特征，是分别从8块GPU中聚合得到的，获得 feature matrix</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g23ncius18j31e20l4dn1.jpg" alt="image-20190415213746012"></p>
+</li>
+<li>
+<p>计算softmax score</p>
+<p>$score = xW$</p>
+<p>将feature matrix复制到每一块GPU中，并行的sub score，(512个feature * 1M/8 identities)</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g23nd4lnh8j31eg0jcagf.jpg" alt="image-20190415213820980"></p>
+</li>
+<li>
+<p>获得dW</p>
+<p>$dW = x^T dscore $</p>
+<p>在每一块GPU中，对feature matrix进行转置，并行的乘每一个sub score的梯度。得到W的梯度</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g23ndmj4b0j31d20hc0zq.jpg" alt="image-20190415213849797"></p>
+</li>
+<li>
+<p>获得dx</p>
+<p>$dx = dscoreW^T$</p>
+<p>在每一块GPU中，对sub matrix进行转置，乘以每一个subscore的梯度，将8块GPU产生的梯度加起来，得到x的梯度</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g23ndy2nj9j31cy0oodo7.jpg" alt="image-20190415213908147"></p>
+</li>
+</ol>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/article/leetcode-403-Frog-Jump/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">leetcode 403 Frog Jump</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/article/leetcode-410-Split-Array-Largest-Sum/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">leetcode 410 Split Array Largest Sum</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

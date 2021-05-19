@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="null">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Keep Team">
+    
+    <title>
+        
+            Normalization 总结 |
+        
+        Keep Theme
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"zerteen.github.io","root":"/","language":null,"path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Keep Theme
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Normalization 总结</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Keep Team</span>
+                        
+                            <span class="author-label">Lv7</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-04-23 10:07:59
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Deep-Learning/">Deep Learning</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>这些年来，提出了几个normalization的方法，这里做一个总结。主要包括以下几个：</p>
+<ul>
+<li>Batch Normalization</li>
+<li>Layer Normalization</li>
+<li>Instance Normalization</li>
+<li>Group Normalization</li>
+</ul>
+<hr>
+<p>先提出一个问题：</p>
+<ul>
+<li>
+<p>internal covariate shift</p>
+<p>指的是，神经网络的层层叠加，每一层的输入依靠上一层的输出。当层数过高时，底层的微小的变化会导致高层输入的差异很大，使得高层的输入分布会发生非常剧烈的变化，这使得高层需要不断适应这种数据输入分布的变化。</p>
+</li>
+</ul>
+<p>简单的处理方式就是，对每一层的数据进行一个转换，使得他们能够在一个区间之间。</p>
+<p>$$<br>
+h = f\left (g \cdot\frac{x-\mu}{\sigma} + b \right )<br>
+$$</p>
+<ul>
+<li>
+<p>$\mu$是<strong>平移参数</strong>（shift parameter)</p>
+</li>
+<li>
+<p>$\sigma$是<strong>缩放参数</strong>（scale parameter）</p>
+</li>
+</ul>
+<p>通过这两个参数进行 shift 和 scale 变换。使得数据分布满足均值为0，方差为1。 但是如果只有这样的话，模型的表达能力有限，非线性拟合能力就会下降，这样一来，作者引入了两个新的参数$g，b$来提高模型的线性拟合能力。这两个参数是模型学习得到的。</p>
+<ul>
+<li>
+<p>$g$ 进行<strong>再缩放</strong>（re-scale parameter）</p>
+</li>
+<li>
+<p>$b$进行<strong>再平移</strong>(re-shift parameter)</p>
+</li>
+</ul>
+<p>最终得到的数据符合均值为 $b$ 、方差为 $g^2$ 的分布。</p>
+<blockquote>
+<p>如何理解&quot;模型的表达能力有限，非线性拟合能力下降&quot;？</p>
+<p>对于一些激活函数，例如 sigmoid函数，它的激活可以分为饱和区和非饱和区，如果仅有第一步的缩放，那么数据都会在sigmoid的非饱和区间，这时候，只有模型只有线性表达能力，这样一来就降低了模型的表达能力。如果再进行一次缩放平移，数据就会映射到饱和区域，这样一来，就又有了非线性表达能力。</p>
+</blockquote>
+<p>虽然论文说BN解决了ICS，但是有人提出来说，没有证据表明BN解决了它。反而，有人提出，BN解决的是梯度弥散问题(消失或者爆炸)，他做到了优化空间变得平滑。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1g2cdua9r5ij30my0f63zz.jpg" alt="image-20190423105842022"></p>
+<p>BN存在的问题：</p>
+<ol>
+<li>batchsize减小的话，效果不好</li>
+<li>对于像素级的图像生成，效果不好</li>
+<li>RNN使用不便</li>
+<li>训练时和推理时统计量不一致</li>
+</ol>
+<hr>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g2cckidktvj30la067wj1.jpg" alt="image-20190423101452935"></p>
+<p><strong>BatchNorm</strong>：batch方向做归一化，算$N\times H \times W$的均值<br>
+<strong>LayerNorm</strong>：channel方向做归一化，算$C\times H\times W$的均值</p>
+<p>BN在RNN中用起来很不方便，而Layer Normalization这种在同隐层内计算统计量的模式就比较符合RNN这种动态网络，目前在RNN中貌似也只有LayerNorm相对有效，但Layer Normalization目前看好像也只适合应用在RNN场景下，在CNN等环境下效果是不如BatchNorm或者GroupNorm等模型的。</p>
+<p><strong>InstanceNorm</strong>：一个channel内做归一化，算$H\times W$的均值</p>
+<p>对于RNN或者MLP，如果在同一个隐层类似CNN这样缩小范围，那么就只剩下单独一个神经元，输出也是单值而非CNN的二维平面，这意味着没有形成集合S，所以RNN和MLP是无法进行Instance Normalization操作的，这个很好理解。</p>
+<p><strong>GroupNorm</strong>：将channel方向分group，然后每个group内做归一化，算$ (C//G) \times H \times W$ 的均值</p>
+<p>通道分组是CNN常用的模型优化技巧，所以自然而然会想到对CNN中某一层卷积层的输出或者输入通道进行分组，在分组范围内进行统计。这就是Group Normalization的核心思想，是Facebook何凯明研究组2017年提出的改进模型。理论上MLP和RNN也可以引入这种模式，但是还没有看到相关研究，不过从道理上考虑，MLP和RNN这么做的话，分组内包含神经元太少，估计缺乏统计有效性，猜测效果不会太好。</p>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/article/leetcode-464-Can-I-Win/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">leetcode 464 Can I Win</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/article/leetcode-437-Path-Sum-III/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">leetcode 437 Path Sum III</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

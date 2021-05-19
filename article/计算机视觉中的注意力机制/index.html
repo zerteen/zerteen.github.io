@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="null">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Keep Team">
+    
+    <title>
+        
+            计算机视觉中的注意力机制 |
+        
+        Keep Theme
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"zerteen.github.io","root":"/","language":null,"path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Keep Theme
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">计算机视觉中的注意力机制</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Keep Team</span>
+                        
+                            <span class="author-label">Lv7</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-07-01 16:45:40
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>简单的来说，注意力机制的目标就是学习到一个<code>权重</code>。</p>
+<p>将<code>权重</code>施加在原来的特征上，使得施加<code>权重</code>后的模型效果更好。</p>
+<p>这里学习到的<code>权重</code>没有一个固定的模式，可以是作用在原图上，可以作用在空间尺度上，也可以作用在channel尺度上。</p>
+<p>对于注意力的分类，大家有分为以下几种：</p>
+<ul>
+<li>Soft attention，对所有的分量均做加权</li>
+<li>Hard attention，通过采样，只对部分分量做加权</li>
+</ul>
+<p>下面通过论文的方式对不同的方法进行说明。</p>
+<hr>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-085845.png" alt="img"></p>
+<p>主要是在一些细粒度的图像分类中，类别之间的区别主要体现在一些局部的区域中的细微差别，如果直接用全尺寸的图像特征的话，这些细微的区别表达地不够。论文提出了RA-CNN(Recurrent Attention Convolutional Neural Network）</p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-114326.png" alt="image-20190701194326569"></p>
+<p>这里一共利用了三个相同网络结构，不同输入尺寸的CNN，利用coarse to fine的思想，希望网络能够聚焦到能够体现出细微差别的区域中。</p>
+<p>对每一个网络，前面两个子网络论文将其称为<code>APN</code>(Attention Proposal Network)。每个子网络都用来做两个事情：</p>
+<ol>
+<li>对图像进行分类<br>
+$$<br>
+\begin{equation}<br>
+\mathbf{p}(\mathbf{X})=f\left(\mathbf{W}_{c} * \mathbf{X}\right)<br>
+\end{equation}<br>
+$$</li>
+</ol>
+<ol start="2">
+<li>
+<p>预测attention region<br>
+$$<br>
+\begin{equation}<br>
+\left[t_{x}, t_{y}, t_{l}\right]=g\left(\mathbf{W}_{c} * \mathbf{X}\right)<br>
+\end{equation}<br>
+$$<br>
+其中：</p>
+<p>$t_x， t_y$ 指 attention region 的中心坐标</p>
+<p>$t_l$ 指预测出的squre边长的一半</p>
+</li>
+<li>
+<p>Crop<br>
+$$<br>
+\begin{equation}<br>
+\begin{aligned} t_{x(t l)} &amp;=t_{x}-t_{l}, \quad t_{y(t l)}=t_{y}-t_{l} \ t_{x(b r)} &amp;=t_{x}+t_{l}, \quad t_{y(b r)}=t_{y}+t_{l} \end{aligned}<br>
+\end{equation}<br>
+$$<br>
+通过上一步，可以得到预测的attention region的四个点的坐标如上。crop操作只需要通过一个点乘来完成：<br>
+$$<br>
+\begin{equation}<br>
+\mathbf{X}^{a t t}=\mathbf{X} \odot \mathbf{M}\left(t_{x}, t_{y}, t_{l}\right)<br>
+\end{equation}<br>
+$$<br>
+这里M的是对原图运用$h(x)=1 /(1+\exp ^{-k x})$ 得到的，当k足够大时，类似于一个阶跃函数。下图是k=50时的情况。</p>
+</li>
+</ol>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-120350.png" alt="image-20190701200319806"></p>
+<ol start="4">
+<li>
+<p>在获得attention region之后，利用双线性插值的方法，获得一个增强的图像：<br>
+$$<br>
+\begin{equation}<br>
+\mathbf{X}<em>{(i, j)}^{a m p}=\sum</em>{\alpha, \beta=0}^{1}|1-\alpha-{i / \lambda} | 1-\beta-{j / \lambda}| \mathbf{X}_{(m, n)}^{a t t}<br>
+\end{equation}<br>
+$$<br>
+$\lambda$ 是上采样因子、$[]$用来取整，${}$用来取小数部分。</p>
+</li>
+<li>
+<p>Loss</p>
+<p>包含两部分LOSS，分类和RANK：<br>
+$$<br>
+\begin{equation}<br>
+L(\mathbf{X})=\sum_{s=1}^{3}\left{L_{c l s}\left(\mathbf{Y}^{(\mathbf{s})}, \mathbf{Y}^{*}\right)\right}+\sum_{s=1}^{2}\left{L_{r a n k}\left(p_{t}^{(s)}, p_{t}^{(s+1)}\right)\right}<br>
+\end{equation}<br>
+$$</p>
+<p>$$<br>
+\begin{equation}<br>
+L_{r a n k}\left(p_{t}^{(s)}, p_{t}^{(s+1)}\right)=\max \left{0, p_{t}^{(s)}-p_{t}^{(s+1)}+\operatorname{margin}\right}<br>
+\end{equation}<br>
+$$</p>
+<p>直观的理解就是随着attention region的细化，它对应的分类损失也应该提高。</p>
+</li>
+<li>
+<p>在训练好之后，对每一个子APN得到的feature进行归一化，之后融合起来就能得到一个fused feature。</p>
+</li>
+</ol>
+<hr>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-154652.png" alt="image-20190701234652298"></p>
+<p>主要的贡献是提出了这样一个<code>Residual Attention Module</code>，结构如下图所示：</p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-07-01-154614.png" alt="image-20190701234614151"></p>
+<p>右边的分支为普通的卷积分支，左边的分支对原图进行下采样和上采样，得到attention mask。左边分支的激活函数是Sigmoid，输出值在（0，1）之间。如果直接用mask和原图相乘，在网络越来越深的时候，由于mask小于1，会导致输出的太小，给网络的训练带来困难。于是作者使用的是$H_{i, c}(x)=\left(1+M_{i, c}(x)\right) * F_{i, c}(x)$.</p>
+<p>那么当M(x)=0时，该层的输入就等于F(x)，因此该层的效果不可能比原始的F(x)差，这一点也借鉴了ResNet中恒等映射的思想，同时这样的加法，也使得Trunk Branch输出的feature map中显著的特征更加显著，增加了特征的判别性。这样，优化的问题解决了，性能的问题也解决了，因此通过将这种残差结构进行堆叠，就能够很容易的将模型的深度达到很深的层次，具有非常好的性能。</p>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/article/%E4%B8%BAipic%E6%B7%BB%E5%8A%A0%E8%85%BE%E8%AE%AF%E4%BA%91%E5%BA%8A/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">为ipic添加腾讯云床</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/article/%20/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">leetcode 427 建立四叉树</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

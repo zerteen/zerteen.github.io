@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="null">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Keep Team">
+    
+    <title>
+        
+            Transformer |
+        
+        Keep Theme
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"zerteen.github.io","root":"/","language":null,"path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Keep Theme
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Transformer</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Keep Team</span>
+                        
+                            <span class="author-label">Lv7</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2020-08-12 22:20:09
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/NLP/">NLP</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="attention-is-all-your-need">Attention Is All Your Need</h1>
+<hr>
+<h2 id="what-is-transformer">What is Transformer？</h2>
+<p><code>Transformer</code>中抛弃了传统的CNN和RNN，由且仅由<code>self-Attenion</code>和<code>Feed Forward Neural Network</code>组成。</p>
+<h2 id="why-transformer">Why Transformer？</h2>
+<p>一些序列的模型（RNN， LSTM，GRU等），他们的计算都是一个线性的计算，即，第$t$时刻的的计算依赖于$t-1$时刻。限制了并行能力。同时，存在一些长期依赖的信息丢失问题。</p>
+<p><code>Transformer</code>并不是一个序列模型，因此能够并行计算。同时序列中任意两个位置的距离被缩小成了一个常量。</p>
+<h2 id="what-is-the-construction-of-transformer">What is the construction of Transformer?</h2>
+<p>Transformer的basic block是一个Encoder-Decoder结构：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghoceq32wlj30pb0humy3.jpg" alt="image-20200812212102507"></p>
+<p>论文中，整个模型是由6个这样的basic block组成：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghocg7wxdmj30uh0mn40p.jpg" alt="image-20200812212229494"></p>
+<h2 id="encoder和decoder的结构又是怎样的">Encoder和Decoder的结构又是怎样的？</h2>
+<h3 id="encoder由两部分组成">Encoder由两部分组成：</h3>
+<ul>
+<li>
+<p>Self-Attention</p>
+<p>可以得到一个加权的特征向量$Z$:<br>
+$$<br>
+Z = \operatorname{Attention}(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V<br>
+$$</p>
+</li>
+<li>
+<p>Feed Forward Neural Network</p>
+<p>两层的全联接层：<br>
+$$<br>
+\operatorname{FFN}(Z)=\max \left(0, Z W_{1}+b_{1}\right) W_{2}+b_{2}<br>
+$$</p>
+</li>
+</ul>
+<h3 id="decoder包含三部分">Decoder包含三部分：</h3>
+<ul>
+<li>
+<p>Self-Attention</p>
+<p>这个self-Attention可以理解为&quot;当前的翻译和已经翻译的内容之间的关系&quot;</p>
+</li>
+<li>
+<p>Encoder-Decoder Attention</p>
+<p>可以理解为当前翻译和编码的特征向量的关系</p>
+</li>
+<li>
+<p>Feed Forward Neural Network</p>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghodtbvxvyj30tj0a3wf8.jpg" alt="image-20200812220930892"></p>
+<h2 id="transformer的输入是什么">Transformer的输入是什么？</h2>
+<p>通过word2vector将输入的语聊转换为特征向量。论文中是512维的向量$d_{\text {model}}=512$。</p>
+<h2 id="self-attention是什么">Self-Attention是什么？</h2>
+<p>Self-Attention的核心是维输入向量的每一个单词，学习一个权重。</p>
+<p>举个🌰：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The animal didn&#x27;t cross the street because it was too tired</span><br></pre></td></tr></table></figure>
+<p>中，it到底代表的是什么呢？</p>
+<p>通过Self-Attention，我们就能够通过it和其他单词间的权重，来进行判断。</p>
+<p>在Self-Attention中，每一个输入的词向量$x \in \mathbf{R}^{512}$，能够得到三个不同的向量：$q$、$k$ 和 $v \in \mathbf{R}^{64}$。这三个向量的获得，是通过三个不同的矩阵：$W^{Q}$、$W^{K}$ 和 $W^{V} \in \mathbf{R}^{512 \times 64}$ 获得的。$q$ 代表着 Query，$k$ 代表着 key，$v$ 代表着 value。</p>
+<p>整个Self-Attention的计算如下：</p>
+<ol>
+<li>
+<p>将输入的词向量$x$和矩阵$W^{Q}$、$W^{K}$ 和 $W^{V}$ 相乘，得到对应的$q$、$k$ 和 $v$。</p>
+</li>
+<li>
+<p>计算$s = qk$ （query和key的乘）</p>
+</li>
+<li>
+<p>对$s$进行归一化：$s = s/ \sqrt{d_k}$, 这里的$d_k$ 指的是$k$ 的维度，这里$d_k$ 就是64，那么$s = s/8$</p>
+</li>
+<li>
+<p>对归一化之后的$s$进行softmax激活。</p>
+</li>
+<li>
+<p>随后，将4得到的数值乘以向量$v$，得到加权的输入向量的得分。</p>
+</li>
+<li>
+<p>$z = \sum{v}$</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghofpulizaj30iz0im3z7.jpg" alt="image-20200812231535512"></p>
+</li>
+</ol>
+<p>除此之外，self-attention还包含有residual short connection，来是的网络的优化更稳定。</p>
+<h2 id="multi-head-attention">Multi-Head Attention</h2>
+<p>就是将Self-Attention进行堆叠，每一个输入向量$x$会被输入到$h$个不同的self-attention模块中。将得到的加权向量concate后，进行一个全联接操作降维。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghogtx2hplj30ji0bsdgn.jpg" alt="image-20200812235405611"></p>
+<h2 id="位置编码">位置编码</h2>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1ghoh1lwh81j30v30ly0u6.jpg" alt="image-20200813000129418"></p>
+<p>输入的词向量，并没有保留他的位置信息。对于位置的编码，一般有两种做法，一种是根据数据学习，另外一种是自己设计一种规则来编码。</p>
+<p>这里，作者设计了一种位置编码：<br>
+$$<br>
+\begin{array}{c}<br>
+P E(\text {pos}, 2 i)=\sin \left(\frac{p o s}{10000^{\frac{2 i}{d_{\text {madd} l}}}}\right) \ \<br>
+P E(\text {pos}, 2 i+1)=\cos \left(\frac{p o s}{10000^{\frac{2 i}{d_{\text {modd} l}}}}\right)<br>
+\end{array}<br>
+$$</p>
+<p>作者这么设计的原因是考虑到在NLP任务重，除了单词的绝对位置，单词的相对位置也非常重要。</p>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/leetcode/leetcode-#-679-24-%E7%82%B9%E6%B8%B8%E6%88%8F/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">leetcode</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/article/DDH-%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">DDH 论文解读</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

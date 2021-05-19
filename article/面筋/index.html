@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="null">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Keep Team">
+    
+    <title>
+        
+        Keep Theme
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"zerteen.github.io","root":"/","language":null,"path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Keep Theme
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation"></span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Keep Team</span>
+                        
+                            <span class="author-label">Lv7</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2019-09-18 20:47:02
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p><strong>template match</strong></p>
+<p>模板匹配是一种最原始、最基本的模式识别方法，研究某一特定对象物的图案位于图像的什么地方，进而识别对象物，这就是一个匹配问题。它是图像处理中最基本、最常用的匹配方法。模板匹配具有自身的局限性，主要表现在它只能进行平行移动，若原图像中的匹配目标发生旋转或大小变化，该算法无效。模板就是一副已知的小图像，而模板匹配就是在一副大图像中搜寻目标，已知该图中有要找的目标，且该目标同模板有相同的尺寸、方向和图像元素，通过一定的算法可以在图中找到目标，确定其坐标位置。<br>
+<img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-09-18-120316.png" alt="image-20190918200316455"></p>
+<p><strong>设计模式</strong></p>
+<ul>
+<li>单例模式
+<ul>
+<li>**意图：**保证一个类仅有一个实例，并提供一个访问它的全局访问点。</li>
+<li>**主要解决：**一个全局使用的类频繁地创建与销毁。</li>
+<li>**何时使用：**当您想控制实例数目，节省系统资源的时候。</li>
+<li>**如何解决：**判断系统是否已经有这个单例，如果有则返回，如果没有则创建。</li>
+<li>**关键代码：**构造函数是私有的。</li>
+</ul>
+</li>
+<li>工厂模式
+<ul>
+<li>**意图：**定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。</li>
+<li>**主要解决：**主要解决接口选择的问题。</li>
+<li>**何时使用：**我们明确地计划不同条件下创建不同实例时。</li>
+<li>**如何解决：**让其子类实现工厂接口，返回的也是一个抽象的产品。</li>
+<li>**关键代码：**创建过程在其子类执行。</li>
+</ul>
+</li>
+<li>装饰器模式
+<ul>
+<li>**意图：**动态地给一个对象添加一些额外的职责。就增加功能来说，装饰器模式相比生成子类更为灵活。</li>
+<li>**主要解决：**一般的，我们为了扩展一个类经常使用继承方式实现，由于继承为类引入静态特征，并且随着扩展功能的增多，子类会很膨胀。</li>
+<li>**何时使用：**在不想增加很多子类的情况下扩展类。</li>
+<li>**如何解决：**将具体功能职责划分，同时继承装饰者模式。</li>
+</ul>
+</li>
+</ul>
+<p><strong>metaclass</strong></p>
+<ul>
+<li>实例对象是由类来创建，那么类又是由什么来创建的呢？ 答案就是元类。</li>
+<li>类同样也是一种对象。是的，没错，就是对象。只要你使用关键字class，Python解释器在执行的时候就会创建一个对象。</li>
+<li>type可以接受一个类的描述作为参数，然后返回一个类。</li>
+</ul>
+<p><strong>变量的作用域</strong></p>
+<ul>
+<li>
+<p>LEGB</p>
+<p>当在函数中使用未确定的变量名时，Python会按照优先级依次搜索4个作用域，以此来确定该变量名的意义。首先搜索局部作用域(L)，之后是上一层嵌套结构中def或lambda函数的嵌套作用域(E)，之后是全局作用域(G)，最后是内置作用域(B)。按这个查找原则，在第一处找到的地方停止。如果没有找到，则会出发NameError错误。</p>
+<ul>
+<li>
+<h4 id="llocal局部作用域">L(local)局部作用域</h4>
+<ul>
+<li>包含在def关键字定义的语句块中，即在函数中定义的变量。每当函数被调用时都会创建一个新的局部作用域。</li>
+</ul>
+</li>
+<li>
+<h4 id="eenclosing嵌套作用域">E(enclosing)嵌套作用域</h4>
+<ul>
+<li>对一个函数而言，L是定义在此函数内部的局部作用域，而E是定义在此函数的上一层父级函数的局部作用域。</li>
+</ul>
+</li>
+<li>
+<h4 id="gglobal全局作用域">G(global)全局作用域</h4>
+<ul>
+<li>即在模块层次中定义的变量，每一个模块都是一个全局作用域。也就是说，在模块文件顶层声明的变量具有全局作用域</li>
+</ul>
+</li>
+<li>
+<h4 id="bbuilt-in内置作用域">B(built-in)内置作用域</h4>
+<ul>
+<li>系统内固定模块里定义的变量，如预定义在<strong>builtin</strong> 模块内的变量。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>tcp udp</strong></p>
+<ul>
+<li>TCP 是面向连接的，UDP 是面向无连接的</li>
+<li>UDP程序结构较简单</li>
+<li>TCP 是面向字节流的，UDP 是基于数据报的</li>
+<li>TCP 保证数据正确性，UDP 可能丢包</li>
+<li>TCP 保证数据顺序，UDP 不保证</li>
+</ul>
+<p><strong>图像去噪</strong></p>
+<ul>
+<li>
+<h3 id="均值滤波器">均值滤波器</h3>
+<p>采用邻域平均法的均值滤波器非常适用于去除通过扫描得到的图像中的颗粒噪声。领域<a class="link" target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B9%B3%E5%9D%87%E6%B3%95">平均法<i class="fas fa-external-link-alt"></i></a>有力地抑制了噪声,同时也由于平均而引起了模糊现象,模糊程度与领域半径成正比。</p>
+<p>几何<a class="link" target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9D%87%E5%80%BC">均值<i class="fas fa-external-link-alt"></i></a>滤波器所达到的平滑度可以与算术均值滤波器相比,但在滤波过程中会丢失更少的图象细节。</p>
+<p>谐波均值滤波器对“盐”噪声效果更好,但是不适用于“胡椒”噪声。它善于处理像<a class="link" target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%AB%98%E6%96%AF%E5%99%AA%E5%A3%B0">高斯噪声<i class="fas fa-external-link-alt"></i></a>那样的其他噪声。</p>
+<p>逆谐波均值滤波器更适合于处理脉冲噪声,但它有个缺点,就是必须要知道噪声是暗噪声还是亮噪声,以便于选择合适的滤波器阶数符号,如果阶数的符号选择错了可能会引起灾难性的后果。</p>
+</li>
+</ul>
+<pre><code>### 自适应维纳滤波器
+
+它能根据图象的局部方差来调整滤波器的输出,局部方差越大,滤波器的平滑作用越强。它的最终目标是使恢复图像f^(x,y)与原始图像f(x,y)的[均方误差](https://baike.baidu.com/item/均方误差)e2=E[(f(x,y)-f^(x,y)2]最小。该方法的滤波效果比[均值](https://baike.baidu.com/item/均值)滤波器效果要好,对保留图像的边缘和其他高频部分很有用,不过计算量较大。维纳滤波器对具有白噪声的图象滤波效果最佳。
+
+
+
+### 中值滤波器
+
+它是一种常用的非线性平滑滤波器,其基本原理是把[数字图像](https://baike.baidu.com/item/数字图像)或数字序列中一点的值用该点的一个领域中各[点值](https://baike.baidu.com/item/点值)的中值代换其主要功能是让周围象素[灰度值](https://baike.baidu.com/item/灰度值)的差比较大的像素改取与周围的像素值接近的值,从而可以消除孤立的噪声点,所以中值滤波对于滤除图像的椒盐噪声非常有效。中值滤波器可以做到既去除噪声又能保护图像的边缘,从而获得较满意的复原效果,而且,在实际运算过程中不需要图象的统计特性,这也带来不少方便,但对一些细节多,特别是点、线、尖顶细节较多的图象不宜采用中值滤波的方法。
+
+
+
+### 形态学噪声滤除器
+
+将开启和闭合结合起来可用来滤除噪声,首先对有噪声图象进行开启操作,可选择[结构要素](https://baike.baidu.com/item/结构要素)矩阵比噪声的尺寸大,因而开启的结果是将背景上的噪声去除。最后是对前一步得到的图象进行闭合操作,将图象上的噪声去掉。根据此方法的特点可以知道,此方法适用的图像类型是图象中的对象尺寸都比较大,且没有细小的细节,对这种类型的图像除噪的效果会比较好。
+
+
+
+### 小波去噪
+
+这种方法保留了大部分包含信号的[小波系数](https://baike.baidu.com/item/小波系数),因此可以较好地保持图象细节。[小波分析](https://baike.baidu.com/item/小波分析)进行图像去噪主要有3个步骤:(1)对图象信号进行小波分解。(2)对经过层次分解后的高频[系数](https://baike.baidu.com/item/系数)进行[阈值](https://baike.baidu.com/item/阈值)量化。(3)利用二维小波重构图象信号。 [1]
+</code></pre>
+<p>大文件处理</p>
+<p><strong>联通区域</strong></p>
+<ul>
+<li>
+<p>大致算法如下：<br>
+设二值化图像A中，像素值为255的点是前景，为0的点是背景。A(x, y)为坐标(x, y)处的像素值，定义连通区域的label是一个1~254的整数，互不联通的区域有不同的label。初始化label=0。遍历图像的每个像素：<br>
+1、 如果像素值不等于255，则继续访问下一个元素。<br>
+2、 如果像素值为A(x, y) = 255，则label++，当前值A(x, y) = label，并且<br>
+a. 检查其4个邻域，如果有属于前景的像素也给它赋予label值，并将它的坐标压栈。<br>
+b. 弹出栈顶坐标，重复a的过程，知道堆栈为空。<br>
+此时，便找到了一个连通区域，该区域内的像素值被标记为label。<br>
+3、 重复1、2的过程，检测出所有的区域。</p>
+<p><img src="https://img-blog.csdn.net/20130825153228078" alt="img"></p>
+</li>
+</ul>
+<p><strong>进程和线程的区别</strong></p>
+<p>进程是资源分配的基本单位，它是程序执行时的一个实例。程序运行时系统就会创建一个进程，并为它分配资源，然后把该进程放入进程就绪队列，进程调度器选中它的时候就会为它分配CPU时间，程序开始真正运行。</p>
+<p>线程是程序执行时的最小单位，它是进程的一个执行流，是CPU调度和分派的基本单位，一个进程可以由很多个线程组成，线程间共享进程的所有资源，每个线程有自己的堆栈和局部变量。线程由CPU独立调度执行，在多CPU环境下就允许多个线程同时运行。同样多线程也可以实现并发操作，每个请求分配一个线程来处理。</p>
+<ul>
+<li>进程是资源分配的最小单位，线程是程序执行的最小单位。</li>
+<li>进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作非常昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程的花费远比进程要小很多，同时创建一个线程的开销也比进程要小很多。</li>
+<li>线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以通信的方式（IPC)进行。不过如何处理好同步与互斥是编写多线程程序的难点。</li>
+<li>但是多进程程序更健壮，多线程程序只要有一个线程死掉，整个进程也死掉了，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</li>
+</ul>
+<p><strong>那就说一下Python中list的底层代码怎么实现的吧</strong></p>
+<ul>
+<li>CPython中，列表被实现为<code>长度可变的数组</code></li>
+<li>指向这个数组的指针及其长度被保存在一个列表头结构中。这意味着，每次添加或删除一个元素时，由引用组成的数组需要该标大小（重新分配）。幸运的是，Python在创建这些数组时采用了指数分配，所以并不是每次操作都需要改变数组的大小。但是，也因为这个原因添加或取出元素的平摊复杂度较低。</li>
+</ul>
+<p><strong>TCP三次握手</strong></p>
+<p>一般模型中一层有多少个卷积核</p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-09-18-125400.png" alt="image-20190918205359703"></p>
+<p><strong>3×3卷积核与5×5卷积核相比的优点</strong></p>
+<ul>
+<li>2个3×3的感受野和5×5的一样，但是参数更少</li>
+</ul>
+<p><strong>为什么卷积核size都是奇数的</strong></p>
+<ul>
+<li>保护位置信息：保证了 <strong>锚点</strong> 刚好在中间，方便以模块中心为标准进行滑动卷积，避免了位置信息发生 <strong>偏移</strong> 。</li>
+<li>padding时对称：保证了 <strong>padding</strong> 时，图像的两边依然相 <strong>对称</strong> 。</li>
+</ul>
+<p>如果强行用偶数的size行吗？</p>
+<ul>
+<li>偶数*偶数，没有中心点，那么输入和卷积核内积的结果要置放何处？只能是设定中间的四个像素同时加权更新。这样大大增加了计算量（因为如果步长是1，那么卷积核无论向右还是向下扫描遍历，总有2个像素会重复更新，计算量剧增，效果还不一定好）。</li>
+</ul>
+<p>激活函数的作用，如果全部都是非线性的会对模型有什么影响</p>
+<ul>
+<li>由于<em>线性模型的</em>表达能力不够，故<em>激活函数的</em>加入可以使得神经网络更好地解决较为复杂的问题。</li>
+</ul>
+<p>ReLu</p>
+<p>池化层的作用，除了池化层还有什么方法可以减少特征数量</p>
+<ul>
+<li>这里他提到了UNet模型，之前有看过，就说出来了，是采样</li>
+</ul>
+<p>剪枝和dropout方法的原理</p>
+<ul>
+<li>
+<p>神经网络通常如上图左所示：下层中的每个神经元与上一层有连接，但这意味着我们必须进行大量浮点相乘操作。完美情况下，我们只需将每个神经元与几个其他神经元连接起来，不用进行其他浮点相乘操作，这叫做「稀疏」网络。稀疏网络更容易压缩，我们可以在推断期间跳过 zero，从而改善延迟情况。如果你可以根据网络中神经元但贡献对其进行排序，那么你可以将排序较低的神经元移除，得到规模更小且速度更快的网络。可以防止过拟合, 为拓展网络规模和加快训练速度提供了可能性.网络剪枝是指当训练一个较大神经网络时, 移除部分不需要连接的方法.通过移除一个单元, 将其和其所有的传入传出连接从网络中删除.同时, 较大尺寸的网络架构对初始训练条件较为敏感, 而修剪网络能够降低网络的复杂度, 有利于提升泛化能力.</p>
+</li>
+<li>
+<p><strong>取平均的作用</strong>： 先回到标准的模型即没有dropout，我们用相同的训练数据去训练5个不同的神经网络，一般会得到5个不同的结果，此时我们可以采用 “5个结果取均值”或者“多数取胜的投票策略”去决定最终结果。例如3个网络判断结果为数字9,那么很有可能真正的结果就是数字9，其它两个网络给出了错误结果。这种“综合起来取平均”的策略通常可以有效防止过拟合问题。因为不同的网络可能产生不同的过拟合，取平均则有可能让一些“相反的”拟合互相抵消。dropout掉不同的隐藏神经元就类似在训练不同的网络，随机删掉一半隐藏神经元导致网络结构已经不同，整个dropout过程就相当于对很多个不同的神经网络取平均。而不同的网络产生不同的过拟合，一些互为“反向”的拟合相互抵消就可以达到整体上减少过拟合。</p>
+<p><strong>减少神经元之间复杂的共适应关系</strong>： 因为dropout程序导致两个神经元不一定每次都在一个dropout网络中出现。这样权值的更新不再依赖于有固定关系的隐含节点的共同作用，阻止了某些特征仅仅在其它特定特征下才有效果的情况 。迫使网络去学习更加鲁棒的特征 ，这些特征在其它的神经元的随机子集中也存在。换句话说假如我们的神经网络是在做出某种预测，它不应该对一些特定的线索片段太过敏感，即使丢失特定的线索，它也应该可以从众多其它线索中学习一些共同的特征。从这个角度看dropout就有点像L1，L2正则，减少权重使得网络对丢失特定神经元连接的鲁棒性提高。</p>
+</li>
+</ul>
+<p><strong>BN原理</strong></p>
+<p><strong>SVM如果找不到最优超平面怎么办？</strong></p>
+<ul>
+<li>回答是通过核函数的方法映射到高维空间</li>
+<li>还有一个是引入松弛因子</li>
+</ul>
+<p><strong>Adaboost的原理，训练过程是怎样的</strong></p>
+<p>haar-like特征原理</p>
+<p>输入图像灰度值对模型的影响，为什么要把0-255转化成0-1？</p>
+<ul>
+<li>归一化到1不会让参数变化对图像特征变化影响过大，从而防止震荡和减小训练时间</li>
+</ul>
+<p>raw图bayer pattern有几种类型</p>
+<p>图像去噪算法（我说了均值，高斯，双边等，然后让我解释BM3D，可能是一面说的还不错，就大概说一下就被叫停了）</p>
+<p>什么是非极大值抑制？</p>
+<p>图像编码是怎么做的？（12bit变成8bit的过程）</p>
+<p>举出了解的各种排序算法和时间复杂度</p>
+<p>算法两道</p>
+<p>归并排序</p>
+<p>讲项目<br>
+特征选择的常用方法<br>
+bagging和boosting的区别<br>
+手推逻辑回归<br>
+过拟合的解决办法，以及在你的项目中怎么用的<br>
+L1和L2的区别    L1为什么能稀疏矩阵  L2为什么不能，L2为什么能解决过拟合<br>
+gbdt，xgboost模型的比较<br>
+lstm和Rnn区别<br>
+梯度消失的解决办法<br>
+手撕代码:链表反转   最大子序列和<br>
+智力题:马匹赛跑   25匹马，5个跑道，没有计时器，要找出前三名，最少要比多少场，答案是7</p>
+<p>二面:<br>
+手推gbdt<br>
+手推xgboost<br>
+手撕代码两个有序数组，求其中位数，然后改进时间复杂度<br>
+LR和svm的区别<br>
+场景分析题，如何对新闻进行实效性分析，怎么挖特征<br>
+lstm.每个门的公式还会写吗？我说不记得</p>
+<p>第二个问题是 LR的损失函数，很简单嘛，基于极大似然估计，然后楼主嘴贱不小心说了一下最大后验估计和极大似然估计，然后问题来了！！！！！！你知道最大后验估计？那么最大后验估计和极大似然估计解释一下两个分别是什么意思。然后概率估计中贝叶斯学派和频率学派的区别是什么！然后楼主提了嘴先验分布啊，然后接着就解释一下beta分布和二项分布的共轭关系，beta分布的表达式会写吗，beta分布的两个参数是什么意义，比赛中用贝叶斯平滑解决了啥问题。</p>
+<p>第三个问题是svm和xgboost面试官看我比赛写了xgboost觉得我很熟悉就说不问了，SVM是非常经典的问题，就和我讨论了下SVM的用法吧， 挖的比较细，不过在高斯分布那块，有个问题是为什么高斯核经过大量调参可以出很好的效果，楼主回答的是因为可以映射到无穷维，但是具体不太清楚，然后面试官超级NICE的给我讲导了很多blabla的知识。</p>
+<p>两个链表求交点的code题</p>
+<p>第一个问题，介绍一下CTR预估里面的模型，画一下DeepFM的示意图，然后解释一下这些的区别</p>
+<p>第二个问题，手撕代码，写一个矩阵旋转90度的代码，解释一下坐标变换公式</p>
+<p>第三个问题，用非递归的方式实现一个二叉树的删除操作,引申问题O(1)的空间复杂度怎么解决？ 时间换空间，面试官给我说了很多blabla</p>
+<p>2、算法：二叉树公共父节点</p>
+<p>二面</p>
+<p>1、讲项目。</p>
+<p>2、分类为什么用logloss</p>
+<p>3、softmax原理，推导</p>
+<p>4、算法：链表1-&gt;2-&gt;3&gt;4反转为1&gt;4&gt;2&gt;3。</p>
+<p>输入URL之后过程</p>
+<p>一面：</p>
+<p><strong>1.自我介绍（一般套路）</strong></p>
+<p>我介绍了自己的研究方向，自己读研期间的项目以及实习经历。</p>
+<p><strong>2.介绍下你简历里面令你印象深刻的项目，为什么？</strong></p>
+<p>我说了一个实习经历，原因是真实场景，会遇到各种以前没见过的问题，balabala。。。</p>
+<p>（期间会打断我，不断的问实习的时候做的事情，什么特征选择，特征的维度，用户和物品的数量）。</p>
+<p><strong>3.（开始问算法）说说线性回归</strong></p>
+<p>我结合逻辑回归基本讲了一下原理</p>
+<p><strong>4.问了xgboost（我实习的时候用过xgboost，所以写在简历上</strong>**），问特征维度是1600，你一般建多少颗树，数的深度你怎么设置，以及其他的参数怎么设置？**</p>
+<p>我说我当时设置100颗树（具体我也忘了。。。因为当时实习的时候是leader把参数设置好让我去跑的）,树的深度我回答50（回答完我就后悔了）</p>
+<p>，面试官问：数的深度是50，你算算有多少结点（自己挖了个坑啊2^50-1，自己笑笑说可能记错了。。。尴尬）。</p>
+<p><strong>5.你了解JVM的参数设置吗，比如现在频繁出现GC，你应该怎么做？</strong></p>
+<p>我说出现GC可能是内存不够用，可以考虑把堆内存调大一点。</p>
+<p><strong>6.延伸第五个问题，你怎么调整内存中新生代和老年代的内存大小？</strong></p>
+<p>我说新生代和老年代的比例不是固定的嘛？1:2.。。。（好吧，我对这块不熟悉）然后就过了。。。</p>
+<p><strong>7.HashMap和Hashtable和Map的区别</strong></p>
+<p>我从线程安全和是否容许null来回答的。</p>
+<p><strong>8.然后又问，Hashtable的线程安全你知道是怎么实现的嘛？</strong></p>
+<p>说真的，这题我真不知道怎么回答，我只是说了加了synchronized关键字。</p>
+<p><strong>9.你和我说说spark RDD吧</strong></p>
+<p>然后我从两大类的算子大致说了下RDD。</p>
+<p><strong>10.说了一个场景：现在我用spark跑一个逻辑回归模型程序，发现数据倾斜了，你怎么解决？</strong></p>
+<p>我说首先分析是否算子方面写的不合理，然后说如果是数据方面的原因，可以考虑对数据进行预处理，然后单独去处理这部分的会导致倾斜的数据。（中间打断了我一次，说，如果在跑程序的过程中，如果是数据出现的问题，你会停止然后重新做？我好直接说：会。。。不知道回答的对不对。。。估计是不是想考我rdd方面的知识，奈何不太熟悉）。</p>
+<p><strong>11.问我有什么想问的？</strong></p>
+<p>整个过程40分钟左右中间电话还断了一次，我问完两个问题，然后面试就结束了，都没说后面还有没有面试了，留下我一脸蒙蔽，心想挂了吧，回去写个面经吧。</p>
+<p>还有其他的问题我就记不起来了，原因是，我在写面经的过程中，二面的电话来了，接下来是二面的面经。</p>
+<p>===================================================================================================</p>
+<p>二面：</p>
+<p><strong>1.自我介绍</strong></p>
+<p>我将刚刚那一套又说了一遍。。。实在不知道还有什么好说的。</p>
+<p><strong>2.说一下xgboost</strong></p>
+<p>我简单说了一下原理。</p>
+<p><strong>3.给我介绍下，推荐方面有那些算法</strong></p>
+<p>我大致将两类的推荐算法都说了。</p>
+<p><strong>4.我看你简历上写了fm，那你和我说说fm吧</strong></p>
+<p>我也简单说了下fm的思想。</p>
+<p><strong>5.现在给你一亿的用户，和一亿的物品，你怎么去做推荐？</strong></p>
+<p>说实话，当时听到这个问题的时候，我内心是拒绝的，心想：我在研究所里最多用的也不过是几万的用户几十万的物品，一亿你存心为难我吧。硬着头皮说，既然数据量这么大的话，是否可以先进行数据预处理，然后利用spark去做？我当时用的是问号，其实是希望面试官回答我的这个问题，结果他直接过了。。。</p>
+<p><strong>6.然后问我项目的事情，问我实习的项目，推荐系统的流程（当时我在实习的时候也是做得推荐</strong>**）？**</p>
+<p>我将整个推荐的流程说了一遍，从数据的处理到数据的应用。</p>
+<p><strong>7.你在实习的时候，在召回的步骤用的协同过滤和ALS会不会出现一些效果不好的情况，然后你怎么分析的？</strong></p>
+<p>这个问题，我并没有回答，因为我确实没有参与召回策略那一块。只好说我没有参与，然后转向说目前业界这些基本的算法应该还是很好用的。</p>
+<p>整个过程大概是15分钟，很短，结果二面面试官跟我说，你在我这儿ok，我来问问其他的同事，如果有三面，等会再联系你。</p>
+<p>====================================================================================================</p>
+<p>三面：</p>
+<p>接到三面的电话，我还特意找了一个清净的地方，结果说要电脑，要写代码，我只好回到办公室。</p>
+<p><strong>1.你给我写一下链表的反转</strong></p>
+<p>我还特意问了下，时间复杂度和空间复杂度有什么要求？面试官说没有，这个还是很好写的，看过左神书的应该都会写这个，然后写了一个最优的。</p>
+<p><strong>2.你还有没有其他的方式来实现这个？</strong></p>
+<p>我说递归（说完我就后悔了。。。），面试官说你写一个递归的版本吧，好在网速不稳定页面刷不出来，然后就没写了，让我口述了一下。</p>
+<p>说完，来了一句其实就是考考你递归。。。</p>
+<p><strong>3.你一般用java是吧，你对GC熟悉吗，给我说说GC的有几个算法并说下原理</strong></p>
+<p>我说了标记-清除，标记-整理，还有一个死活想不起来名字，然后说还有一个的原理是这样的，但我忘了叫什么名字。。。</p>
+<p><strong>4.JVM内存是怎么划分的？</strong></p>
+<p>答了堆内存从物理上可以分为年轻代和老年代</p>
+<p><strong>5.年轻代是否可以继续划分？</strong></p>
+<p>答了Eden区和Survivor区，然后两个的比例。</p>
+<p><strong>6.这个比例是固定的嘛?是否可以调整？</strong></p>
+<p>这个问题，我不知道，我记得是固定的8：1：1。。。然后问：这个比例可以调整吗？我没遇到过。。。</p>
+<p><strong>7.什么时候会触发年轻代的GC？</strong></p>
+<p>中间还有几个问题我忘了。。。</p>
+<p>后面聊推荐，因为我的研究方向是推荐，所以聊天推荐的话还行，感觉和三面的面试官后面的时间不像面试，倒是像在交流。面完，同屋子里说，还以为你和谁讨论问题。。。</p>
+<p>三面大概一个小时。</p>
+<p>一面：</p>
+<p>1）子数组最大和<br>
+2）堆排序<br>
+3）数组中出现次数最多的K个数</p>
+<p>二面：<br>
+1、包含重复数字的无序数组，找到所有加和等于target的索引对。<br>
+2、三色旗问题 ，这道题没答上来，已经决定要凉凉了。<br>
+<a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/u011200844/article/details/43227301">https://blog.csdn.net/u011200844/article/details/43227301<i class="fas fa-external-link-alt"></i></a><br>
+3、后面问了一些项目。</p>
+<p>bagging和boosting的区别</p>
+<p>TFIDF和text rank，说下公式</p>
+<p>说一下随机森林、优缺点是什么</p>
+<p>CNN怎么减少参数</p>
+<p>梯度消失和梯度爆炸</p>
+<p>怎么判断一个字符串是否是日期</p>
+<p>LSTM的几个门</p>
+<p>RNN每一层的输入</p>
+<p>过拟合、欠拟合怎么判断，解决</p>
+<p>分类效果不好怎么做</p>
+<p>ID3，C4.5、决策树的构建</p>
+<p>讲下SVM，SVM为什么叫支持向量机、损失函数是什么、核函数</p>
+<p>说下逻辑回归、损失函数</p>
+<p>缺失值怎么处理</p>
+<p>特征选择方法</p>
+<p><img src="https://blog-1259562174.cos.ap-chengdu.myqcloud.com/2019-09-18-112436.png" alt="image-20190918192435517"></p>
+<p>笔试还是简单，还是机器学习基础，还有编程是求两个无环链表的公共节点的个数</p>
+<p>二、第一轮技术面</p>
+<p>1、python2跟python3的区别</p>
+<p>2、python3中基类怎么运作的</p>
+<p>3、“==”的具体实现机制</p>
+<p>4、还有一堆python的语法，忘记了</p>
+<p>5、SVM的具体实现机制，整个流程</p>
+<p>6、讲讲简历的，介绍了一些新方法，估计是面试官对这个感兴趣，才给过了一面吧。</p>
+<p>三、第二轮技术面</p>
+<p>1、简历中项目的各种细节，画图，各种点的原因</p>
+<p>2、各种分类网络简述，mobilenet具体实现</p>
+<p>3、概率题</p>
+<p>4、视频分割</p>
+<p>四、总监面</p>
+<p>1、RCNN→Fast RCNN→Faster RCNN的内容</p>
+<p>2、多任务学习中每部分损失函数的权重确定</p>
+<p>3、在人像分割中，针对头发这种区域的分割，往往处理不是很好，怎么改进</p>
+<p>4、如何在分割中利用周围像素点进行建模，提高分割结果</p>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/article/DDH-%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">DDH 论文解读</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/article/bytedance-%E9%9D%A2%E7%AD%8B%E9%9B%86%E5%90%88/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">bytedance 面筋集合</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>

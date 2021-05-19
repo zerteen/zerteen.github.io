@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="null">
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Keep Team">
+    
+    <title>
+        
+            《Direct Shape Regression Networks for End-to-End Face Alignment》论文解读 |
+        
+        Keep Theme
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"zerteen.github.io","root":"/","language":null,"path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Keep Theme
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">《Direct Shape Regression Networks for End-to-End Face Alignment》论文解读</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Keep Team</span>
+                        
+                            <span class="author-label">Lv7</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2018-08-27 09:06:11
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Face-Recognition/">Face Recognition</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>该论文主要提出了Direct shape regression network (DSRN) 来直接预测人脸标记点。</p>
+<p>人脸对齐主要的困难在于人脸图片和相关的人脸形状之间的高度非线性对应关系。</p>
+<ul>
+<li>输入的图像$I$</li>
+<li>人脸形状$S​$</li>
+<li>$N$ 总共的标记点数目</li>
+<li>$[x_1, y_1, …,x_N,y_N]^T \in \R^{2N}$ 是一组标记点的实例。</li>
+</ul>
+<p>人脸对其的主要目标是在已知人脸语义描述的情况下，估计一些列预定义的标记点的位置。</p>
+<p>图片通常使用过低维的特征来表示的，但是人脸形状却包含了高度的语义信息，同时，标记的是空间相关的。</p>
+<p>级联回归（Cascaded Regression）是一种非直接的方法，迭代的估计形状的增量（shape increment），由于这是一种迭代的方式，如果初始点的位置没有选好的话，最中的结果很有可能卡在局部最优解上。在级联模型中，只有标记点周围的区域被传输到特征提取器，这使得人脸整体的语义信息和特征点之间的关联信息被忽略。</p>
+<p>DSRN由三部分组成，双卷积层（Doubly Convolutional layer）、傅里叶特征池化（Fourier feature pooling layer）和低秩学习层（Low-rank learning layer）</p>
+<p><img src="%E3%80%8ADirect-Shape-Regression-Networks-for-End-to-End-Face-Alignment%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535333880103.png" alt="1535333880103"></p>
+<p><strong>双卷积层：</strong></p>
+<p>双卷积层起源于论文：S. Zhai, Y. Cheng, Z. M. Zhang, and W. Lu. Doubly convo- lutional neural networks. In Advances in Neural Information Processing Systems, pages 1082–1090, 2016. 与传统的卷积相比，双卷积的计算量更小，在提高性能的同时，降低了参数量。</p>
+<p>在人脸对齐训练数据相对较小，同时，人脸的形状有很大的差异性。</p>
+<p>在传统的卷积层中，卷积核的大小一般都相对较小，同时，很多卷积核之间具有相关性，一个卷积核可能只是另一个卷积核的翻译版本，导致了很多的冗余。在双卷积中存在两种卷积核</p>
+<ol>
+<li>
+<p>元卷积核（meta filter）</p>
+<p>$L’ \times L’$</p>
+</li>
+<li>
+<p>有效卷积核（effective filter）</p>
+<p>$L \times L$</p>
+</li>
+</ol>
+<p>$L’ &gt; L$ ，一个双卷积中，包含$(L’-L+1)^2$ 个有效卷积核。每一组有效卷积核，都被强制成组内相关连的，即组内的每一个卷积核都是另一个卷积核的翻译版本。</p>
+<p><img src="%E3%80%8ADirect-Shape-Regression-Networks-for-End-to-End-Face-Alignment%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535337079869.png" alt="1535337079869"></p>
+<p><strong>傅里叶池化层：</strong></p>
+<p>能够获图片整体的表示，傅里叶池化层起源于核估计（Kernal approximation），可以提取出非线性特征。能够较好的处理图片和形状的非线性信息。它使用的激活函数是余弦激活函数，可以端到端的反向传播。</p>
+<p>在双卷积层输出的特征图$X \in \R^{w \times h \times c}$ ， 表示每个特征图的长为$w$, 高为$h$，一共有$c$ 个特征。我们用$\bold{x} = [x_1, x_2, …, x_c]^T$ 表示每一个特征包含$x_1$到$x_c$ 这c个特征。</p>
+<p><img src="%E3%80%8ADirect-Shape-Regression-Networks-for-End-to-End-Face-Alignment%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535350069285.png" alt="1535350069285"></p>
+<p>通过监督学习，学习到${\bold{w}, \bold{b}}$ ，其中$\bold{w} = [w_1, …,w_d] \in \R^{d \times c}, \bold{b} = [b_1, …,b_d]$ 非线性层：<br>
+$$<br>
+\phi_i = \cos(\bold{w}\bold{x}_i + \bold{b})<br>
+$$<br>
+其中$\cos(·)$ 是一个按位计算的函数$i$表示特征图$\bold{x}$中的第$i$个位置。这样，对于一个特征图$\bold{x}$ 都能够得到$\phi_1, …,\phi_p$ 个特征值，其中，$p  = w \times h$ . 连接这些特征值，得到特征矩阵$\bold{z} = [\phi_1,…,\phi_p] \in \R^d$</p>
+<p><strong>低秩学习层：</strong></p>
+<p>用于学习标记点之间的相关性，用它来代替普通情况下的全连接层。低秩学习层强制其输出共享一些局部特征，来显示的处理相关性。</p>
+<p>在已知整体表示$\bold{z}$ ,通常的全连接层使用一个矩阵$M \in \R^{Q \times D}, Q =2N$  ， 而此时，我们将$M$分解为两个矩阵，使得：<br>
+$$<br>
+\bold{y} = M\bold{z} =  U^TV\bold{z}<br>
+$$<br>
+其中，$U \in \R^{P \times Q}, V \in \R^{P \times D}, P \le Q$</p>
+<p>中间的低秩矩阵，使得网络的输出显式的进行了相关性的编码。</p>
+<p><strong>网络结构：</strong></p>
+<p>使用了四层双卷积，四层池化层，每一次卷积后使用relu激活函数，每次池化使用最大池化，size分别为：$5 \times 5, 5 \times 3, 3\times 3, 3\times 3$ ,使用标准均误差（Normalized mean error）:<br>
+$$<br>
+NME = \frac{\frac{1}{N}\sum^N_{i=1}\sqrt{(\hat{x}_i-x_i)^2 + (\hat{y_i} - y_i)^2}}{d}<br>
+$$<br>
+其中，d用于正则化。</p>
+<p><img src="%E3%80%8ADirect-Shape-Regression-Networks-for-End-to-End-Face-Alignment%E3%80%8B%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB%5C1535353175910.png" alt="1535353175910"></p>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/article/%C2%B0%E2%88%82Beyond-Trade-off-Accelerate-FCN-based-Face-Detector-with-Higher-Accuracy%C2%B0%E2%88%91%C2%AC%E2%82%AC%C5%92%C6%92%CE%A9%E2%80%9A%E2%88%82%C2%A1/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">《Beyond Trade-off: Accelerate FCN-based Face Detector with Higher Accuracy》论文解读</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/article/%C2%B0%E2%88%82Partially-Shared-Multi-Task-Convolutional-Neural-Network-with-Local-Constraint-for-Face-Attribute-Learning%C2%B0%E2%88%91%C2%AC%E2%82%AC%C5%92%C6%92%CE%A9%E2%80%9A%E2%88%82%C2%A1/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">《Partially Shared Multi-Task Convolutional Neural Network with Local Constraint for Face Attribute Learning》论文解读</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>&nbsp;-&nbsp;
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
