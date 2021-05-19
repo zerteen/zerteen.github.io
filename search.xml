@@ -548,30 +548,6 @@ Q指的是查询图像，$\mathbf { R } = \lbrace R _ { i } \rbrace ​$ 指当�
       </tags>
   </entry>
   <entry>
-    <title>leetcode 427 建立四叉树</title>
-    <url>/article/%20/</url>
-    <content><![CDATA[<p>我们想要使用一棵四叉树来储存一个 <code>N x N</code> 的布尔值网络。网络中每一格的值只会是真或假。树的根结点代表整个网络。对于每个结点, 它将被分等成四个孩子结点直到这个区域内的值都是相同的.每个结点还有另外两个布尔变量: <code>isLeaf</code> 和 <code>val</code>。<code>isLeaf</code> 当这个节点是一个叶子结点时为真。<code>val</code> 变量储存叶子结点所代表的区域的值。你的任务是使用一个四叉树表示给定的网络。</p>
-<p>下面的例子将有助于你理解这个问题：<br>
-给定下面这个8 x 8 网络，我们将这样建立一个对应的四叉树：</p>
-<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g4kdptvwsgj30dk0dmjr6.jpg" alt="962_grid"></p>
-<p>由上文的定义，它能被这样分割：</p>
-<p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g4kdpzf9q8j31dt0di3yx.jpg" alt="962_grid_divided"></p>
-<p>对应的四叉树应该像下面这样，每个结点由一对<code>(isLeaf, val)</code>所代表.</p>
-<p>对于非叶子结点，val 可以是任意的，所以使用 * 代替。</p>
-<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g4kdqfcvbqj316l0fa3zi.jpg" alt="962_quad_tree"></p>
-<p>提示：</p>
-<p>N 将小于 1000 且确保是 2 的整次幂。<br>
-如果你想了解更多关于四叉树的知识，你可以参考这个 wiki 页面。</p>
-<hr>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string"># Definition for a QuadTree node.</span></span><br><span class="line"><span class="string">class Node(object):</span></span><br><span class="line"><span class="string">    def __init__(self, val, isLeaf, topLeft, topRight, bottomLeft, bottomRight):</span></span><br><span class="line"><span class="string">        self.val = val</span></span><br><span class="line"><span class="string">        self.isLeaf = isLeaf</span></span><br><span class="line"><span class="string">        self.topLeft = topLeft</span></span><br><span class="line"><span class="string">        self.topRight = topRight</span></span><br><span class="line"><span class="string">        self.bottomLeft = bottomLeft</span></span><br><span class="line"><span class="string">        self.bottomRight = bottomRight</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">construct</span>(<span class="params">self, grid</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type grid: List[List[int]]</span></span><br><span class="line"><span class="string">        :rtype: Node</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">build</span>(<span class="params">grid, x, y, width</span>):</span></span><br><span class="line">            <span class="keyword">if</span> width &lt;= <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(x, x+width):</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(y, y+width):</span><br><span class="line">                    <span class="keyword">if</span> grid[i][j] != grid[x][y]:</span><br><span class="line">                        <span class="keyword">return</span> Node(<span class="literal">False</span>, </span><br><span class="line">                                    <span class="literal">False</span>, </span><br><span class="line">                                    build(grid, x, y, width//<span class="number">2</span>),</span><br><span class="line">                                    build(grid, x, y+(width//<span class="number">2</span>), width//<span class="number">2</span>),</span><br><span class="line">                                    build(grid, x+(width//<span class="number">2</span>), y, width//<span class="number">2</span>),</span><br><span class="line">                                    build(grid, x+(width//<span class="number">2</span>), y+(width//<span class="number">2</span>), width//<span class="number">2</span>)</span><br><span class="line">                                   )</span><br><span class="line">            <span class="keyword">return</span> Node(grid[x][y], <span class="literal">True</span>, <span class="literal">None</span>, <span class="literal">None</span>, <span class="literal">None</span>, <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">return</span> build(grid, <span class="number">0</span>, <span class="number">0</span>, <span class="built_in">len</span>(grid))</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>树</tag>
-        <tag>递归</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Normalization 总结</title>
     <url>/article/Normalization-%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>这些年来，提出了几个normalization的方法，这里做一个总结。主要包括以下几个：</p>
@@ -13835,5 +13811,29 @@ $$</p>
       <categories>
         <category>推荐系统</category>
       </categories>
+  </entry>
+  <entry>
+    <title>leetcode 427 建立四叉树</title>
+    <url>/article/leetcode%20427%20%E5%BB%BA%E7%AB%8B%E5%9B%9B%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<p>我们想要使用一棵四叉树来储存一个 <code>N x N</code> 的布尔值网络。网络中每一格的值只会是真或假。树的根结点代表整个网络。对于每个结点, 它将被分等成四个孩子结点直到这个区域内的值都是相同的.每个结点还有另外两个布尔变量: <code>isLeaf</code> 和 <code>val</code>。<code>isLeaf</code> 当这个节点是一个叶子结点时为真。<code>val</code> 变量储存叶子结点所代表的区域的值。你的任务是使用一个四叉树表示给定的网络。</p>
+<p>下面的例子将有助于你理解这个问题：<br>
+给定下面这个8 x 8 网络，我们将这样建立一个对应的四叉树：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="http://ww1.sinaimg.cn/large/006tNc79ly1g4kdptvwsgj30dk0dmjr6.jpg" alt="962_grid"></p>
+<p>由上文的定义，它能被这样分割：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="http://ww3.sinaimg.cn/large/006tNc79ly1g4kdpzf9q8j31dt0di3yx.jpg" alt="962_grid_divided"></p>
+<p>对应的四叉树应该像下面这样，每个结点由一对<code>(isLeaf, val)</code>所代表.</p>
+<p>对于非叶子结点，val 可以是任意的，所以使用 * 代替。</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="http://ww1.sinaimg.cn/large/006tNc79ly1g4kdqfcvbqj316l0fa3zi.jpg" alt="962_quad_tree"></p>
+<p>提示：</p>
+<p>N 将小于 1000 且确保是 2 的整次幂。<br>
+如果你想了解更多关于四叉树的知识，你可以参考这个 wiki 页面。</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string"># Definition for a QuadTree node.</span></span><br><span class="line"><span class="string">class Node(object):</span></span><br><span class="line"><span class="string">    def __init__(self, val, isLeaf, topLeft, topRight, bottomLeft, bottomRight):</span></span><br><span class="line"><span class="string">        self.val = val</span></span><br><span class="line"><span class="string">        self.isLeaf = isLeaf</span></span><br><span class="line"><span class="string">        self.topLeft = topLeft</span></span><br><span class="line"><span class="string">        self.topRight = topRight</span></span><br><span class="line"><span class="string">        self.bottomLeft = bottomLeft</span></span><br><span class="line"><span class="string">        self.bottomRight = bottomRight</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">construct</span>(<span class="params">self, grid</span>):</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type grid: List[List[int]]</span></span><br><span class="line"><span class="string">        :rtype: Node</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">build</span>(<span class="params">grid, x, y, width</span>):</span></span><br><span class="line">            <span class="keyword">if</span> width &lt;= <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(x, x+width):</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(y, y+width):</span><br><span class="line">                    <span class="keyword">if</span> grid[i][j] != grid[x][y]:</span><br><span class="line">                        <span class="keyword">return</span> Node(<span class="literal">False</span>, </span><br><span class="line">                                    <span class="literal">False</span>, </span><br><span class="line">                                    build(grid, x, y, width//<span class="number">2</span>),</span><br><span class="line">                                    build(grid, x, y+(width//<span class="number">2</span>), width//<span class="number">2</span>),</span><br><span class="line">                                    build(grid, x+(width//<span class="number">2</span>), y, width//<span class="number">2</span>),</span><br><span class="line">                                    build(grid, x+(width//<span class="number">2</span>), y+(width//<span class="number">2</span>), width//<span class="number">2</span>)</span><br><span class="line">                                   )</span><br><span class="line">            <span class="keyword">return</span> Node(grid[x][y], <span class="literal">True</span>, <span class="literal">None</span>, <span class="literal">None</span>, <span class="literal">None</span>, <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">return</span> build(grid, <span class="number">0</span>, <span class="number">0</span>, <span class="built_in">len</span>(grid))</span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>树</tag>
+        <tag>递归</tag>
+      </tags>
   </entry>
 </search>

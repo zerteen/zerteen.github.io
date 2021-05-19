@@ -10,8 +10,26 @@
     
     
     <url>
-        <loc>https://zerteen.github.io/links/</loc>
-        <lastmod>2021-05-19T09:14:37.158Z</lastmod>
+        <loc>https://zerteen.github.io/tags/</loc>
+        <lastmod>2021-05-19T12:14:44.605Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://zerteen.github.io/categories/</loc>
+        <lastmod>2021-05-19T12:09:55.638Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://zerteen.github.io/about/index-1.html</loc>
+        <lastmod>2021-05-19T12:01:25.491Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -20,7 +38,7 @@
     
     <url>
         <loc>https://zerteen.github.io/about/</loc>
-        <lastmod>2019-04-15T13:53:26.900Z</lastmod>
+        <lastmod>2021-05-19T11:59:48.571Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -28,8 +46,17 @@
     
     
     <url>
-        <loc>https://zerteen.github.io/tags/</loc>
-        <lastmod>2019-04-15T13:52:03.032Z</lastmod>
+        <loc>https://zerteen.github.io/leetcode/</loc>
+        <lastmod>2021-05-19T11:44:19.789Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://zerteen.github.io/links/</loc>
+        <lastmod>2021-05-19T09:14:37.158Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
