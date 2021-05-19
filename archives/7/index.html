@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="null">
+<html lang="">
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="Hexo Theme Keep">
@@ -18,129 +18,15 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"zerteen.github.io","root":"/","language":null,"path":"search.xml"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/ironman.png","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"zerteen.github.io","root":"/","language":null};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/ironman.png","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="progress-bar-container">
-    
-        <span class="scroll-progress-bar"></span>
+<div class="progress-bar-container">
     
 
     
@@ -305,8 +191,10 @@ mjx-container[display="true"] + br {
                         给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。
 示例 1:
 12输入: 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5输出: 1-&gt;2-&gt;5
+
+
 示例 2:
-12输入: 1-...
+12输入: ...
                     
                 </div>
 
@@ -354,10 +242,10 @@ mjx-container[display="true"] + br {
                         给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
 示例 1:
 12输入: 1-&gt;1-&gt;2输出: 1-&gt;2
-示例 2:
-12输入: 1-&gt;1-&gt;2-&gt;3-&gt;3输出: 1-&gt;2-&gt;3
 
-...
+
+示例 2:
+12输入: 1-&gt;1-&gt;2-&gt;3-&gt;3输出: 1-&gt;2-&gt;3...
                     
                 </div>
 
@@ -506,10 +394,8 @@ mjx-container[display="true"] + br {
 
                 <div class="home-article-content markdown-body">
                     
-                        Q. 多线程中线程hang住是什么原因
-A.
-Q. TCP和UDP的区别? 都适用于那些场景？
-A. TCP是面向连接的，通过各种机制来保证数据传输的准确性。例如三次握手，四次挥手、滑动窗口、重传等等。UDP面向无连接，是一个无状态的传输协议，传输速...
+                        Q. 多线程中线程hang住是什么原因A. 
+Q. TCP和UDP的区别? 都适用于那些场景？A. TCP是面向连接的，通过各种机制来保证数据传输的准确性。例如三次握手，四次挥手、滑动窗口、重传等等。UDP面向无连接，是一个无状态的传输协议，传输速度...
                     
                 </div>
 
@@ -604,11 +490,11 @@ A. TCP是面向连接的，通过各种机制来保证数据传输的准确性�
                     
                         给定一个字符串 s1，我们可以把它递归地分割成两个非空子字符串，从而将其表示为二叉树。
 下图是字符串 s1 = “great” 的一种可能的表示形式。
-	great
+    great
   /    \
   gr    eat
  / \    /  \
-g   r  e...
+g   r...
                     
                 </div>
 
@@ -655,8 +541,7 @@ g   r  e...
                     
                         给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。
 说明:
-初始化 nums1 和 nums2 的元素数量分别为 m 和 n。
-你可以假设 nums1 有足够的空间（空间大小大...
+初始化 nums1 和 nums2 的元素数量分别为 m 和 n。你可以假设 nums1 有足够的空间（空间大小大于...
                     
                 </div>
 
@@ -940,8 +825,6 @@ g   r  e...
 
 
 
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/lazyload.js"></script>
-
 
 <div class="post-scripts pjax">
     
@@ -981,21 +864,5 @@ g   r  e...
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

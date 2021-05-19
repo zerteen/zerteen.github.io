@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="null">
+<html lang="">
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="Hexo Theme Keep">
     <meta name="description" content="Hexo Theme Keep">
@@ -18,129 +18,15 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"zerteen.github.io","root":"/","language":null,"path":"search.xml"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/ironman.png","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.hexo_config = {"hostname":"zerteen.github.io","root":"/","language":null};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/ironman.png","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.3"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 5.4.0"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="progress-bar-container">
-    
-        <span class="scroll-progress-bar"></span>
+<div class="progress-bar-container">
     
 
     
@@ -304,12 +190,9 @@ mjx-container[display="true"] + br {
                     
                         编写一个程序，通过已填充的空格来解决数独问题。
 一个数独的解法需遵循如下规则：
-数字 1-9 在每一行只能出现一次。
-数字 1-9 在每一列只能出现一次。
-数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
-空白格用 ‘.’ 表示。
+数字 1-9 在每一行只能出现一次。数字 1-9 在每一列只能出现一次。数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。空白格用 ‘.’ 表示。
 
-...
+一个数...
                     
                 </div>
 
@@ -356,29 +239,21 @@ mjx-container[display="true"] + br {
                     
                         报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：
 
-
 1
-
 
 
 11
 
 
-
 21
-
 
 
 1211
 
 
-
 111221
 
-
-
-1 被读作  “one 1”  (“一个一”) , 即 11。
-11 被读作 “two 1s...
+1 被读作  “one 1”  (“一个一”) , 即 11。11 被读作 “two 1s” (“两个一”...
                     
                 </div>
 
@@ -471,10 +346,8 @@ mjx-container[display="true"] + br {
 
                 <div class="home-article-content markdown-body">
                     
-                        给定一个字符串 (s) 和一个字符模式 § ，实现一个支持 ‘?’ 和 ‘*’ 的通配符匹配。
-‘?’ 可以匹配任何单个字符。
-’*’ 可以匹配任意字符串（包括空字符串）。
-两个字符串完全匹配才算匹配成功。
+                        给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 ‘?’ 和 ‘*’ 的通配符匹配。
+‘?’ 可以匹配任何单个字符。‘*’ 可以匹配任意字符串（包括空字符串）。两个字符串完全匹配才算匹配成功。
 说明:
 s 可能为空，且只包含从 a-z ...
                     
@@ -628,18 +501,14 @@ s 可能为空，且只包含从 a-z ...
                 <div class="home-article-content markdown-body">
                     
                         
+从一副52张扑克牌中随机抽两种，颜色相等的概率  
 
-从一副52张扑克牌中随机抽两种，颜色相等的概率
-
-$\frac{C_{2}^{1} C_{13}^{2}}{C_{52}^2} = \frac{40}{221}$
-
+ $\frac{C_{2}^{1} C_{13}^{2}}{C_{52}^2} = \frac{40}{221}$ 
 
 
+54张牌，分成6份，每份9张牌，大小王在一起的概率  
 
-
-54张牌，分成6份，每份9张牌，大小王在一起的概率
-
-$\frac{C_...
+ $\frac...
                     
                 </div>
 
@@ -739,10 +608,7 @@ $\frac{C_...
                     
                         验证给定的字符串是否可以解释为十进制数字。
 例如:
-“0” =&gt; true
-&quot; 0.1 &quot; =&gt; true
-&quot;abc&quot; =&gt; false
-&quot;1 a&quot; =&gt; false...
+“0” =&gt; true“ 0.1 “ =&gt; true“abc” =&gt; false“1 a” =&gt; false“2e10” =&gt; true“ -90e3   “ =&gt...
                     
                 </div>
 
@@ -968,8 +834,6 @@ $\frac{C_...
 
 
 
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/lazyload.js"></script>
-
 
 <div class="post-scripts pjax">
     
@@ -1009,21 +873,5 @@ $\frac{C_...
 
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
