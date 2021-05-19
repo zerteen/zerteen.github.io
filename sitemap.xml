@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+
     <sitemap>
         <loc>https://zerteen.github.io/post-sitemap.xml</loc>
-        <lastmod>2020-08-24T13:59:04.804Z</lastmod>
+        <lastmod>2020-08-25T15:15:01.546Z</lastmod>
     </sitemap>
 
     <sitemap>
@@ -13,12 +14,12 @@
 
     <sitemap>
         <loc>https://zerteen.github.io/category-sitemap.xml</loc>
-        <lastmod>2017-12-11T15:49:16.000Z</lastmod>
+        <lastmod>2020-08-25T15:15:01.546Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>https://zerteen.github.io/tag-sitemap.xml</loc>
-        <lastmod>2018-08-31T06:19:48.000Z</lastmod>
+        <lastmod>2020-08-25T15:15:01.546Z</lastmod>
     </sitemap>
 
 </sitemapindex>
